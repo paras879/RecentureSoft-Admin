@@ -17,13 +17,20 @@ import {
     X,
     Sparkles,
     Activity,
-    UserCog
+    UserCog,
+    ChevronDown,
+    Globe,
+    Briefcase,
+    Wrench,
+    Phone,
+    Scale
 } from "lucide-react";
 
 export default function AdminSidebar() {
     const pathname = usePathname();
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
+    const [isCmsOpen, setIsCmsOpen] = useState(true);
 
     const [role, setRole] = useState('super_admin');
 
@@ -51,8 +58,18 @@ export default function AdminSidebar() {
         { name: "Leads & Contact", href: "/admin/leads", icon: Users },
         { name: "Project Inquiries", href: "/admin/projects", icon: MessageSquare },
         { name: "Meeting Requests", href: "/admin/meetings", icon: CalendarCheck },
-        { name: "Blogs Content", href: "/admin/blogs", icon: FileText },
         { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
+        { 
+            name: "Website Content", 
+            icon: Globe,
+            subItems: [
+                { name: "Blogs", href: "/admin/content/blogs", icon: FileText },
+                { name: "Portfolio", href: "/admin/content/portfolio", icon: Briefcase },
+                { name: "Services", href: "/admin/content/services", icon: Wrench },
+                { name: "Contact Info", href: "/admin/content/contact", icon: Phone },
+                { name: "Legal Pages", href: "/admin/content/legal", icon: Scale },
+            ]
+        },
         ...(role === "super_admin" ? [
             { name: "Activity Logs", href: "/admin/activity", icon: Activity },
             { name: "Manage Admins", href: "/admin/admins", icon: UserCog }
@@ -108,6 +125,56 @@ export default function AdminSidebar() {
                 <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-32 h-32 bg-cyan-400/10 dark:bg-cyan-500/10 blur-3xl rounded-full pointer-events-none" />
 
                 {links.map((link, i) => {
+                    if (link.subItems) {
+                        const isActive = pathname.startsWith("/admin/content");
+                        return (
+                            <div key={link.name} className="flex flex-col">
+                                <motion.button
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.05 }}
+                                    whileHover={{ x: 4 }}
+                                    onClick={() => setIsCmsOpen(!isCmsOpen)}
+                                    className={`group flex w-full items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 font-medium relative overflow-hidden ${
+                                        isActive 
+                                            ? "text-cyan-700 dark:text-cyan-300 shadow-sm border border-cyan-200/50 dark:border-cyan-500/20 bg-cyan-50/80 dark:bg-cyan-500/10" 
+                                            : "text-slate-600 dark:text-slate-400 hover:bg-slate-100/50 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white border border-transparent"
+                                    }`}
+                                >
+                                    {isActive && (
+                                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-transparent pointer-events-none" />
+                                    )}
+                                    <link.icon className={`w-5 h-5 z-10 transition-transform group-hover:scale-110 ${isActive ? "opacity-100 drop-shadow-md text-cyan-500" : "opacity-70"}`} />
+                                    <span className="z-10">{link.name}</span>
+                                    <ChevronDown className={`w-4 h-4 z-10 ml-auto opacity-70 transition-transform duration-300 ${isCmsOpen ? 'rotate-180' : ''}`} />
+                                </motion.button>
+                                
+                                <AnimatePresence>
+                                    {isCmsOpen && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            className="overflow-hidden flex flex-col pl-4 mt-1 border-l border-slate-200/50 dark:border-white/10 ml-6 gap-1"
+                                        >
+                                            {link.subItems.map((sub) => {
+                                                const isSubActive = pathname === sub.href;
+                                                return (
+                                                    <Link key={sub.name} href={sub.href} onClick={() => setIsOpen(false)}>
+                                                        <div className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors text-sm font-medium ${isSubActive ? "text-cyan-600 bg-cyan-50 dark:bg-cyan-500/10 dark:text-cyan-400" : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/5"}`}>
+                                                            <sub.icon className="w-4 h-4 opacity-80" />
+                                                            {sub.name}
+                                                        </div>
+                                                    </Link>
+                                                )
+                                            })}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        );
+                    }
+
                     const Icon = link.icon;
                     const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
 

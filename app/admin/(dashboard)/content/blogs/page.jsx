@@ -48,7 +48,7 @@ export default async function BlogsPage() {
                 </div>
                 
                 <Link 
-                    href="/admin/blogs/create"
+                    href="/admin/content/blogs/create"
                     className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 shadow-sm"
                 >
                     <Plus className="w-4 h-4" /> Create New Blog

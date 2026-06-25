@@ -136,6 +136,21 @@ export default function AdminDataTable({ title, data, type }) {
                     </span>
                 )},
             ];
+        } else if (type === "portfolio") {
+            cols = [
+                { label: "Date", key: "date" },
+                { label: "Project Title", key: "title", render: (r) => <span className="font-semibold">{r.title}</span> },
+                { label: "Category", key: "category", render: (r) => <span className="px-3 py-1 bg-cyan-100 text-cyan-700 dark:bg-cyan-500/20 dark:text-cyan-300 rounded-full text-xs font-medium">{r.category}</span> },
+                { label: "URL", key: "projectUrl", render: (r) => r.projectUrl ? <a href={r.projectUrl} target="_blank" className="text-cyan-600 hover:underline">{r.projectUrl}</a> : <span className="text-slate-400">N/A</span> },
+                { label: "Technologies", key: "technologies", render: (r) => (
+                    <div className="flex gap-1 flex-wrap max-w-xs">
+                        {r.technologies?.slice(0, 3).map((t, i) => (
+                            <span key={i} className="px-2 py-0.5 bg-slate-100 text-slate-600 dark:bg-white/10 dark:text-slate-300 rounded text-[10px]">{t}</span>
+                        ))}
+                        {r.technologies?.length > 3 && <span className="px-2 py-0.5 bg-slate-100 text-slate-600 dark:bg-white/10 dark:text-slate-300 rounded text-[10px]">+{r.technologies.length - 3}</span>}
+                    </div>
+                )},
+            ];
         } else if (type === "activity") {
             cols = [
                 { label: "Date & Time", key: "createdAt" },
@@ -175,6 +190,13 @@ export default function AdminDataTable({ title, data, type }) {
                     <DeleteBlogButton id={r._id} />
                     </>
                 )}
+                {type === "portfolio" && (
+                    <>
+                    <Link href={`/admin/content/portfolio/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Portfolio">
+                        <Edit className="w-4 h-4" />
+                    </Link>
+                    </>
+                )}
                 {type !== "blog" && (
                     <button 
                         onClick={(e) => handleDelete(r._id, e)}
@@ -197,6 +219,7 @@ export default function AdminDataTable({ title, data, type }) {
         if (!search) return true;
         const searchLower = search.toLowerCase();
         if (type === "blog") return (item.title?.toLowerCase().includes(searchLower) || item.category?.toLowerCase().includes(searchLower));
+        if (type === "portfolio") return (item.title?.toLowerCase().includes(searchLower) || item.technologies?.some(t => t.toLowerCase().includes(searchLower)));
         return (item.name?.toLowerCase().includes(searchLower) || item.email?.toLowerCase().includes(searchLower) || item.topic?.toLowerCase().includes(searchLower) || item.subject?.toLowerCase().includes(searchLower) || item.projectType?.toLowerCase().includes(searchLower));
     });
 

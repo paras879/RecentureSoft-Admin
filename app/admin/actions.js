@@ -99,6 +99,67 @@ export async function updateBlog(id, formData) {
     }
 }
 
+export async function createPortfolio(formData) {
+    try {
+        await connectDB();
+        
+        let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+        
+        const Portfolio = (await import("@/models/Portfolio")).default;
+        const existing = await Portfolio.findOne({ slug });
+        if (existing) {
+            slug = `${slug}-${Date.now()}`;
+        }
+
+        const newPortfolio = new Portfolio({
+            title: formData.title,
+            slug: slug,
+            category: formData.category,
+            description: formData.description,
+            projectUrl: formData.projectUrl,
+            image: formData.image,
+            technologies: formData.technologies ? formData.technologies.split(',').map(t => t.trim()) : [],
+        });
+
+        await newPortfolio.save();
+        revalidatePath("/admin/content/portfolio");
+        return { success: true, slug };
+    } catch (error) {
+        console.error("Error creating portfolio:", error);
+        return { success: false, error: "Failed to create portfolio. " + error.message };
+    }
+}
+
+export async function updatePortfolio(id, formData) {
+    try {
+        await connectDB();
+        
+        let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+        
+        const Portfolio = (await import("@/models/Portfolio")).default;
+        const existing = await Portfolio.findOne({ slug, _id: { $ne: id } });
+        if (existing) {
+            slug = `${slug}-${Date.now()}`;
+        }
+
+        await Portfolio.findByIdAndUpdate(id, {
+            title: formData.title,
+            slug: slug,
+            category: formData.category,
+            description: formData.description,
+            projectUrl: formData.projectUrl,
+            image: formData.image,
+            technologies: typeof formData.technologies === 'string' ? formData.technologies.split(',').map(t => t.trim()) : formData.technologies,
+        });
+
+        revalidatePath("/admin/content/portfolio");
+        return { success: true, slug };
+    } catch (error) {
+        console.error("Error updating portfolio:", error);
+        return { success: false, error: "Failed to update portfolio. " + error.message };
+    }
+}
+
 export async function markNotificationAsRead(type, id) {
     try {
         await connectDB();

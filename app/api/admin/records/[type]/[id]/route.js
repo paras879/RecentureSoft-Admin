@@ -33,6 +33,10 @@ export async function DELETE(request, { params }) {
             case "meeting":
                 deletedRecord = await MeetingRequest.findByIdAndDelete(id);
                 break;
+            case "portfolio":
+                const Portfolio = (await import("@/models/Portfolio")).default;
+                deletedRecord = await Portfolio.findByIdAndDelete(id);
+                break;
             case "activity":
                 deletedRecord = await ActivityLog.findByIdAndDelete(id);
                 break;
