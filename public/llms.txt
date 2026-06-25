@@ -1,0 +1,38 @@
+# RecentureSoft
+
+> RecentureSoft is a premium enterprise software development, artificial intelligence engineering, and digital transformation agency. We build scalable web platforms, high-performance mobile applications, robust cloud infrastructures, and advanced AI integrations for global businesses.
+
+## Info
+
+- Canonical URL: https://recenturesoft.netlify.app
+- Contact Email: hello@recenturesoft.com
+- Main Address: info@recenturesoft.com
+
+## Core Services
+
+### Web Development
+High-performance, responsive, and visually stunning web applications built using cutting-edge frameworks (e.g., Next.js, React). Focused on performance optimization, SEO excellence, modern UI/UX design, and robust client-server architectures.
+
+### Mobile App Development
+Native and cross-platform mobile application development for iOS and Android. Crafting fluid, user-centric mobile interfaces backed by scalable APIs and secure database integrations.
+
+### Cloud Solutions
+Architecting secure, highly available, and auto-scaling cloud architectures. Services include cloud migration, serverless API design, Kubernetes orchestration, containerization, and global latency reduction.
+
+### AI Integration
+Integrating advanced generative AI, Large Language Models (LLMs), machine learning models, and intelligent AI chat interfaces to automate processes, enhance user experiences, and unlock data insights.
+
+### Digital Transformation
+Helping legacy enterprises modernize their technology stack, optimize core system performance, reduce operational costs, and streamline business workflows via digital-first strategies.
+
+## Public URLs
+
+- [Home](https://recenturesoft.netlify.app/) - Overview of RecentureSoft's engineering expertise and core capabilities.
+- [About Us](https://recenturesoft.netlify.app/about) - Details on our leadership, mission, and global development culture.
+- [Solutions](https://recenturesoft.netlify.app/solutions) - Enterprise-grade technology solutions and service portfolios.
+- [Portfolio](https://recenturesoft.netlify.app/portfolio) - Showcase of our dynamic projects and case studies.
+- [Blog](https://recenturesoft.netlify.app/blog) - Technical articles, engineering insights, and industry trends.
+- [Events](https://recenturesoft.netlify.app/events) - Company milestones, updates, and inaugural events.
+- [News](https://recenturesoft.netlify.app/news) - Official announcements and press releases.
+- [Contact](https://recenturesoft.netlify.app/contact) - Contact forms and channels to start a partnership.
+- [Privacy Policy](https://recenturesoft.netlify.app/privacy_policy) - Privacy policy and data handling practices.

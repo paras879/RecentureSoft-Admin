@@ -1,0 +1,271 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* LIGHT THEME (DEFAULT) */
+  --background: #ffffff;
+  --foreground: #0f172a;
+
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+
+  --color-primary: #0ea5e9;
+  --color-secondary: #3b82f6;
+  --color-accent: #8b5cf6;
+  --color-navy: #f8fafc;
+
+  --shadow-premium: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --chart-height: 260px;
+}
+
+.dark {
+  /* DARK THEME */
+  --background: #030712;
+  --foreground: #f3f4f6;
+
+  --card-bg: #0b1120;
+  --card-border: #1e293b;
+
+  --color-primary: #06E6FF;
+  --color-secondary: #3B82F6;
+  --color-accent: #8B5CF6;
+  --color-navy: #050816;
+
+  --shadow-premium: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card-bg);
+  --color-border: var(--card-border);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-navy: var(--color-navy);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-manrope: var(--font-manrope);
+
+  --shadow-premium: var(--shadow-premium);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: auto;
+  scrollbar-color: #cbd5e1 var(--background);
+}
+
+.dark {
+  scrollbar-color: #334155 var(--background);
+}
+
+/* OVERRIDE: Disable all massive blur filters globally to eliminate scrolling lag.
+   These filters cause 100% GPU spikes on large elements during scroll. */
+[class*="blur-[80px]"], [class*="blur-[100px]"], [class*="blur-[120px]"], [class*="blur-[130px]"], [class*="blur-[140px]"], [class*="blur-[150px]"], [class*="blur-[160px]"] {
+  filter: none !important;
+  opacity: 0.15 !important; /* Lower opacity so solid shapes don't look too harsh without blur */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar - Hostinger-inspired */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* Slate-300 for light mode visibility */
+  border-radius: 20px;
+  border: 3px solid var(--background); /* Clean padding spacing */
+  min-height: 90px; /* Prevent tiny ungrab-able scrollbar thumbs */
+  transition: background-color 0.2s ease;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155; /* Slate-700 for dark mode integration */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* Slate-400 on hover */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569; /* Slate-600 on hover */
+}
+
+/* ═══════════════════════════════════════════
+   Stats Dashboard – Unified Animations
+   ═══════════════════════════════════════════ */
+
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+}
+
+.dark .bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+@keyframes gridMove {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-40px, -40px);
+  }
+}
+
+.animate-gridMove {
+  animation: gridMove 14s linear infinite;
+  will-change: transform;
+}
+
+/* Holographic ring spin */
+@keyframes holoSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.animate-holoSpin {
+  animation: holoSpin 25s linear infinite;
+}
+
+.animate-holoSpinReverse {
+  animation: holoSpin 35s linear infinite reverse;
+}
+
+/* Neon edge glow – uses primary cyan */
+@keyframes neonEdge {
+
+  0%,
+  100% {
+    box-shadow: 0 0 4px rgba(6, 230, 255, 0.08), inset 0 0 4px rgba(6, 230, 255, 0.03);
+  }
+
+  50% {
+    box-shadow: 0 0 12px rgba(6, 230, 255, 0.15), inset 0 0 8px rgba(6, 230, 255, 0.05);
+  }
+}
+
+.animate-neonEdge {
+  animation: neonEdge 4s ease-in-out infinite;
+}
+
+/* Pulsing data node – primary cyan */
+@keyframes dataPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 3px rgba(6, 230, 255, 0.3);
+  }
+
+  50% {
+    transform: scale(1.4);
+    box-shadow: 0 0 10px rgba(6, 230, 255, 0.6);
+  }
+}
+
+.animate-dataPulse {
+  animation: dataPulse 2.5s ease-in-out infinite;
+}
+
+/* Shimmer sweep for bars */
+@keyframes shimmer {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+/* Floating geometric shapes */
+@keyframes floatShape {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-12px) rotate(120deg);
+  }
+
+  66% {
+    transform: translateY(6px) rotate(240deg);
+  }
+}
+
+.animate-floatShape {
+  animation: floatShape 10s ease-in-out infinite;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --chart-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --chart-height: 180px;
+  }
+
+  section {
+    scroll-margin-top: 70px;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  h1 {
+    line-height: 1.05 !important;
+  }
+
+  h2 {
+    line-height: 1.1 !important;
+  }
+
+  /* Disable non-composited heavy background animations on mobile to save CPU */
+  .animate-gridMove,
+  .animate-holoSpin,
+  .animate-holoSpinReverse,
+  .animate-floatShape,
+  .animate-neonEdge,
+  .animate-dataPulse,
+  .animate-shimmer {
+    animation: none !important;
+    transition: none !important;
+  }
+}
