@@ -61,8 +61,12 @@ export default function ProfileDropdown({ currentUsername = "Admin" }) {
         };
     }, [currentUsername]);
 
-    const handleLogout = () => {
-        document.cookie = "admin_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    const handleLogout = async () => {
+        try {
+            await fetch("/api/admin/logout", { method: "POST" });
+        } catch (err) {
+            console.error("Logout failed", err);
+        }
         router.push("/admin/login");
         router.refresh();
     };
