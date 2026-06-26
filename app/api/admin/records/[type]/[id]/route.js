@@ -37,6 +37,10 @@ export async function DELETE(request, { params }) {
                 const Portfolio = (await import("@/models/Portfolio")).default;
                 deletedRecord = await Portfolio.findByIdAndDelete(id);
                 break;
+            case "service":
+                const Service = (await import("@/models/Service")).default;
+                deletedRecord = await Service.findByIdAndDelete(id);
+                break;
             case "activity":
                 deletedRecord = await ActivityLog.findByIdAndDelete(id);
                 break;

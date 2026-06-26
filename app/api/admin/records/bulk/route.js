@@ -45,6 +45,10 @@ export async function DELETE(request) {
                 const Portfolio = (await import("@/models/Portfolio")).default;
                 result = await Portfolio.deleteMany({ _id: { $in: ids } });
                 break;
+            case "service":
+                const Service = (await import("@/models/Service")).default;
+                result = await Service.deleteMany({ _id: { $in: ids } });
+                break;
             default:
                 return NextResponse.json(
                     { success: false, error: "Invalid record type" },

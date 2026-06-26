@@ -160,6 +160,85 @@ export async function updatePortfolio(id, formData) {
     }
 }
 
+export async function createService(formData) {
+    try {
+        await connectDB();
+        
+        let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+        
+        const Service = (await import("@/models/Service")).default;
+        const existing = await Service.findOne({ slug });
+        if (existing) {
+            slug = `${slug}-${Date.now()}`;
+        }
+
+        const newService = new Service({
+            title: formData.title,
+            slug: slug,
+            shortDescription: formData.shortDescription,
+            description: formData.description,
+            image: formData.image,
+            images: Array.isArray(formData.images) ? formData.images.filter(Boolean) : [],
+            icon: formData.icon,
+            features: typeof formData.features === 'string' ? formData.features.split(',').map(f => f.trim()) : formData.features,
+            category: formData.category || "Enterprise Engineering",
+            colSpan: formData.colSpan || "lg:col-span-6",
+            color: formData.color || "cyan",
+            accent: formData.accent || "from-cyan-500/20 to-blue-500/20",
+            scene: formData.scene || "SoftwareDevGraphic",
+            status: formData.status !== false,
+        });
+
+        await newService.save();
+        revalidatePath("/admin/content/services");
+        revalidatePath("/"); // Refresh homepage so new service images appear
+        revalidatePath("/solutions");
+        return { success: true, slug };
+    } catch (error) {
+        console.error("Error creating service:", error);
+        return { success: false, error: "Failed to create service. " + error.message };
+    }
+}
+
+export async function updateService(id, formData) {
+    try {
+        await connectDB();
+        
+        let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+        
+        const Service = (await import("@/models/Service")).default;
+        const existing = await Service.findOne({ slug, _id: { $ne: id } });
+        if (existing) {
+            slug = `${slug}-${Date.now()}`;
+        }
+
+        await Service.findByIdAndUpdate(id, {
+            title: formData.title,
+            slug: slug,
+            shortDescription: formData.shortDescription,
+            description: formData.description,
+            image: formData.image,
+            images: Array.isArray(formData.images) ? formData.images.filter(Boolean) : [],
+            icon: formData.icon,
+            features: typeof formData.features === 'string' ? formData.features.split(',').map(f => f.trim()) : formData.features,
+            category: formData.category,
+            colSpan: formData.colSpan,
+            color: formData.color,
+            accent: formData.accent,
+            scene: formData.scene,
+            status: formData.status !== false,
+        });
+
+        revalidatePath("/admin/content/services");
+        revalidatePath("/"); // Refresh homepage so updated service images appear
+        revalidatePath("/solutions");
+        return { success: true, slug };
+    } catch (error) {
+        console.error("Error updating service:", error);
+        return { success: false, error: "Failed to update service. " + error.message };
+    }
+}
+
 export async function markNotificationAsRead(type, id) {
     try {
         await connectDB();

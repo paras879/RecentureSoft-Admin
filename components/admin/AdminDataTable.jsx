@@ -151,6 +151,22 @@ export default function AdminDataTable({ title, data, type }) {
                     </div>
                 )},
             ];
+        } else if (type === "service") {
+            cols = [
+                { label: "Date", key: "date" },
+                { label: "Title", key: "title", render: (r) => <span className="font-semibold">{r.title}</span> },
+                { label: "Slug", key: "slug", render: (r) => <span className="text-cyan-600">{r.slug}</span> },
+                { label: "Status", key: "status", render: (r) => (
+                    <span className={`px-2 py-1 rounded text-xs font-medium ${r.status ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400' : 'bg-slate-200 text-slate-700 dark:bg-white/10 dark:text-slate-300'}`}>
+                        {r.status ? 'Active' : 'Inactive'}
+                    </span>
+                )},
+                { label: "Features", key: "features", render: (r) => (
+                    <div className="flex gap-1 flex-wrap max-w-xs">
+                        <span className="text-slate-500 text-xs">{r.features?.length || 0} features</span>
+                    </div>
+                )},
+            ];
         } else if (type === "activity") {
             cols = [
                 { label: "Date & Time", key: "createdAt" },
@@ -197,6 +213,13 @@ export default function AdminDataTable({ title, data, type }) {
                     </Link>
                     </>
                 )}
+                {type === "service" && (
+                    <>
+                    <Link href={`/admin/content/services/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Service">
+                        <Edit className="w-4 h-4" />
+                    </Link>
+                    </>
+                )}
                 {type !== "blog" && (
                     <button 
                         onClick={(e) => handleDelete(r._id, e)}
@@ -220,6 +243,7 @@ export default function AdminDataTable({ title, data, type }) {
         const searchLower = search.toLowerCase();
         if (type === "blog") return (item.title?.toLowerCase().includes(searchLower) || item.category?.toLowerCase().includes(searchLower));
         if (type === "portfolio") return (item.title?.toLowerCase().includes(searchLower) || item.technologies?.some(t => t.toLowerCase().includes(searchLower)));
+        if (type === "service") return (item.title?.toLowerCase().includes(searchLower) || item.slug?.toLowerCase().includes(searchLower));
         return (item.name?.toLowerCase().includes(searchLower) || item.email?.toLowerCase().includes(searchLower) || item.topic?.toLowerCase().includes(searchLower) || item.subject?.toLowerCase().includes(searchLower) || item.projectType?.toLowerCase().includes(searchLower));
     });
 
