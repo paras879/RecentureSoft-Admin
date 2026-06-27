@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Review from "@/models/Review";
 
-export async function DELETE(request, { params }) {
+export async function DELETE(request: Request, { params }: any) {
     try {
         await connectDB();
         const { id } = await params;
@@ -14,7 +14,7 @@ export async function DELETE(request, { params }) {
     }
 }
 
-export async function PUT(request, { params }) {
+export async function PUT(request: Request, { params }: any) {
     try {
         await connectDB();
         const { id } = await params;
