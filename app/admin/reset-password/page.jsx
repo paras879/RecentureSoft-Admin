@@ -3,6 +3,7 @@
 import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Lock, Loader2, KeyRound } from "lucide-react";
 
 function ResetPasswordForm() {
@@ -134,8 +135,14 @@ export default function ResetPasswordPage() {
                 className="w-full max-w-md bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-3xl shadow-xl dark:shadow-none p-8 sm:p-10 backdrop-blur-2xl relative z-10"
             >
                 <div className="flex flex-col items-center justify-center mb-10">
-                    <div className="w-16 h-16 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-                        <KeyRound className="w-8 h-8" />
+                    <div className="relative w-48 h-12 mb-6">
+                        <Image 
+                            src="/Logo.png" 
+                            alt="RecentureSoft Logo" 
+                            fill 
+                            className="object-contain"
+                            priority
+                        />
                     </div>
                     <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white text-center">
                         Create New Password

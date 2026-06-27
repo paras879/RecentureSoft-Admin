@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     LayoutDashboard,
@@ -23,7 +24,9 @@ import {
     Briefcase,
     Wrench,
     Phone,
-    CalendarDays
+    CalendarDays,
+    Star,
+    UsersRound
 } from "lucide-react";
 
 export default function AdminSidebar() {
@@ -66,7 +69,8 @@ export default function AdminSidebar() {
                 { name: "Blogs", href: "/admin/content/blogs", icon: FileText },
                 { name: "Portfolio", href: "/admin/content/portfolio", icon: Briefcase },
                 { name: "Services", href: "/admin/content/services", icon: Wrench },
-                { name: "Review", href: "/admin/content/review", icon: Phone },
+                { name: "Review", href: "/admin/content/review", icon: Star },
+                { name: "Our Team", href: "/admin/content/team", icon: UsersRound },
                 { name: "Events", href: "/admin/content/events", icon: CalendarDays },
             ]
         },
@@ -107,11 +111,14 @@ export default function AdminSidebar() {
                 }`}>
                 {/* Header / Logo */}
                 <div className="h-20 flex items-center justify-between px-6 md:px-8 border-b border-slate-200/50 dark:border-white/5">
-                    <div className="flex items-center gap-2">
-                        <Sparkles className="w-5 h-5 text-cyan-500 animate-pulse" />
-                        <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-500 tracking-tight">
-                            Portal
-                        </h2>
+                    <div className="relative w-40 h-10">
+                        <Image
+                            src="/Logo.png"
+                            alt="RecentureSoft Logo"
+                            fill
+                            className="object-contain object-left drop-shadow-sm"
+                            priority
+                        />
                     </div>
                     <button onClick={() => setIsOpen(false)} className="md:hidden text-slate-400 hover:text-cyan-500 transition-colors p-1 bg-white/5 rounded-md">
                         <X className="w-5 h-5" />

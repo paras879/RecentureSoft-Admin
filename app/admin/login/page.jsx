@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Lock, User, ArrowRight, Loader2, ShieldCheck } from "lucide-react";
 
 export default function AdminLogin() {
@@ -77,15 +78,21 @@ export default function AdminLogin() {
             <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="w-full max-w-md bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-3xl shadow-xl dark:shadow-none p-8 sm:p-10 backdrop-blur-2xl relative z-10"
             >
                 <div className="flex flex-col items-center justify-center mb-10">
-                    <div className="w-16 h-16 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(6,182,212,0.2)]">
-                        <ShieldCheck className="w-8 h-8" />
+                    <div className="relative w-48 h-12 mb-6">
+                        <Image
+                            src="/Logo.png"
+                            alt="RecentureSoft Logo"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
                     </div>
                     <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white text-center">
                         {isForgot ? "Reset Password" : "Secure Portal"}
