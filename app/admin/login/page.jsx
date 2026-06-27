@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Lock, User, ArrowRight, Loader2, ShieldCheck } from "lucide-react";
+import { Lock, User, ArrowRight, Loader2 } from "lucide-react";
 
 export default function AdminLogin() {
     const [username, setUsername] = useState("");

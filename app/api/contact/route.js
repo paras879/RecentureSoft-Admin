@@ -7,7 +7,7 @@ export async function POST(req) {
         await connectDB();
 
         const body = await req.json();
-        const { name, email, subject, message } = body;
+        const { name, email, phone, subject, message } = body;
 
         // Validation of required fields
         if (!name || !email || !message) {
@@ -35,6 +35,7 @@ export async function POST(req) {
         const contact = await Contact.create({
             name,
             email,
+            phone: phone || "",
             subject,
             message,
         });

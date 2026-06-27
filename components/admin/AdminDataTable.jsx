@@ -122,6 +122,7 @@ export default function AdminDataTable({ title, data, type }) {
                 { label: "Date", key: "date" },
                 { label: "Name", key: "name", render: (r) => <span className="font-semibold">{r.name}</span> },
                 { label: "Email", key: "email", render: (r) => <span className="text-cyan-600">{r.email}</span> },
+                { label: "Phone", key: "phone", render: (r) => r.phone && r.phone !== "—" ? <span className="text-emerald-600 dark:text-emerald-400 font-medium">{r.phone}</span> : <span className="text-slate-400">—</span> },
                 { label: "Subject", key: "subject", render: (r) => <span className="px-3 py-1 bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-300 rounded-full text-xs font-medium">{r.subject || "No Subject"}</span> },
                 { label: "Message", key: "message", render: (r) => <div className="max-w-xs truncate" title={r.message}>{r.message}</div> },
             ];

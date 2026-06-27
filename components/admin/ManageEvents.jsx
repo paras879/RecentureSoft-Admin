@@ -21,10 +21,6 @@ export default function ManageEvents() {
         featured: false,
     });
 
-    useEffect(() => {
-        fetchEvents();
-    }, []);
-
     const fetchEvents = async () => {
         try {
             const res = await fetch("/api/events");
@@ -38,6 +34,11 @@ export default function ManageEvents() {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchEvents();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;

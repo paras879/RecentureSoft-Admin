@@ -19,10 +19,6 @@ export default function ManageTeam() {
         image: "",
     });
 
-    useEffect(() => {
-        fetchTeam();
-    }, []);
-
     const fetchTeam = async () => {
         try {
             const res = await fetch("/api/team");
@@ -36,6 +32,11 @@ export default function ManageTeam() {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchTeam();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;

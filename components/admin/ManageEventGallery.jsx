@@ -19,10 +19,6 @@ export default function ManageEventGallery({ eventSlug }) {
         eventSlug: eventSlug,
     });
 
-    useEffect(() => {
-        fetchGallery();
-    }, [eventSlug]);
-
     const fetchGallery = async () => {
         try {
             const res = await fetch(`/api/events/gallery?eventSlug=${eventSlug}`);
@@ -36,6 +32,11 @@ export default function ManageEventGallery({ eventSlug }) {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchGallery();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [eventSlug]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
