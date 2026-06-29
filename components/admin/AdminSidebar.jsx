@@ -113,7 +113,7 @@ export default function AdminSidebar() {
                         <Image
                             src="/Logo.png"
                             alt="RecentureSoft Logo"
-                            fill
+                            fill sizes="160px"
                             className="object-contain object-left drop-shadow-sm"
                             priority
                         />

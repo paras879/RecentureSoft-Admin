@@ -89,7 +89,7 @@ export default function AdminLogin() {
                         <Image
                             src="/Logo.png"
                             alt="RecentureSoft Logo"
-                            fill
+                            fill sizes="192px"
                             className="object-contain"
                             priority
                         />

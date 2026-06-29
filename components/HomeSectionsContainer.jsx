@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+// React hooks removed for native CSS optimization
 import AboutSection from "./AboutSection";
 import Service from "./Service";
 import TechStack from "./TechStack";
@@ -9,48 +9,19 @@ import Status from "./StatsDashboard";
 import TrustedClients from "./TrustedClients";
 import FutureFooter from "./FutureFooter";
 
-// Lazy wrapper component to conditionally mount sections
+// Native CSS optimized section wrapper for smooth mobile scrolling
 function LazySection({ children, minHeight, id }) {
-    const [shouldRender, setShouldRender] = useState(false);
-    const containerRef = useRef(null);
-
-    useEffect(() => {
-        // Desktop mounts immediately to preserve layout and desktop score
-        if (window.innerWidth >= 768) {
-            setShouldRender(true);
-            return;
-        }
-
-        // Mobile uses IntersectionObserver to defer mounting until scrolled near
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setShouldRender(true);
-                    observer.disconnect();
-                }
-            },
-            {
-                rootMargin: "350px 0px", // pre-render 350px before entering screen
-            }
-        );
-
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
-        }
-
-        return () => {
-            observer.disconnect();
-        };
-    }, []);
-
     return (
         <div 
-            ref={containerRef} 
             id={id}
-            style={{ minHeight: shouldRender ? "auto" : minHeight }}
+            style={{ 
+                contentVisibility: "auto", 
+                containIntrinsicSize: `auto ${minHeight}`, 
+                minHeight: minHeight 
+            }}
             className="w-full relative"
         >
-            {shouldRender ? children : null}
+            {children}
         </div>
     );
 }

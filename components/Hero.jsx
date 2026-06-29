@@ -222,13 +222,27 @@ export default function Hero() {
 
     // ── Auto-slide timer & Desktop check ─────
     const [isDesktop, setIsDesktop] = useState(false);
+    const [isInView, setIsInView] = useState(true);
+
     useEffect(() => {
         setIsDesktop(window.innerWidth >= 768);
+        
+        // Observer to pause animation when out of view
+        const observer = new IntersectionObserver(([entry]) => {
+            setIsInView(entry.isIntersecting);
+        }, { threshold: 0.1 });
+        
+        if (heroRef.current) observer.observe(heroRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!isInView) return; // Pause slider when not visible
         const timer = setInterval(() => {
             setCurrent((c) => (c + 1) % SLIDES.length);
         }, INTERVAL);
         return () => clearInterval(timer);
-    }, []);
+    }, [isInView]);
 
     const slide = SLIDES[current];
 

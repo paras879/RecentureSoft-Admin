@@ -40,7 +40,7 @@ export default async function EventsPage() {
     }
 
     return (
-        <main className="bg-slate-50 dark:bg-[#020617] transition-colors duration-300 min-h-screen">
+        <main className="bg-slate-50 dark:bg-[#020617] min-h-screen">
             <Navbar />
             <CinematicEvents events={serializedEvents} />
             <PremiumFooter />

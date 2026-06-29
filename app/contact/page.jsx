@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function ContactPage() {
     return (
-        <main className="bg-slate-50 dark:bg-[#020617] transition-colors duration-300 min-h-[auto] lg:min-h-screen overflow-x-hidden">
+        <main className="bg-slate-50 dark:bg-[#020617] min-h-[auto] lg:min-h-screen overflow-x-hidden">
             <Navbar />
             <ContactHero />
 

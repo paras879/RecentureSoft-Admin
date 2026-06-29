@@ -35,7 +35,7 @@ export default async function PortfolioPage() {
     }
 
     return (
-        <main className=" relative bg-slate-50 dark:bg-[#020617] transition-colors duration-300 min-h-screen overflow-x-hidden antialiased">
+        <main className=" relative bg-slate-50 dark:bg-[#020617] min-h-screen overflow-x-hidden antialiased">
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 blur-[140px] rounded-full" />
                 <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/10 blur-[140px] rounded-full" />
