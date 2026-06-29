@@ -14,6 +14,10 @@ const subscriberSchema = new mongoose.Schema(
             type: String,
             enum: ['active', 'unsubscribed'],
             default: 'active'
+        },
+        isRead: {
+            type: Boolean,
+            default: false
         }
     },
     { timestamps: true }

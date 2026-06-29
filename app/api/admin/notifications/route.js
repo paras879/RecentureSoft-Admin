@@ -25,15 +25,24 @@ export async function GET() {
     try {
         await connectDB();
         
-        const [newProjects, newMeetings, newContacts, newChats, newApps] = await Promise.all([
+        const [newProjects, newMeetings, newContacts, newChats, newApps, newSubs] = await Promise.all([
             ProjectInquiry.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
             MeetingRequest.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
             Contact.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
             Chat.find({ leadStatus: "hot", status: { $ne: "read" } }).sort({ updatedAt: -1 }).limit(10).lean().catch(() => []),
-            (await import("@/models/JobApplication")).default.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => [])
+            (await import("@/models/JobApplication")).default.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
+            (await import("@/models/Subscriber")).default.find({ isRead: { $ne: true } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => [])
         ]);
         
         const allNotifications = [
+            ...newSubs.map(n => ({
+                _id: n._id.toString(), type: "subscriber",
+                title: `New Newsletter Subscriber`,
+                message: n.email || "No details provided.",
+                timeAgo: n.createdAt ? timeAgo(n.createdAt) : "recently",
+                createdAt: n.createdAt || new Date(),
+                link: "/admin/subscribers"
+            })),
             ...newProjects.map(n => ({
                 _id: n._id.toString(), type: "project",
                 title: `New Project Inquiry: ${n.name}`,

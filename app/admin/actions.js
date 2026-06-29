@@ -255,6 +255,9 @@ export async function markNotificationAsRead(type, id) {
         } else if (type === "application") {
             const JobApplication = (await import("@/models/JobApplication")).default;
             await JobApplication.findByIdAndUpdate(id, { status: "read" });
+        } else if (type === "subscriber") {
+            const Subscriber = (await import("@/models/Subscriber")).default;
+            await Subscriber.findByIdAndUpdate(id, { isRead: true });
         }
 
         // Revalidate admin pages so the header updates
