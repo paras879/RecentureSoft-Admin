@@ -24,7 +24,8 @@ import {
     Wrench,
     CalendarDays,
     Star,
-    UsersRound
+    UsersRound,
+    Mail
 } from "lucide-react";
 
 export default function AdminSidebar() {
@@ -60,6 +61,7 @@ export default function AdminSidebar() {
         { name: "Project Inquiries", href: "/admin/projects", icon: MessageSquare },
         { name: "Meeting Requests", href: "/admin/meetings", icon: CalendarCheck },
         { name: "Job Applications", href: "/admin/applications", icon: Briefcase },
+        { name: "Newsletter Subs", href: "/admin/subscribers", icon: Mail },
         { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
         {
             name: "Website Content",

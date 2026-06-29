@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
 import QuickReplyModal from "./QuickReplyModal";
+import { deleteBlog, deletePortfolio, deleteService, deleteJobOpening, deleteSubscriber } from "@/app/admin/actions";
 
 export default function AdminDataTable({ title, data, type }) {
     const router = useRouter();
@@ -25,13 +26,23 @@ export default function AdminDataTable({ title, data, type }) {
 
         setDeletingId(id);
         try {
-            const res = await fetch(`/api/admin/records/${type}/${id}`, { method: "DELETE" });
-            if (res.ok) {
+            let res;
+            if (type === "blog") res = await deleteBlog(id);
+            else if (type === "portfolio") res = await deletePortfolio(id);
+            else if (type === "service") res = await deleteService(id);
+            else if (type === "job") res = await deleteJobOpening(id);
+            else if (type === "subscriber") res = await deleteSubscriber(id);
+            else {
+                const response = await fetch(`/api/admin/records/${type}/${id}`, { method: "DELETE" });
+                res = await response.json();
+                if (response.ok) res.success = true;
+            }
+
+            if (res && res.success) {
                 router.refresh();
                 setSelectedIds(prev => prev.filter(i => i !== id));
             } else {
-                const data = await res.json();
-                alert(data.error || "Failed to delete record");
+                alert(res?.error || "Failed to delete record");
             }
         } catch (error) {
             console.error("Error deleting record:", error);
@@ -166,6 +177,16 @@ export default function AdminDataTable({ title, data, type }) {
                     <div className="flex gap-1 flex-wrap max-w-xs">
                         <span className="text-slate-500 text-xs">{r.features?.length || 0} features</span>
                     </div>
+                )},
+            ];
+        } else if (type === "subscriber") {
+            cols = [
+                { label: "Date Subscribed", key: "date" },
+                { label: "Email Address", key: "email", render: (r) => <span className="font-semibold">{r.email}</span> },
+                { label: "Status", key: "status", render: (r) => (
+                    <span className={`px-2 py-1 rounded text-xs font-medium ${r.status === 'active' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400' : 'bg-slate-200 text-slate-700 dark:bg-white/10 dark:text-slate-300'}`}>
+                        {r.status}
+                    </span>
                 )},
             ];
         } else if (type === "job") {

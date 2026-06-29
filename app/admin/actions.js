@@ -408,3 +408,16 @@ export async function deleteJobOpening(id) {
         return { success: false, error: "Failed to delete job opening." };
     }
 }
+
+export async function deleteSubscriber(id) {
+    try {
+        await connectDB();
+        const Subscriber = (await import("@/models/Subscriber")).default;
+        await Subscriber.findByIdAndDelete(id);
+        revalidatePath("/admin/subscribers");
+        return { success: true };
+    } catch (error) {
+        console.error("Error deleting subscriber:", error);
+        return { success: false, error: "Failed to delete subscriber." };
+    }
+}
