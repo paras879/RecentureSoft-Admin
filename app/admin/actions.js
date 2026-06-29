@@ -249,6 +249,12 @@ export async function markNotificationAsRead(type, id) {
             await MeetingRequest.findByIdAndUpdate(id, { status: "read" });
         } else if (type === "contact") {
             await Contact.findByIdAndUpdate(id, { status: "read" });
+        } else if (type === "chat") {
+            const Chat = (await import("@/models/Chat")).default;
+            await Chat.findByIdAndUpdate(id, { status: "read" });
+        } else if (type === "application") {
+            const JobApplication = (await import("@/models/JobApplication")).default;
+            await JobApplication.findByIdAndUpdate(id, { status: "read" });
         }
 
         // Revalidate admin pages so the header updates
