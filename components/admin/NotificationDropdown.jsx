@@ -23,7 +23,7 @@ export default function NotificationDropdown({ initialNotifications, initialTota
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    // Fetch notifications once on mount
+    // Fetch notifications on mount and setup polling
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
@@ -31,7 +31,13 @@ export default function NotificationDropdown({ initialNotifications, initialTota
                 const res = await fetch(`/api/admin/notifications?t=${Date.now()}`);
                 const data = await res.json();
                 if (data.success) {
-                    setNotifications(data.notifications);
+                    setNotifications(prev => {
+                        // Prevent unnecessary re-renders if nothing changed
+                        if (JSON.stringify(prev) !== JSON.stringify(data.notifications)) {
+                            return data.notifications;
+                        }
+                        return prev;
+                    });
                     setTotalCount(data.totalCount);
                 }
             } catch(e) {
@@ -39,7 +45,13 @@ export default function NotificationDropdown({ initialNotifications, initialTota
             }
         };
 
+        // Fetch immediately
         fetchNotifications();
+
+        // Setup polling every 15 seconds for real-time updates
+        const intervalId = setInterval(fetchNotifications, 15000);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     const handleNotificationClick = async (notification) => {
