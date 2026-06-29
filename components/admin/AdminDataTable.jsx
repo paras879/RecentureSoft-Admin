@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
 import QuickReplyModal from "./QuickReplyModal";
-import { deleteBlog, deletePortfolio, deleteService, deleteJobOpening, deleteSubscriber } from "@/app/admin/actions";
+import { deleteBlog, deleteJobOpening, deleteSubscriber } from "@/app/admin/actions";
 
 export default function AdminDataTable({ title, data, type }) {
     const router = useRouter();
@@ -28,8 +28,6 @@ export default function AdminDataTable({ title, data, type }) {
         try {
             let res;
             if (type === "blog") res = await deleteBlog(id);
-            else if (type === "portfolio") res = await deletePortfolio(id);
-            else if (type === "service") res = await deleteService(id);
             else if (type === "job") res = await deleteJobOpening(id);
             else if (type === "subscriber") res = await deleteSubscriber(id);
             else {
@@ -46,7 +44,7 @@ export default function AdminDataTable({ title, data, type }) {
             }
         } catch (error) {
             console.error("Error deleting record:", error);
-            alert("An error occurred while deleting the record");
+            alert("An error occurred while deleting.");
         } finally {
             setDeletingId(null);
         }
