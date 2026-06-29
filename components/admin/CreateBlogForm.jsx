@@ -102,7 +102,7 @@ export default function CreateBlogForm({ initialData = null }) {
                 : await createBlog(formData);
 
             if (res.success) {
-                router.push("/admin/blogs");
+                router.push("/admin/content/blogs");
                 router.refresh();
             } else {
                 setError(res.error);
@@ -119,7 +119,7 @@ export default function CreateBlogForm({ initialData = null }) {
         <form onSubmit={handleSubmit} className="w-full max-w-5xl mx-auto flex flex-col gap-8 pb-12">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div className="flex items-center gap-4">
-                    <Link href="/admin/blogs" className="p-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl hover:bg-slate-50 dark:hover:bg-white/10 transition-colors">
+                    <Link href="/admin/content/blogs" className="p-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl hover:bg-slate-50 dark:hover:bg-white/10 transition-colors">
                         <ArrowLeft className="w-5 h-5 text-slate-700 dark:text-slate-300" />
                     </Link>
                     <div>

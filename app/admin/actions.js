@@ -13,7 +13,7 @@ export async function deleteBlog(id) {
     try {
         await connectDB();
         await Blog.findByIdAndDelete(id);
-        revalidatePath("/admin/blogs");
+        revalidatePath("/admin/content/blogs");
         revalidatePath("/blog");
         return { success: true };
     } catch (error) {
@@ -52,7 +52,7 @@ export async function createBlog(formData) {
         });
 
         await newBlog.save();
-        revalidatePath("/admin/blogs");
+        revalidatePath("/admin/content/blogs");
         revalidatePath("/blog");
         return { success: true, slug };
     } catch (error) {
@@ -89,7 +89,7 @@ export async function updateBlog(id, formData) {
             seoDescription: formData.seoDescription
         });
 
-        revalidatePath("/admin/blogs");
+        revalidatePath("/admin/content/blogs");
         revalidatePath("/blog");
         revalidatePath(`/blog/${slug}`);
         return { success: true, slug };
