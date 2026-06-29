@@ -16,11 +16,10 @@ export default function InteractiveContactForm() {
         const firstName = formData.get("firstName") || "";
         const lastName = formData.get("lastName") || "";
         const email = formData.get("email") || "";
-        const companySize = formData.get("companySize") || "";
         const message = formData.get("message") || "";
 
         const name = `${firstName} ${lastName}`.trim();
-        const subject = `Recenture Inquiry (Company Size: ${companySize})`;
+        const subject = `Recenture Inquiry from ${name}`;
 
         try {
             const res = await fetch("/api/contact", {
@@ -141,16 +140,6 @@ export default function InteractiveContactForm() {
                             <div>
                                 <label className="block text-sm font-medium text-slate-600 dark:text-gray-400 mb-2">Work Email</label>
                                 <input required type="email" name="email" className="w-full bg-slate-50 dark:bg-black/40 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500 transition-colors" />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-slate-600 dark:text-gray-400 mb-2">Company Size</label>
-                                <select name="companySize" className="w-full bg-slate-50 dark:bg-black/40 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500 transition-colors appearance-none">
-                                    <option value="1-50">1 - 50 employees</option>
-                                    <option value="51-200">51 - 200 employees</option>
-                                    <option value="201-1000">201 - 1000 employees</option>
-                                    <option value="1000+">1000+ employees</option>
-                                </select>
                             </div>
 
                             <div>

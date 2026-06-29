@@ -151,15 +151,6 @@ export default function SettingsTabs({ currentUsername = "Admin" }) {
                     <Bell className="w-5 h-5" />
                     Notifications
                 </button>
-                {role === "super_admin" && (
-                    <button 
-                        onClick={() => setActiveTab("add_admin")}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors text-left w-full ${activeTab === "add_admin" ? "bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400" : "hover:bg-slate-50 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400"}`}
-                    >
-                        <Users className="w-5 h-5" />
-                        Add New Admin
-                    </button>
-                )}
             </div>
 
             {/* Right Content Area */}
@@ -414,60 +405,6 @@ export default function SettingsTabs({ currentUsername = "Admin" }) {
                     </div>
                 )}
 
-                {/* ADD NEW ADMIN TAB */}
-                {activeTab === "add_admin" && role === "super_admin" && (
-                    <div className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
-                        <div>
-                            <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Add New Admin</h2>
-                            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Create a new administrator account with full portal access.</p>
-                        </div>
-
-                        <form onSubmit={handleCreateAdmin} className="flex flex-col gap-5">
-                            <div className="space-y-1.5">
-                                <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Username</label>
-                                <input 
-                                    type="text" 
-                                    name="username"
-                                    required
-                                    placeholder="e.g., parastomar098"
-                                    className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
-                                />
-                            </div>
-
-                            <div className="space-y-1.5">
-                                <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Email Address (For Password Resets)</label>
-                                <input 
-                                    type="email" 
-                                    name="email"
-                                    required
-                                    placeholder="e.g., parastomar098@gmail.com"
-                                    className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
-                                />
-                            </div>
-
-                            <div className="space-y-1.5">
-                                <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
-                                <input 
-                                    type="password" 
-                                    name="password"
-                                    required
-                                    placeholder="Enter a secure password"
-                                    className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
-                                />
-                            </div>
-                            
-                            {adminError && <p className="text-sm font-medium text-red-500">{adminError}</p>}
-                            {adminMsg && <p className="text-sm font-medium text-emerald-500 flex items-center gap-1.5"><Check className="w-4 h-4"/> {adminMsg}</p>}
-
-                            <div className="pt-2 flex items-center gap-4">
-                                <button type="submit" className="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-2.5 rounded-xl text-sm font-medium transition-all shadow-sm flex items-center gap-2">
-                                    <Users className="w-4 h-4" />
-                                    Create Admin
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                )}
             </div>
         </div>
     );

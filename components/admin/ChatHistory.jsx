@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Search, MessageSquare, Clock, User, Bot, LayoutList, Flame, Snowflake, Trash2 } from "lucide-react";
+import { Search, MessageSquare, Clock, User, Bot, LayoutList, Flame, Snowflake, Trash2, Download } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function ChatHistory({ chats }) {
@@ -52,6 +52,77 @@ export default function ChatHistory({ chats }) {
         } finally {
             setIsDeleting(false);
         }
+    };
+
+    const handleDownloadPDF = (chat, e) => {
+        if (e) e.stopPropagation();
+        
+        import("jspdf").then(({ jsPDF }) => {
+            const doc = new jsPDF();
+            
+            // Smart heuristic to filter out initial greetings and keep only the "main" chat
+            let conversationStarted = false;
+            
+            const importantMessages = chat.messages.filter(msg => {
+                const text = msg.content.trim().toLowerCase();
+                
+                // Skip initial greeting phase
+                if (!conversationStarted) {
+                    const isUserGreeting = msg.role === 'user' && text.length < 15 && ["hi", "hello", "hey", "greetings", "hi there"].includes(text);
+                    const isBotGreeting = msg.role === 'model' && (text.includes("how may i assist you") || text.includes("how can i help you") || text.includes("greetings") || text.includes("hi there"));
+                    
+                    if (isUserGreeting || isBotGreeting) {
+                        return false; // Skip these initial useless messages
+                    } else {
+                        conversationStarted = true; // The real chat has started!
+                    }
+                }
+                
+                // Once main conversation started, keep all user messages
+                if (msg.role === 'user') return true;
+                
+                // For AI, exclude very short generic acknowledgments
+                if (msg.role === 'model' && text.length < 50 && !text.includes("?")) return false;
+                
+                return true;
+            });
+
+            doc.setFontSize(16);
+            doc.text(`RecentureSoft AI Chat Transcript`, 20, 20);
+            
+            doc.setFontSize(10);
+            doc.setTextColor(100);
+            doc.text(`Session ID: ${chat.sessionId}`, 20, 30);
+            doc.text(`Date: ${formatDate(chat.lastSeen)}`, 20, 35);
+            doc.text(`Status: ${chat.leadStatus === 'hot' ? 'HOT LEAD' : 'Standard'}`, 20, 40);
+            
+            doc.line(20, 45, 190, 45);
+
+            let y = 55;
+
+            importantMessages.forEach(msg => {
+                const isUser = msg.role === "user";
+                doc.setFont("helvetica", isUser ? "bold" : "normal");
+                doc.setTextColor(isUser ? 0 : 50);
+                
+                const prefix = isUser ? "Visitor: " : "AI: ";
+                const text = prefix + msg.content;
+                
+                // Split text for word wrap (max width 170)
+                const lines = doc.splitTextToSize(text, 170);
+                
+                // Add new page if needed
+                if (y + (lines.length * 6) > 280) {
+                    doc.addPage();
+                    y = 20;
+                }
+                
+                doc.text(lines, 20, y);
+                y += (lines.length * 6) + 6;
+            });
+            
+            doc.save(`Chat_Transcript_${chat.sessionId.substring(0, 8)}.pdf`);
+        });
     };
 
     return (
@@ -110,19 +181,21 @@ export default function ChatHistory({ chats }) {
                                     <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1 italic">
                                         "{chat.messages[0]?.content || "Empty Chat"}"
                                     </p>
-                                    <div className="flex items-center gap-2">
-                                        {chat.leadStatus === "hot" ? (
-                                            <Flame className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                                        ) : (
-                                            <Snowflake className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                                        )}
+                                    <div className="flex items-center gap-3">
+                                        <button 
+                                            onClick={(e) => handleDownloadPDF(chat, e)}
+                                            className="text-slate-500 hover:text-cyan-600 transition-colors p-1.5 rounded-md hover:bg-cyan-50 dark:hover:bg-cyan-500/10"
+                                            title="Download PDF"
+                                        >
+                                            <Download className="w-4 h-4" />
+                                        </button>
                                         <button 
                                             onClick={(e) => handleDeleteChat(chat._id, e)}
                                             disabled={isDeleting}
-                                            className="text-slate-400 hover:text-red-500 transition-colors p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-500/10"
+                                            className="text-slate-500 hover:text-red-500 transition-colors p-1.5 rounded-md hover:bg-red-50 dark:hover:bg-red-500/10"
                                             title="Delete chat"
                                         >
-                                            <Trash2 className="w-3.5 h-3.5" />
+                                            <Trash2 className="w-4 h-4" />
                                         </button>
                                     </div>
                                 </div>
@@ -146,11 +219,6 @@ export default function ChatHistory({ chats }) {
                             <div>
                                 <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
                                     Chat Transcript
-                                    {selectedChat.leadStatus === "hot" && (
-                                        <span className="px-2 py-0.5 bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 text-[10px] font-bold rounded-full border border-orange-200 dark:border-orange-500/30 uppercase tracking-wider flex items-center gap-1">
-                                            <Flame className="w-3 h-3" /> Hot Lead
-                                        </span>
-                                    )}
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-2">
                                     <span>ID: {selectedChat.sessionId.substring(0, 12)}...</span>
@@ -158,14 +226,23 @@ export default function ChatHistory({ chats }) {
                                     <span>{selectedChat.totalMessages} Messages</span>
                                 </p>
                             </div>
-                            <button
-                                onClick={(e) => handleDeleteChat(selectedChat._id, e)}
-                                disabled={isDeleting}
-                                className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 hover:bg-red-100 dark:hover:bg-red-500/20 rounded-lg transition-colors border border-red-100 dark:border-red-500/20"
-                            >
-                                <Trash2 className="w-4 h-4" />
-                                <span>Delete Session</span>
-                            </button>
+                            <div className="flex items-center gap-3">
+                                <button
+                                    onClick={() => handleDownloadPDF(selectedChat)}
+                                    className="flex items-center gap-2 px-4 py-2 text-base font-medium text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-500/10 hover:bg-cyan-100 dark:hover:bg-cyan-500/20 rounded-xl transition-colors border border-cyan-100 dark:border-cyan-500/20 shadow-sm"
+                                >
+                                    <Download className="w-5 h-5" />
+                                    <span className="hidden sm:inline">Download PDF</span>
+                                </button>
+                                <button
+                                    onClick={(e) => handleDeleteChat(selectedChat._id, e)}
+                                    disabled={isDeleting}
+                                    className="flex items-center gap-2 px-4 py-2 text-base font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 hover:bg-red-100 dark:hover:bg-red-500/20 rounded-xl transition-colors border border-red-100 dark:border-red-500/20 shadow-sm"
+                                >
+                                    <Trash2 className="w-5 h-5" />
+                                    <span className="hidden sm:inline">Delete Session</span>
+                                </button>
+                            </div>
                         </div>
 
                         {/* Messages Area */}

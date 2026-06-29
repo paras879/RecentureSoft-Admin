@@ -296,7 +296,7 @@ export async function updateAdminPassword(currentPassword, newPassword) {
     }
 }
 
-export async function createNewAdmin(username, email, password) {
+export async function createNewAdmin(username, email, password, role = 'admin') {
     try {
         await connectDB();
 
@@ -316,13 +316,30 @@ export async function createNewAdmin(username, email, password) {
         await Admin.create({
             username,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            role
         });
 
         return { success: true };
     } catch (error) {
         console.error("Error creating new admin:", error);
         return { success: false, error: "An error occurred while creating admin." };
+    }
+}
+
+export async function promoteAdmin(id) {
+    try {
+        await connectDB();
+        const admin = await Admin.findById(id);
+        if (!admin) return { success: false, error: "Admin not found." };
+        
+        admin.role = 'super_admin';
+        await admin.save();
+        
+        return { success: true };
+    } catch (error) {
+        console.error("Error promoting admin:", error);
+        return { success: false, error: "Failed to promote admin." };
     }
 }
 

@@ -45,7 +45,7 @@ export default function Navbar() {
                         className="flex items-center gap-2 group"
                     >
                         <span className="text-[clamp(1rem,4vw,1.25rem)] font-bold tracking-wider text-slate-800 dark:text-white transition-colors duration-300 group-hover:text-primary dark:group-hover:text-cyan-400 flex-shrink-0">
-                            RECENTURE<span className="text-primary dark:text-cyan-400 group-hover:text-slate-800 dark:group-hover:text-white transition-colors duration-300">SOFT</span>
+                            <img src="/Logo.png" alt="RecentureSoft Logo" className="h-10 w-auto object-contain" />
                         </span>
                     </Link>
 
