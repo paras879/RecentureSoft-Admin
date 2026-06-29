@@ -334,3 +334,77 @@ export async function deleteAdmin(id) {
         return { success: false, error: "Failed to delete admin." };
     }
 }
+
+export async function createJobOpening(formData) {
+    try {
+        await connectDB();
+        const JobOpening = (await import("@/models/JobOpening")).default;
+        
+        let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+        const existing = await JobOpening.findOne({ slug });
+        if (existing) {
+            slug = `${slug}-${Date.now()}`;
+        }
+
+        const newJob = new JobOpening({
+            title: formData.title,
+            slug: slug,
+            department: formData.department,
+            location: formData.location,
+            experience: formData.experience,
+            jobType: formData.jobType || "Full Time",
+            description: formData.description,
+            status: formData.status !== false,
+        });
+
+        await newJob.save();
+        revalidatePath("/admin/content/jobs");
+        return { success: true, slug };
+    } catch (error) {
+        console.error("Error creating job opening:", error);
+        return { success: false, error: "Failed to create job opening. " + error.message };
+    }
+}
+
+export async function updateJobOpening(id, formData) {
+    try {
+        await connectDB();
+        const JobOpening = (await import("@/models/JobOpening")).default;
+        
+        let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+        const existing = await JobOpening.findOne({ slug, _id: { $ne: id } });
+        if (existing) {
+            slug = `${slug}-${Date.now()}`;
+        }
+
+        await JobOpening.findByIdAndUpdate(id, {
+            title: formData.title,
+            slug: slug,
+            department: formData.department,
+            location: formData.location,
+            experience: formData.experience,
+            jobType: formData.jobType,
+            description: formData.description,
+            status: formData.status !== false,
+        });
+
+        revalidatePath("/admin/content/jobs");
+        return { success: true, slug };
+    } catch (error) {
+        console.error("Error updating job opening:", error);
+        return { success: false, error: "Failed to update job opening. " + error.message };
+    }
+}
+
+export async function deleteJobOpening(id) {
+    try {
+        await connectDB();
+        const JobOpening = (await import("@/models/JobOpening")).default;
+        await JobOpening.findByIdAndDelete(id);
+        revalidatePath("/admin/content/jobs");
+        return { success: true };
+    } catch (error) {
+        console.error("Error deleting job opening:", error);
+        return { success: false, error: "Failed to delete job opening." };
+    }
+}

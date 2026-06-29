@@ -25,11 +25,12 @@ export async function GET() {
     try {
         await connectDB();
         
-        const [newProjects, newMeetings, newContacts, newChats] = await Promise.all([
+        const [newProjects, newMeetings, newContacts, newChats, newApps] = await Promise.all([
             ProjectInquiry.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
             MeetingRequest.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
             Contact.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
-            Chat.find({ leadStatus: "hot", status: { $ne: "read" } }).sort({ updatedAt: -1 }).limit(10).lean().catch(() => [])
+            Chat.find({ leadStatus: "hot", status: { $ne: "read" } }).sort({ updatedAt: -1 }).limit(10).lean().catch(() => []),
+            (await import("@/models/JobApplication")).default.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => [])
         ]);
         
         const allNotifications = [
@@ -64,6 +65,14 @@ export async function GET() {
                 timeAgo: n.updatedAt ? timeAgo(n.updatedAt) : "recently",
                 createdAt: n.updatedAt || new Date(),
                 link: "/admin/chats"
+            })),
+            ...newApps.map(n => ({
+                _id: n._id.toString(), type: "application",
+                title: `New Job Application: ${n.name}`,
+                message: `Applied for ${n.applyFor}`,
+                timeAgo: n.createdAt ? timeAgo(n.createdAt) : "recently",
+                createdAt: n.createdAt || new Date(),
+                link: "/admin/applications"
             }))
         ].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 10);
 

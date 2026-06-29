@@ -168,6 +168,43 @@ export default function AdminDataTable({ title, data, type }) {
                     </div>
                 )},
             ];
+        } else if (type === "job") {
+            cols = [
+                { label: "Date", key: "date" },
+                { label: "Job Title", key: "title", render: (r) => <span className="font-semibold">{r.title}</span> },
+                { label: "Department", key: "department", render: (r) => <span className="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300 rounded-full text-xs font-medium">{r.department}</span> },
+                { label: "Experience", key: "experience" },
+                { label: "Status", key: "status", render: (r) => (
+                    <span className={`px-2 py-1 rounded text-xs font-medium ${r.status ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400' : 'bg-slate-200 text-slate-700 dark:bg-white/10 dark:text-slate-300'}`}>
+                        {r.status ? 'Active' : 'Inactive'}
+                    </span>
+                )},
+            ];
+        } else if (type === "application") {
+            cols = [
+                { label: "Applied On", key: "createdAt", render: (r) => new Date(r.createdAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' }) },
+                { label: "Name", key: "name", render: (r) => <span className="font-semibold text-gray-800">{r.name}</span> },
+                { label: "Email", key: "email", render: (r) => <span className="text-cyan-600">{r.email}</span> },
+                { label: "Phone", key: "phone" },
+                { label: "Applied For", key: "applyFor", render: (r) => <span className="px-3 py-1 bg-purple-100 text-purple-700 dark:bg-purple-500/20 dark:text-purple-300 rounded-full text-xs font-medium">{r.applyFor}</span> },
+                { label: "Experience", key: "experience" },
+                { label: "Resume", key: "resumeUrl", render: (r) => {
+                    if (!r.resumeUrl) return <span>N/A</span>;
+                    const downloadUrl = r.resumeUrl.startsWith('http') 
+                        ? r.resumeUrl 
+                        : `/api/download?file=${encodeURIComponent(r.resumeUrl)}`;
+                    
+                    return (
+                        <div className="flex gap-3">
+                            <a href={downloadUrl} className="text-green-600 hover:underline flex items-center gap-1 font-medium bg-green-50 px-3 py-1 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                                Download
+                            </a>
+                        </div>
+                    );
+                }},
+                { label: "Message", key: "message", render: (r) => <div className="max-w-[200px] truncate" title={r.message}>{r.message || "No message"}</div> },
+            ];
         } else if (type === "activity") {
             cols = [
                 { label: "Date & Time", key: "createdAt" },
@@ -191,7 +228,7 @@ export default function AdminDataTable({ title, data, type }) {
         cols.push({ 
             label: "Actions", key: "actions", render: (r) => (
             <div className="flex items-center gap-1">
-                {(type === "project" || type === "contact" || type === "meeting") && (
+                {(type === "project" || type === "contact" || type === "meeting" || type === "application") && (
                     <button onClick={() => openReplyModal(r.email, r.name)} className="p-2 text-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-500/10 rounded-lg transition-colors" title="Reply Email">
                         <Reply className="w-4 h-4" />
                     </button>
@@ -221,6 +258,13 @@ export default function AdminDataTable({ title, data, type }) {
                     </Link>
                     </>
                 )}
+                {type === "job" && (
+                    <>
+                    <Link href={`/admin/content/jobs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Job">
+                        <Edit className="w-4 h-4" />
+                    </Link>
+                    </>
+                )}
                 {type !== "blog" && (
                     <button 
                         onClick={(e) => handleDelete(r._id, e)}
@@ -245,6 +289,8 @@ export default function AdminDataTable({ title, data, type }) {
         if (type === "blog") return (item.title?.toLowerCase().includes(searchLower) || item.category?.toLowerCase().includes(searchLower));
         if (type === "portfolio") return (item.title?.toLowerCase().includes(searchLower) || item.technologies?.some(t => t.toLowerCase().includes(searchLower)));
         if (type === "service") return (item.title?.toLowerCase().includes(searchLower) || item.slug?.toLowerCase().includes(searchLower));
+        if (type === "job") return (item.title?.toLowerCase().includes(searchLower) || item.department?.toLowerCase().includes(searchLower));
+        if (type === "application") return (item.name?.toLowerCase().includes(searchLower) || item.email?.toLowerCase().includes(searchLower) || item.applyFor?.toLowerCase().includes(searchLower));
         return (item.name?.toLowerCase().includes(searchLower) || item.email?.toLowerCase().includes(searchLower) || item.topic?.toLowerCase().includes(searchLower) || item.subject?.toLowerCase().includes(searchLower) || item.projectType?.toLowerCase().includes(searchLower));
     });
 

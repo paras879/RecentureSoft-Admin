@@ -59,6 +59,7 @@ export default function AdminSidebar() {
         { name: "Leads & Contact", href: "/admin/leads", icon: Users },
         { name: "Project Inquiries", href: "/admin/projects", icon: MessageSquare },
         { name: "Meeting Requests", href: "/admin/meetings", icon: CalendarCheck },
+        { name: "Job Applications", href: "/admin/applications", icon: Briefcase },
         { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
         {
             name: "Website Content",
@@ -70,6 +71,7 @@ export default function AdminSidebar() {
                 { name: "Review", href: "/admin/content/review", icon: Star },
                 { name: "Our Team", href: "/admin/content/team", icon: UsersRound },
                 { name: "Events", href: "/admin/content/events", icon: CalendarDays },
+                { name: "Job Openings", href: "/admin/content/jobs", icon: Briefcase },
             ]
         },
         ...(role === "super_admin" ? [
