@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Bell, Briefcase, Calendar, Mail, CheckCircle2 } from "lucide-react";
+import { Bell, Briefcase, Calendar, Mail, CheckCircle2, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { markNotificationAsRead } from "@/app/admin/actions";
 
@@ -55,6 +55,17 @@ export default function NotificationDropdown({ initialNotifications, initialTota
         router.push(notification.link);
     };
 
+    const handleDeleteClick = async (e, notification) => {
+        e.stopPropagation();
+        
+        // Optimistically update UI to remove it
+        setNotifications(prev => prev.filter(n => n._id !== notification._id));
+        setTotalCount(prev => Math.max(0, prev - 1));
+        
+        // Mark as read in Database so it doesn't show again
+        await markNotificationAsRead(notification.type, notification._id);
+    };
+
     const getIcon = (type) => {
         if (type === "project") return <Briefcase className="w-4 h-4 text-blue-500" />;
         if (type === "meeting") return <Calendar className="w-4 h-4 text-purple-500" />;
@@ -97,15 +108,15 @@ export default function NotificationDropdown({ initialNotifications, initialTota
                         {notifications.length > 0 ? (
                             <div className="flex flex-col">
                                 {notifications.map((notif) => (
-                                    <button 
+                                    <div 
                                         key={notif._id}
                                         onClick={() => handleNotificationClick(notif)}
-                                        className="w-full text-left p-4 hover:bg-slate-50 dark:hover:bg-white/5 border-b border-slate-50 dark:border-white/5 last:border-0 transition-colors flex gap-4 items-start group"
+                                        className="w-full text-left p-4 hover:bg-slate-50 dark:hover:bg-white/5 border-b border-slate-50 dark:border-white/5 last:border-0 transition-colors flex gap-4 items-start group cursor-pointer"
                                     >
                                         <div className={`p-2 rounded-full shrink-0 mt-1 ${getBg(notif.type)}`}>
                                             {getIcon(notif.type)}
                                         </div>
-                                        <div className="flex flex-col gap-1 pr-4">
+                                        <div className="flex flex-col gap-1 pr-2 flex-1">
                                             <p className="text-sm font-medium text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-1">
                                                 {notif.title}
                                             </p>
@@ -116,7 +127,14 @@ export default function NotificationDropdown({ initialNotifications, initialTota
                                                 {notif.timeAgo}
                                             </span>
                                         </div>
-                                    </button>
+                                        <button 
+                                            onClick={(e) => handleDeleteClick(e, notif)}
+                                            className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-full transition-all shrink-0 opacity-0 group-hover:opacity-100"
+                                            title="Dismiss notification"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
+                                    </div>
                                 ))}
                             </div>
                         ) : (
