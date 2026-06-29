@@ -192,17 +192,28 @@ export default function AdminDataTable({ title, data, type }) {
                     if (!r.resumeUrl) return <span>N/A</span>;
                     let fullUrl = r.resumeUrl?.startsWith("http") ? r.resumeUrl : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}${r.resumeUrl}`;
                         
-                    // Force Cloudinary URLs to download instead of open in browser
-                    if (fullUrl && fullUrl.includes("res.cloudinary.com") && fullUrl.includes("/upload/")) {
-                        fullUrl = fullUrl.replace("/upload/", `/upload/fl_attachment:${r.name.replace(/\s+/g, '_')}_Resume/`);
-                    }
+                    const handleDownload = async (e) => {
+                        e.preventDefault();
+                        try {
+                            const res = await fetch(fullUrl);
+                            const blob = await res.blob();
+                            const blobUrl = window.URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = blobUrl;
+                            a.download = `${r.name.replace(/\s+/g, '_')}_Resume.pdf`;
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                            window.URL.revokeObjectURL(blobUrl);
+                        } catch (err) {
+                            // Fallback if CORS fails
+                            window.open(fullUrl, '_blank');
+                        }
+                    };
 
                     return (
                         <div className="flex gap-3">
-                            <a href={fullUrl} download target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline flex items-center gap-1 font-medium bg-green-50 px-3 py-1 rounded-md transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-                                Download
-                            </a>
+                            <button onClick={handleDownload} className="text-green-600 hover:underline flex items-center gap-1 font-medium bg-green-50 px-3 py-1 rounded-md transition-colors"><Download size={14} /> Download</button>
                         </div>
                     );
                 }},
