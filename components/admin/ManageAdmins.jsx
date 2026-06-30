@@ -5,19 +5,135 @@ import { Trash2, UserPlus, Shield, ShieldAlert, KeyRound, ChevronDown, ChevronUp
 import { deleteAdmin, promoteAdmin, createNewAdmin, updateAdminPermissions } from "@/app/admin/actions";
 
 const CONTENT_MODULES = [
-    { id: 'blogs', label: 'Blogs' },
-    { id: 'services', label: 'Services' },
-    { id: 'portfolio', label: 'Portfolio' },
-    { id: 'events', label: 'Events' },
-    { id: 'team', label: 'Team' },
-    { id: 'jobs', label: 'Jobs' },
-    { id: 'reviews', label: 'Reviews' },
-    { id: 'leads', label: 'Leads' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'meetings', label: 'Meetings' },
-    { id: 'applications', label: 'Applications' },
-    { id: 'subscribers', label: 'Subscribers' },
-    { id: 'contact', label: 'Contact' },
+    {
+        id: 'blogs',
+        label: 'Blogs',
+        fields: [
+            { id: 'view_all', label: 'View Blogs List' },
+            { id: 'create', label: 'Create New Blog' },
+            { id: 'edit', label: 'Edit Blog' },
+            { id: 'delete', label: 'Delete Blog' },
+            { id: 'title', label: 'Title Column' },
+            { id: 'category', label: 'Category Column' },
+            { id: 'images', label: 'Images & Media' },
+            { id: 'content', label: 'Blog Content' },
+            { id: 'status', label: 'Status & Visibility' }
+        ]
+    },
+    {
+        id: 'services',
+        label: 'Services',
+        fields: [
+            { id: 'view_all', label: 'View Services List' },
+            { id: 'create', label: 'Create Service' },
+            { id: 'edit', label: 'Edit Service' },
+            { id: 'delete', label: 'Delete Service' },
+            { id: 'title', label: 'Title Column' },
+            { id: 'description', label: 'Descriptions' },
+            { id: 'images', label: 'Images & Icons' },
+            { id: 'status', label: 'Status' }
+        ]
+    },
+    {
+        id: 'portfolio',
+        label: 'Portfolio',
+        fields: [
+            { id: 'view_all', label: 'View Portfolio List' },
+            { id: 'create', label: 'Create Project' },
+            { id: 'edit', label: 'Edit Project' },
+            { id: 'delete', label: 'Delete Project' },
+            { id: 'title', label: 'Title Column' },
+            { id: 'category', label: 'Category Column' },
+            { id: 'images', label: 'Images' }
+        ]
+    },
+    {
+        id: 'events',
+        label: 'Events & Gallery',
+        fields: [
+            { id: 'view_all', label: 'View Events List' },
+            { id: 'create', label: 'Create Event' },
+            { id: 'edit', label: 'Edit Event' },
+            { id: 'delete', label: 'Delete Event' },
+            { id: 'images', label: 'Manage Gallery' }
+        ]
+    },
+    {
+        id: 'jobs',
+        label: 'Jobs & Careers',
+        fields: [
+            { id: 'view_all', label: 'View Jobs List' },
+            { id: 'create', label: 'Create Job' },
+            { id: 'edit', label: 'Edit Job' },
+            { id: 'delete', label: 'Delete Job' },
+            { id: 'title', label: 'Job Title' },
+            { id: 'department', label: 'Department' }
+        ]
+    },
+    {
+        id: 'team',
+        label: 'Team Members',
+        fields: [
+            { id: 'view_all', label: 'View Team List' },
+            { id: 'create', label: 'Add Member' },
+            { id: 'edit', label: 'Edit Member' },
+            { id: 'delete', label: 'Delete Member' }
+        ]
+    },
+    {
+        id: 'reviews',
+        label: 'Client Reviews',
+        fields: [
+            { id: 'view_all', label: 'View Reviews List' },
+            { id: 'create', label: 'Add Review' },
+            { id: 'edit', label: 'Edit Review' },
+            { id: 'delete', label: 'Delete Review' }
+        ]
+    },
+    {
+        id: 'leads',
+        label: 'Leads & Inquiries',
+        fields: [
+            { id: 'view_all', label: 'View Inquiries' },
+            { id: 'delete', label: 'Delete Inquiries' },
+            { id: 'client_details', label: 'Client Details' },
+            { id: 'budget', label: 'Budget Details' }
+        ]
+    },
+    {
+        id: 'meetings',
+        label: 'Meetings',
+        fields: [
+            { id: 'view_all', label: 'View Meetings' },
+            { id: 'delete', label: 'Delete Meetings' }
+        ]
+    },
+    {
+        id: 'applications',
+        label: 'Job Applications',
+        fields: [
+            { id: 'view_all', label: 'View Applications' },
+            { id: 'delete', label: 'Delete Applications' },
+            { id: 'resume', label: 'Download Resume' }
+        ]
+    },
+    {
+        id: 'contact',
+        label: 'Contact Messages',
+        fields: [
+            { id: 'view_all', label: 'View Messages' },
+            { id: 'delete', label: 'Delete Messages' },
+            { id: 'reply', label: 'Reply to Message' }
+        ]
+    },
+    {
+        id: 'subscribers',
+        label: 'Subscribers',
+        fields: [
+            { id: 'view_all', label: 'View Subscribers' },
+            { id: 'delete', label: 'Delete Subscriber' }
+        ]
+    }
 ];
 
 export default function ManageAdmins() {
@@ -248,42 +364,70 @@ export default function ManageAdmins() {
                                                             </button>
                                                         </div>
                                                         
-                                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                                                            {CONTENT_MODULES.map(module => {
-                                                                const perms = editingPermissions[module.id] || { read: false, write: false };
-                                                                return (
-                                                                    <div key={module.id} className="flex flex-col gap-3 p-4 rounded-xl border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-white/[0.02]">
-                                                                        <div className="font-semibold text-slate-800 dark:text-slate-200">{module.label}</div>
-                                                                        <div className="flex flex-col gap-2">
-                                                                            <label className="flex items-center gap-2 cursor-pointer group w-fit">
-                                                                                <div className={`w-5 h-5 rounded-md border flex items-center justify-center transition-colors ${perms.read ? 'bg-cyan-500 border-cyan-500' : 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700'}`}>
-                                                                                    {perms.read && <Check className="w-3.5 h-3.5 text-white" />}
-                                                                                </div>
-                                                                                <input 
-                                                                                    type="checkbox" 
-                                                                                    className="hidden" 
-                                                                                    checked={perms.read} 
-                                                                                    onChange={(e) => handlePermissionChange(module.id, 'read', e.target.checked)} 
-                                                                                />
-                                                                                <span className="text-sm font-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200">Read (View)</span>
-                                                                            </label>
-                                                                            
-                                                                            <label className="flex items-center gap-2 cursor-pointer group w-fit">
-                                                                                <div className={`w-5 h-5 rounded-md border flex items-center justify-center transition-colors ${perms.write ? 'bg-purple-500 border-purple-500' : 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700'}`}>
-                                                                                    {perms.write && <Check className="w-3.5 h-3.5 text-white" />}
-                                                                                </div>
-                                                                                <input 
-                                                                                    type="checkbox" 
-                                                                                    className="hidden" 
-                                                                                    checked={perms.write} 
-                                                                                    onChange={(e) => handlePermissionChange(module.id, 'write', e.target.checked)} 
-                                                                                />
-                                                                                <span className="text-sm font-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200">Write (Edit/Delete)</span>
-                                                                            </label>
-                                                                        </div>
+                                                        <div className="flex flex-col gap-8">
+                                                            {CONTENT_MODULES.map(module => (
+                                                                <div key={module.id} className="flex flex-col border border-slate-200 dark:border-white/10 rounded-2xl overflow-hidden bg-white dark:bg-[#0b1120] shadow-sm">
+                                                                    {/* Header */}
+                                                                    <div className="bg-slate-50 dark:bg-slate-800/30 px-6 py-4 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
+                                                                        <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-base">{module.label}</h4>
                                                                     </div>
-                                                                );
-                                                            })}
+                                                                    
+                                                                    {/* Table of fields */}
+                                                                    <div className="overflow-x-auto">
+                                                                        <table className="w-full text-left">
+                                                                            <thead>
+                                                                                <tr className="border-b border-slate-100 dark:border-white/5 bg-white dark:bg-[#0f172a]/50 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                                                                    <th className="py-3 px-6 w-[40%]">Feature / Column</th>
+                                                                                    <th className="py-3 px-6 w-[30%]">Read Access</th>
+                                                                                    <th className="py-3 px-6 w-[30%]">Write / Manage Access</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody className="divide-y divide-slate-100 dark:divide-white/5 bg-white dark:bg-transparent">
+                                                                                {module.fields.map(field => {
+                                                                                    const key = `${module.id}_${field.id}`;
+                                                                                    const perms = editingPermissions[key] || { read: false, write: false };
+                                                                                    
+                                                                                    return (
+                                                                                        <tr key={field.id} className="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors">
+                                                                                            <td className="py-3.5 px-6 text-sm text-slate-700 dark:text-slate-300 font-medium">
+                                                                                                {field.label}
+                                                                                            </td>
+                                                                                            <td className="py-3.5 px-6">
+                                                                                                <label className="flex items-center gap-2.5 cursor-pointer group w-fit">
+                                                                                                    <div className={`w-5 h-5 rounded-[6px] border flex items-center justify-center transition-all duration-200 ${perms.read ? 'bg-cyan-500 border-cyan-500 shadow-sm shadow-cyan-500/20' : 'bg-slate-50 dark:bg-slate-800/80 border-slate-300 dark:border-slate-600 group-hover:border-cyan-400'}`}>
+                                                                                                        {perms.read && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
+                                                                                                    </div>
+                                                                                                    <input 
+                                                                                                        type="checkbox" 
+                                                                                                        className="hidden" 
+                                                                                                        checked={perms.read} 
+                                                                                                        onChange={(e) => handlePermissionChange(key, 'read', e.target.checked)} 
+                                                                                                    />
+                                                                                                    <span className="text-sm font-medium text-slate-500 dark:text-slate-400 select-none group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">Allow View</span>
+                                                                                                </label>
+                                                                                            </td>
+                                                                                            <td className="py-3.5 px-6">
+                                                                                                <label className="flex items-center gap-2.5 cursor-pointer group w-fit">
+                                                                                                    <div className={`w-5 h-5 rounded-[6px] border flex items-center justify-center transition-all duration-200 ${perms.write ? 'bg-purple-500 border-purple-500 shadow-sm shadow-purple-500/20' : 'bg-slate-50 dark:bg-slate-800/80 border-slate-300 dark:border-slate-600 group-hover:border-purple-400'}`}>
+                                                                                                        {perms.write && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
+                                                                                                    </div>
+                                                                                                    <input 
+                                                                                                        type="checkbox" 
+                                                                                                        className="hidden" 
+                                                                                                        checked={perms.write} 
+                                                                                                        onChange={(e) => handlePermissionChange(key, 'write', e.target.checked)} 
+                                                                                                    />
+                                                                                                    <span className="text-sm font-medium text-slate-500 dark:text-slate-400 select-none group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">Allow Modify</span>
+                                                                                                </label>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    );
+                                                                                })}
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            ))}
                                                         </div>
                                                     </div>
                                                 </td>
