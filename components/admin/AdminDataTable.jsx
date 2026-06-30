@@ -7,6 +7,7 @@ import Link from "next/link";
 import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
 import QuickReplyModal from "./QuickReplyModal";
 import CategoryManagerModal from "./CategoryManagerModal";
+import { useAdmin } from "@/components/admin/AdminProvider";
 
 export default function AdminDataTable({ title, data, type }) {
     const router = useRouter();
@@ -20,7 +21,32 @@ export default function AdminDataTable({ title, data, type }) {
 
     const itemsPerPage = 10;
 
+    const { admin } = useAdmin();
+    const role = admin?.role || 'super_admin';
+    const perms = admin?.permissions || {};
 
+    const typeToModuleMap = {
+        project: 'leads',
+        meeting: 'meetings',
+        contact: 'contact',
+        blog: 'blogs',
+        service: 'services',
+        portfolio: 'portfolio',
+        event: 'events',
+        job: 'jobs',
+        team: 'team',
+        review: 'reviews',
+        subscriber: 'subscribers',
+        application: 'applications'
+    };
+
+    const moduleKey = typeToModuleMap[type];
+
+    const hasAccess = (action) => {
+        if (role === 'super_admin') return true;
+        if (!moduleKey) return false;
+        return perms[`${moduleKey}_${action}`]?.write === true;
+    };
     const handleDelete = async (id, e) => {
         e.stopPropagation();
         if (!window.confirm("Are you sure you want to delete this record? This action cannot be undone.")) return;
@@ -165,7 +191,7 @@ export default function AdminDataTable({ title, data, type }) {
         cols.push({ 
             label: "Actions", key: "actions", render: (r) => (
             <div className="flex items-center gap-1">
-                {(type === "project" || type === "contact" || type === "meeting") && (
+                {(type === "project" || type === "contact" || type === "meeting") && hasAccess("reply") && (
                     <button onClick={() => openReplyModal(r.email, r.name)} className="p-2 text-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-500/10 rounded-lg transition-colors" title="Reply Email">
                         <Reply className="w-4 h-4" />
                     </button>
@@ -175,13 +201,15 @@ export default function AdminDataTable({ title, data, type }) {
                     <Link href={`/blog/${r.slug}`} target="_blank" className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Blog">
                         <ExternalLink className="w-4 h-4" />
                     </Link>
-                    <Link href={`/admin/content/blogs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Blog">
-                        <Edit className="w-4 h-4" />
-                    </Link>
-                    <DeleteBlogButton id={r._id} />
+                    {hasAccess("edit") && (
+                        <Link href={`/admin/content/blogs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Blog">
+                            <Edit className="w-4 h-4" />
+                        </Link>
+                    )}
+                    {hasAccess("delete") && <DeleteBlogButton id={r._id} />}
                     </>
                 )}
-                {type !== "blog" && (
+                {type !== "blog" && hasAccess("delete") && (
                     <button 
                         onClick={(e) => handleDelete(r._id, e)}
                         disabled={deletingId === r._id}
@@ -230,7 +258,7 @@ export default function AdminDataTable({ title, data, type }) {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div className="flex items-center gap-4">
                     <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{title}</h1>
-                    {selectedIds.length > 0 && (
+                    {selectedIds.length > 0 && hasAccess("delete") && (
                         <button onClick={handleBulkDelete} className="text-sm px-3 py-1.5 bg-red-100 text-red-600 hover:bg-red-200 dark:bg-red-500/20 dark:text-red-400 rounded-lg font-medium transition-colors">
                             Delete Selected ({selectedIds.length})
                         </button>
@@ -251,7 +279,7 @@ export default function AdminDataTable({ title, data, type }) {
                     <button onClick={handleExportCSV} className="p-2 border border-slate-200 dark:border-white/10 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 text-slate-600 dark:text-slate-300" title="Export CSV">
                         <Download className="w-5 h-5" />
                     </button>
-                    {type === "blog" && (
+                    {type === "blog" && hasAccess("category") && (
                         <button onClick={handleAddCategory} className="px-4 py-2 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/20 rounded-xl hover:bg-cyan-100 dark:hover:bg-cyan-500/20 text-sm font-semibold transition-colors flex items-center gap-1">
                             Manage Categories
                         </button>

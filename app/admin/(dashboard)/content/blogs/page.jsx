@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import DashboardChart from "@/components/admin/DashboardChart";
 import { generateLast7DaysChartData } from "@/lib/chartUtils";
+import AuthGuard from "@/components/admin/AuthGuard";
+import PermissionGuard from "@/components/admin/PermissionGuard";
 
 export const dynamic = "force-dynamic";
 
@@ -42,19 +44,22 @@ export default async function BlogsPage() {
     }));
 
     return (
-        <div className="pb-10 w-full flex flex-col gap-6">
+        <AuthGuard permissionKey="blogs_view_all">
+            <div className="pb-10 w-full flex flex-col gap-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Blogs & Articles</h1>
                     <p className="text-slate-500 dark:text-slate-400 text-sm">Manage your published content</p>
                 </div>
                 
-                <Link 
-                    href="/admin/content/blogs/create"
-                    className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 shadow-sm"
-                >
-                    <Plus className="w-4 h-4" /> Create New Blog
-                </Link>
+                <PermissionGuard permissionKey="blogs_create">
+                    <Link 
+                        href="/admin/content/blogs/create"
+                        className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 shadow-sm"
+                    >
+                        <Plus className="w-4 h-4" /> Create New Blog
+                    </Link>
+                </PermissionGuard>
             </div>
 
             <DashboardChart 
@@ -72,5 +77,6 @@ export default async function BlogsPage() {
                 type="blog" 
             />
         </div>
+        </AuthGuard>
     );
 }

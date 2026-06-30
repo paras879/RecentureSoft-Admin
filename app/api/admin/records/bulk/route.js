@@ -5,7 +5,7 @@ import ProjectInquiry from "@/models/ProjectInquiry";
 import MeetingRequest from "@/models/MeetingRequest";
 import ActivityLog from "@/models/ActivityLog";
 import Blog from "@/models/Blog";
-import { getAdminRole, logAdminActivity } from "@/lib/adminUtils";
+import { getAdminRole, logAdminActivity, checkPermission } from "@/lib/adminUtils";
 
 export async function DELETE(request) {
     try {
@@ -19,6 +19,37 @@ export async function DELETE(request) {
         if (!ids || !Array.isArray(ids) || !type) {
             return NextResponse.json(
                 { success: false, error: "Type and array of IDs are required" },
+                { status: 400 }
+            );
+        }
+
+        const typeToModuleMap = {
+            project: 'leads',
+            meeting: 'meetings',
+            contact: 'contact',
+            blog: 'blogs',
+            service: 'services',
+            portfolio: 'portfolio',
+            event: 'events',
+            job: 'jobs',
+            team: 'team',
+            review: 'reviews',
+            subscriber: 'subscribers',
+            application: 'applications'
+        };
+
+        const moduleKey = typeToModuleMap[type];
+        if (moduleKey) {
+            const hasAccess = await checkPermission(`${moduleKey}_delete`, 'write');
+            if (!hasAccess) {
+                return NextResponse.json(
+                    { success: false, error: "You don't have permission to perform bulk delete for this record type" },
+                    { status: 403 }
+                );
+            }
+        } else if (type !== "activity") {
+            return NextResponse.json(
+                { success: false, error: "Invalid record type" },
                 { status: 400 }
             );
         }

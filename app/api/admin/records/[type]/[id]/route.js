@@ -18,8 +18,39 @@ export async function DELETE(request, { params }) {
             );
         }
 
-        const { getAdminRole } = await import("@/lib/adminUtils");
-        await getAdminRole(); // Still calling just to verify token but not assigning to role
+        const { checkPermission, logAdminActivity } = await import("@/lib/adminUtils");
+
+        const typeToModuleMap = {
+            project: 'leads',
+            meeting: 'meetings',
+            contact: 'contact',
+            blog: 'blogs',
+            service: 'services',
+            portfolio: 'portfolio',
+            event: 'events',
+            job: 'jobs',
+            team: 'team',
+            review: 'reviews',
+            subscriber: 'subscribers',
+            application: 'applications'
+        };
+
+        const moduleKey = typeToModuleMap[type];
+        if (moduleKey) {
+            const hasAccess = await checkPermission(`${moduleKey}_delete`, 'write');
+            if (!hasAccess) {
+                return NextResponse.json(
+                    { success: false, error: "You don't have permission to delete this record" },
+                    { status: 403 }
+                );
+            }
+        } else if (type !== "activity") {
+            // Unknown type
+            return NextResponse.json(
+                { success: false, error: "Invalid record type" },
+                { status: 400 }
+            );
+        }
 
         let deletedRecord = null;
 
@@ -63,7 +94,6 @@ export async function DELETE(request, { params }) {
         }
 
         if (type !== "activity") {
-            const { logAdminActivity } = await import("@/lib/adminUtils");
             await logAdminActivity(
                 'DELETE',
                 type.charAt(0).toUpperCase() + type.slice(1),

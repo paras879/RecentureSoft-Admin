@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useAdmin } from "@/components/admin/AdminProvider";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     LayoutDashboard,
@@ -34,16 +35,14 @@ export default function AdminSidebar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isCmsOpen, setIsCmsOpen] = useState(true);
 
-    const [role, setRole] = useState('super_admin');
+    const { admin } = useAdmin();
+    const role = admin?.role || 'super_admin';
+    const perms = admin?.permissions || {};
 
-    useEffect(() => {
-        fetch('/api/admin/me')
-            .then(res => res.json())
-            .then(data => {
-                if (data.role) setRole(data.role);
-            })
-            .catch(console.error);
-    }, []);
+    const hasAccess = (key) => {
+        if (role === 'super_admin') return true;
+        return perms[key]?.read === true;
+    };
 
     const handleLogout = async () => {
         try {
@@ -55,26 +54,26 @@ export default function AdminSidebar() {
         router.refresh();
     };
 
-    const links = [
+    const allLinks = [
         { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
-        { name: "Leads & Contact", href: "/admin/leads", icon: Users },
-        { name: "Project Inquiries", href: "/admin/projects", icon: MessageSquare },
-        { name: "Meeting Requests", href: "/admin/meetings", icon: CalendarCheck },
-        { name: "Job Applications", href: "/admin/applications", icon: Briefcase },
-        { name: "Newsletter Subs", href: "/admin/subscribers", icon: Mail },
-        { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
+        hasAccess("contact_view_all") && { name: "Leads & Contact", href: "/admin/leads", icon: Users },
+        hasAccess("leads_view_all") && { name: "Project Inquiries", href: "/admin/projects", icon: MessageSquare },
+        hasAccess("meetings_view_all") && { name: "Meeting Requests", href: "/admin/meetings", icon: CalendarCheck },
+        hasAccess("applications_view_all") && { name: "Job Applications", href: "/admin/applications", icon: Briefcase },
+        hasAccess("subscribers_view_all") && { name: "Newsletter Subs", href: "/admin/subscribers", icon: Mail },
+        role === "super_admin" && { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
         {
             name: "Website Content",
             icon: Globe,
             subItems: [
-                { name: "Blogs", href: "/admin/content/blogs", icon: FileText },
-                { name: "Portfolio", href: "/admin/content/portfolio", icon: Briefcase },
-                { name: "Services", href: "/admin/content/services", icon: Wrench },
-                { name: "Review", href: "/admin/content/review", icon: Star },
-                { name: "Our Team", href: "/admin/content/team", icon: UsersRound },
-                { name: "Events", href: "/admin/content/events", icon: CalendarDays },
-                { name: "Job Openings", href: "/admin/content/jobs", icon: Briefcase },
-            ]
+                hasAccess("blogs_view_all") && { name: "Blogs", href: "/admin/content/blogs", icon: FileText },
+                hasAccess("portfolio_view_all") && { name: "Portfolio", href: "/admin/content/portfolio", icon: Briefcase },
+                hasAccess("services_view_all") && { name: "Services", href: "/admin/content/services", icon: Wrench },
+                hasAccess("reviews_view_all") && { name: "Review", href: "/admin/content/review", icon: Star },
+                hasAccess("team_view_all") && { name: "Our Team", href: "/admin/content/team", icon: UsersRound },
+                hasAccess("events_view_all") && { name: "Events", href: "/admin/content/events", icon: CalendarDays },
+                hasAccess("jobs_view_all") && { name: "Job Openings", href: "/admin/content/jobs", icon: Briefcase },
+            ].filter(Boolean)
         },
         ...(role === "super_admin" ? [
             { name: "Activity Logs", href: "/admin/activity", icon: Activity },
@@ -82,6 +81,11 @@ export default function AdminSidebar() {
         ] : []),
         { name: "Settings", href: "/admin/settings", icon: Settings },
     ];
+
+    const links = allLinks.filter(Boolean).map(link => {
+        if (link.subItems && link.subItems.length === 0) return null;
+        return link;
+    }).filter(Boolean);
 
     return (
         <>

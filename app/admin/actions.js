@@ -8,9 +8,13 @@ import Contact from "@/models/Contact";
 import Admin from "@/models/Admin";
 import bcrypt from "bcryptjs";
 import { revalidatePath } from "next/cache";
+import { checkPermission } from "@/lib/adminUtils";
 
 export async function deleteBlog(id) {
     try {
+        const hasAccess = await checkPermission('blogs_delete', 'write');
+        if (!hasAccess) return { success: false, error: "Unauthorized to delete blogs." };
+
         await connectDB();
         await Blog.findByIdAndDelete(id);
         revalidatePath("/admin/content/blogs");
@@ -24,6 +28,9 @@ export async function deleteBlog(id) {
 
 export async function createBlog(formData) {
     try {
+        const hasAccess = await checkPermission('blogs_create', 'write');
+        if (!hasAccess) return { success: false, error: "Unauthorized to create blogs." };
+
         await connectDB();
         
         // Basic slug generation from title if not provided
@@ -63,6 +70,9 @@ export async function createBlog(formData) {
 
 export async function updateBlog(id, formData) {
     try {
+        const hasAccess = await checkPermission('blogs_edit', 'write');
+        if (!hasAccess) return { success: false, error: "Unauthorized to edit blogs." };
+
         await connectDB();
         
         let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
