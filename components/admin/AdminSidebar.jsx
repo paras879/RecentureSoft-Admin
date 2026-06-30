@@ -41,9 +41,21 @@ export default function AdminSidebar() {
 
     const hasAccess = (module) => {
         if (role === 'super_admin') return true;
+        
+        // Check new format
         const perm = perms[module];
-        if (!perm) return false; // STRICT DEFAULT-DENY
-        return perm.view === true || perm.manage === true;
+        if (perm && (perm.view === true || perm.manage === true)) {
+            return true;
+        }
+
+        // Fallback for old format (e.g. blogs_view_all)
+        const oldPerm = perms[`${module}_view_all`];
+        if (oldPerm && oldPerm.read !== false) {
+            return true;
+        }
+
+        // STRICT DEFAULT-DENY
+        return false;
     };
 
     const handleLogout = async () => {
