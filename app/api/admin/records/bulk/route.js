@@ -40,7 +40,7 @@ export async function DELETE(request) {
 
         const moduleKey = typeToModuleMap[type];
         if (moduleKey) {
-            const hasAccess = await checkPermission(`${moduleKey}_delete`, 'write');
+            const hasAccess = await checkPermission(moduleKey, 'manage');
             if (!hasAccess) {
                 return NextResponse.json(
                     { success: false, error: "You don't have permission to perform bulk delete for this record type" },

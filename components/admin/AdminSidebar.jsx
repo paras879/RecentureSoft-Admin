@@ -39,11 +39,11 @@ export default function AdminSidebar() {
     const role = admin?.role || 'super_admin';
     const perms = admin?.permissions || {};
 
-    const hasAccess = (key) => {
+    const hasAccess = (module) => {
         if (role === 'super_admin') return true;
-        const perm = perms[key];
-        if (!perm) return true; // Default allow
-        return perm.read !== false;
+        const perm = perms[module];
+        if (!perm) return false; // STRICT DEFAULT-DENY
+        return perm.view === true || perm.manage === true;
     };
 
     const handleLogout = async () => {
@@ -58,23 +58,23 @@ export default function AdminSidebar() {
 
     const allLinks = [
         { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
-        hasAccess("contact_view_all") && { name: "Leads & Contact", href: "/admin/leads", icon: Users },
-        hasAccess("leads_view_all") && { name: "Project Inquiries", href: "/admin/projects", icon: MessageSquare },
-        hasAccess("meetings_view_all") && { name: "Meeting Requests", href: "/admin/meetings", icon: CalendarCheck },
-        hasAccess("applications_view_all") && { name: "Job Applications", href: "/admin/applications", icon: Briefcase },
-        hasAccess("subscribers_view_all") && { name: "Newsletter Subs", href: "/admin/subscribers", icon: Mail },
+        hasAccess("contact") && { name: "Leads & Contact", href: "/admin/leads", icon: Users },
+        hasAccess("leads") && { name: "Project Inquiries", href: "/admin/projects", icon: MessageSquare },
+        hasAccess("meetings") && { name: "Meeting Requests", href: "/admin/meetings", icon: CalendarCheck },
+        hasAccess("applications") && { name: "Job Applications", href: "/admin/applications", icon: Briefcase },
+        hasAccess("subscribers") && { name: "Newsletter Subs", href: "/admin/subscribers", icon: Mail },
         role === "super_admin" && { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
         {
             name: "Website Content",
             icon: Globe,
             subItems: [
-                hasAccess("blogs_view_all") && { name: "Blogs", href: "/admin/content/blogs", icon: FileText },
-                hasAccess("portfolio_view_all") && { name: "Portfolio", href: "/admin/content/portfolio", icon: Briefcase },
-                hasAccess("services_view_all") && { name: "Services", href: "/admin/content/services", icon: Wrench },
-                hasAccess("reviews_view_all") && { name: "Review", href: "/admin/content/review", icon: Star },
-                hasAccess("team_view_all") && { name: "Our Team", href: "/admin/content/team", icon: UsersRound },
-                hasAccess("events_view_all") && { name: "Events", href: "/admin/content/events", icon: CalendarDays },
-                hasAccess("jobs_view_all") && { name: "Job Openings", href: "/admin/content/jobs", icon: Briefcase },
+                hasAccess("blogs") && { name: "Blogs", href: "/admin/content/blogs", icon: FileText },
+                hasAccess("portfolio") && { name: "Portfolio", href: "/admin/content/portfolio", icon: Briefcase },
+                hasAccess("services") && { name: "Services", href: "/admin/content/services", icon: Wrench },
+                hasAccess("reviews") && { name: "Review", href: "/admin/content/review", icon: Star },
+                hasAccess("team") && { name: "Our Team", href: "/admin/content/team", icon: UsersRound },
+                hasAccess("events") && { name: "Events", href: "/admin/content/events", icon: CalendarDays },
+                hasAccess("jobs") && { name: "Job Openings", href: "/admin/content/jobs", icon: Briefcase },
             ].filter(Boolean)
         },
         ...(role === "super_admin" ? [

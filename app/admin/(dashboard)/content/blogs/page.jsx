@@ -52,7 +52,7 @@ export default async function BlogsPage() {
                     <p className="text-slate-500 dark:text-slate-400 text-sm">Manage your published content</p>
                 </div>
                 
-                <PermissionGuard permissionKey="blogs_create">
+                <PermissionGuard module="blogs" action="manage">
                     <Link 
                         href="/admin/content/blogs/create"
                         className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 shadow-sm"

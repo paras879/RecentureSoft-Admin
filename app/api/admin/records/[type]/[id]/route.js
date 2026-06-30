@@ -37,7 +37,7 @@ export async function DELETE(request, { params }) {
 
         const moduleKey = typeToModuleMap[type];
         if (moduleKey) {
-            const hasAccess = await checkPermission(`${moduleKey}_delete`, 'write');
+            const hasAccess = await checkPermission(moduleKey, 'manage');
             if (!hasAccess) {
                 return NextResponse.json(
                     { success: false, error: "You don't have permission to delete this record" },

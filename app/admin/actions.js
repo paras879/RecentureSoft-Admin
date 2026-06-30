@@ -12,7 +12,7 @@ import { checkPermission } from "@/lib/adminUtils";
 
 export async function deleteBlog(id) {
     try {
-        const hasAccess = await checkPermission('blogs_delete', 'write');
+        const hasAccess = await checkPermission('blogs', 'manage');
         if (!hasAccess) return { success: false, error: "Unauthorized to delete blogs." };
 
         await connectDB();
@@ -28,7 +28,7 @@ export async function deleteBlog(id) {
 
 export async function createBlog(formData) {
     try {
-        const hasAccess = await checkPermission('blogs_create', 'write');
+        const hasAccess = await checkPermission('blogs', 'manage');
         if (!hasAccess) return { success: false, error: "Unauthorized to create blogs." };
 
         await connectDB();
@@ -70,7 +70,7 @@ export async function createBlog(formData) {
 
 export async function updateBlog(id, formData) {
     try {
-        const hasAccess = await checkPermission('blogs_edit', 'write');
+        const hasAccess = await checkPermission('blogs', 'manage');
         if (!hasAccess) return { success: false, error: "Unauthorized to edit blogs." };
 
         await connectDB();
@@ -111,6 +111,8 @@ export async function updateBlog(id, formData) {
 
 export async function createPortfolio(formData) {
     try {
+        const hasAccess = await checkPermission('portfolio', 'manage');
+        if (!hasAccess) return { success: false, error: "Unauthorized to create portfolio." };
         await connectDB();
         
         let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
@@ -142,6 +144,8 @@ export async function createPortfolio(formData) {
 
 export async function updatePortfolio(id, formData) {
     try {
+        const hasAccess = await checkPermission('portfolio', 'manage');
+        if (!hasAccess) return { success: false, error: "Unauthorized to update portfolio." };
         await connectDB();
         
         let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
@@ -172,6 +176,8 @@ export async function updatePortfolio(id, formData) {
 
 export async function createService(formData) {
     try {
+        const hasAccess = await checkPermission('services', 'manage');
+        if (!hasAccess) return { success: false, error: "Unauthorized to create service." };
         await connectDB();
         
         let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
@@ -212,6 +218,8 @@ export async function createService(formData) {
 
 export async function updateService(id, formData) {
     try {
+        const hasAccess = await checkPermission('services', 'manage');
+        if (!hasAccess) return { success: false, error: "Unauthorized to update service." };
         await connectDB();
         
         let slug = formData.slug || formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
@@ -373,6 +381,8 @@ export async function deleteAdmin(id) {
 
 export async function createJobOpening(formData) {
     try {
+        const hasAccess = await checkPermission('jobs', 'manage');
+        if (!hasAccess) return { success: false, error: "Unauthorized to create job opening." };
         await connectDB();
         const JobOpening = (await import("@/models/JobOpening")).default;
         
@@ -404,6 +414,8 @@ export async function createJobOpening(formData) {
 
 export async function updateJobOpening(id, formData) {
     try {
+        const hasAccess = await checkPermission('jobs', 'manage');
+        if (!hasAccess) return { success: false, error: "Unauthorized to update job opening." };
         await connectDB();
         const JobOpening = (await import("@/models/JobOpening")).default;
         
@@ -434,6 +446,8 @@ export async function updateJobOpening(id, formData) {
 
 export async function deleteJobOpening(id) {
     try {
+        const hasAccess = await checkPermission('jobs', 'manage');
+        if (!hasAccess) return { success: false, error: "Unauthorized to delete job opening." };
         await connectDB();
         const JobOpening = (await import("@/models/JobOpening")).default;
         await JobOpening.findByIdAndDelete(id);
@@ -447,6 +461,8 @@ export async function deleteJobOpening(id) {
 
 export async function deleteSubscriber(id) {
     try {
+        const hasAccess = await checkPermission('subscribers', 'manage');
+        if (!hasAccess) return { success: false, error: "Unauthorized to delete subscriber." };
         await connectDB();
         const Subscriber = (await import("@/models/Subscriber")).default;
         await Subscriber.findByIdAndDelete(id);

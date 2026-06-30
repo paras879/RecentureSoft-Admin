@@ -46,10 +46,13 @@ export default function AdminDataTable({ title, data, type }) {
     const hasAccess = (action) => {
         if (role === 'super_admin') return true;
         if (!moduleKey) return true;
-        const key = `${moduleKey}_${action}`;
-        const perm = perms[key];
-        if (!perm) return true; // Default allow
-        return perm.write !== false;
+        
+        const perm = perms[moduleKey];
+        if (!perm) return false; // STRICT DEFAULT-DENY
+        
+        // If they want to do an action (reply, edit, delete, category), they need 'manage' permission
+        if (action === 'view') return perm.view === true || perm.manage === true;
+        return perm.manage === true;
     };
 
     const handleDelete = async (id, e) => {
