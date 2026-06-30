@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
 import QuickReplyModal from "./QuickReplyModal";
+import CategoryManagerModal from "./CategoryManagerModal";
 
 export default function AdminDataTable({ title, data, type }) {
     const router = useRouter();
@@ -15,6 +16,7 @@ export default function AdminDataTable({ title, data, type }) {
     const [selectedIds, setSelectedIds] = useState([]);
     const [replyModalOpen, setReplyModalOpen] = useState(false);
     const [replyRecipient, setReplyRecipient] = useState({ email: "", name: "" });
+    const [categoryModalOpen, setCategoryModalOpen] = useState(false);
 
     const itemsPerPage = 10;
 
@@ -62,25 +64,8 @@ export default function AdminDataTable({ title, data, type }) {
         }
     };
 
-    const handleAddCategory = async () => {
-        const name = window.prompt("Enter new category name:");
-        if (!name) return;
-        try {
-            const res = await fetch('/api/admin/blog-categories', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name })
-            });
-            const data = await res.json();
-            if (res.ok) {
-                alert(`Category "${name}" added successfully!`);
-                router.refresh();
-            } else {
-                alert(data.error || "Failed to add category");
-            }
-        } catch (e) {
-            alert("Error adding category");
-        }
+    const handleAddCategory = () => {
+        setCategoryModalOpen(true);
     };
 
     const toggleSelectAll = (e) => {
@@ -236,6 +221,11 @@ export default function AdminDataTable({ title, data, type }) {
                 recipientName={replyRecipient.name}
                 type={type}
             />
+            
+            <CategoryManagerModal 
+                isOpen={categoryModalOpen}
+                onClose={() => setCategoryModalOpen(false)}
+            />
 
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div className="flex items-center gap-4">
@@ -263,7 +253,7 @@ export default function AdminDataTable({ title, data, type }) {
                     </button>
                     {type === "blog" && (
                         <button onClick={handleAddCategory} className="px-4 py-2 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/20 rounded-xl hover:bg-cyan-100 dark:hover:bg-cyan-500/20 text-sm font-semibold transition-colors flex items-center gap-1">
-                            + Category
+                            Manage Categories
                         </button>
                     )}
                 </div>

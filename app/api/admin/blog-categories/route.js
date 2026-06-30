@@ -5,7 +5,21 @@ import BlogCategory from "@/models/BlogCategory";
 export async function GET() {
     try {
         await connectDB();
-        const cats = await BlogCategory.find().sort({ createdAt: 1 }).lean();
+        let cats = await BlogCategory.find().sort({ createdAt: 1 }).lean();
+        
+        if (cats.length === 0) {
+            const defaults = [
+                { name: "Web Development" },
+                { name: "Mobile Apps" },
+                { name: "AI & Machine Learning" },
+                { name: "Cloud Computing" },
+                { name: "Cybersecurity" },
+                { name: "Business Strategy" }
+            ];
+            await BlogCategory.insertMany(defaults);
+            cats = await BlogCategory.find().sort({ createdAt: 1 }).lean();
+        }
+
         return NextResponse.json(cats);
     } catch (e) {
         return NextResponse.json({ error: "Failed to fetch categories" }, { status: 500 });
