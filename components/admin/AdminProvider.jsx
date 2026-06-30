@@ -75,11 +75,20 @@ export function useAuthGuard(permissionKey) {
         const perms = admin.permissions || {};
         const permission = perms[permissionKey];
         
-        if (!permission || permission.read !== false) {
-            setHasAccess(true);
-        } else {
-            // Redirect to dashboard if no access
+        if (!permission) {
+            setHasAccess(true); // DEFAULT-ALLOW
+            return;
+        }
+
+        if (permission.view === false) {
+            console.log(`[AuthGuard] Access denied for ${permissionKey}: view is explicitly false.`);
             router.push("/admin/dashboard");
+        } else if (permission.read === false) {
+            console.log(`[AuthGuard] Access denied for ${permissionKey}: read is explicitly false.`);
+            router.push("/admin/dashboard");
+        } else {
+            console.log(`[AuthGuard] Access granted for ${permissionKey}:`, permission);
+            setHasAccess(true);
         }
     }, [admin, permissionKey, router]);
 

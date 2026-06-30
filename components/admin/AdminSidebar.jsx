@@ -45,7 +45,8 @@ export default function AdminSidebar() {
         // Check new format
         const perm = perms[module];
         if (perm) {
-            return perm.view !== false; // If view is explicitly false, deny. Else allow.
+            if (perm.view === false) return false;
+            return true;
         }
 
         // Fallback for old format (e.g. blogs_view_all)
