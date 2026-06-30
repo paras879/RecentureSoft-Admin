@@ -1,14 +1,12 @@
-"use client";
+﻿"use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search, ChevronLeft, ChevronRight, ExternalLink, Edit, Trash2, Download, Reply } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
 import QuickReplyModal from "./QuickReplyModal";
 import CategoryManagerModal from "./CategoryManagerModal";
-import { useAdmin } from "@/components/admin/AdminProvider";
-import { deleteJobOpening, deleteSubscriber } from "@/app/admin/actions";
 
 export default function AdminDataTable({ title, data, type }) {
     const router = useRouter();
@@ -22,35 +20,6 @@ export default function AdminDataTable({ title, data, type }) {
 
     const itemsPerPage = 10;
 
-    const { admin } = useAdmin();
-    const role = admin?.role || 'super_admin';
-    const perms = admin?.permissions || {};
-
-    const typeToModuleMap = {
-        project: 'leads',
-        meeting: 'meetings',
-        contact: 'contact',
-        blog: 'blogs',
-        service: 'services',
-        portfolio: 'portfolio',
-        event: 'events',
-        job: 'jobs',
-        team: 'team',
-        review: 'reviews',
-        subscriber: 'subscribers',
-        application: 'applications'
-    };
-
-    const moduleKey = typeToModuleMap[type];
-
-    const hasAccess = (action) => {
-        if (role === 'super_admin') return true;
-        if (!moduleKey) return true;
-        const key = `${moduleKey}_${action}`;
-        const perm = perms[key];
-        if (!perm) return true; // Default allow
-        return perm.write !== false;
-    };
 
     const handleDelete = async (id, e) => {
         e.stopPropagation();
@@ -58,24 +27,17 @@ export default function AdminDataTable({ title, data, type }) {
 
         setDeletingId(id);
         try {
-            let res;
-            if (type === "job") res = await deleteJobOpening(id);
-            else if (type === "subscriber") res = await deleteSubscriber(id);
-            else {
-                const response = await fetch(`/api/admin/records/${type}/${id}`, { method: "DELETE" });
-                res = await response.json();
-                if (response.ok) res.success = true;
-            }
-
-            if (res && res.success) {
+            const res = await fetch(`/api/admin/records/${type}/${id}`, { method: "DELETE" });
+            if (res.ok) {
                 router.refresh();
                 setSelectedIds(prev => prev.filter(i => i !== id));
             } else {
-                alert(res?.error || "Failed to delete record");
+                const data = await res.json();
+                alert(data.error || "Failed to delete record");
             }
         } catch (error) {
             console.error("Error deleting record:", error);
-            alert("An error occurred while deleting.");
+            alert("An error occurred while deleting the record");
         } finally {
             setDeletingId(null);
         }
@@ -166,7 +128,6 @@ export default function AdminDataTable({ title, data, type }) {
                 { label: "Date", key: "date" },
                 { label: "Name", key: "name", render: (r) => <span className="font-semibold">{r.name}</span> },
                 { label: "Email", key: "email", render: (r) => <span className="text-cyan-600">{r.email}</span> },
-                { label: "Phone", key: "phone", render: (r) => r.phone && r.phone !== "—" ? <span className="text-emerald-600 dark:text-emerald-400 font-medium">{r.phone}</span> : <span className="text-slate-400">—</span> },
                 { label: "Subject", key: "subject", render: (r) => <span className="px-3 py-1 bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-300 rounded-full text-xs font-medium">{r.subject || "No Subject"}</span> },
                 { label: "Message", key: "message", render: (r) => <div className="max-w-xs truncate" title={r.message}>{r.message}</div> },
             ];
@@ -180,97 +141,6 @@ export default function AdminDataTable({ title, data, type }) {
                         {r.published ? 'Published' : 'Draft'}
                     </span>
                 )},
-            ];
-        } else if (type === "portfolio") {
-            cols = [
-                { label: "Date", key: "date" },
-                { label: "Project Title", key: "title", render: (r) => <span className="font-semibold">{r.title}</span> },
-                { label: "Category", key: "category", render: (r) => <span className="px-3 py-1 bg-cyan-100 text-cyan-700 dark:bg-cyan-500/20 dark:text-cyan-300 rounded-full text-xs font-medium">{r.category}</span> },
-                { label: "URL", key: "projectUrl", render: (r) => r.projectUrl ? <a href={r.projectUrl} target="_blank" className="text-cyan-600 hover:underline">{r.projectUrl}</a> : <span className="text-slate-400">N/A</span> },
-                { label: "Technologies", key: "technologies", render: (r) => (
-                    <div className="flex gap-1 flex-wrap max-w-xs">
-                        {r.technologies?.slice(0, 3).map((t, i) => (
-                            <span key={i} className="px-2 py-0.5 bg-slate-100 text-slate-600 dark:bg-white/10 dark:text-slate-300 rounded text-[10px]">{t}</span>
-                        ))}
-                        {r.technologies?.length > 3 && <span className="px-2 py-0.5 bg-slate-100 text-slate-600 dark:bg-white/10 dark:text-slate-300 rounded text-[10px]">+{r.technologies.length - 3}</span>}
-                    </div>
-                )},
-            ];
-        } else if (type === "service") {
-            cols = [
-                { label: "Date", key: "date" },
-                { label: "Title", key: "title", render: (r) => <span className="font-semibold">{r.title}</span> },
-                { label: "Slug", key: "slug", render: (r) => <span className="text-cyan-600">{r.slug}</span> },
-                { label: "Status", key: "status", render: (r) => (
-                    <span className={`px-2 py-1 rounded text-xs font-medium ${r.status ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400' : 'bg-slate-200 text-slate-700 dark:bg-white/10 dark:text-slate-300'}`}>
-                        {r.status ? 'Active' : 'Inactive'}
-                    </span>
-                )},
-                { label: "Features", key: "features", render: (r) => (
-                    <div className="flex gap-1 flex-wrap max-w-xs">
-                        <span className="text-slate-500 text-xs">{r.features?.length || 0} features</span>
-                    </div>
-                )},
-            ];
-        } else if (type === "subscriber") {
-            cols = [
-                { label: "Date Subscribed", key: "date" },
-                { label: "Email Address", key: "email", render: (r) => <span className="font-semibold">{r.email}</span> },
-                { label: "Status", key: "status", render: (r) => (
-                    <span className={`px-2 py-1 rounded text-xs font-medium ${r.status === 'active' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400' : 'bg-slate-200 text-slate-700 dark:bg-white/10 dark:text-slate-300'}`}>
-                        {r.status}
-                    </span>
-                )},
-            ];
-        } else if (type === "job") {
-            cols = [
-                { label: "Date", key: "date" },
-                { label: "Job Title", key: "title", render: (r) => <span className="font-semibold">{r.title}</span> },
-                { label: "Department", key: "department", render: (r) => <span className="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300 rounded-full text-xs font-medium">{r.department}</span> },
-                { label: "Experience", key: "experience" },
-                { label: "Status", key: "status", render: (r) => (
-                    <span className={`px-2 py-1 rounded text-xs font-medium ${r.status ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400' : 'bg-slate-200 text-slate-700 dark:bg-white/10 dark:text-slate-300'}`}>
-                        {r.status ? 'Active' : 'Inactive'}
-                    </span>
-                )},
-            ];
-        } else if (type === "application") {
-            cols = [
-                { label: "Applied On", key: "createdAt", render: (r) => new Date(r.createdAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' }) },
-                { label: "Name", key: "name", render: (r) => <span className="font-semibold text-gray-800">{r.name}</span> },
-                { label: "Email", key: "email", render: (r) => <span className="text-cyan-600">{r.email}</span> },
-                { label: "Phone", key: "phone" },
-                { label: "Applied For", key: "applyFor", render: (r) => <span className="px-3 py-1 bg-purple-100 text-purple-700 dark:bg-purple-500/20 dark:text-purple-300 rounded-full text-xs font-medium">{r.applyFor}</span> },
-                { label: "Experience", key: "experience" },
-                { label: "Resume", key: "resumeUrl", render: (r) => {
-                    if (!r.resumeUrl) return <span>N/A</span>;
-                    let fullUrl = r.resumeUrl?.startsWith("http") ? r.resumeUrl : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}${r.resumeUrl}`;
-                        
-                    const handleDownload = async (e) => {
-                        e.preventDefault();
-                        try {
-                            const res = await fetch(fullUrl);
-                            const blob = await res.blob();
-                            const blobUrl = window.URL.createObjectURL(blob);
-                            const a = document.createElement('a');
-                            a.href = blobUrl;
-                            a.download = `${r.name.replace(/\s+/g, '_')}_Resume.pdf`;
-                            document.body.appendChild(a);
-                            a.click();
-                            document.body.removeChild(a);
-                            window.URL.revokeObjectURL(blobUrl);
-                        } catch (err) {
-                            window.open(fullUrl, '_blank');
-                        }
-                    };
-
-                    return (
-                        <div className="flex gap-3">
-                            <button onClick={handleDownload} className="text-green-600 hover:underline flex items-center gap-1 font-medium bg-green-50 px-3 py-1 rounded-md transition-colors"><Download size={14} /> Download</button>
-                        </div>
-                    );
-                }},
-                { label: "Message", key: "message", render: (r) => <div className="max-w-[200px] truncate" title={r.message}>{r.message || "No message"}</div> },
             ];
         } else if (type === "activity") {
             cols = [
@@ -295,7 +165,7 @@ export default function AdminDataTable({ title, data, type }) {
         cols.push({ 
             label: "Actions", key: "actions", render: (r) => (
             <div className="flex items-center gap-1">
-                {(type === "project" || type === "contact" || type === "meeting" || type === "application") && hasAccess("reply") && (
+                {(type === "project" || type === "contact" || type === "meeting") && (
                     <button onClick={() => openReplyModal(r.email, r.name)} className="p-2 text-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-500/10 rounded-lg transition-colors" title="Reply Email">
                         <Reply className="w-4 h-4" />
                     </button>
@@ -305,36 +175,13 @@ export default function AdminDataTable({ title, data, type }) {
                     <Link href={`/blog/${r.slug}`} target="_blank" className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Blog">
                         <ExternalLink className="w-4 h-4" />
                     </Link>
-                    {hasAccess("edit") && (
-                        <Link href={`/admin/content/blogs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Blog">
-                            <Edit className="w-4 h-4" />
-                        </Link>
-                    )}
-                    {hasAccess("delete") && <DeleteBlogButton id={r._id} />}
-                    </>
-                )}
-                {type === "portfolio" && hasAccess("edit") && (
-                    <>
-                    <Link href={`/admin/content/portfolio/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Portfolio">
+                    <Link href={`/admin/content/blogs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Blog">
                         <Edit className="w-4 h-4" />
                     </Link>
+                    <DeleteBlogButton id={r._id} />
                     </>
                 )}
-                {type === "service" && hasAccess("edit") && (
-                    <>
-                    <Link href={`/admin/content/services/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Service">
-                        <Edit className="w-4 h-4" />
-                    </Link>
-                    </>
-                )}
-                {type === "job" && hasAccess("edit") && (
-                    <>
-                    <Link href={`/admin/content/jobs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Job">
-                        <Edit className="w-4 h-4" />
-                    </Link>
-                    </>
-                )}
-                {type !== "blog" && hasAccess("delete") && (
+                {type !== "blog" && (
                     <button 
                         onClick={(e) => handleDelete(r._id, e)}
                         disabled={deletingId === r._id}
@@ -356,11 +203,6 @@ export default function AdminDataTable({ title, data, type }) {
         if (!search) return true;
         const searchLower = search.toLowerCase();
         if (type === "blog") return (item.title?.toLowerCase().includes(searchLower) || item.category?.toLowerCase().includes(searchLower));
-        if (type === "portfolio") return (item.title?.toLowerCase().includes(searchLower) || item.technologies?.some(t => t.toLowerCase().includes(searchLower)));
-        if (type === "service") return (item.title?.toLowerCase().includes(searchLower) || item.slug?.toLowerCase().includes(searchLower));
-        if (type === "job") return (item.title?.toLowerCase().includes(searchLower) || item.department?.toLowerCase().includes(searchLower));
-        if (type === "subscriber") return (item.email?.toLowerCase().includes(searchLower) || item.status?.toLowerCase().includes(searchLower));
-        if (type === "application") return (item.name?.toLowerCase().includes(searchLower) || item.email?.toLowerCase().includes(searchLower) || item.applyFor?.toLowerCase().includes(searchLower));
         return (item.name?.toLowerCase().includes(searchLower) || item.email?.toLowerCase().includes(searchLower) || item.topic?.toLowerCase().includes(searchLower) || item.subject?.toLowerCase().includes(searchLower) || item.projectType?.toLowerCase().includes(searchLower));
     });
 
@@ -388,7 +230,7 @@ export default function AdminDataTable({ title, data, type }) {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div className="flex items-center gap-4">
                     <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{title}</h1>
-                    {selectedIds.length > 0 && hasAccess("delete") && (
+                    {selectedIds.length > 0 && (
                         <button onClick={handleBulkDelete} className="text-sm px-3 py-1.5 bg-red-100 text-red-600 hover:bg-red-200 dark:bg-red-500/20 dark:text-red-400 rounded-lg font-medium transition-colors">
                             Delete Selected ({selectedIds.length})
                         </button>
@@ -409,7 +251,7 @@ export default function AdminDataTable({ title, data, type }) {
                     <button onClick={handleExportCSV} className="p-2 border border-slate-200 dark:border-white/10 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 text-slate-600 dark:text-slate-300" title="Export CSV">
                         <Download className="w-5 h-5" />
                     </button>
-                    {type === "blog" && hasAccess("category") && (
+                    {type === "blog" && (
                         <button onClick={handleAddCategory} className="px-4 py-2 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/20 rounded-xl hover:bg-cyan-100 dark:hover:bg-cyan-500/20 text-sm font-semibold transition-colors flex items-center gap-1">
                             Manage Categories
                         </button>

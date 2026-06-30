@@ -1,14 +1,12 @@
-"use client";
+﻿"use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search, ChevronLeft, ChevronRight, ExternalLink, Edit, Trash2, Download, Reply } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
 import QuickReplyModal from "./QuickReplyModal";
-import CategoryManagerModal from "./CategoryManagerModal";
-import { useAdmin } from "@/components/admin/AdminProvider";
-import { deleteJobOpening, deleteSubscriber } from "@/app/admin/actions";
+import { deleteBlog, deleteJobOpening, deleteSubscriber } from "@/app/admin/actions";
 
 export default function AdminDataTable({ title, data, type }) {
     const router = useRouter();
@@ -18,39 +16,9 @@ export default function AdminDataTable({ title, data, type }) {
     const [selectedIds, setSelectedIds] = useState([]);
     const [replyModalOpen, setReplyModalOpen] = useState(false);
     const [replyRecipient, setReplyRecipient] = useState({ email: "", name: "" });
-    const [categoryModalOpen, setCategoryModalOpen] = useState(false);
 
     const itemsPerPage = 10;
 
-    const { admin } = useAdmin();
-    const role = admin?.role || 'super_admin';
-    const perms = admin?.permissions || {};
-
-    const typeToModuleMap = {
-        project: 'leads',
-        meeting: 'meetings',
-        contact: 'contact',
-        blog: 'blogs',
-        service: 'services',
-        portfolio: 'portfolio',
-        event: 'events',
-        job: 'jobs',
-        team: 'team',
-        review: 'reviews',
-        subscriber: 'subscribers',
-        application: 'applications'
-    };
-
-    const moduleKey = typeToModuleMap[type];
-
-    const hasAccess = (action) => {
-        if (role === 'super_admin') return true;
-        if (!moduleKey) return true;
-        const key = `${moduleKey}_${action}`;
-        const perm = perms[key];
-        if (!perm) return true; // Default allow
-        return perm.write !== false;
-    };
 
     const handleDelete = async (id, e) => {
         e.stopPropagation();
@@ -59,7 +27,8 @@ export default function AdminDataTable({ title, data, type }) {
         setDeletingId(id);
         try {
             let res;
-            if (type === "job") res = await deleteJobOpening(id);
+            if (type === "blog") res = await deleteBlog(id);
+            else if (type === "job") res = await deleteJobOpening(id);
             else if (type === "subscriber") res = await deleteSubscriber(id);
             else {
                 const response = await fetch(`/api/admin/records/${type}/${id}`, { method: "DELETE" });
@@ -100,10 +69,6 @@ export default function AdminDataTable({ title, data, type }) {
             console.error(error);
             alert("Error deleting records");
         }
-    };
-
-    const handleAddCategory = () => {
-        setCategoryModalOpen(true);
     };
 
     const toggleSelectAll = (e) => {
@@ -166,7 +131,7 @@ export default function AdminDataTable({ title, data, type }) {
                 { label: "Date", key: "date" },
                 { label: "Name", key: "name", render: (r) => <span className="font-semibold">{r.name}</span> },
                 { label: "Email", key: "email", render: (r) => <span className="text-cyan-600">{r.email}</span> },
-                { label: "Phone", key: "phone", render: (r) => r.phone && r.phone !== "—" ? <span className="text-emerald-600 dark:text-emerald-400 font-medium">{r.phone}</span> : <span className="text-slate-400">—</span> },
+                { label: "Phone", key: "phone", render: (r) => r.phone && r.phone !== "ΓÇö" ? <span className="text-emerald-600 dark:text-emerald-400 font-medium">{r.phone}</span> : <span className="text-slate-400">ΓÇö</span> },
                 { label: "Subject", key: "subject", render: (r) => <span className="px-3 py-1 bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-300 rounded-full text-xs font-medium">{r.subject || "No Subject"}</span> },
                 { label: "Message", key: "message", render: (r) => <div className="max-w-xs truncate" title={r.message}>{r.message}</div> },
             ];
@@ -260,6 +225,7 @@ export default function AdminDataTable({ title, data, type }) {
                             document.body.removeChild(a);
                             window.URL.revokeObjectURL(blobUrl);
                         } catch (err) {
+                            // Fallback if CORS fails
                             window.open(fullUrl, '_blank');
                         }
                     };
@@ -295,7 +261,7 @@ export default function AdminDataTable({ title, data, type }) {
         cols.push({ 
             label: "Actions", key: "actions", render: (r) => (
             <div className="flex items-center gap-1">
-                {(type === "project" || type === "contact" || type === "meeting" || type === "application") && hasAccess("reply") && (
+                {(type === "project" || type === "contact" || type === "meeting" || type === "application") && (
                     <button onClick={() => openReplyModal(r.email, r.name)} className="p-2 text-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-500/10 rounded-lg transition-colors" title="Reply Email">
                         <Reply className="w-4 h-4" />
                     </button>
@@ -305,36 +271,34 @@ export default function AdminDataTable({ title, data, type }) {
                     <Link href={`/blog/${r.slug}`} target="_blank" className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Blog">
                         <ExternalLink className="w-4 h-4" />
                     </Link>
-                    {hasAccess("edit") && (
-                        <Link href={`/admin/content/blogs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Blog">
-                            <Edit className="w-4 h-4" />
-                        </Link>
-                    )}
-                    {hasAccess("delete") && <DeleteBlogButton id={r._id} />}
+                    <Link href={`/admin/content/blogs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Blog">
+                        <Edit className="w-4 h-4" />
+                    </Link>
+                    <DeleteBlogButton id={r._id} />
                     </>
                 )}
-                {type === "portfolio" && hasAccess("edit") && (
+                {type === "portfolio" && (
                     <>
                     <Link href={`/admin/content/portfolio/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Portfolio">
                         <Edit className="w-4 h-4" />
                     </Link>
                     </>
                 )}
-                {type === "service" && hasAccess("edit") && (
+                {type === "service" && (
                     <>
                     <Link href={`/admin/content/services/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Service">
                         <Edit className="w-4 h-4" />
                     </Link>
                     </>
                 )}
-                {type === "job" && hasAccess("edit") && (
+                {type === "job" && (
                     <>
                     <Link href={`/admin/content/jobs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Job">
                         <Edit className="w-4 h-4" />
                     </Link>
                     </>
                 )}
-                {type !== "blog" && hasAccess("delete") && (
+                {type !== "blog" && (
                     <button 
                         onClick={(e) => handleDelete(r._id, e)}
                         disabled={deletingId === r._id}
@@ -359,7 +323,6 @@ export default function AdminDataTable({ title, data, type }) {
         if (type === "portfolio") return (item.title?.toLowerCase().includes(searchLower) || item.technologies?.some(t => t.toLowerCase().includes(searchLower)));
         if (type === "service") return (item.title?.toLowerCase().includes(searchLower) || item.slug?.toLowerCase().includes(searchLower));
         if (type === "job") return (item.title?.toLowerCase().includes(searchLower) || item.department?.toLowerCase().includes(searchLower));
-        if (type === "subscriber") return (item.email?.toLowerCase().includes(searchLower) || item.status?.toLowerCase().includes(searchLower));
         if (type === "application") return (item.name?.toLowerCase().includes(searchLower) || item.email?.toLowerCase().includes(searchLower) || item.applyFor?.toLowerCase().includes(searchLower));
         return (item.name?.toLowerCase().includes(searchLower) || item.email?.toLowerCase().includes(searchLower) || item.topic?.toLowerCase().includes(searchLower) || item.subject?.toLowerCase().includes(searchLower) || item.projectType?.toLowerCase().includes(searchLower));
     });
@@ -379,16 +342,11 @@ export default function AdminDataTable({ title, data, type }) {
                 recipientName={replyRecipient.name}
                 type={type}
             />
-            
-            <CategoryManagerModal 
-                isOpen={categoryModalOpen}
-                onClose={() => setCategoryModalOpen(false)}
-            />
 
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div className="flex items-center gap-4">
                     <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{title}</h1>
-                    {selectedIds.length > 0 && hasAccess("delete") && (
+                    {selectedIds.length > 0 && (
                         <button onClick={handleBulkDelete} className="text-sm px-3 py-1.5 bg-red-100 text-red-600 hover:bg-red-200 dark:bg-red-500/20 dark:text-red-400 rounded-lg font-medium transition-colors">
                             Delete Selected ({selectedIds.length})
                         </button>
@@ -409,11 +367,6 @@ export default function AdminDataTable({ title, data, type }) {
                     <button onClick={handleExportCSV} className="p-2 border border-slate-200 dark:border-white/10 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 text-slate-600 dark:text-slate-300" title="Export CSV">
                         <Download className="w-5 h-5" />
                     </button>
-                    {type === "blog" && hasAccess("category") && (
-                        <button onClick={handleAddCategory} className="px-4 py-2 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/20 rounded-xl hover:bg-cyan-100 dark:hover:bg-cyan-500/20 text-sm font-semibold transition-colors flex items-center gap-1">
-                            Manage Categories
-                        </button>
-                    )}
                 </div>
             </div>
 
