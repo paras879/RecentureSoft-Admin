@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, ChevronLeft, ChevronRight, ExternalLink, Edit, Trash2, Download, Reply } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, Eye, Edit, Trash2, Download, Reply } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
@@ -305,9 +305,11 @@ export default function AdminDataTable({ title, data, type }) {
                 )}
                 {type === "blog" && (
                     <>
-                    <Link href={`/blog/${r.slug}`} target="_blank" className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Blog">
-                        <ExternalLink className="w-4 h-4" />
-                    </Link>
+                    {hasAccess("view") && (
+                        <Link href={`/blog/${r.slug}`} target="_blank" className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Blog">
+                            <Eye className="w-4 h-4" />
+                        </Link>
+                    )}
                     {hasAccess("edit") && (
                         <Link href={`/admin/content/blogs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Blog">
                             <Edit className="w-4 h-4" />
