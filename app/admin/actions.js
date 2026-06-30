@@ -447,3 +447,24 @@ export async function deleteSubscriber(id) {
         return { success: false, error: "Failed to delete subscriber." };
     }
 }
+
+export async function updateAdminPermissions(id, permissions) {
+    try {
+        await connectDB();
+        
+        const admin = await Admin.findById(id);
+        if (!admin) return { success: false, error: "Admin not found." };
+        if (admin.role === 'super_admin') {
+            return { success: false, error: "Super Admins always have full permissions." };
+        }
+
+        // permissions is expected to be an object: { blogs: { read: true, write: false }, services: ... }
+        admin.permissions = permissions;
+        await admin.save();
+
+        return { success: true };
+    } catch (error) {
+        console.error("Error updating admin permissions:", error);
+        return { success: false, error: "Failed to update permissions." };
+    }
+}

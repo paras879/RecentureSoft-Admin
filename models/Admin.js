@@ -20,6 +20,14 @@ const adminSchema = new mongoose.Schema({
         enum: ['super_admin', 'admin', 'editor'],
         default: 'admin'
     },
+    permissions: {
+        type: Map,
+        of: new mongoose.Schema({
+            read: { type: Boolean, default: false },
+            write: { type: Boolean, default: false }
+        }, { _id: false }),
+        default: {}
+    },
     resetToken: {
         type: String,
         default: null
