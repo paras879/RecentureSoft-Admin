@@ -36,6 +36,9 @@ export default async function BlogsPage() {
         tags: r.tags || [],
         views: r.views || 0,
         published: r.published,
+        excerpt: r.excerpt,
+        content: r.content,
+        image: r.image,
         date: new Date(r.createdAt || Date.now()).toLocaleDateString("en-US", {
             timeZone: 'Asia/Kolkata',
             year: 'numeric', month: 'short', day: 'numeric',

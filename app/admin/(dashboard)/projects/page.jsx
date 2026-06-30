@@ -24,13 +24,14 @@ export default async function ProjectsPage() {
 
     const chartData = generateLast7DaysChartData(recentProjectsForChart, "count");
 
-    // Convert MongoDB objects to plain objects
     const data = records.map(r => ({
         _id: r._id.toString(),
         name: r.name,
         email: r.email,
         projectType: r.projectType,
+        projectDetails: r.projectDetails || r.message || "",
         message: r.projectDetails || r.message || "",
+        status: r.status,
         date: new Date(r.createdAt).toLocaleDateString("en-US", {
             timeZone: 'Asia/Kolkata',
             year: 'numeric', month: 'short', day: 'numeric',

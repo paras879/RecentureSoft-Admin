@@ -7,6 +7,9 @@ import Link from "next/link";
 import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
 import QuickReplyModal from "./QuickReplyModal";
 import CategoryManagerModal from "./CategoryManagerModal";
+import ServiceViewModal from "./ServiceViewModal";
+import BlogViewModal from "./BlogViewModal";
+import GenericRecordViewModal from "./GenericRecordViewModal";
 import { useAdmin } from "@/components/admin/AdminProvider";
 import { deleteJobOpening, deleteSubscriber } from "@/app/admin/actions";
 
@@ -19,6 +22,12 @@ export default function AdminDataTable({ title, data, type }) {
     const [replyModalOpen, setReplyModalOpen] = useState(false);
     const [replyRecipient, setReplyRecipient] = useState({ email: "", name: "" });
     const [categoryModalOpen, setCategoryModalOpen] = useState(false);
+    const [viewServiceModalOpen, setViewServiceModalOpen] = useState(false);
+    const [selectedViewService, setSelectedViewService] = useState(null);
+    const [viewBlogModalOpen, setViewBlogModalOpen] = useState(false);
+    const [selectedViewBlog, setSelectedViewBlog] = useState(null);
+    const [genericViewModalOpen, setGenericViewModalOpen] = useState(false);
+    const [selectedGenericRecord, setSelectedGenericRecord] = useState(null);
 
     const itemsPerPage = 10;
 
@@ -144,6 +153,21 @@ export default function AdminDataTable({ title, data, type }) {
     const openReplyModal = (email, name) => {
         setReplyRecipient({ email, name });
         setReplyModalOpen(true);
+    };
+
+    const openServiceViewModal = (service) => {
+        setSelectedViewService(service);
+        setViewServiceModalOpen(true);
+    };
+
+    const openBlogViewModal = (blog) => {
+        setSelectedViewBlog(blog);
+        setViewBlogModalOpen(true);
+    };
+
+    const openGenericViewModal = (record) => {
+        setSelectedGenericRecord(record);
+        setGenericViewModalOpen(true);
     };
 
     const getColumns = () => {
@@ -298,6 +322,15 @@ export default function AdminDataTable({ title, data, type }) {
         cols.push({ 
             label: "Actions", key: "actions", render: (r) => (
             <div className="flex items-center gap-1">
+                {(type === "project" || type === "contact" || type === "meeting" || type === "application" || type === "subscriber" || type === "review") && (
+                    <>
+                    {hasAccess("view") && (
+                        <button onClick={() => openGenericViewModal(r)} className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Details">
+                            <Eye className="w-4 h-4" />
+                        </button>
+                    )}
+                    </>
+                )}
                 {(type === "project" || type === "contact" || type === "meeting" || type === "application") && hasAccess("reply") && (
                     <button onClick={() => openReplyModal(r.email, r.name)} className="p-2 text-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-500/10 rounded-lg transition-colors" title="Reply Email">
                         <Reply className="w-4 h-4" />
@@ -306,9 +339,9 @@ export default function AdminDataTable({ title, data, type }) {
                 {type === "blog" && (
                     <>
                     {hasAccess("view") && (
-                        <Link href={`/blog/${r.slug}`} target="_blank" className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Blog">
+                        <button onClick={() => openBlogViewModal(r)} className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Blog">
                             <Eye className="w-4 h-4" />
-                        </Link>
+                        </button>
                     )}
                     {hasAccess("edit") && (
                         <Link href={`/admin/content/blogs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Blog">
@@ -318,25 +351,46 @@ export default function AdminDataTable({ title, data, type }) {
                     {hasAccess("delete") && <DeleteBlogButton id={r._id} />}
                     </>
                 )}
-                {type === "portfolio" && hasAccess("edit") && (
+                {type === "portfolio" && (
                     <>
-                    <Link href={`/admin/content/portfolio/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Portfolio">
-                        <Edit className="w-4 h-4" />
-                    </Link>
+                    {hasAccess("view") && (
+                        <button onClick={() => openGenericViewModal(r)} className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Portfolio">
+                            <Eye className="w-4 h-4" />
+                        </button>
+                    )}
+                    {hasAccess("edit") && (
+                        <Link href={`/admin/content/portfolio/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Portfolio">
+                            <Edit className="w-4 h-4" />
+                        </Link>
+                    )}
                     </>
                 )}
-                {type === "service" && hasAccess("edit") && (
+                {type === "service" && (
                     <>
-                    <Link href={`/admin/content/services/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Service">
-                        <Edit className="w-4 h-4" />
-                    </Link>
+                    {hasAccess("view") && (
+                        <button onClick={() => openServiceViewModal(r)} className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Service">
+                            <Eye className="w-4 h-4" />
+                        </button>
+                    )}
+                    {hasAccess("edit") && (
+                        <Link href={`/admin/content/services/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Service">
+                            <Edit className="w-4 h-4" />
+                        </Link>
+                    )}
                     </>
                 )}
-                {type === "job" && hasAccess("edit") && (
+                {type === "job" && (
                     <>
-                    <Link href={`/admin/content/jobs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Job">
-                        <Edit className="w-4 h-4" />
-                    </Link>
+                    {hasAccess("view") && (
+                        <button onClick={() => openGenericViewModal(r)} className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Job">
+                            <Eye className="w-4 h-4" />
+                        </button>
+                    )}
+                    {hasAccess("edit") && (
+                        <Link href={`/admin/content/jobs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit Job">
+                            <Edit className="w-4 h-4" />
+                        </Link>
+                    )}
                     </>
                 )}
                 {type !== "blog" && hasAccess("delete") && (
@@ -388,6 +442,25 @@ export default function AdminDataTable({ title, data, type }) {
             <CategoryManagerModal 
                 isOpen={categoryModalOpen}
                 onClose={() => setCategoryModalOpen(false)}
+            />
+
+            <ServiceViewModal
+                isOpen={viewServiceModalOpen}
+                onClose={() => setViewServiceModalOpen(false)}
+                service={selectedViewService}
+            />
+
+            <BlogViewModal
+                isOpen={viewBlogModalOpen}
+                onClose={() => setViewBlogModalOpen(false)}
+                blog={selectedViewBlog}
+            />
+
+            <GenericRecordViewModal
+                isOpen={genericViewModalOpen}
+                onClose={() => setGenericViewModalOpen(false)}
+                record={selectedGenericRecord}
+                title="View Record Details"
             />
 
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">

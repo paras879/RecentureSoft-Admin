@@ -18,10 +18,12 @@ export default async function ApplicationsPage() {
         name: r.name,
         email: r.email,
         phone: r.phone,
+        city: r.city,
         applyFor: r.applyFor,
         experience: r.experience || "N/A",
         message: r.message || "",
         resumeUrl: r.resumeUrl,
+        status: r.status,
         createdAt: r.createdAt ? r.createdAt.toISOString() : new Date().toISOString(),
     }));
 

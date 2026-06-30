@@ -21,6 +21,9 @@ export default async function ServicesCMSPage() {
         slug: r.slug,
         status: r.status,
         features: r.features || [],
+        category: r.category,
+        shortDescription: r.shortDescription,
+        description: r.description,
         date: new Date(r.createdAt).toLocaleDateString("en-US", {
             year: 'numeric', month: 'short', day: 'numeric'
         }),

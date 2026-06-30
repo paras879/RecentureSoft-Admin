@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Trash2, Edit2, Plus, X, Loader2, UploadCloud } from "lucide-react";
+import { Trash2, Edit2, Plus, X, Loader2, UploadCloud, Eye } from "lucide-react";
+import { useAdmin } from "@/components/admin/AdminProvider";
+import GenericRecordViewModal from "@/components/admin/GenericRecordViewModal";
 
 export default function ManageReviews() {
     const [reviews, setReviews] = useState([]);
@@ -10,6 +12,20 @@ export default function ManageReviews() {
     const [editId, setEditId] = useState(null);
     const [uploadingImage, setUploadingImage] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
+    const [viewModalOpen, setViewModalOpen] = useState(false);
+    const [selectedViewRecord, setSelectedViewRecord] = useState(null);
+
+    const { admin } = useAdmin();
+    const role = admin?.role || 'super_admin';
+    const perms = admin?.permissions || {};
+
+    const hasAccess = (action) => {
+        if (role === 'super_admin') return true;
+        const perm = perms['reviews'];
+        if (!perm) return true;
+        if (action === 'view') return perm.view !== false;
+        return perm.manage !== false;
+    };
     
     // Form State
     const [formData, setFormData] = useState({
@@ -119,6 +135,11 @@ export default function ManageReviews() {
         setIsModalOpen(true);
     };
 
+    const handleViewModal = (record) => {
+        setSelectedViewRecord(record);
+        setViewModalOpen(true);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -167,12 +188,14 @@ export default function ManageReviews() {
                         <h2 className="text-xl font-bold text-slate-900 dark:text-white">Existing Reviews</h2>
                         <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Manage what clients say about RecentureSoft.</p>
                     </div>
-                    <button 
-                        onClick={() => handleOpenModal()}
-                        className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-xl transition-colors text-sm font-medium"
-                    >
-                        <Plus className="w-4 h-4" /> Add Review
-                    </button>
+                    {hasAccess("edit") && (
+                        <button 
+                            onClick={() => handleOpenModal()}
+                            className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-xl transition-colors text-sm font-medium"
+                        >
+                            <Plus className="w-4 h-4" /> Add Review
+                        </button>
+                    )}
                 </div>
                 
                 <div className="overflow-x-auto">
@@ -225,20 +248,33 @@ export default function ManageReviews() {
                                         </td>
                                         <td className="py-4 text-right">
                                             <div className="flex justify-end gap-2">
-                                                <button 
-                                                    onClick={() => handleOpenModal(review)}
-                                                    className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors focus:opacity-100"
-                                                    title="Edit Review"
-                                                >
-                                                    <Edit2 className="w-4 h-4" />
-                                                </button>
-                                                <button 
-                                                    onClick={() => handleDelete(review._id, review.name)}
-                                                    className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors focus:opacity-100"
-                                                    title="Delete Review"
-                                                >
-                                                    <Trash2 className="w-4 h-4" />
-                                                </button>
+                                                {hasAccess("view") && (
+                                                    <button 
+                                                        onClick={() => handleViewModal(review)}
+                                                        className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors focus:opacity-100"
+                                                        title="View Review"
+                                                    >
+                                                        <Eye className="w-4 h-4" />
+                                                    </button>
+                                                )}
+                                                {hasAccess("edit") && (
+                                                    <button 
+                                                        onClick={() => handleOpenModal(review)}
+                                                        className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors focus:opacity-100"
+                                                        title="Edit Review"
+                                                    >
+                                                        <Edit2 className="w-4 h-4" />
+                                                    </button>
+                                                )}
+                                                {hasAccess("delete") && (
+                                                    <button 
+                                                        onClick={() => handleDelete(review._id, review.name)}
+                                                        className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors focus:opacity-100"
+                                                        title="Delete Review"
+                                                    >
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                )}
                                             </div>
                                         </td>
                                     </tr>
@@ -248,6 +284,13 @@ export default function ManageReviews() {
                     </table>
                 </div>
             </div>
+
+            <GenericRecordViewModal
+                isOpen={viewModalOpen}
+                onClose={() => setViewModalOpen(false)}
+                record={selectedViewRecord}
+                title="Review Details"
+            />
 
             {/* Add/Edit Review Modal */}
             {isModalOpen && (

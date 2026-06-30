@@ -18,9 +18,13 @@ export default async function PortfolioCMSPage() {
     const data = records.map(r => ({
         _id: r._id.toString(),
         title: r.title,
+        slug: r.slug,
         category: r.category || "Web Development",
         projectUrl: r.projectUrl || "",
         technologies: r.technologies || [],
+        description: r.description,
+        image: r.image,
+        images: r.images,
         date: new Date(r.createdAt).toLocaleDateString("en-US", {
             year: 'numeric', month: 'short', day: 'numeric'
         }),

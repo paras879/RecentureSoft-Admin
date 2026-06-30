@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Trash2, Edit2, Plus, X, Loader2, UploadCloud, Image as ImageIcon } from "lucide-react";
+import { Trash2, Edit2, Plus, X, Loader2, UploadCloud, Image as ImageIcon, Eye } from "lucide-react";
 import Link from "next/link";
+import { useAdmin } from "@/components/admin/AdminProvider";
+import GenericRecordViewModal from "@/components/admin/GenericRecordViewModal";
 
 export default function ManageEvents() {
     const [events, setEvents] = useState([]);
@@ -11,6 +13,20 @@ export default function ManageEvents() {
     const [editId, setEditId] = useState(null);
     const [uploadingImage, setUploadingImage] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
+    const [viewModalOpen, setViewModalOpen] = useState(false);
+    const [selectedViewRecord, setSelectedViewRecord] = useState(null);
+
+    const { admin } = useAdmin();
+    const role = admin?.role || 'super_admin';
+    const perms = admin?.permissions || {};
+
+    const hasAccess = (action) => {
+        if (role === 'super_admin') return true;
+        const perm = perms['events'];
+        if (!perm) return true;
+        if (action === 'view') return perm.view !== false;
+        return perm.manage !== false;
+    };
     
     // Form State
     const [formData, setFormData] = useState({
@@ -126,6 +142,11 @@ export default function ManageEvents() {
         setIsModalOpen(true);
     };
 
+    const handleViewModal = (record) => {
+        setSelectedViewRecord(record);
+        setViewModalOpen(true);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -172,12 +193,14 @@ export default function ManageEvents() {
                     <h2 className="text-lg font-bold text-slate-900 dark:text-white">All Events</h2>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Manage event details and their photo galleries</p>
                 </div>
-                <button 
-                    onClick={() => handleOpenModal()} 
-                    className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors shadow-sm"
-                >
-                    <Plus className="w-4 h-4" /> Add Event
-                </button>
+                {hasAccess("edit") && (
+                    <button 
+                        onClick={() => handleOpenModal()} 
+                        className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors shadow-sm"
+                    >
+                        <Plus className="w-4 h-4" /> Add Event
+                    </button>
+                )}
             </div>
             
             <div className="overflow-x-auto">
@@ -219,19 +242,35 @@ export default function ManageEvents() {
                                         {event.date}
                                     </td>
                                     <td className="py-4 px-6">
-                                        <Link href={`/admin/content/events/${event.slug}`} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/20 text-xs font-medium rounded-lg transition-colors">
-                                            <ImageIcon className="w-3.5 h-3.5" />
-                                            Manage Gallery ({event.photoCount || 0})
-                                        </Link>
+                                        {hasAccess("edit") ? (
+                                            <Link href={`/admin/content/events/${event.slug}`} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/20 text-xs font-medium rounded-lg transition-colors">
+                                                <ImageIcon className="w-3.5 h-3.5" />
+                                                Manage Gallery ({event.photoCount || 0})
+                                            </Link>
+                                        ) : (
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 dark:bg-slate-500/10 text-slate-500 dark:text-slate-400 text-xs font-medium rounded-lg">
+                                                <ImageIcon className="w-3.5 h-3.5" />
+                                                Gallery ({event.photoCount || 0})
+                                            </span>
+                                        )}
                                     </td>
                                     <td className="py-4 px-6">
                                         <div className="flex gap-2 justify-end">
-                                            <button onClick={() => handleOpenModal(event)} className="p-2 text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-500/10 rounded-lg transition-colors" title="Edit Event">
-                                                <Edit2 className="w-4 h-4" />
-                                            </button>
-                                            <button onClick={() => handleDelete(event._id)} className="p-2 text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors" title="Delete Event">
-                                                <Trash2 className="w-4 h-4" />
-                                            </button>
+                                            {hasAccess("view") && (
+                                                <button onClick={() => handleViewModal(event)} className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Event">
+                                                    <Eye className="w-4 h-4" />
+                                                </button>
+                                            )}
+                                            {hasAccess("edit") && (
+                                                <button onClick={() => handleOpenModal(event)} className="p-2 text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-500/10 rounded-lg transition-colors" title="Edit Event">
+                                                    <Edit2 className="w-4 h-4" />
+                                                </button>
+                                            )}
+                                            {hasAccess("delete") && (
+                                                <button onClick={() => handleDelete(event._id)} className="p-2 text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors" title="Delete Event">
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            )}
                                         </div>
                                     </td>
                                 </tr>
@@ -240,6 +279,13 @@ export default function ManageEvents() {
                     </tbody>
                 </table>
             </div>
+
+            <GenericRecordViewModal
+                isOpen={viewModalOpen}
+                onClose={() => setViewModalOpen(false)}
+                record={selectedViewRecord}
+                title="Event Details"
+            />
 
             {/* Modal */}
             {isModalOpen && (

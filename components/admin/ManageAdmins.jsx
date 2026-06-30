@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Trash2, UserPlus, Shield, ShieldAlert, KeyRound, ChevronDown, ChevronUp, Save, Loader2, Check, X } from "lucide-react";
-import { deleteAdmin, promoteAdmin, createNewAdmin, updateAdminPermissions } from "@/app/admin/actions";
+import { Trash2, UserPlus, Shield, ShieldAlert, KeyRound, ChevronDown, ChevronUp, Save, Loader2, Check, X, Edit2 } from "lucide-react";
+import { deleteAdmin, promoteAdmin, createNewAdmin, updateAdminPermissions, updateAdminDetails } from "@/app/admin/actions";
 import { motion, AnimatePresence } from "framer-motion";
 
 const CONTENT_MODULES = [
@@ -28,7 +28,9 @@ export default function ManageAdmins() {
     const [expandedAdminId, setExpandedAdminId] = useState(null);
     const [editingPermissions, setEditingPermissions] = useState({});
     const [savingPermissions, setSavingPermissions] = useState(false);
+    const [saveSuccessId, setSaveSuccessId] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [editAdminId, setEditAdminId] = useState(null);
 
     const fetchAdmins = async () => {
         try {
@@ -70,20 +72,38 @@ export default function ManageAdmins() {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            const res = await createNewAdmin(formData.username, formData.email, formData.password, formData.role);
+            let res;
+            if (editAdminId) {
+                res = await updateAdminDetails(editAdminId, formData.username, formData.email, formData.role);
+            } else {
+                res = await createNewAdmin(formData.username, formData.email, formData.password, formData.role);
+            }
+            
             if (res.success) {
                 setFormData({ username: '', email: '', password: '', role: 'admin' });
                 setIsModalOpen(false);
-                alert("Admin successfully added!");
+                setEditAdminId(null);
+                alert(editAdminId ? "Admin successfully updated!" : "Admin successfully added!");
                 fetchAdmins();
             } else {
-                alert(res.error || "Failed to add admin.");
+                alert(res.error || (editAdminId ? "Failed to update admin." : "Failed to add admin."));
             }
         } catch (error) {
             alert("An error occurred.");
         } finally {
             setIsSubmitting(false);
         }
+    };
+
+    const handleOpenModal = (admin = null) => {
+        if (admin) {
+            setEditAdminId(admin._id);
+            setFormData({ username: admin.username, email: admin.email, password: '', role: admin.role });
+        } else {
+            setEditAdminId(null);
+            setFormData({ username: '', email: '', password: '', role: 'admin' });
+        }
+        setIsModalOpen(true);
     };
 
     const toggleAccordion = (admin) => {
@@ -124,7 +144,8 @@ export default function ManageAdmins() {
             const res = await updateAdminPermissions(adminId, editingPermissions);
             if (res.success) {
                 fetchAdmins();
-                alert("Permissions saved securely!");
+                setSaveSuccessId(adminId);
+                setTimeout(() => setSaveSuccessId(null), 2500);
             } else {
                 alert(res.error || "Failed to update permissions.");
             }
@@ -171,7 +192,7 @@ export default function ManageAdmins() {
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <h2 className="text-xl font-bold text-slate-900 dark:text-white">Existing Admins</h2>
                         <button 
-                            onClick={() => setIsModalOpen(true)} 
+                            onClick={() => handleOpenModal()} 
                             className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 shadow-sm"
                         >
                             <UserPlus className="w-4 h-4" /> Add New Admin
@@ -219,6 +240,13 @@ export default function ManageAdmins() {
                                                             </button>
                                                         )}
                                                         <button 
+                                                            onClick={() => handleOpenModal(admin)}
+                                                            className="p-1.5 text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-500/10 rounded-md transition-colors border border-slate-100 dark:border-white/5"
+                                                            title="Edit Details"
+                                                        >
+                                                            <Edit2 className="w-4 h-4" />
+                                                        </button>
+                                                        <button 
                                                             onClick={() => handleDeleteAdmin(admin._id, admin.username)}
                                                             className="p-1.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-md transition-colors border border-red-100 dark:border-red-500/20"
                                                             title="Remove Access"
@@ -243,11 +271,17 @@ export default function ManageAdmins() {
                                                             </div>
                                                             <button 
                                                                 onClick={() => handleSavePermissions(admin._id)}
-                                                                disabled={savingPermissions}
-                                                                className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 disabled:opacity-70"
+                                                                disabled={savingPermissions || saveSuccessId === admin._id}
+                                                                className={`${saveSuccessId === admin._id ? 'bg-emerald-500 hover:bg-emerald-600' : 'bg-cyan-600 hover:bg-cyan-700'} text-white px-5 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 disabled:opacity-90`}
                                                             >
-                                                                {savingPermissions ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                                                                Save Permissions
+                                                                {savingPermissions ? (
+                                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                                ) : saveSuccessId === admin._id ? (
+                                                                    <Check className="w-4 h-4 animate-in zoom-in" />
+                                                                ) : (
+                                                                    <Save className="w-4 h-4" />
+                                                                )}
+                                                                {saveSuccessId === admin._id ? 'Saved Successfully!' : 'Save Permissions'}
                                                             </button>
                                                         </div>
                                                         
@@ -349,7 +383,7 @@ export default function ManageAdmins() {
                                 <div className="p-2.5 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-500 rounded-xl">
                                     <UserPlus className="w-5 h-5" />
                                 </div>
-                                <h2 className="text-xl font-bold text-slate-900 dark:text-white">Add New Admin</h2>
+                                <h2 className="text-xl font-bold text-slate-900 dark:text-white">{editAdminId ? "Edit Admin" : "Add New Admin"}</h2>
                             </div>
 
                             <form onSubmit={handleAddAdmin} className="flex flex-col gap-4">
@@ -377,18 +411,20 @@ export default function ManageAdmins() {
                             />
                         </div>
 
-                        <div className="flex flex-col gap-1.5">
-                            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
-                            <input 
-                                type="password"
-                                required
-                                minLength={6}
-                                value={formData.password}
-                                onChange={(e) => setFormData({...formData, password: e.target.value})}
-                                className="w-full px-3 py-2 bg-slate-50 dark:bg-[#0f172a] border border-slate-200 dark:border-white/10 rounded-xl outline-none focus:border-cyan-500 text-sm dark:text-white"
-                                placeholder="••••••••"
-                            />
-                        </div>
+                        {!editAdminId && (
+                            <div className="flex flex-col gap-1.5">
+                                <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
+                                <input 
+                                    type="password"
+                                    required
+                                    minLength={6}
+                                    value={formData.password}
+                                    onChange={(e) => setFormData({...formData, password: e.target.value})}
+                                    className="w-full px-3 py-2 bg-slate-50 dark:bg-[#0f172a] border border-slate-200 dark:border-white/10 rounded-xl outline-none focus:border-cyan-500 text-sm dark:text-white"
+                                    placeholder="••••••••"
+                                />
+                            </div>
+                        )}
 
                         <div className="flex flex-col gap-1.5">
                             <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Role</label>
@@ -410,7 +446,7 @@ export default function ManageAdmins() {
                             {isSubmitting ? (
                                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                             ) : (
-                                "Create Admin"
+                                editAdminId ? "Update Admin" : "Create Admin"
                             )}
                         </button>
                     </form>

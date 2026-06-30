@@ -18,8 +18,12 @@ export default async function JobsPage() {
     const data = records.map(r => ({
         _id: r._id.toString(),
         title: r.title,
+        slug: r.slug,
         department: r.department,
+        location: r.location,
         experience: r.experience,
+        jobType: r.jobType,
+        description: r.description,
         status: r.status,
         date: new Date(r.createdAt).toLocaleDateString("en-US", {
             year: 'numeric', month: 'short', day: 'numeric'

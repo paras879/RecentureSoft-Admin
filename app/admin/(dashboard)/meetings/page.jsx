@@ -31,6 +31,7 @@ export default async function MeetingsPage() {
         date: r.date,
         time: r.time,
         topic: r.topic,
+        status: r.status,
         submittedAt: new Date(r.createdAt).toLocaleDateString("en-US", {
             timeZone: 'Asia/Kolkata',
             year: 'numeric', month: 'short', day: 'numeric',

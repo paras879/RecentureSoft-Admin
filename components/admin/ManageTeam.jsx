@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Trash2, Edit2, Plus, X, Loader2, UploadCloud, User as UserIcon } from "lucide-react";
+import { Trash2, Edit2, Plus, X, Loader2, UploadCloud, User as UserIcon, Eye } from "lucide-react";
+import { useAdmin } from "@/components/admin/AdminProvider";
+import GenericRecordViewModal from "@/components/admin/GenericRecordViewModal";
 
 export default function ManageTeam() {
     const [team, setTeam] = useState([]);
@@ -10,6 +12,20 @@ export default function ManageTeam() {
     const [editId, setEditId] = useState(null);
     const [uploadingImage, setUploadingImage] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
+    const [viewModalOpen, setViewModalOpen] = useState(false);
+    const [selectedViewRecord, setSelectedViewRecord] = useState(null);
+
+    const { admin } = useAdmin();
+    const role = admin?.role || 'super_admin';
+    const perms = admin?.permissions || {};
+
+    const hasAccess = (action) => {
+        if (role === 'super_admin') return true;
+        const perm = perms['team'];
+        if (!perm) return true;
+        if (action === 'view') return perm.view !== false;
+        return perm.manage !== false;
+    };
     
     // Form State
     const [formData, setFormData] = useState({
@@ -119,6 +135,11 @@ export default function ManageTeam() {
         setIsModalOpen(true);
     };
 
+    const handleViewModal = (record) => {
+        setSelectedViewRecord(record);
+        setViewModalOpen(true);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!formData.image) {
@@ -170,12 +191,14 @@ export default function ManageTeam() {
                     <h2 className="text-lg font-bold text-slate-900 dark:text-white">Our Team</h2>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Manage employee testimonials and quotes</p>
                 </div>
-                <button 
-                    onClick={() => handleOpenModal()} 
-                    className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors shadow-sm"
-                >
-                    <Plus className="w-4 h-4" /> Add Member
-                </button>
+                {hasAccess("edit") && (
+                    <button 
+                        onClick={() => handleOpenModal()} 
+                        className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors shadow-sm"
+                    >
+                        <Plus className="w-4 h-4" /> Add Member
+                    </button>
+                )}
             </div>
             
             <div className="overflow-x-auto">
@@ -217,12 +240,21 @@ export default function ManageTeam() {
                                     </td>
                                     <td className="py-4 px-6">
                                         <div className="flex gap-2 justify-end">
-                                            <button onClick={() => handleOpenModal(member)} className="p-2 text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-500/10 rounded-lg transition-colors" title="Edit Member">
-                                                <Edit2 className="w-4 h-4" />
-                                            </button>
-                                            <button onClick={() => handleDelete(member._id)} className="p-2 text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors" title="Delete Member">
-                                                <Trash2 className="w-4 h-4" />
-                                            </button>
+                                            {hasAccess("view") && (
+                                                <button onClick={() => handleViewModal(member)} className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Member">
+                                                    <Eye className="w-4 h-4" />
+                                                </button>
+                                            )}
+                                            {hasAccess("edit") && (
+                                                <button onClick={() => handleOpenModal(member)} className="p-2 text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-500/10 rounded-lg transition-colors" title="Edit Member">
+                                                    <Edit2 className="w-4 h-4" />
+                                                </button>
+                                            )}
+                                            {hasAccess("delete") && (
+                                                <button onClick={() => handleDelete(member._id)} className="p-2 text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors" title="Delete Member">
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            )}
                                         </div>
                                     </td>
                                 </tr>
@@ -231,6 +263,13 @@ export default function ManageTeam() {
                     </tbody>
                 </table>
             </div>
+
+            <GenericRecordViewModal
+                isOpen={viewModalOpen}
+                onClose={() => setViewModalOpen(false)}
+                record={selectedViewRecord}
+                title="Team Member Details"
+            />
 
             {/* Modal */}
             {isModalOpen && (

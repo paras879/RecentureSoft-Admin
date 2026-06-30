@@ -345,6 +345,41 @@ export async function createNewAdmin(username, email, password, role = 'admin') 
     }
 }
 
+export async function updateAdminDetails(id, username, email, role) {
+    try {
+        await connectDB();
+        
+        // Check if username/email already exist for other admins
+        const existingAdmin = await Admin.findOne({ 
+            $or: [{ username }, { email }],
+            _id: { $ne: id }
+        });
+
+        if (existingAdmin) {
+            return { success: false, error: "Username or Email already exists for another admin." };
+        }
+
+        const admin = await Admin.findById(id);
+        if (!admin) return { success: false, error: "Admin not found." };
+        
+        // Don't allow changing master superadmin's username/role
+        if (admin.username === 'superadmin' && (username !== 'superadmin' || role !== 'super_admin')) {
+            return { success: false, error: "Cannot modify the master superadmin's username or role." };
+        }
+
+        admin.username = username;
+        admin.email = email;
+        admin.role = role;
+        
+        await admin.save();
+
+        return { success: true };
+    } catch (error) {
+        console.error("Error updating admin details:", error);
+        return { success: false, error: "An error occurred while updating admin details." };
+    }
+}
+
 export async function promoteAdmin(id) {
     try {
         await connectDB();

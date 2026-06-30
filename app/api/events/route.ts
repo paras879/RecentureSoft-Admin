@@ -8,12 +8,12 @@ export async function GET() {
         await connectDB();
         const events = await Event.find().sort({ _id: -1 });
         
-        // Include photo count for admin UI
         const eventsWithCount = await Promise.all(events.map(async (event) => {
-            const photoCount = await EventGallery.countDocuments({ eventSlug: event.slug });
+            const gallery = await EventGallery.find({ eventSlug: event.slug }).sort({ order: 1 });
             return {
                 ...event.toObject(),
-                photoCount
+                photoCount: gallery.length,
+                galleryPhotos: gallery.map(g => g.image)
             };
         }));
         
