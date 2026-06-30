@@ -220,7 +220,8 @@ export default function ManageAdmins() {
         setEditingPermissions(prev => {
             const updated = { ...prev };
             if (!updated[moduleId]) {
-                updated[moduleId] = { read: false, write: false };
+                // If it wasn't explicitly set before, we assume it was true (default allow)
+                updated[moduleId] = { read: true, write: true };
             }
             
             updated[moduleId][type] = value;
@@ -407,7 +408,11 @@ export default function ManageAdmins() {
                                                                             <tbody className="divide-y divide-slate-100 dark:divide-white/5 bg-white dark:bg-transparent">
                                                                                 {module.fields.map(field => {
                                                                                     const key = `${module.id}_${field.id}`;
-                                                                                    const perms = editingPermissions[key] || { read: false, write: false };
+                                                                                    const permObj = editingPermissions[key] || {};
+                                                                                    const perms = { 
+                                                                                        read: permObj.read !== false, 
+                                                                                        write: permObj.write !== false 
+                                                                                    };
                                                                                     
                                                                                     return (
                                                                                         <tr key={field.id} className="hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors">

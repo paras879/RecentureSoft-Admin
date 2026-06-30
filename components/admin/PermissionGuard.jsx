@@ -12,7 +12,7 @@ export default function PermissionGuard({ permissionKey, fallback = null, childr
     }
 
     const permission = perms[permissionKey];
-    if (permission && permission.read) {
+    if (!permission || permission.read !== false) {
         return <>{children}</>;
     }
 

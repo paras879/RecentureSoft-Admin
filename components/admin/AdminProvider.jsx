@@ -75,7 +75,7 @@ export function useAuthGuard(permissionKey) {
         const perms = admin.permissions || {};
         const permission = perms[permissionKey];
         
-        if (permission && permission.read) {
+        if (!permission || permission.read !== false) {
             setHasAccess(true);
         } else {
             // Redirect to dashboard if no access

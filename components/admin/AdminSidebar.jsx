@@ -41,7 +41,9 @@ export default function AdminSidebar() {
 
     const hasAccess = (key) => {
         if (role === 'super_admin') return true;
-        return perms[key]?.read === true;
+        const perm = perms[key];
+        if (!perm) return true; // Default allow
+        return perm.read !== false;
     };
 
     const handleLogout = async () => {
