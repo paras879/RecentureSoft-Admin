@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Trash2, UserPlus, Shield, ShieldAlert, KeyRound, ChevronDown, ChevronUp, Save, Loader2, Check, X } from "lucide-react";
 import { deleteAdmin, promoteAdmin, createNewAdmin, updateAdminPermissions } from "@/app/admin/actions";
+import { motion, AnimatePresence } from "framer-motion";
 
 const CONTENT_MODULES = [
     {
@@ -138,19 +139,13 @@ const CONTENT_MODULES = [
 
 export default function ManageAdmins() {
     const [adminsList, setAdminsList] = useState([]);
-    
+    const [formData, setFormData] = useState({ username: '', email: '', password: '', role: 'admin' });
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [formData, setFormData] = useState({
-        username: '',
-        email: '',
-        password: '',
-        role: 'admin'
-    });
-
-    // Permissions State
+    
     const [expandedAdminId, setExpandedAdminId] = useState(null);
     const [editingPermissions, setEditingPermissions] = useState({});
     const [savingPermissions, setSavingPermissions] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const fetchAdmins = async () => {
         try {
@@ -195,6 +190,7 @@ export default function ManageAdmins() {
             const res = await createNewAdmin(formData.username, formData.email, formData.password, formData.role);
             if (res.success) {
                 setFormData({ username: '', email: '', password: '', role: 'admin' });
+                setIsModalOpen(false);
                 alert("Admin successfully added!");
                 fetchAdmins();
             } else {
@@ -285,11 +281,19 @@ export default function ManageAdmins() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="flex flex-col gap-8 w-full">
                 
                 {/* Existing Admins Table */}
-                <div className="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col gap-6">
-                    <h2 className="text-xl font-bold text-slate-900 dark:text-white">Existing Admins</h2>
+                <div className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col gap-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Existing Admins</h2>
+                        <button 
+                            onClick={() => setIsModalOpen(true)} 
+                            className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 shadow-sm"
+                        >
+                            <UserPlus className="w-4 h-4" /> Add New Admin
+                        </button>
+                    </div>
                     <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse">
                             <thead>
@@ -445,16 +449,36 @@ export default function ManageAdmins() {
                     </div>
                 </div>
 
-                {/* Add New Admin Form */}
-                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col gap-6 h-fit">
-                    <div className="flex items-center gap-3">
-                        <div className="p-2.5 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-500 rounded-xl">
-                            <UserPlus className="w-5 h-5" />
-                        </div>
-                        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Add New Admin</h2>
-                    </div>
+                {/* Add New Admin Form Modal */}
+                <AnimatePresence>
+                {isModalOpen && (
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm"
+                    >
+                        <motion.div 
+                            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-xl flex flex-col gap-6 w-full max-w-md relative"
+                        >
+                            <button 
+                                onClick={() => setIsModalOpen(false)}
+                                className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 bg-slate-50 dark:bg-slate-800 rounded-lg transition-colors"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
 
-                    <form onSubmit={handleAddAdmin} className="flex flex-col gap-4">
+                            <div className="flex items-center gap-3 pr-8">
+                                <div className="p-2.5 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-500 rounded-xl">
+                                    <UserPlus className="w-5 h-5" />
+                                </div>
+                                <h2 className="text-xl font-bold text-slate-900 dark:text-white">Add New Admin</h2>
+                            </div>
+
+                            <form onSubmit={handleAddAdmin} className="flex flex-col gap-4">
                         <div className="flex flex-col gap-1.5">
                             <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Username</label>
                             <input 
@@ -516,7 +540,10 @@ export default function ManageAdmins() {
                             )}
                         </button>
                     </form>
-                </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+                </AnimatePresence>
 
             </div>
         </div>
