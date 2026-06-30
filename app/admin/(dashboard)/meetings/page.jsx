@@ -32,7 +32,9 @@ export default async function MeetingsPage() {
         time: r.time,
         topic: r.topic,
         submittedAt: new Date(r.createdAt).toLocaleDateString("en-US", {
-            year: 'numeric', month: 'short', day: 'numeric'
+            timeZone: 'Asia/Kolkata',
+            year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit'
         }),
     }));
 

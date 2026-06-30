@@ -6,7 +6,7 @@ import { createBlog, updateBlog } from "@/app/admin/actions";
 import { Loader2, ArrowLeft, Image as ImageIcon, Save, UploadCloud } from "lucide-react";
 import Link from "next/link";
 
-export default function CreateBlogForm({ initialData = null }) {
+export default function CreateBlogForm({ initialData = null, categories = [] }) {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -214,12 +214,18 @@ export default function CreateBlogForm({ initialData = null }) {
                                 className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
                             >
                                 <option value="" disabled>Select a category</option>
-                                <option value="Web Development">Web Development</option>
-                                <option value="Mobile Apps">Mobile Apps</option>
-                                <option value="AI & Machine Learning">AI & Machine Learning</option>
-                                <option value="Cloud Computing">Cloud Computing</option>
-                                <option value="Cybersecurity">Cybersecurity</option>
-                                <option value="Business Strategy">Business Strategy</option>
+                                {categories.length > 0 ? categories.map(cat => (
+                                    <option key={cat} value={cat}>{cat}</option>
+                                )) : (
+                                    <>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="Mobile Apps">Mobile Apps</option>
+                                        <option value="AI & Machine Learning">AI & Machine Learning</option>
+                                        <option value="Cloud Computing">Cloud Computing</option>
+                                        <option value="Cybersecurity">Cybersecurity</option>
+                                        <option value="Business Strategy">Business Strategy</option>
+                                    </>
+                                )}
                             </select>
                         </div>
 

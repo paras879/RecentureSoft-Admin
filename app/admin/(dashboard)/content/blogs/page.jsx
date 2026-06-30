@@ -34,8 +34,10 @@ export default async function BlogsPage() {
         tags: r.tags || [],
         views: r.views || 0,
         published: r.published,
-        date: new Date(r.createdAt).toLocaleDateString("en-US", {
-            year: 'numeric', month: 'short', day: 'numeric'
+        date: new Date(r.createdAt || Date.now()).toLocaleDateString("en-US", {
+            timeZone: 'Asia/Kolkata',
+            year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit'
         }),
     }));
 

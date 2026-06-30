@@ -32,6 +32,7 @@ export default async function ProjectsPage() {
         projectType: r.projectType,
         message: r.projectDetails || r.message || "",
         date: new Date(r.createdAt).toLocaleDateString("en-US", {
+            timeZone: 'Asia/Kolkata',
             year: 'numeric', month: 'short', day: 'numeric',
             hour: '2-digit', minute: '2-digit'
         }),

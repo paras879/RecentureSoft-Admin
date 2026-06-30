@@ -28,10 +28,10 @@ export default async function LeadsPage() {
         _id: r._id.toString(),
         name: r.name,
         email: r.email,
-        phone: r.phone || "—",
         subject: r.subject,
         message: r.message,
         date: new Date(r.createdAt).toLocaleDateString("en-US", {
+            timeZone: 'Asia/Kolkata',
             year: 'numeric', month: 'short', day: 'numeric',
             hour: '2-digit', minute: '2-digit'
         }),
