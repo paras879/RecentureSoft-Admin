@@ -44,18 +44,18 @@ export default function AdminSidebar() {
         
         // Check new format
         const perm = perms[module];
-        if (perm && (perm.view === true || perm.manage === true)) {
-            return true;
+        if (perm) {
+            return perm.view !== false; // If view is explicitly false, deny. Else allow.
         }
 
         // Fallback for old format (e.g. blogs_view_all)
         const oldPerm = perms[`${module}_view_all`];
-        if (oldPerm && oldPerm.read !== false) {
-            return true;
+        if (oldPerm && oldPerm.read === false) {
+            return false;
         }
 
-        // STRICT DEFAULT-DENY
-        return false;
+        // DEFAULT-ALLOW
+        return true;
     };
 
     const handleLogout = async () => {

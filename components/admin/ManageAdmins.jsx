@@ -263,8 +263,8 @@ export default function ManageAdmins() {
                                                                     {CONTENT_MODULES.map(module => {
                                                                         const permObj = editingPermissions[module.id] || {};
                                                                         const perms = { 
-                                                                            view: permObj.view === true, 
-                                                                            manage: permObj.manage === true 
+                                                                            view: permObj.view !== false, 
+                                                                            manage: permObj.manage !== false 
                                                                         };
                                                                         
                                                                         return (

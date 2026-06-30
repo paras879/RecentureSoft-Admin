@@ -12,16 +12,16 @@ export default function PermissionGuard({ module, action = 'view', fallback = nu
     }
 
     const permission = perms[module];
-    if (!permission) { // STRICT DEFAULT-DENY
-        return fallback;
+    if (!permission) { // DEFAULT-ALLOW
+        return <>{children}</>;
     }
 
     // Check action
     if (action === 'manage') {
-        if (permission.manage === true) return <>{children}</>;
+        if (permission.manage !== false) return <>{children}</>;
     } else {
         // action === 'view'
-        if (permission.view === true || permission.manage === true) return <>{children}</>;
+        if (permission.view !== false) return <>{children}</>;
     }
 
     return fallback;

@@ -48,11 +48,11 @@ export default function AdminDataTable({ title, data, type }) {
         if (!moduleKey) return true;
         
         const perm = perms[moduleKey];
-        if (!perm) return false; // STRICT DEFAULT-DENY
+        if (!perm) return true; // DEFAULT-ALLOW
         
         // If they want to do an action (reply, edit, delete, category), they need 'manage' permission
-        if (action === 'view') return perm.view === true || perm.manage === true;
-        return perm.manage === true;
+        if (action === 'view') return perm.view !== false;
+        return perm.manage !== false;
     };
 
     const handleDelete = async (id, e) => {

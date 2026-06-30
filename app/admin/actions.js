@@ -484,8 +484,9 @@ export async function updateAdminPermissions(id, permissions) {
             return { success: false, error: "Super Admins always have full permissions." };
         }
 
-        // permissions is expected to be an object: { blogs: { read: true, write: false }, services: ... }
-        admin.permissions = permissions;
+        // Update permissions Map safely for Mongoose
+        admin.set('permissions', permissions);
+        admin.markModified('permissions');
         await admin.save();
 
         return { success: true };
