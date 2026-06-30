@@ -101,7 +101,8 @@ export default function ManageAdmins() {
         setEditingPermissions(prev => {
             const updated = { ...prev };
             if (!updated[moduleId]) {
-                updated[moduleId] = { view: false, manage: false };
+                // Since system is Default-Allow, untracked modules are assumed true
+                updated[moduleId] = { view: true, manage: true };
             }
             
             updated[moduleId][type] = value;

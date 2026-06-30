@@ -44,7 +44,7 @@ export default async function BlogsPage() {
     }));
 
     return (
-        <AuthGuard permissionKey="blogs_view_all">
+        <AuthGuard permissionKey="blogs">
             <div className="pb-10 w-full flex flex-col gap-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>

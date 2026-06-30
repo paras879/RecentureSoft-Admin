@@ -5,6 +5,8 @@ import { jwtVerify } from "jose";
 import { connectDB } from "@/lib/mongodb";
 import Admin from "@/models/Admin";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
     try {
         const role = await getAdminRole();

@@ -19,7 +19,7 @@ export function AdminProvider({ children }) {
             return;
         }
 
-        fetch("/api/admin/me")
+        fetch("/api/admin/me", { cache: "no-store" })
             .then(res => res.json())
             .then(data => {
                 if (!data.username && pathname !== "/admin/login") {
