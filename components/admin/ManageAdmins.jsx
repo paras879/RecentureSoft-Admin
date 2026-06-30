@@ -146,6 +146,7 @@ export default function ManageAdmins() {
     const [editingPermissions, setEditingPermissions] = useState({});
     const [savingPermissions, setSavingPermissions] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [expandedModuleId, setExpandedModuleId] = useState('blogs');
 
     const fetchAdmins = async () => {
         try {
@@ -368,16 +369,33 @@ export default function ManageAdmins() {
                                                             </button>
                                                         </div>
                                                         
-                                                        <div className="flex flex-col gap-8">
+                                                        <div className="flex flex-col gap-4">
                                                             {CONTENT_MODULES.map(module => (
-                                                                <div key={module.id} className="flex flex-col border border-slate-200 dark:border-white/10 rounded-2xl overflow-hidden bg-white dark:bg-[#0b1120] shadow-sm">
+                                                                <div key={module.id} className="flex flex-col border border-slate-200 dark:border-white/10 rounded-xl overflow-hidden bg-white dark:bg-[#0b1120] shadow-sm transition-all duration-200">
                                                                     {/* Header */}
-                                                                    <div className="bg-slate-50 dark:bg-slate-800/30 px-6 py-4 border-b border-slate-200 dark:border-white/10 flex justify-between items-center">
-                                                                        <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-base">{module.label}</h4>
+                                                                    <div 
+                                                                        onClick={() => setExpandedModuleId(expandedModuleId === module.id ? null : module.id)}
+                                                                        className={`px-6 py-4 cursor-pointer flex justify-between items-center select-none transition-colors duration-200 ${expandedModuleId === module.id ? 'bg-cyan-50 dark:bg-cyan-500/10 border-b border-cyan-100 dark:border-cyan-500/20' : 'bg-slate-50 dark:bg-slate-800/30 hover:bg-slate-100 dark:hover:bg-slate-800/50'}`}
+                                                                    >
+                                                                        <div className="flex items-center gap-3">
+                                                                            <h4 className={`font-semibold text-base transition-colors ${expandedModuleId === module.id ? 'text-cyan-700 dark:text-cyan-400' : 'text-slate-700 dark:text-slate-300'}`}>{module.label}</h4>
+                                                                        </div>
+                                                                        <div className={`p-1 rounded-full transition-transform duration-300 ${expandedModuleId === module.id ? 'bg-cyan-100 dark:bg-cyan-500/20 text-cyan-600 rotate-180' : 'text-slate-400'}`}>
+                                                                            <ChevronDown className="w-4 h-4" />
+                                                                        </div>
                                                                     </div>
                                                                     
                                                                     {/* Table of fields */}
-                                                                    <div className="overflow-x-auto">
+                                                                    <AnimatePresence>
+                                                                    {expandedModuleId === module.id && (
+                                                                        <motion.div 
+                                                                            initial={{ height: 0, opacity: 0 }}
+                                                                            animate={{ height: "auto", opacity: 1 }}
+                                                                            exit={{ height: 0, opacity: 0 }}
+                                                                            transition={{ duration: 0.2 }}
+                                                                            className="overflow-hidden"
+                                                                        >
+                                                                        <div className="overflow-x-auto">
                                                                         <table className="w-full text-left">
                                                                             <thead>
                                                                                 <tr className="border-b border-slate-100 dark:border-white/5 bg-white dark:bg-[#0f172a]/50 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
@@ -429,7 +447,10 @@ export default function ManageAdmins() {
                                                                                 })}
                                                                             </tbody>
                                                                         </table>
-                                                                    </div>
+                                                                        </div>
+                                                                        </motion.div>
+                                                                    )}
+                                                                    </AnimatePresence>
                                                                 </div>
                                                             ))}
                                                         </div>
