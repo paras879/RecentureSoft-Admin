@@ -45,17 +45,20 @@ export default function AdminSidebar() {
         // Check new format
         const perm = perms[module];
         if (perm) {
+            // If the permission object exists but view is strictly false, deny access
             if (perm.view === false) return false;
+            // Otherwise, they have access
             return true;
         }
 
         // Fallback for old format (e.g. blogs_view_all)
         const oldPerm = perms[`${module}_view_all`];
-        if (oldPerm && oldPerm.read === false) {
-            return false;
+        if (oldPerm) {
+            if (oldPerm.read === false) return false;
+            return true;
         }
 
-        // DEFAULT-ALLOW
+        // DEFAULT-ALLOW: if the module hasn't been interacted with in Manage Admins yet, allow access.
         return true;
     };
 

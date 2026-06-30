@@ -22,10 +22,7 @@ const adminSchema = new mongoose.Schema({
     },
     permissions: {
         type: Map,
-        of: new mongoose.Schema({
-            read: { type: Boolean, default: false },
-            write: { type: Boolean, default: false }
-        }, { _id: false }),
+        of: mongoose.Schema.Types.Mixed,
         default: {}
     },
     resetToken: {

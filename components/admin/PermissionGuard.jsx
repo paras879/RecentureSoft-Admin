@@ -17,12 +17,13 @@ export default function PermissionGuard({ module, action = 'view', fallback = nu
     }
 
     // Check action
-    if (action === 'manage') {
-        if (permission.manage !== false) return <>{children}</>;
+    if (action === "manage") {
+        if (permission.manage === false || permission.write === false) return fallback;
+        return <>{children}</>;
     } else {
-        // action === 'view'
-        if (permission.view !== false) return <>{children}</>;
+        if (permission.view === false || permission.read === false) return fallback;
+        return <>{children}</>;
     }
-
+    
     return fallback;
 }
