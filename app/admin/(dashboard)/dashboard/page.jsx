@@ -165,7 +165,7 @@ export default async function DashboardPage() {
                 <div className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-sm h-fit">
                     <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6">Quick Actions</h2>
                     <div className="flex flex-col gap-3">
-                        <Link href="/admin/blogs/create" className="flex items-center gap-3 p-4 rounded-xl bg-blue-50 hover:bg-blue-100 dark:bg-blue-500/10 dark:hover:bg-blue-500/20 transition-colors border border-blue-100 dark:border-blue-500/20 group">
+                        <Link href="/admin/content/blogs/create" className="flex items-center gap-3 p-4 rounded-xl bg-blue-50 hover:bg-blue-100 dark:bg-blue-500/10 dark:hover:bg-blue-500/20 transition-colors border border-blue-100 dark:border-blue-500/20 group">
                             <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
                                 <PlusCircle className="w-5 h-5" />
                             </div>
