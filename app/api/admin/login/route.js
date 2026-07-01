@@ -7,7 +7,26 @@ import bcrypt from "bcryptjs";
 export async function POST(req) {
     try {
         const body = await req.json();
-        const { username, password } = body;
+        const { username, password, captchaToken } = body;
+
+        // Verify reCAPTCHA
+        if (!captchaToken) {
+            return NextResponse.json({ success: false, message: "Please verify you are not a robot" }, { status: 400 });
+        }
+
+        const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captchaToken}`,
+        });
+        
+        const verifyData = await verifyRes.json();
+        
+        if (!verifyData.success) {
+            return NextResponse.json({ success: false, message: "Captcha verification failed. Please try again." }, { status: 400 });
+        }
 
         await connectDB();
         

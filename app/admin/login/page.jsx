@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Lock, User, ArrowRight, Loader2 } from "lucide-react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function AdminLogin() {
     const [username, setUsername] = useState("");
@@ -12,6 +13,7 @@ export default function AdminLogin() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [msg, setMsg] = useState("");
+    const [captchaToken, setCaptchaToken] = useState(null);
     const [isForgot, setIsForgot] = useState(false);
     const [resetEmail, setResetEmail] = useState("");
     const [logoUrl, setLogoUrl] = useState("/Logo.png");
@@ -34,10 +36,16 @@ export default function AdminLogin() {
         setError("");
 
         try {
+            if (!captchaToken) {
+                setError("Please verify that you are not a robot.");
+                setLoading(false);
+                return;
+            }
+
             const res = await fetch("/api/admin/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ username, password, captchaToken }),
             });
 
             const data = await res.json();
@@ -202,6 +210,16 @@ export default function AdminLogin() {
                                     required
                                 />
                             </div>
+                        </div>
+
+                        <div className="flex justify-center mt-2">
+                            <ReCAPTCHA
+                                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+                                onChange={(token) => {
+                                    setCaptchaToken(token);
+                                    if (error === "Please verify that you are not a robot.") setError("");
+                                }}
+                            />
                         </div>
 
                         <button
