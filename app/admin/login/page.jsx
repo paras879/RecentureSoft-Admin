@@ -213,13 +213,19 @@ export default function AdminLogin() {
                         </div>
 
                         <div className="flex justify-center mt-2">
-                            <ReCAPTCHA
-                                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-                                onChange={(token) => {
-                                    setCaptchaToken(token);
-                                    if (error === "Please verify that you are not a robot.") setError("");
-                                }}
-                            />
+                            {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ? (
+                                <ReCAPTCHA
+                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                                    onChange={(token) => {
+                                        setCaptchaToken(token);
+                                        if (error === "Please verify that you are not a robot.") setError("");
+                                    }}
+                                />
+                            ) : (
+                                <div className="text-red-500 text-xs text-center border border-red-500/20 bg-red-500/10 p-2 rounded">
+                                    reCAPTCHA key missing in Vercel Environment Variables.
+                                </div>
+                            )}
                         </div>
 
                         <button
