@@ -53,7 +53,7 @@ export default function AdminSidebar() {
 
     const hasAccess = (module) => {
         if (role === 'super_admin') return true;
-        
+
         // Check new format
         const perm = perms[module];
         if (perm) {
@@ -92,6 +92,13 @@ export default function AdminSidebar() {
         hasAccess("applications") && { name: "Job Applications", href: "/admin/applications", icon: Briefcase },
         hasAccess("subscribers") && { name: "Newsletter Subs", href: "/admin/subscribers", icon: Mail },
         role === "super_admin" && { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
+        {
+            name: "Manage Website",
+            icon: Globe,
+            subItems: [
+                hasAccess("pages") && { name: "Pages", href: "/admin/website-pages", icon: FileText },
+            ].filter(Boolean)
+        },
         {
             name: "Manage Website Content",
             icon: Globe,
@@ -166,7 +173,7 @@ export default function AdminSidebar() {
 
                     {links.map((link, i) => {
                         if (link.subItems) {
-                            const isActive = pathname.startsWith("/admin/content");
+                            const isActive = link.subItems.some(sub => pathname.startsWith(sub.href));
                             return (
                                 <div key={link.name} className="flex flex-col">
                                     <motion.button
