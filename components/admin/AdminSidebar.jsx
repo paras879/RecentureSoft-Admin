@@ -34,6 +34,18 @@ export default function AdminSidebar() {
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
     const [isCmsOpen, setIsCmsOpen] = useState(true);
+    const [logoUrl, setLogoUrl] = useState("/Logo.png");
+
+    useEffect(() => {
+        fetch("/api/admin/settings")
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.settings?.logoUrl) {
+                    setLogoUrl(data.settings.logoUrl);
+                }
+            })
+            .catch(console.error);
+    }, []);
 
     const { admin } = useAdmin();
     const role = admin?.role || 'super_admin';
@@ -81,7 +93,7 @@ export default function AdminSidebar() {
         hasAccess("subscribers") && { name: "Newsletter Subs", href: "/admin/subscribers", icon: Mail },
         role === "super_admin" && { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
         {
-            name: "Website Content",
+            name: "Manage Website Content",
             icon: Globe,
             subItems: [
                 hasAccess("blogs") && { name: "Blogs", href: "/admin/content/blogs", icon: FileText },
@@ -131,17 +143,15 @@ export default function AdminSidebar() {
             </AnimatePresence>
 
             {/* Glassmorphic Sidebar */}
-            <aside className={`fixed md:relative top-0 left-0 h-full z-50 w-64 bg-white/70 dark:bg-slate-900/60 backdrop-blur-2xl border-r border-slate-200/50 dark:border-white/10 flex flex-col flex-shrink-0 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0 shadow-2xl shadow-cyan-900/20" : "-translate-x-full md:translate-x-0"
+            <aside className={`fixed md:relative top-0 left-0 h-full z-50 w-72 bg-white/70 dark:bg-slate-900/60 backdrop-blur-2xl border-r border-slate-200/50 dark:border-white/10 flex flex-col flex-shrink-0 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0 shadow-2xl shadow-cyan-900/20" : "-translate-x-full md:translate-x-0"
                 }`}>
                 {/* Header / Logo */}
                 <div className="h-20 flex items-center justify-between px-6 md:px-8 border-b border-slate-200/50 dark:border-white/5">
-                    <div className="relative w-40 h-10">
-                        <Image
-                            src="/Logo.png"
+                    <div className="relative w-48 h-12">
+                        <img
+                            src={logoUrl}
                             alt="RecentureSoft Logo"
-                            fill sizes="160px"
-                            className="object-contain object-left drop-shadow-sm"
-                            priority
+                            className="w-full h-full object-contain object-left drop-shadow-sm"
                         />
                     </div>
                     <button onClick={() => setIsOpen(false)} className="md:hidden text-slate-400 hover:text-cyan-500 transition-colors p-1 bg-white/5 rounded-md">

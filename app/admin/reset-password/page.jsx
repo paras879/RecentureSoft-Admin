@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -124,6 +124,19 @@ function ResetPasswordForm() {
 }
 
 export default function ResetPasswordPage() {
+    const [logoUrl, setLogoUrl] = useState("/Logo.png");
+
+    useEffect(() => {
+        fetch("/api/admin/settings")
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.settings?.logoUrl) {
+                    setLogoUrl(data.settings.logoUrl);
+                }
+            })
+            .catch(console.error);
+    }, []);
+
     return (
         <div className="min-h-screen w-full flex items-center justify-center bg-slate-50 dark:bg-[#020617] p-4 relative overflow-hidden">
             <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
@@ -136,12 +149,10 @@ export default function ResetPasswordPage() {
             >
                 <div className="flex flex-col items-center justify-center mb-10">
                     <div className="relative w-48 h-12 mb-6">
-                        <Image 
-                            src="/Logo.png" 
+                        <img 
+                            src={logoUrl} 
                             alt="RecentureSoft Logo" 
-                            fill sizes="192px" 
-                            className="object-contain"
-                            priority
+                            className="w-full h-full object-contain"
                         />
                     </div>
                     <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white text-center">

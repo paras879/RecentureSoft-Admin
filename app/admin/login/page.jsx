@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -14,7 +14,19 @@ export default function AdminLogin() {
     const [msg, setMsg] = useState("");
     const [isForgot, setIsForgot] = useState(false);
     const [resetEmail, setResetEmail] = useState("");
+    const [logoUrl, setLogoUrl] = useState("/Logo.png");
     const router = useRouter();
+
+    useEffect(() => {
+        fetch("/api/admin/settings")
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.settings?.logoUrl) {
+                    setLogoUrl(data.settings.logoUrl);
+                }
+            })
+            .catch(console.error);
+    }, []);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -86,12 +98,10 @@ export default function AdminLogin() {
             >
                 <div className="flex flex-col items-center justify-center mb-10">
                     <div className="relative w-48 h-12 mb-6">
-                        <Image
-                            src="/Logo.png"
+                        <img
+                            src={logoUrl}
                             alt="RecentureSoft Logo"
-                            fill sizes="192px"
-                            className="object-contain"
-                            priority
+                            className="w-full h-full object-contain"
                         />
                     </div>
                     <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white text-center">

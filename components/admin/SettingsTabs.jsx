@@ -16,13 +16,30 @@ export default function SettingsTabs({ currentUsername = "Admin" }) {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("parastomar@recenturesoft.com");
     const [role, setRole] = useState('super_admin');
+    const [siteLogo, setSiteLogo] = useState("/Logo.png");
+    const [siteEmail, setSiteEmail] = useState("info@recenturesoft.com");
+    const [sitePhone, setSitePhone] = useState("+91 777 000 3288");
+    const [siteAddress, setSiteAddress] = useState("A-125, Sector-63, Noida, UP 201301");
     const fileInputRef = useRef(null);
+    const logoInputRef = useRef(null);
 
     useEffect(() => {
         fetch('/api/admin/me')
             .then(res => res.json())
             .then(data => {
                 if (data.role) setRole(data.role);
+            })
+            .catch(console.error);
+
+        fetch('/api/admin/settings')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.settings) {
+                    if (data.settings.logoUrl) setSiteLogo(data.settings.logoUrl);
+                    if (data.settings.email) setSiteEmail(data.settings.email);
+                    if (data.settings.phone) setSitePhone(data.settings.phone);
+                    if (data.settings.address) setSiteAddress(data.settings.address);
+                }
             })
             .catch(console.error);
     }, []);
@@ -59,6 +76,21 @@ export default function SettingsTabs({ currentUsername = "Admin" }) {
         }
     };
 
+    const handleSiteLogoChange = (e) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            if (file.size > 1024 * 1024) {
+                alert("File size exceeds 1MB limit.");
+                return;
+            }
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setSiteLogo(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     const handleSaveProfile = (e) => {
         e.preventDefault();
         localStorage.setItem(`adminFirstName_${currentUsername}`, firstName);
@@ -70,10 +102,30 @@ export default function SettingsTabs({ currentUsername = "Admin" }) {
         setTimeout(() => setSaved(false), 3000);
     };
 
-    const handleSaveConfig = (e) => {
+    const handleSaveConfig = async (e) => {
         e.preventDefault();
-        setSaved(true);
-        setTimeout(() => setSaved(false), 3000);
+        try {
+            const res = await fetch("/api/admin/settings", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ 
+                    logoUrl: siteLogo,
+                    email: siteEmail,
+                    phone: sitePhone,
+                    address: siteAddress
+                })
+            });
+            const data = await res.json();
+            if (data.success) {
+                setSaved(true);
+                setTimeout(() => setSaved(false), 3000);
+            } else {
+                alert("Failed to save settings");
+            }
+        } catch (error) {
+            console.error("Save config error", error);
+            alert("An error occurred");
+        }
     };
 
     const handlePasswordUpdate = async (e) => {
@@ -252,6 +304,62 @@ export default function SettingsTabs({ currentUsername = "Admin" }) {
                         </div>
 
                         <form onSubmit={handleSaveConfig} className="flex flex-col gap-5">
+                            <div className="space-y-1.5 pb-4 border-b border-slate-100 dark:border-white/5">
+                                <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Website Logo</label>
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                                    <div className="w-48 h-20 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl flex items-center justify-center p-2 shrink-0 overflow-hidden">
+                                        <img src={siteLogo} alt="Site Logo" className="max-w-full max-h-full object-contain" />
+                                    </div>
+                                    <div className="flex flex-col gap-2">
+                                        <input 
+                                            type="file" 
+                                            ref={logoInputRef} 
+                                            onChange={handleSiteLogoChange} 
+                                            accept="image/jpeg, image/png, image/gif, image/svg+xml" 
+                                            className="hidden" 
+                                        />
+                                        <button 
+                                            type="button"
+                                            onClick={() => logoInputRef.current?.click()}
+                                            className="px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg text-sm font-medium hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors w-fit"
+                                        >
+                                            Upload New Logo
+                                        </button>
+                                        <p className="text-xs text-slate-500 dark:text-slate-400">Recommended: PNG or SVG with transparent background.<br/>Max 1MB.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pb-4 border-b border-slate-100 dark:border-white/5">
+                                <div className="space-y-1.5">
+                                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Contact Email</label>
+                                    <input 
+                                        type="email" 
+                                        value={siteEmail}
+                                        onChange={(e) => setSiteEmail(e.target.value)}
+                                        className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
+                                    />
+                                </div>
+                                <div className="space-y-1.5">
+                                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Contact Phone</label>
+                                    <input 
+                                        type="text" 
+                                        value={sitePhone}
+                                        onChange={(e) => setSitePhone(e.target.value)}
+                                        className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
+                                    />
+                                </div>
+                                <div className="space-y-1.5 md:col-span-2">
+                                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Headquarters Address</label>
+                                    <textarea 
+                                        rows="2"
+                                        value={siteAddress}
+                                        onChange={(e) => setSiteAddress(e.target.value)}
+                                        className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm resize-none"
+                                    />
+                                </div>
+                            </div>
+
                             <div className="space-y-1.5">
                                 <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Website Name</label>
                                 <input 
