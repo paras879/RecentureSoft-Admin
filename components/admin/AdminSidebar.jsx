@@ -34,6 +34,7 @@ export default function AdminSidebar() {
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
     const [isCmsOpen, setIsCmsOpen] = useState(true);
+    const [isNestedOpen, setIsNestedOpen] = useState(false);
     const [logoUrl, setLogoUrl] = useState("/Logo.png");
 
     useEffect(() => {
@@ -97,19 +98,19 @@ export default function AdminSidebar() {
             icon: Globe,
             subItems: [
                 hasAccess("pages") && { name: "Pages", href: "/admin/website-pages", icon: FileText },
-            ].filter(Boolean)
-        },
-        {
-            name: "Manage Website Content",
-            icon: Globe,
-            subItems: [
-                hasAccess("blogs") && { name: "Blogs", href: "/admin/content/blogs", icon: FileText },
-                hasAccess("portfolio") && { name: "Portfolio", href: "/admin/content/portfolio", icon: Briefcase },
-                hasAccess("services") && { name: "Services", href: "/admin/content/services", icon: Wrench },
-                hasAccess("reviews") && { name: "Review", href: "/admin/content/review", icon: Star },
-                hasAccess("team") && { name: "Our Team", href: "/admin/content/team", icon: UsersRound },
-                hasAccess("events") && { name: "Events", href: "/admin/content/events", icon: CalendarDays },
-                hasAccess("jobs") && { name: "Job Openings", href: "/admin/content/jobs", icon: Briefcase },
+                {
+                    name: "Manage Website Content",
+                    icon: Globe,
+                    nestedItems: [
+                        hasAccess("blogs") && { name: "Blogs", href: "/admin/content/blogs", icon: FileText },
+                        hasAccess("portfolio") && { name: "Portfolio", href: "/admin/content/portfolio", icon: Briefcase },
+                        hasAccess("services") && { name: "Services", href: "/admin/content/services", icon: Wrench },
+                        hasAccess("reviews") && { name: "Review", href: "/admin/content/review", icon: Star },
+                        hasAccess("team") && { name: "Our Team", href: "/admin/content/team", icon: UsersRound },
+                        hasAccess("events") && { name: "Events", href: "/admin/content/events", icon: CalendarDays },
+                        hasAccess("jobs") && { name: "Job Openings", href: "/admin/content/jobs", icon: Briefcase },
+                    ].filter(Boolean)
+                }
             ].filter(Boolean)
         },
         ...(role === "super_admin" ? [
@@ -203,7 +204,40 @@ export default function AdminSidebar() {
                                                 exit={{ height: 0, opacity: 0 }}
                                                 className="overflow-hidden flex flex-col pl-4 mt-1 border-l border-slate-200/50 dark:border-white/10 ml-6 gap-1"
                                             >
-                                                {link.subItems.map((sub) => {
+                                                {link.subItems.map((sub, idx) => {
+                                                    if (sub.nestedItems) {
+                                                        return (
+                                                            <div key={sub.name + idx} className="flex flex-col mt-1">
+                                                                <button onClick={(e) => { e.preventDefault(); setIsNestedOpen(!isNestedOpen); }} className="flex items-center gap-2 px-3 py-2 rounded-lg transition-colors text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/5 w-full text-left">
+                                                                    <sub.icon className="w-4 h-4 opacity-80" />
+                                                                    <span className="flex-1">{sub.name}</span>
+                                                                    <ChevronDown className={`w-3 h-3 opacity-70 transition-transform duration-300 ${isNestedOpen ? 'rotate-180' : ''}`} />
+                                                                </button>
+                                                                <AnimatePresence>
+                                                                    {isNestedOpen && (
+                                                                        <motion.div
+                                                                            initial={{ height: 0, opacity: 0 }}
+                                                                            animate={{ height: "auto", opacity: 1 }}
+                                                                            exit={{ height: 0, opacity: 0 }}
+                                                                            className="overflow-hidden flex flex-col pl-3 border-l border-slate-200/50 dark:border-white/10 ml-5 gap-1 mt-1"
+                                                                        >
+                                                                            {sub.nestedItems.map((nested) => {
+                                                                                const isNestedActive = pathname === nested.href;
+                                                                                return (
+                                                                                    <Link key={nested.name} href={nested.href} onClick={() => setIsOpen(false)}>
+                                                                                        <div className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors text-sm font-medium ${isNestedActive ? "text-cyan-600 bg-cyan-50 dark:bg-cyan-500/10 dark:text-cyan-400" : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/5"}`}>
+                                                                                            <nested.icon className="w-4 h-4 opacity-80" />
+                                                                                            {nested.name}
+                                                                                        </div>
+                                                                                    </Link>
+                                                                                )
+                                                                            })}
+                                                                        </motion.div>
+                                                                    )}
+                                                                </AnimatePresence>
+                                                            </div>
+                                                        );
+                                                    }
                                                     const isSubActive = pathname === sub.href;
                                                     return (
                                                         <Link key={sub.name} href={sub.href} onClick={() => setIsOpen(false)}>

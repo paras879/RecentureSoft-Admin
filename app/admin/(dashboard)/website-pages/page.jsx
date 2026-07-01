@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FileText, Loader2, Globe, Search, ArrowRight, CheckCircle2, XCircle, Plus, Edit, Eye, Trash2, Save, LayoutTemplate } from "lucide-react";
+import { useAdmin } from "@/components/admin/AdminProvider";
 
 export default function WebsitePages() {
     const [pages, setPages] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
-    const [viewPagePath, setViewPagePath] = useState(null);
 
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [newPageName, setNewPageName] = useState("");
@@ -16,9 +16,20 @@ export default function WebsitePages() {
     const [isSaving, setIsSaving] = useState(false);
 
     const [editPage, setEditPage] = useState(null);
+    const [isViewOnly, setIsViewOnly] = useState(false);
     const [editFormData, setEditFormData] = useState({ seoTitle: "", seoDescription: "", content: {} });
     const [isSavingEdit, setIsSavingEdit] = useState(false);
     const [activeEditTab, setActiveEditTab] = useState("seo"); // 'seo', 'hero', 'about', 'services', 'stats'
+
+    const { admin } = useAdmin();
+    const role = admin?.role || 'super_admin';
+    const perms = admin?.permissions || {};
+    let canManage = true;
+    if (role !== 'super_admin') {
+        if (perms.pages) {
+            canManage = perms.pages.manage !== false;
+        }
+    }
 
     const handleAddPage = async () => {
         if (!newPageName || !newPagePath) return;
@@ -143,10 +154,12 @@ export default function WebsitePages() {
                             className="w-full pl-9 pr-4 py-2 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 dark:text-white"
                         />
                     </div>
-                    <button onClick={() => setIsAddModalOpen(true)} className="w-full sm:w-auto px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-sm">
-                        <Plus className="w-4 h-4" />
-                        Add New Page
-                    </button>
+                    {canManage && (
+                        <button onClick={() => setIsAddModalOpen(true)} className="w-full sm:w-auto px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-sm">
+                            <Plus className="w-4 h-4" />
+                            Add New Page
+                        </button>
+                    )}
                 </div>
 
                 <div className="overflow-x-auto">
@@ -174,7 +187,24 @@ export default function WebsitePages() {
                                     </td>
                                 </tr>
                             ) : (
-                                filteredPages.map((page, idx) => (
+                                filteredPages.map((page, idx) => {
+                                    const pageId = `page_${page._id}`;
+                                    let pageCanView = true;
+                                    let pageCanManage = true;
+                                    
+                                    if (role !== 'super_admin') {
+                                        if (perms[pageId]) {
+                                            pageCanView = perms[pageId].view !== false;
+                                            pageCanManage = perms[pageId].manage !== false;
+                                        } else if (perms.pages) {
+                                            pageCanView = perms.pages.view !== false;
+                                            pageCanManage = perms.pages.manage !== false;
+                                        }
+                                    }
+
+                                    if (!pageCanView) return null;
+
+                                    return (
                                     <motion.tr
                                         key={page._id}
                                         initial={{ opacity: 0, y: 10 }}
@@ -194,24 +224,34 @@ export default function WebsitePages() {
                                             </span>
                                         </td>
                                         <td className="px-6 py-4">
-                                            <label className="relative inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" className="sr-only peer" checked={page.status === 'active'} onChange={() => togglePageStatus(page._id, page.status)} />
+                                            <label className={`relative inline-flex items-center ${pageCanManage ? 'cursor-pointer' : 'cursor-not-allowed opacity-60'}`}>
+                                                <input type="checkbox" className="sr-only peer" checked={page.status === 'active'} onChange={() => pageCanManage && togglePageStatus(page._id, page.status)} disabled={!pageCanManage} />
                                                 <div className="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-slate-600 peer-checked:bg-cyan-500"></div>
                                             </label>
                                         </td>
                                         <td className="px-6 py-4 text-right">
                                             <div className="flex items-center justify-end gap-6">
-                                                <button onClick={() => setViewPagePath(page.path)} className="inline-flex items-center justify-center p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="Live Preview">
+                                                <button onClick={() => {
+                                                    setIsViewOnly(true);
+                                                    setEditPage(page);
+                                                    setActiveEditTab("seo");
+                                                    setEditFormData({
+                                                        seoTitle: page.seoTitle || "",
+                                                        seoDescription: page.seoDescription || "",
+                                                        content: page.content || {}
+                                                    });
+                                                }} className="inline-flex items-center justify-center p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Page Data">
                                                     <Eye className="w-4 h-4" />
                                                 </button>
-                                                {page.status === 'active' && (
+                                                {pageCanManage && page.status === 'active' && (
                                                     <button onClick={() => {
+                                                        setIsViewOnly(false);
                                                         setEditPage(page);
                                                         setActiveEditTab("seo");
                                                         setEditFormData({
                                                             seoTitle: page.seoTitle || "",
                                                             seoDescription: page.seoDescription || "",
-                                                            content: page.content || {} // structured object
+                                                            content: page.content || {}
                                                         });
                                                     }} className="inline-flex items-center justify-center p-2 text-slate-400 hover:text-cyan-500 hover:bg-cyan-500/10 rounded-lg transition-colors" title="Edit Page">
                                                         <Edit className="w-4 h-4" />
@@ -220,7 +260,8 @@ export default function WebsitePages() {
                                             </div>
                                         </td>
                                     </motion.tr>
-                                ))
+                                    );
+                                })
                             )}
                         </tbody>
                     </table>
@@ -283,38 +324,7 @@ export default function WebsitePages() {
                 </div>
             )}
 
-            {/* Live Preview Modal */}
-            {viewPagePath && (
-                <div className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4 md:p-8">
-                    <motion.div 
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-white/10 w-full max-w-[90vw] h-full max-h-[90vh] overflow-hidden flex flex-col"
-                    >
-                        <div className="p-4 border-b border-slate-100 dark:border-white/5 flex justify-between items-center bg-slate-50 dark:bg-slate-800/50">
-                            <div className="flex items-center gap-3">
-                                <h2 className="text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                                    <Globe className="w-5 h-5 text-cyan-500" />
-                                    Live Preview
-                                </h2>
-                            </div>
-                            <button onClick={() => setViewPagePath(null)} className="text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors p-1 bg-white dark:bg-slate-800 rounded-md shadow-sm border border-slate-200 dark:border-slate-700">
-                                <XCircle className="w-5 h-5" />
-                            </button>
-                        </div>
-                        <div className="flex-1 bg-slate-100 dark:bg-[#020617] relative">
-                            {/* Wait for the iframe to load the actual page content */}
-                            <iframe 
-                                src={`http://localhost:3001${viewPagePath}`} 
-                                className="w-full h-full border-none bg-white"
-                                title="Page Preview"
-                            />
-                        </div>
-                    </motion.div>
-                </div>
-            )}
-
-            {/* CMS Edit Modal */}
+            {/* Form Modal (View or Edit) */}
             {editPage && (
                 <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4 md:p-6">
                     <motion.div 
@@ -326,8 +336,8 @@ export default function WebsitePages() {
                         <div className="p-4 border-b border-slate-100 dark:border-white/5 flex justify-between items-center bg-slate-50 dark:bg-slate-800/50">
                             <div className="flex items-center gap-3">
                                 <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                                    <LayoutTemplate className="w-6 h-6 text-cyan-500" />
-                                    Edit Page: <span className="text-cyan-600 dark:text-cyan-400">{editPage.name}</span>
+                                    {isViewOnly ? <Eye className="w-6 h-6 text-cyan-500" /> : <LayoutTemplate className="w-6 h-6 text-cyan-500" />}
+                                    {isViewOnly ? "View Page Data:" : "Edit Page:"} <span className="text-cyan-600 dark:text-cyan-400">{editPage.name}</span>
                                 </h2>
                                 <span className="px-2.5 py-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-md font-mono text-xs text-slate-600 dark:text-slate-300">
                                     {editPage.path}
@@ -380,7 +390,7 @@ export default function WebsitePages() {
                             </div>
 
                             {/* Main Content Area */}
-                            <div className="flex-1 overflow-y-auto p-6 space-y-6">
+                            <fieldset disabled={isViewOnly} className="flex-1 overflow-y-auto p-6 space-y-6">
                                 
                                 {/* SEO TAB */}
                                 {activeEditTab === "seo" && (
@@ -713,25 +723,27 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-                            </div>
+                            </fieldset>
                         </div>
 
                         {/* Footer / Actions */}
                         <div className="p-4 border-t border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-slate-800/80 flex justify-end gap-3">
                             <button 
                                 onClick={() => setEditPage(null)} 
-                                className="px-5 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg hover:bg-slate-50 dark:hover:bg-white/10 transition-colors"
+                                className="px-5 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg hover:bg-slate-50 dark:hover:bg-white/10 transition-colors pointer-events-auto"
                             >
-                                Cancel
+                                {isViewOnly ? 'Close' : 'Cancel'}
                             </button>
-                            <button 
-                                onClick={handleSaveEdit} 
-                                disabled={isSavingEdit} 
-                                className="px-6 py-2.5 text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2 shadow-sm shadow-cyan-500/20"
-                            >
-                                {isSavingEdit ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                                {isSavingEdit ? 'Saving Changes...' : 'Save All Changes'}
-                            </button>
+                            {!isViewOnly && (
+                                <button 
+                                    onClick={handleSaveEdit} 
+                                    disabled={isSavingEdit} 
+                                    className="px-6 py-2.5 text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2 shadow-sm shadow-cyan-500/20"
+                                >
+                                    {isSavingEdit ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                                    {isSavingEdit ? 'Saving Changes...' : 'Save All Changes'}
+                                </button>
+                            )}
                         </div>
                     </motion.div>
                 </div>

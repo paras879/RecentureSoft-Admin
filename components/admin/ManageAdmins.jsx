@@ -6,6 +6,7 @@ import { deleteAdmin, promoteAdmin, createNewAdmin, updateAdminPermissions, upda
 import { motion, AnimatePresence } from "framer-motion";
 
 const CONTENT_MODULES = [
+    { id: 'pages', label: 'Website Pages' },
     { id: 'blogs', label: 'Blogs' },
     { id: 'services', label: 'Services' },
     { id: 'portfolio', label: 'Portfolio' },
@@ -22,6 +23,8 @@ const CONTENT_MODULES = [
 
 export default function ManageAdmins() {
     const [adminsList, setAdminsList] = useState([]);
+    const [websitePages, setWebsitePages] = useState([]);
+    const [expandedModules, setExpandedModules] = useState({});
     const [formData, setFormData] = useState({ username: '', email: '', password: '', role: 'admin' });
     const [isSubmitting, setIsSubmitting] = useState(false);
     
@@ -44,8 +47,21 @@ export default function ManageAdmins() {
         }
     };
 
+    const fetchWebsitePages = async () => {
+        try {
+            const res = await fetch('/api/admin/website-pages');
+            const data = await res.json();
+            if (data.success) {
+                setWebsitePages(data.pages);
+            }
+        } catch(e) {
+            console.error(e);
+        }
+    };
+
     useEffect(() => {
         fetchAdmins();
+        fetchWebsitePages();
     }, []);
 
     const handleDeleteAdmin = async (id, username) => {
@@ -302,40 +318,97 @@ export default function ManageAdmins() {
                                                                             manage: permObj.manage !== false 
                                                                         };
                                                                         
+                                                                        const isPagesModule = module.id === 'pages';
+                                                                        const isExpanded = expandedModules[`${admin._id}_${module.id}`];
+
+                                                                        const toggleModule = () => {
+                                                                            setExpandedModules(prev => ({ ...prev, [`${admin._id}_${module.id}`]: !prev[`${admin._id}_${module.id}`] }));
+                                                                        };
+
                                                                         return (
-                                                                            <tr key={module.id} className="hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors">
-                                                                                <td className="py-4 px-8 text-sm text-slate-700 dark:text-slate-300 font-medium">
-                                                                                    {module.label}
-                                                                                </td>
-                                                                                <td className="py-4 px-8">
-                                                                                    <label className="flex items-center gap-3 cursor-pointer group w-fit">
-                                                                                        <div className={`w-5 h-5 rounded-[6px] border flex items-center justify-center transition-all duration-200 ${perms.view ? 'bg-cyan-500 border-cyan-500 shadow-sm shadow-cyan-500/20' : 'bg-slate-50 dark:bg-slate-800/80 border-slate-300 dark:border-slate-600 group-hover:border-cyan-400'}`}>
-                                                                                            {perms.view && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
+                                                                            <React.Fragment key={module.id}>
+                                                                                <tr className="hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors">
+                                                                                    <td className="py-4 px-8 text-sm text-slate-700 dark:text-slate-300 font-medium">
+                                                                                        <div className="flex items-center gap-2">
+                                                                                            {isPagesModule && websitePages.length > 0 && (
+                                                                                                <button onClick={toggleModule} className="p-1 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md transition-colors text-slate-500">
+                                                                                                    {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                                                                                                </button>
+                                                                                            )}
+                                                                                            {module.label}
                                                                                         </div>
-                                                                                        <input 
-                                                                                            type="checkbox" 
-                                                                                            className="hidden" 
-                                                                                            checked={perms.view} 
-                                                                                            onChange={(e) => handlePermissionChange(module.id, 'view', e.target.checked)} 
-                                                                                        />
-                                                                                        <span className="text-sm font-medium text-slate-600 dark:text-slate-400 select-none group-hover:text-slate-900 dark:group-hover:text-slate-300 transition-colors">Can View</span>
-                                                                                    </label>
-                                                                                </td>
-                                                                                <td className="py-4 px-8">
-                                                                                    <label className="flex items-center gap-3 cursor-pointer group w-fit">
-                                                                                        <div className={`w-5 h-5 rounded-[6px] border flex items-center justify-center transition-all duration-200 ${perms.manage ? 'bg-purple-500 border-purple-500 shadow-sm shadow-purple-500/20' : 'bg-slate-50 dark:bg-slate-800/80 border-slate-300 dark:border-slate-600 group-hover:border-purple-400'}`}>
-                                                                                            {perms.manage && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
-                                                                                        </div>
-                                                                                        <input 
-                                                                                            type="checkbox" 
-                                                                                            className="hidden" 
-                                                                                            checked={perms.manage} 
-                                                                                            onChange={(e) => handlePermissionChange(module.id, 'manage', e.target.checked)} 
-                                                                                        />
-                                                                                        <span className="text-sm font-medium text-slate-600 dark:text-slate-400 select-none group-hover:text-slate-900 dark:group-hover:text-slate-300 transition-colors">Can Edit & Delete</span>
-                                                                                    </label>
-                                                                                </td>
-                                                                            </tr>
+                                                                                    </td>
+                                                                                    <td className="py-4 px-8">
+                                                                                        <label className="flex items-center gap-3 cursor-pointer group w-fit">
+                                                                                            <div className={`w-5 h-5 rounded-[6px] border flex items-center justify-center transition-all duration-200 ${perms.view ? 'bg-cyan-500 border-cyan-500 shadow-sm shadow-cyan-500/20' : 'bg-slate-50 dark:bg-slate-800/80 border-slate-300 dark:border-slate-600 group-hover:border-cyan-400'}`}>
+                                                                                                {perms.view && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
+                                                                                            </div>
+                                                                                            <input 
+                                                                                                type="checkbox" 
+                                                                                                className="hidden" 
+                                                                                                checked={perms.view} 
+                                                                                                onChange={(e) => {
+                                                                                                    handlePermissionChange(module.id, 'view', e.target.checked);
+                                                                                                    if (isPagesModule) {
+                                                                                                        websitePages.forEach(p => handlePermissionChange(`page_${p._id}`, 'view', e.target.checked));
+                                                                                                    }
+                                                                                                }} 
+                                                                                            />
+                                                                                            <span className="text-sm font-medium text-slate-600 dark:text-slate-400 select-none group-hover:text-slate-900 dark:group-hover:text-slate-300 transition-colors">Can View</span>
+                                                                                        </label>
+                                                                                    </td>
+                                                                                    <td className="py-4 px-8">
+                                                                                        <label className="flex items-center gap-3 cursor-pointer group w-fit">
+                                                                                            <div className={`w-5 h-5 rounded-[6px] border flex items-center justify-center transition-all duration-200 ${perms.manage ? 'bg-purple-500 border-purple-500 shadow-sm shadow-purple-500/20' : 'bg-slate-50 dark:bg-slate-800/80 border-slate-300 dark:border-slate-600 group-hover:border-purple-400'}`}>
+                                                                                                {perms.manage && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
+                                                                                            </div>
+                                                                                            <input 
+                                                                                                type="checkbox" 
+                                                                                                className="hidden" 
+                                                                                                checked={perms.manage} 
+                                                                                                onChange={(e) => {
+                                                                                                    handlePermissionChange(module.id, 'manage', e.target.checked);
+                                                                                                    if (isPagesModule) {
+                                                                                                        websitePages.forEach(p => handlePermissionChange(`page_${p._id}`, 'manage', e.target.checked));
+                                                                                                    }
+                                                                                                }} 
+                                                                                            />
+                                                                                            <span className="text-sm font-medium text-slate-600 dark:text-slate-400 select-none group-hover:text-slate-900 dark:group-hover:text-slate-300 transition-colors">Can Edit & Delete</span>
+                                                                                        </label>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                {isPagesModule && isExpanded && websitePages.map(page => {
+                                                                                    const subId = `page_${page._id}`;
+                                                                                    const subPermObj = editingPermissions[subId] || {};
+                                                                                    const subPerms = {
+                                                                                        view: subPermObj.view !== false,
+                                                                                        manage: subPermObj.manage !== false
+                                                                                    };
+                                                                                    return (
+                                                                                        <tr key={subId} className="bg-slate-50/50 dark:bg-[#0f172a]/80 border-t border-slate-100 dark:border-white/5 transition-colors">
+                                                                                            <td className="py-3 px-8 pl-14 text-sm text-slate-600 dark:text-slate-400 font-medium border-l-[3px] border-cyan-500/30">
+                                                                                                ↳ {page.name}
+                                                                                            </td>
+                                                                                            <td className="py-3 px-8">
+                                                                                                <label className="flex items-center gap-3 cursor-pointer group w-fit">
+                                                                                                    <div className={`w-4 h-4 rounded-[4px] border flex items-center justify-center transition-all duration-200 ${subPerms.view ? 'bg-cyan-500 border-cyan-500 shadow-sm shadow-cyan-500/20' : 'bg-slate-50 dark:bg-slate-800/80 border-slate-300 dark:border-slate-600 group-hover:border-cyan-400'}`}>
+                                                                                                        {subPerms.view && <Check className="w-3 h-3 text-white" strokeWidth={3} />}
+                                                                                                    </div>
+                                                                                                    <input type="checkbox" className="hidden" checked={subPerms.view} onChange={(e) => handlePermissionChange(subId, 'view', e.target.checked)} />
+                                                                                                </label>
+                                                                                            </td>
+                                                                                            <td className="py-3 px-8">
+                                                                                                <label className="flex items-center gap-3 cursor-pointer group w-fit">
+                                                                                                    <div className={`w-4 h-4 rounded-[4px] border flex items-center justify-center transition-all duration-200 ${subPerms.manage ? 'bg-purple-500 border-purple-500 shadow-sm shadow-purple-500/20' : 'bg-slate-50 dark:bg-slate-800/80 border-slate-300 dark:border-slate-600 group-hover:border-purple-400'}`}>
+                                                                                                        {subPerms.manage && <Check className="w-3 h-3 text-white" strokeWidth={3} />}
+                                                                                                    </div>
+                                                                                                    <input type="checkbox" className="hidden" checked={subPerms.manage} onChange={(e) => handlePermissionChange(subId, 'manage', e.target.checked)} />
+                                                                                                </label>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    );
+                                                                                })}
+                                                                            </React.Fragment>
                                                                         );
                                                                     })}
                                                                 </tbody>
