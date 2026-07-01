@@ -27,6 +27,13 @@ export async function POST(req) {
         if (data.phone) settings.phone = data.phone;
         if (data.address) settings.address = data.address;
         
+        if (data.socialLinks) {
+            settings.socialLinks = {
+                ...settings.socialLinks,
+                ...data.socialLinks
+            };
+        }
+        
         await settings.save();
         
         return NextResponse.json({ success: true, settings });

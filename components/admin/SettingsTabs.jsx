@@ -20,6 +20,14 @@ export default function SettingsTabs({ currentUsername = "Admin" }) {
     const [siteEmail, setSiteEmail] = useState("info@recenturesoft.com");
     const [sitePhone, setSitePhone] = useState("+91 777 000 3288");
     const [siteAddress, setSiteAddress] = useState("A-125, Sector-63, Noida, UP 201301");
+    const [socialLinks, setSocialLinks] = useState({
+        facebook: "https://facebook.com/recenturesoft",
+        twitter: "https://x.com/recenturesoft",
+        linkedin: "https://www.linkedin.com/company/recenturesoft/posts/?feedView=all",
+        pinterest: "https://pinterest.com/recenturesoft",
+        instagram: "https://instagram.com/recenturesoft",
+        youtube: "https://youtube.com/@recenturesoft"
+    });
     const fileInputRef = useRef(null);
     const logoInputRef = useRef(null);
 
@@ -39,6 +47,12 @@ export default function SettingsTabs({ currentUsername = "Admin" }) {
                     if (data.settings.email) setSiteEmail(data.settings.email);
                     if (data.settings.phone) setSitePhone(data.settings.phone);
                     if (data.settings.address) setSiteAddress(data.settings.address);
+                    if (data.settings.socialLinks) {
+                        setSocialLinks(prev => ({
+                            ...prev,
+                            ...data.settings.socialLinks
+                        }));
+                    }
                 }
             })
             .catch(console.error);
@@ -112,7 +126,8 @@ export default function SettingsTabs({ currentUsername = "Admin" }) {
                     logoUrl: siteLogo,
                     email: siteEmail,
                     phone: sitePhone,
-                    address: siteAddress
+                    address: siteAddress,
+                    socialLinks: socialLinks
                 })
             });
             const data = await res.json();
@@ -393,6 +408,66 @@ export default function SettingsTabs({ currentUsername = "Admin" }) {
                                     defaultValue="hello@recenturesoft.com"
                                     className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
                                 />
+                            </div>
+
+                            <div className="pt-4 border-t border-slate-100 dark:border-white/5 space-y-5">
+                                <h3 className="text-md font-semibold text-slate-900 dark:text-white">Social Media Links</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Facebook URL</label>
+                                        <input 
+                                            type="url" 
+                                            value={socialLinks.facebook}
+                                            onChange={(e) => setSocialLinks({...socialLinks, facebook: e.target.value})}
+                                            className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Twitter (X) URL</label>
+                                        <input 
+                                            type="url" 
+                                            value={socialLinks.twitter}
+                                            onChange={(e) => setSocialLinks({...socialLinks, twitter: e.target.value})}
+                                            className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">LinkedIn URL</label>
+                                        <input 
+                                            type="url" 
+                                            value={socialLinks.linkedin}
+                                            onChange={(e) => setSocialLinks({...socialLinks, linkedin: e.target.value})}
+                                            className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Instagram URL</label>
+                                        <input 
+                                            type="url" 
+                                            value={socialLinks.instagram}
+                                            onChange={(e) => setSocialLinks({...socialLinks, instagram: e.target.value})}
+                                            className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">YouTube URL</label>
+                                        <input 
+                                            type="url" 
+                                            value={socialLinks.youtube}
+                                            onChange={(e) => setSocialLinks({...socialLinks, youtube: e.target.value})}
+                                            className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Pinterest URL</label>
+                                        <input 
+                                            type="url" 
+                                            value={socialLinks.pinterest}
+                                            onChange={(e) => setSocialLinks({...socialLinks, pinterest: e.target.value})}
+                                            className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                             
                             <div className="pt-2 flex items-center gap-4">

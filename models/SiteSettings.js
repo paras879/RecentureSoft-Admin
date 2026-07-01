@@ -6,6 +6,14 @@ const SiteSettingsSchema = new mongoose.Schema({
     email: { type: String, default: "info@recenturesoft.com" },
     phone: { type: String, default: "+91 777 000 3288" },
     address: { type: String, default: "A-125, Sector-63, Noida, UP 201301" },
+    socialLinks: {
+        facebook: { type: String, default: "https://facebook.com/recenturesoft" },
+        twitter: { type: String, default: "https://x.com/recenturesoft" },
+        linkedin: { type: String, default: "https://www.linkedin.com/company/recenturesoft/posts/?feedView=all" },
+        pinterest: { type: String, default: "https://pinterest.com/recenturesoft" },
+        instagram: { type: String, default: "https://instagram.com/recenturesoft" },
+        youtube: { type: String, default: "https://youtube.com/@recenturesoft" }
+    }
 }, { timestamps: true });
 
 if (mongoose.models.SiteSettings) {
