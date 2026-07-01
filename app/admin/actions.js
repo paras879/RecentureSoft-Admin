@@ -530,3 +530,50 @@ export async function updateAdminPermissions(id, permissions) {
         return { success: false, error: "Failed to update permissions." };
     }
 }
+
+export async function createFaq(formData) {
+    try {
+        const hasAccess = await checkPermission('faqs', 'manage');
+        if (!hasAccess) return { success: false, error: "Unauthorized to create FAQ." };
+        await connectDB();
+        
+        const FAQ = (await import("@/models/FAQ")).default;
+        
+        const newFaq = new FAQ({
+            question: formData.question,
+            answer: formData.answer,
+            order: formData.order || 0,
+            isActive: formData.isActive !== false,
+        });
+
+        await newFaq.save();
+        revalidatePath("/admin/content/faqs");
+        return { success: true };
+    } catch (error) {
+        console.error("Error creating FAQ:", error);
+        return { success: false, error: "Failed to create FAQ. " + error.message };
+    }
+}
+
+export async function updateFaq(id, formData) {
+    try {
+        const hasAccess = await checkPermission('faqs', 'manage');
+        if (!hasAccess) return { success: false, error: "Unauthorized to update FAQ." };
+        await connectDB();
+        
+        const FAQ = (await import("@/models/FAQ")).default;
+
+        await FAQ.findByIdAndUpdate(id, {
+            question: formData.question,
+            answer: formData.answer,
+            order: formData.order || 0,
+            isActive: formData.isActive !== false,
+        });
+
+        revalidatePath("/admin/content/faqs");
+        return { success: true };
+    } catch (error) {
+        console.error("Error updating FAQ:", error);
+        return { success: false, error: "Failed to update FAQ. " + error.message };
+    }
+}

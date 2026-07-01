@@ -109,6 +109,7 @@ export default function AdminSidebar() {
                         hasAccess("team") && { name: "Our Team", href: "/admin/content/team", icon: UsersRound },
                         hasAccess("events") && { name: "Events", href: "/admin/content/events", icon: CalendarDays },
                         hasAccess("jobs") && { name: "Job Openings", href: "/admin/content/jobs", icon: Briefcase },
+                        hasAccess("faqs") && { name: "FAQs", href: "/admin/content/faqs", icon: FileText },
                     ].filter(Boolean)
                 }
             ].filter(Boolean)

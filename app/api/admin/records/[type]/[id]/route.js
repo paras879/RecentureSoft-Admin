@@ -32,7 +32,8 @@ export async function DELETE(request, { params }) {
             team: 'team',
             review: 'reviews',
             subscriber: 'subscribers',
-            application: 'applications'
+            application: 'applications',
+            faq: 'faqs'
         };
 
         const moduleKey = typeToModuleMap[type];
@@ -75,6 +76,10 @@ export async function DELETE(request, { params }) {
             case "application":
                 const JobApplication = (await import("@/models/JobApplication")).default;
                 deletedRecord = await JobApplication.findByIdAndDelete(id);
+                break;
+            case "faq":
+                const FAQ = (await import("@/models/FAQ")).default;
+                deletedRecord = await FAQ.findByIdAndDelete(id);
                 break;
             case "activity":
                 deletedRecord = await ActivityLog.findByIdAndDelete(id);

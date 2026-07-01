@@ -46,8 +46,10 @@ export default function AdminDataTable({ title, data, type }) {
         job: 'jobs',
         team: 'team',
         review: 'reviews',
+        review: 'reviews',
         subscriber: 'subscribers',
-        application: 'applications'
+        application: 'applications',
+        faq: 'faqs'
     };
 
     const moduleKey = typeToModuleMap[type];
@@ -261,6 +263,17 @@ export default function AdminDataTable({ title, data, type }) {
                     </span>
                 )},
             ];
+        } else if (type === "faq") {
+            cols = [
+                { label: "Order", key: "order", render: (r) => <span className="font-medium text-slate-500">{r.order}</span> },
+                { label: "Question", key: "question", render: (r) => <span className="font-semibold">{r.question}</span> },
+                { label: "Answer", key: "answer", render: (r) => <div className="max-w-xs truncate" title={r.answer}>{r.answer}</div> },
+                { label: "Status", key: "isActive", render: (r) => (
+                    <span className={`px-2 py-1 rounded text-xs font-medium ${r.isActive ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400' : 'bg-slate-200 text-slate-700 dark:bg-white/10 dark:text-slate-300'}`}>
+                        {r.isActive ? 'Active' : 'Hidden'}
+                    </span>
+                )},
+            ];
         } else if (type === "application") {
             cols = [
                 { label: "Applied On", key: "createdAt", render: (r) => new Date(r.createdAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' }) },
@@ -393,6 +406,20 @@ export default function AdminDataTable({ title, data, type }) {
                     )}
                     </>
                 )}
+                {type === "faq" && (
+                    <>
+                    {hasAccess("view") && (
+                        <button onClick={() => openGenericViewModal(r)} className="p-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View FAQ">
+                            <Eye className="w-4 h-4" />
+                        </button>
+                    )}
+                    {hasAccess("edit") && (
+                        <Link href={`/admin/content/faqs/edit/${r._id}`} className="p-2 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-lg transition-colors" title="Edit FAQ">
+                            <Edit className="w-4 h-4" />
+                        </Link>
+                    )}
+                    </>
+                )}
                 {type !== "blog" && hasAccess("delete") && (
                     <button 
                         onClick={(e) => handleDelete(r._id, e)}
@@ -418,6 +445,7 @@ export default function AdminDataTable({ title, data, type }) {
         if (type === "portfolio") return (item.title?.toLowerCase().includes(searchLower) || item.technologies?.some(t => t.toLowerCase().includes(searchLower)));
         if (type === "service") return (item.title?.toLowerCase().includes(searchLower) || item.slug?.toLowerCase().includes(searchLower));
         if (type === "job") return (item.title?.toLowerCase().includes(searchLower) || item.department?.toLowerCase().includes(searchLower));
+        if (type === "faq") return (item.question?.toLowerCase().includes(searchLower) || item.answer?.toLowerCase().includes(searchLower));
         if (type === "subscriber") return (item.email?.toLowerCase().includes(searchLower) || item.status?.toLowerCase().includes(searchLower));
         if (type === "application") return (item.name?.toLowerCase().includes(searchLower) || item.email?.toLowerCase().includes(searchLower) || item.applyFor?.toLowerCase().includes(searchLower));
         return (item.name?.toLowerCase().includes(searchLower) || item.email?.toLowerCase().includes(searchLower) || item.topic?.toLowerCase().includes(searchLower) || item.subject?.toLowerCase().includes(searchLower) || item.projectType?.toLowerCase().includes(searchLower));
