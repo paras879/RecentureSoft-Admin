@@ -42,16 +42,22 @@ export async function GET() {
             { name: "WordPress Development", path: "/wordpress-development-customization" }
         ];
 
-        // Seed pages if they don't exist
-        for (const page of allStaticPages) {
-            await WebPage.updateOne(
-                { path: page.path },
-                { $setOnInsert: { name: page.name, path: page.path } },
-                { upsert: true }
-            );
-        }
+        let pages = await WebPage.find().sort({ createdAt: 1 }).lean();
 
-        const pages = await WebPage.find().sort({ createdAt: 1 }).lean();
+        // Seed pages only if they are missing (Bulk operation is much faster)
+        if (pages.length < allStaticPages.length) {
+            const bulkOps = allStaticPages.map(page => ({
+                updateOne: {
+                    filter: { path: page.path },
+                    update: { $setOnInsert: { name: page.name, path: page.path, status: "active" } },
+                    upsert: true
+                }
+            }));
+            await WebPage.bulkWrite(bulkOps);
+            
+            // Re-fetch after inserting new ones
+            pages = await WebPage.find().sort({ createdAt: 1 }).lean();
+        }
 
         return NextResponse.json({ success: true, pages });
     } catch (error) {

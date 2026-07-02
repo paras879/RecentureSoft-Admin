@@ -30,28 +30,36 @@ export async function POST(req) {
 
         await connectDB();
         
-        // Auto-seed admin if none exists
-        const adminCount = await Admin.countDocuments();
-        if (adminCount === 0) {
-            const defaultUsername = process.env.ADMIN_USERNAME || "admin";
-            const defaultPassword = process.env.ADMIN_PASSWORD || "recenture2026";
-            const hashedPassword = await bcrypt.hash(defaultPassword, 10);
-            
-            await Admin.create({
-                username: defaultUsername,
-                email: "parastomar851@gmail.com", // Default email
-                password: hashedPassword,
-                role: "super_admin"
-            });
-        }
+        // Find admin FIRST (Fastest operation)
+        let admin = await Admin.findOne({ username });
 
-        // Find admin
-        const admin = await Admin.findOne({ username });
+        // Auto-seed admin only if not found and DB is completely empty (Slow, but only happens once)
         if (!admin) {
-            return NextResponse.json(
-                { success: false, message: "Invalid username or password" },
-                { status: 401 }
-            );
+            const adminCount = await Admin.countDocuments();
+            if (adminCount === 0) {
+                const defaultUsername = process.env.ADMIN_USERNAME || "admin";
+                
+                // Only create if they are trying to login as the default admin
+                if (username === defaultUsername) {
+                    const defaultPassword = process.env.ADMIN_PASSWORD || "recenture2026";
+                    const hashedPassword = await bcrypt.hash(defaultPassword, 10);
+                    
+                    admin = await Admin.create({
+                        username: defaultUsername,
+                        email: "parastomar851@gmail.com",
+                        password: hashedPassword,
+                        role: "super_admin"
+                    });
+                }
+            }
+
+            // Still no admin? Reject login
+            if (!admin) {
+                return NextResponse.json(
+                    { success: false, message: "Invalid username or password" },
+                    { status: 401 }
+                );
+            }
         }
 
         // Check password
