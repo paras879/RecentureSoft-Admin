@@ -21,6 +21,7 @@ export default async function FAQsPage() {
         _id: r._id.toString(),
         question: r.question,
         answer: r.answer,
+        page: r.page || "home",
         order: r.order || 0,
         isActive: r.isActive !== false,
     }));

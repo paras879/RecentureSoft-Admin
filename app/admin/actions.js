@@ -542,6 +542,7 @@ export async function createFaq(formData) {
         const newFaq = new FAQ({
             question: formData.question,
             answer: formData.answer,
+            page: formData.page || "home",
             order: formData.order || 0,
             isActive: formData.isActive !== false,
         });
@@ -566,6 +567,7 @@ export async function updateFaq(id, formData) {
         await FAQ.findByIdAndUpdate(id, {
             question: formData.question,
             answer: formData.answer,
+            page: formData.page || "home",
             order: formData.order || 0,
             isActive: formData.isActive !== false,
         });

@@ -6,6 +6,40 @@ import { createFaq, updateFaq } from "@/app/admin/actions";
 import { Loader2, ArrowLeft, Save } from "lucide-react";
 import Link from "next/link";
 
+const PAGE_OPTIONS = [
+    { value: "home", label: "Home" },
+    { value: "about", label: "About Us" },
+    { value: "contact", label: "Contact" },
+    { value: "portfolio", label: "Portfolio" },
+    { value: "blog", label: "Blog" },
+    { value: "events", label: "Events" },
+    { value: "news", label: "News" },
+    { value: "solutions", label: "Solutions" },
+    { value: "career", label: "Career" },
+    { value: "crm", label: "CRM" },
+    { value: "cms", label: "CMS" },
+    { value: "salesforce", label: "Salesforce" },
+    { value: "dashboard", label: "Dashboard" },
+    { value: "next-js", label: "Next JS" },
+    { value: "react", label: "React" },
+    { value: "web-design", label: "Web Design" },
+    { value: "opencart-development", label: "OpenCart Development" },
+    { value: "magento-development", label: "Magento Development" },
+    { value: "ebay-store-management", label: "eBay Store Management" },
+    { value: "amazon-store-management", label: "Amazon Store Management" },
+    { value: "wordpress-development-customization", label: "WordPress Development" },
+    { value: "iphone-apps-development", label: "iPhone Apps Development" },
+    { value: "ipad-app-development", label: "iPad App Development" },
+    { value: "android-application-development", label: "Android App Development" },
+    { value: "node-js", label: "Node JS" },
+    { value: "react-native", label: "React Native" },
+    { value: "seo-service", label: "SEO Service" },
+    { value: "seo-package", label: "SEO Package" },
+    { value: "social-networking", label: "Social Networking" },
+    { value: "content-writing", label: "Content Writing" },
+    { value: "ai-seo", label: "AI SEO" },
+];
+
 export default function CreateFaqForm({ initialData = null }) {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
@@ -16,6 +50,7 @@ export default function CreateFaqForm({ initialData = null }) {
     } : {
         question: "",
         answer: "",
+        page: "home",
         order: 0,
         isActive: true,
     });
@@ -113,7 +148,22 @@ export default function CreateFaqForm({ initialData = null }) {
                         />
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                        <div className="space-y-1.5">
+                            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Page</label>
+                            <select
+                                name="page"
+                                value={formData.page || "home"}
+                                onChange={handleChange}
+                                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
+                            >
+                                {PAGE_OPTIONS.map(opt => (
+                                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                ))}
+                            </select>
+                            <p className="text-xs text-slate-500">Which page should this FAQ appear on?</p>
+                        </div>
+
                         <div className="space-y-1.5">
                             <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Display Order</label>
                             <input 
@@ -124,7 +174,7 @@ export default function CreateFaqForm({ initialData = null }) {
                                 placeholder="0"
                                 className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
                             />
-                            <p className="text-xs text-slate-500">Lower numbers appear first (e.g. 0, 1, 2)</p>
+                            <p className="text-xs text-slate-500">Lower numbers appear first</p>
                         </div>
 
                         <div className="flex flex-col justify-center pt-5">
