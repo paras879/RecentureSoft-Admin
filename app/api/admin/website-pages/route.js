@@ -119,6 +119,27 @@ export async function PUT(req) {
         if (!updatedPage) {
             return NextResponse.json({ success: false, message: "Page not found" }, { status: 404 });
         }
+
+        // ── On-demand revalidation ──────────────────────────────────────
+        // Whenever page status changes, trigger instant cache clear on the
+        // main site so the navbar/footer updates without any delay.
+        if (data.status !== undefined) {
+            const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
+            const revalSecret = process.env.REVALIDATION_SECRET;
+            try {
+                await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        ...(revalSecret ? { "x-revalidate-secret": revalSecret } : {}),
+                    },
+                });
+            } catch (revalErr) {
+                // Non-blocking — log but don't fail the response
+                console.warn("[website-pages] Revalidation ping failed:", revalErr.message);
+            }
+        }
+        // ───────────────────────────────────────────────────────────────
         
         return NextResponse.json({ success: true, page: updatedPage });
     } catch (error) {
@@ -126,3 +147,4 @@ export async function PUT(req) {
         return NextResponse.json({ success: false, message: "Internal server error" }, { status: 500 });
     }
 }
+
