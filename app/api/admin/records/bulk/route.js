@@ -35,7 +35,8 @@ export async function DELETE(request) {
             team: 'team',
             review: 'reviews',
             subscriber: 'subscribers',
-            application: 'applications'
+            application: 'applications',
+            faq: 'faqs'
         };
 
         const moduleKey = typeToModuleMap[type];
@@ -83,6 +84,10 @@ export async function DELETE(request) {
             case "application":
                 const JobApplication = (await import("@/models/JobApplication")).default;
                 result = await JobApplication.deleteMany({ _id: { $in: ids } });
+                break;
+            case "faq":
+                const FAQ = (await import("@/models/FAQ")).default;
+                result = await FAQ.deleteMany({ _id: { $in: ids } });
                 break;
             default:
                 return NextResponse.json(
