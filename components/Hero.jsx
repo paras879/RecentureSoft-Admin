@@ -9,26 +9,26 @@ function HeroGraphic({ accent }) {
     return (
         <div className="w-full h-full flex items-center justify-center relative select-none pointer-events-none">
             {/* Center soft glow */}
-            <div 
+            <div
                 className="absolute w-[300px] md:w-[450px] h-[300px] md:h-[450px] rounded-full  opacity-40 transition-all duration-700"
                 style={{
                     background: `radial-gradient(circle, ${accent} 0%, transparent 70%)`
                 }}
             />
-            
+
             {/* Orbital tech network SVG */}
             <svg viewBox="0 0 400 400" className="w-full h-auto max-w-[480px] relative z-10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Concentric orbital rings */}
                 <circle cx="200" cy="200" r="140" stroke={`${accent}15`} strokeWidth="1.5" strokeDasharray="5 5" className="animate-spin-slow" />
                 <circle cx="200" cy="200" r="110" stroke="rgba(99, 102, 241, 0.12)" strokeWidth="1" className="animate-spin-reverse" />
                 <circle cx="200" cy="200" r="80" stroke={`${accent}20`} strokeWidth="2" />
-                
+
                 {/* Central main core */}
                 <g className="animate-pulse-slow">
                     <circle cx="200" cy="200" r="48" fill="url(#hero-core-grad)" stroke={accent} strokeWidth="1.5" />
                     <circle cx="200" cy="200" r="42" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
                 </g>
-                
+
                 {/* Orbiting Tech Nodes */}
                 {/* Node 1: AI Core */}
                 <g className="animate-orbit-node-1">
@@ -38,7 +38,7 @@ function HeroGraphic({ accent }) {
                         <rect x="-4" y="-4" width="8" height="8" fill="#ffffff" />
                     </g>
                 </g>
-                
+
                 {/* Node 2: Cloud Storage */}
                 <g className="animate-orbit-node-2">
                     <g transform="translate(200, 60)">
@@ -69,7 +69,7 @@ function HeroGraphic({ accent }) {
                     </radialGradient>
                 </defs>
             </svg>
-            
+
             <style dangerouslySetInnerHTML={{
                 __html: `
                 @keyframes spin-slow {
@@ -226,12 +226,12 @@ export default function Hero() {
 
     useEffect(() => {
         setIsDesktop(window.innerWidth >= 768);
-        
+
         // Observer to pause animation when out of view
         const observer = new IntersectionObserver(([entry]) => {
             setIsInView(entry.isIntersecting);
         }, { threshold: 0.1 });
-        
+
         if (heroRef.current) observer.observe(heroRef.current);
         return () => observer.disconnect();
     }, []);
@@ -265,7 +265,7 @@ export default function Hero() {
                                 priority={index === 0}
                                 sizes="(max-width: 768px) 480px, 100vw"
                                 className="object-cover"
-                                quality={75}
+                                quality={80}
                             />
                         )}
                         {/* Darken overlay */}
@@ -312,10 +312,10 @@ export default function Hero() {
 
                             {/* Heading */}
                             <motion.h1
-                                variants={slideIn} 
-                                initial={isDesktop ? "hidden" : { opacity: 1, y: 0 }} 
-                                animate={isDesktop ? "visible" : { opacity: 1, y: 0 }} 
-                                exit="exit" 
+                                variants={slideIn}
+                                initial={isDesktop ? "hidden" : { opacity: 1, y: 0 }}
+                                animate={isDesktop ? "visible" : { opacity: 1, y: 0 }}
+                                exit="exit"
                                 custom={1}
                                 className="text-[2.2rem] sm:text-[2.8rem] md:text-[4rem] lg:text-[5rem] font-[500] tracking-[-0.05em] leading-[0.9] text-foreground"
                             >
@@ -328,10 +328,10 @@ export default function Hero() {
 
                             {/* Description */}
                             <motion.p
-                                variants={slideIn} 
-                                initial={isDesktop ? "hidden" : { opacity: 1, y: 0 }} 
-                                animate={isDesktop ? "visible" : { opacity: 1, y: 0 }} 
-                                exit="exit" 
+                                variants={slideIn}
+                                initial={isDesktop ? "hidden" : { opacity: 1, y: 0 }}
+                                animate={isDesktop ? "visible" : { opacity: 1, y: 0 }}
+                                exit="exit"
                                 custom={2}
                                 className="mt-6 text-[15px] md:text-[18px] text-slate-600 dark:text-slate-400 max-w-xl leading-8 font-[400]"
                             >
@@ -340,10 +340,10 @@ export default function Hero() {
 
                             {/* CTA buttons */}
                             <motion.div
-                                variants={slideIn} 
-                                initial={isDesktop ? "hidden" : { opacity: 1, y: 0 }} 
-                                animate={isDesktop ? "visible" : { opacity: 1, y: 0 }} 
-                                exit="exit" 
+                                variants={slideIn}
+                                initial={isDesktop ? "hidden" : { opacity: 1, y: 0 }}
+                                animate={isDesktop ? "visible" : { opacity: 1, y: 0 }}
+                                exit="exit"
                                 custom={3}
                                 className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
                             >
