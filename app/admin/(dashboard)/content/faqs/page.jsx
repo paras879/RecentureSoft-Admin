@@ -15,7 +15,7 @@ export const metadata = {
 export default async function FAQsPage() {
     await connectDB();
     
-    const records = await FAQ.find().sort({ order: 1, createdAt: -1 }).lean();
+    const records = await FAQ.find().sort({ page: 1, order: 1, createdAt: -1 }).lean();
 
     const data = records.map(r => ({
         _id: r._id.toString(),
@@ -49,6 +49,7 @@ export default async function FAQsPage() {
                     title="" 
                     data={data} 
                     type="faq" 
+                    groupBy="page"
                 />
             </div>
         </AuthGuard>

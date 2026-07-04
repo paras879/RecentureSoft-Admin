@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Search, ChevronLeft, ChevronRight, Eye, Edit, Trash2, Download, Reply } from "lucide-react";
+import { useState, Fragment, useEffect } from "react";
+import { Search, ChevronLeft, ChevronRight, Eye, Edit, Trash2, Download, Reply, ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
@@ -13,9 +13,16 @@ import GenericRecordViewModal from "./GenericRecordViewModal";
 import { useAdmin } from "@/components/admin/AdminProvider";
 import { deleteJobOpening, deleteSubscriber } from "@/app/admin/actions";
 
-export default function AdminDataTable({ title, data, type }) {
+export default function AdminDataTable({ title, data, type, groupBy }) {
     const router = useRouter();
     const [search, setSearch] = useState("");
+    const [expandedGroup, setExpandedGroup] = useState(null);
+
+    useEffect(() => {
+        if (groupBy && data && data.length > 0 && expandedGroup === null) {
+            setExpandedGroup(data[0][groupBy]);
+        }
+    }, [groupBy, data, expandedGroup]);
     const [page, setPage] = useState(1);
     const [deletingId, setDeletingId] = useState(null);
     const [selectedIds, setSelectedIds] = useState([]);
@@ -266,6 +273,7 @@ export default function AdminDataTable({ title, data, type }) {
         } else if (type === "faq") {
             cols = [
                 { label: "Order", key: "order", render: (r) => <span className="font-medium text-slate-500">{r.order}</span> },
+                { label: "Page", key: "page", render: (r) => <span className="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300 rounded-full text-xs font-medium capitalize">{r.page || "home"}</span> },
                 { label: "Question", key: "question", render: (r) => <span className="font-semibold">{r.question}</span> },
                 { label: "Answer", key: "answer", render: (r) => <div className="max-w-xs truncate" title={r.answer}>{r.answer}</div> },
                 { label: "Status", key: "isActive", render: (r) => (
@@ -546,18 +554,42 @@ export default function AdminDataTable({ title, data, type }) {
                                     </td>
                                 </tr>
                             ) : (
-                                paginatedData.map((row, i) => (
-                                    <tr key={i} className="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
-                                        <td className="px-4 py-4">
-                                            <input type="checkbox" className="rounded border-slate-300 dark:border-white/20 text-cyan-600 focus:ring-cyan-500" checked={selectedIds.includes(row._id)} onChange={() => toggleSelectRow(row._id)} />
-                                        </td>
-                                        {columns.map((col, j) => (
-                                            <td key={j} className="px-6 py-4 text-slate-700 dark:text-slate-300">
-                                                {col.render ? col.render(row) : row[col.key]}
-                                            </td>
-                                        ))}
-                                    </tr>
-                                ))
+                                paginatedData.map((row, i) => {
+                                    const currentGroup = groupBy ? row[groupBy] : null;
+                                    const previousGroup = groupBy && i > 0 ? paginatedData[i - 1][groupBy] : null;
+                                    const showGroupHeader = groupBy && currentGroup !== previousGroup;
+                                    const isExpanded = currentGroup === expandedGroup;
+
+                                    return (
+                                        <Fragment key={i}>
+                                            {showGroupHeader && (
+                                                <tr 
+                                                    className="bg-slate-100 dark:bg-slate-800/50 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+                                                    onClick={() => setExpandedGroup(isExpanded ? null : currentGroup)}
+                                                >
+                                                    <td colSpan={columns.length + 1} className="px-6 py-3 font-bold text-slate-800 dark:text-white capitalize">
+                                                        <div className="flex items-center gap-2">
+                                                            <ChevronDown className={`w-4 h-4 transition-transform ${isExpanded ? "rotate-180" : ""}`} />
+                                                            {currentGroup === "home" ? "Home Page FAQs" : currentGroup ? `${currentGroup} FAQs` : "General FAQs"}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            )}
+                                            {(!groupBy || isExpanded) && (
+                                                <tr className="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+                                                    <td className="px-4 py-4">
+                                                        <input type="checkbox" className="rounded border-slate-300 dark:border-white/20 text-cyan-600 focus:ring-cyan-500" checked={selectedIds.includes(row._id)} onChange={() => toggleSelectRow(row._id)} />
+                                                    </td>
+                                                    {columns.map((col, j) => (
+                                                        <td key={j} className="px-6 py-4 text-slate-700 dark:text-slate-300">
+                                                            {col.render ? col.render(row) : row[col.key]}
+                                                        </td>
+                                                    ))}
+                                                </tr>
+                                            )}
+                                        </Fragment>
+                                    );
+                                })
                             )}
                         </tbody>
                     </table>
