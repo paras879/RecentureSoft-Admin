@@ -9,53 +9,69 @@ export async function GET() {
         const allStaticPages = [
             { name: "Home", path: "/" },
             { name: "About Us", path: "/about" },
-            { name: "Amazon Store Management", path: "/amazon-store-management" },
-            { name: "Android App Development", path: "/android-application-development" },
+            
+            // Software Development
+            { name: "CRM Development", path: "/crm", category: "Solutions", subcategory: "Software Development" },
+            { name: "CMS Development", path: "/cms", category: "Solutions", subcategory: "Software Development" },
+            { name: "Salesforce Solutions", path: "/salesforce", category: "Solutions", subcategory: "Software Development" },
+            { name: "Dashboard", path: "/dashboard", category: "Solutions", subcategory: "Software Development" },
+            
+            // Web Development
+            { name: "Next.js Development", path: "/next-js", category: "Solutions", subcategory: "Web Development" },
+            { name: "React Development", path: "/react", category: "Solutions", subcategory: "Web Development" },
+            { name: "Web Design", path: "/web-design", category: "Solutions", subcategory: "Web Development" },
+
+            // E-Commerce
+            { name: "OpenCart Development", path: "/opencart-development", category: "Solutions", subcategory: "E-Commerce" },
+            { name: "Magento Development", path: "/magento-development", category: "Solutions", subcategory: "E-Commerce" },
+            { name: "eBay Store Management", path: "/ebay-store-management", category: "Solutions", subcategory: "E-Commerce" },
+            { name: "Amazon Store Management", path: "/amazon-store-management", category: "Solutions", subcategory: "E-Commerce" },
+            { name: "WordPress Development", path: "/wordpress-development-customization", category: "Solutions", subcategory: "E-Commerce" },
+
+            // Mobile App Development
+            { name: "iPhone App Development", path: "/iphone-apps-development", category: "Solutions", subcategory: "Mobile App Development" },
+            { name: "iPad App Development", path: "/ipad-app-development", category: "Solutions", subcategory: "Mobile App Development" },
+            { name: "Android App Development", path: "/android-application-development", category: "Solutions", subcategory: "Mobile App Development" },
+
+            // Technology Solution
+            { name: "Node.js Development", path: "/node-js", category: "Solutions", subcategory: "Technology Solution" },
+            { name: "React Native Development", path: "/react-native", category: "Solutions", subcategory: "Technology Solution" },
+
+            // Digital Marketing
+            { name: "SEO Services", path: "/seo-service", category: "Solutions", subcategory: "Digital Marketing" },
+            { name: "SEO Packages", path: "/seo-package", category: "Solutions", subcategory: "Digital Marketing" },
+            { name: "Social Networking Apps", path: "/social-networking", category: "Solutions", subcategory: "Digital Marketing" },
+            { name: "Content Writing", path: "/content-writing", category: "Solutions", subcategory: "Digital Marketing" },
+            { name: "AI SEO", path: "/ai-seo", category: "Solutions", subcategory: "Digital Marketing" },
+
+            // Other Pages
             { name: "Blog", path: "/blog" },
             { name: "Career", path: "/career" },
-            { name: "CMS Development", path: "/cms" },
             { name: "Contact Us", path: "/contact" },
-            { name: "Content Writing", path: "/content-writing" },
             { name: "Cookies Policy", path: "/cookies" },
-            { name: "CRM Development", path: "/crm" },
-            { name: "eBay Store Management", path: "/ebay-store-management" },
             { name: "Events", path: "/events" },
-            { name: "iPad App Development", path: "/ipad-app-development" },
-            { name: "iPhone App Development", path: "/iphone-apps-development" },
-            { name: "Magento Development", path: "/magento-development" },
             { name: "News", path: "/news" },
-            { name: "Next.js Development", path: "/next-js" },
-            { name: "Node.js Development", path: "/node-js" },
-            { name: "OpenCart Development", path: "/opencart-development" },
             { name: "Portfolio", path: "/portfolio" },
             { name: "Privacy Policy", path: "/privacy-policy" },
-            { name: "React Development", path: "/react" },
-            { name: "React Native Development", path: "/react-native" },
-            { name: "Salesforce Solutions", path: "/salesforce" },
-            { name: "SEO Packages", path: "/seo-package" },
-            { name: "SEO Services", path: "/seo-service" },
             { name: "HTML Sitemap", path: "/sitemap" },
-            { name: "Social Networking Apps", path: "/social-networking" },
-            { name: "Solutions", path: "/solutions" },
-            { name: "Terms & Conditions", path: "/terms" },
-            { name: "Web Design", path: "/web-design" },
-            { name: "WordPress Development", path: "/wordpress-development-customization" }
+            { name: "Terms & Conditions", path: "/terms" }
         ];
 
         let pages = await WebPage.find().sort({ createdAt: 1 }).lean();
 
-        if (pages.length < allStaticPages.length) {
-            const bulkOps = allStaticPages.map((page) => ({
-                updateOne: {
-                    filter: { path: page.path },
-                    update: { $setOnInsert: { name: page.name, path: page.path, status: "active" } },
-                    upsert: true
-                }
-            }));
-            await WebPage.bulkWrite(bulkOps);
+        const bulkOps = allStaticPages.map((page) => ({
+            updateOne: {
+                filter: { path: page.path },
+                update: { 
+                    $setOnInsert: { name: page.name, path: page.path, status: "active" },
+                    $set: { category: page.category || "", subcategory: page.subcategory || "" }
+                },
+                upsert: true
+            }
+        }));
+        await WebPage.bulkWrite(bulkOps);
 
-            pages = await WebPage.find().sort({ createdAt: 1 }).lean();
-        }
+        pages = await WebPage.find().sort({ createdAt: 1 }).lean();
 
         return NextResponse.json({ success: true, pages });
     } catch (error) {

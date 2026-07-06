@@ -173,6 +173,31 @@ export default function ManageAdmins() {
         }
     };
 
+    const pageCategories = {};
+    const uncategorizedPages = [];
+
+    websitePages.forEach(p => {
+        if (p.category === "Solutions" && p.subcategory) {
+            if (!pageCategories[p.subcategory]) pageCategories[p.subcategory] = [];
+            pageCategories[p.subcategory].push(p);
+        } else {
+            uncategorizedPages.push(p);
+        }
+    });
+
+    const dynamicCategoryModules = Object.keys(pageCategories).map(catName => ({
+        id: `cat_${catName.toLowerCase().replace(/\s+/g, '_')}`,
+        label: catName,
+        isCategory: true,
+        pages: pageCategories[catName]
+    }));
+
+    const allModules = [
+        ...CONTENT_MODULES.filter(m => m.id !== 'pages'),
+        { id: 'pages', label: 'Other Pages', isCategory: true, pages: uncategorizedPages },
+        ...dynamicCategoryModules
+    ];
+
     return (
         <div className="flex flex-col gap-8 w-full">
             
@@ -312,14 +337,14 @@ export default function ManageAdmins() {
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody className="divide-y divide-slate-100 dark:divide-white/5">
-                                                                    {CONTENT_MODULES.map(module => {
+                                                                    {allModules.map(module => {
                                                                         const permObj = editingPermissions[module.id] || {};
                                                                         const perms = { 
                                                                             view: permObj.view !== false, 
                                                                             manage: permObj.manage !== false 
                                                                         };
                                                                         
-                                                                        const isPagesModule = module.id === 'pages';
+                                                                        const isCategoryModule = module.isCategory;
                                                                         const isExpanded = expandedModules[`${admin._id}_${module.id}`];
 
                                                                         const toggleModule = () => {
@@ -331,7 +356,7 @@ export default function ManageAdmins() {
                                                                                 <tr className="hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors">
                                                                                     <td className="py-4 px-8 text-sm text-slate-700 dark:text-slate-300 font-medium">
                                                                                         <div className="flex items-center gap-2">
-                                                                                            {isPagesModule && websitePages.length > 0 && (
+                                                                                            {isCategoryModule && module.pages && module.pages.length > 0 && (
                                                                                                 <button onClick={toggleModule} className="p-1 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md transition-colors text-slate-500">
                                                                                                     {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                                                                                                 </button>
@@ -350,8 +375,8 @@ export default function ManageAdmins() {
                                                                                                 checked={perms.view} 
                                                                                                 onChange={(e) => {
                                                                                                     handlePermissionChange(module.id, 'view', e.target.checked);
-                                                                                                    if (isPagesModule) {
-                                                                                                        websitePages.forEach(p => handlePermissionChange(`page_${p._id}`, 'view', e.target.checked));
+                                                                                                    if (isCategoryModule && module.pages) {
+                                                                                                        module.pages.forEach(p => handlePermissionChange(`page_${p._id}`, 'view', e.target.checked));
                                                                                                     }
                                                                                                 }} 
                                                                                             />
@@ -369,8 +394,8 @@ export default function ManageAdmins() {
                                                                                                 checked={perms.manage} 
                                                                                                 onChange={(e) => {
                                                                                                     handlePermissionChange(module.id, 'manage', e.target.checked);
-                                                                                                    if (isPagesModule) {
-                                                                                                        websitePages.forEach(p => handlePermissionChange(`page_${p._id}`, 'manage', e.target.checked));
+                                                                                                    if (isCategoryModule && module.pages) {
+                                                                                                        module.pages.forEach(p => handlePermissionChange(`page_${p._id}`, 'manage', e.target.checked));
                                                                                                     }
                                                                                                 }} 
                                                                                             />
@@ -378,7 +403,7 @@ export default function ManageAdmins() {
                                                                                         </label>
                                                                                     </td>
                                                                                 </tr>
-                                                                                {isPagesModule && isExpanded && websitePages.map(page => {
+                                                                                {isCategoryModule && isExpanded && module.pages && module.pages.map(page => {
                                                                                     const subId = `page_${page._id}`;
                                                                                     const subPermObj = editingPermissions[subId] || {};
                                                                                     const subPerms = {
