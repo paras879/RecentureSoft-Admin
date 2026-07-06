@@ -175,9 +175,12 @@ export default function ManageAdmins() {
 
     const pageCategories = {};
     const uncategorizedPages = [];
+    const locationPages = [];
 
     websitePages.forEach(p => {
-        if (p.category === "Solutions" && p.subcategory) {
+        if (p.templateType === 'location-template') {
+            locationPages.push(p);
+        } else if (p.category === "Solutions" && p.subcategory) {
             if (!pageCategories[p.subcategory]) pageCategories[p.subcategory] = [];
             pageCategories[p.subcategory].push(p);
         } else {
@@ -191,11 +194,19 @@ export default function ManageAdmins() {
         isCategory: true,
         pages: pageCategories[catName]
     }));
+    
+    const locationModule = locationPages.length > 0 ? [{
+        id: 'cat_location_pages',
+        label: 'Location Pages',
+        isCategory: true,
+        pages: locationPages
+    }] : [];
 
     const allModules = [
         ...CONTENT_MODULES.filter(m => m.id !== 'pages'),
         { id: 'pages', label: 'Other Pages', isCategory: true, pages: uncategorizedPages },
-        ...dynamicCategoryModules
+        ...dynamicCategoryModules,
+        ...locationModule
     ];
 
     return (

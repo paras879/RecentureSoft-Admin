@@ -379,38 +379,49 @@ export default function WebsitePages() {
                                     className="w-full px-4 py-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 dark:text-white font-mono"
                                 />
                             </div>
-                            <div className="space-y-1.5">
-                                <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Category (Navbar Link)</label>
-                                <select
-                                    value={newCategory}
-                                    onChange={(e) => setNewCategory(e.target.value)}
-                                    className="w-full px-4 py-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 dark:text-white"
-                                >
-                                    <option value="None">None</option>
-                                    <option value="Solutions">Solutions</option>
-                                </select>
-                            </div>
-                            {newCategory !== "None" && (
-                                <div className="space-y-1.5">
-                                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Sub-Category (Column Title)</label>
-                                    <input
-                                        type="text"
-                                        value={newSubcategory}
-                                        onChange={(e) => setNewSubcategory(e.target.value)}
-                                        placeholder="e.g. Web Development"
-                                        className="w-full px-4 py-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 dark:text-white"
-                                    />
-                                </div>
+                            {newTemplateType !== 'location-template' && (
+                                <>
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Category (Navbar Link)</label>
+                                        <select
+                                            value={newCategory}
+                                            onChange={(e) => setNewCategory(e.target.value)}
+                                            className="w-full px-4 py-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 dark:text-white"
+                                        >
+                                            <option value="None">None</option>
+                                            <option value="Solutions">Solutions</option>
+                                        </select>
+                                    </div>
+                                    {newCategory !== "None" && (
+                                        <div className="space-y-1.5">
+                                            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Sub-Category (Column Title)</label>
+                                            <input
+                                                type="text"
+                                                value={newSubcategory}
+                                                onChange={(e) => setNewSubcategory(e.target.value)}
+                                                placeholder="e.g. Web Development"
+                                                className="w-full px-4 py-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 dark:text-white"
+                                            />
+                                        </div>
+                                    )}
+                                </>
                             )}
                             <div className="space-y-1.5">
                                 <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Template Type</label>
                                 <select
                                     value={newTemplateType}
-                                    onChange={(e) => setNewTemplateType(e.target.value)}
+                                    onChange={(e) => {
+                                        setNewTemplateType(e.target.value);
+                                        if (e.target.value === 'location-template') {
+                                            setNewCategory('None');
+                                            setNewSubcategory('');
+                                        }
+                                    }}
                                     className="w-full px-4 py-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 dark:text-white"
                                 >
                                     <option value="default">Default Blank Template</option>
-                                    <option value="crm-template">CRM Template</option>
+                                    <option value="crm-template">CRM/Solutions Template</option>
+                                    <option value="location-template">Location Pages Template</option>
                                 </select>
                             </div>
                         </div>
@@ -497,7 +508,7 @@ export default function WebsitePages() {
                                         </button>
                                     </>
                                 )}
-                                {editFormData.templateType === "crm-template" && (
+                                {(editFormData.templateType === "crm-template" || editFormData.templateType === "location-template") && (
                                     <>
                                         <button
                                             onClick={() => setActiveEditTab("crm-hero")}
@@ -531,7 +542,8 @@ export default function WebsitePages() {
                                                     className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none transition-all shadow-sm"
                                                 >
                                                     <option value="default">Default Blank Template</option>
-                                                    <option value="crm-template">CRM Template</option>
+                                                    <option value="crm-template">CRM/Solutions Template</option>
+                                                    <option value="location-template">Location Pages Template</option>
                                                 </select>
                                                 <p className="text-xs text-slate-500 mt-1">Select "CRM Template" to enable the Section Builder and hero banner for this page.</p>
                                             </div>
@@ -862,7 +874,7 @@ export default function WebsitePages() {
                                 )}
 
                                 {/* CRM TEMPLATE TABS */}
-                                {activeEditTab === "crm-hero" && editFormData.templateType === "crm-template" && (
+                                {activeEditTab === "crm-hero" && (editFormData.templateType === "crm-template" || editFormData.templateType === "location-template") && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CRM Hero Settings</h3>
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
@@ -914,7 +926,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-                                {activeEditTab === "crm-content" && editFormData.templateType === "crm-template" && (
+                                {activeEditTab === "crm-content" && (editFormData.templateType === "crm-template" || editFormData.templateType === "location-template") && (
                                     <div className="max-w-4xl space-y-6">
                                         <div className="flex items-center justify-between mb-4">
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white">Page Content Settings (Section Builder)</h3>
@@ -978,7 +990,7 @@ export default function WebsitePages() {
                                                                 />
                                                                 <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mt-4">
                                                                     <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Cards Background Image (Peeche Image Lagayein)</label>
-                                                                    <ImageUploader 
+                                                                    <ImageUploader
                                                                         label="Upload Background Image"
                                                                         value={block.bgImageUrl || ""}
                                                                         onChange={(val) => handleUpdateBlock(index, 'bgImageUrl', val)}
@@ -1009,7 +1021,7 @@ export default function WebsitePages() {
 
                                                         {block.type === 'image' && (
                                                             <div className="space-y-4">
-                                                                <ImageUploader 
+                                                                <ImageUploader
                                                                     label="Section Image"
                                                                     value={block.url || ""}
                                                                     onChange={(val) => handleUpdateBlock(index, 'url', val)}
@@ -1035,7 +1047,7 @@ export default function WebsitePages() {
                                                             <div className="border-t border-slate-200 dark:border-slate-700 pt-5 mt-5">
                                                                 <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Optional Side Image (Left or Right)</label>
                                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                                    <ImageUploader 
+                                                                    <ImageUploader
                                                                         label="Upload Side Image"
                                                                         value={block.imageUrl || ""}
                                                                         onChange={(val) => handleUpdateBlock(index, 'imageUrl', val)}
