@@ -8,6 +8,7 @@ import { ArrowUpRight, MessageSquare, PlusCircle, Download, Clock } from "lucide
 import DashboardStats from "@/components/admin/DashboardStats";
 import DashboardChart from "@/components/admin/DashboardChart";
 import Link from "next/link";
+import { getAdminUsername } from "@/lib/adminUtils";
 
 // Helper to format date
 const formatDate = (date) => {
@@ -32,13 +33,14 @@ export default async function DashboardPage() {
     sevenDaysAgo.setHours(0, 0, 0, 0);
 
     // Fetch live counts and recent leads from MongoDB in parallel
-    const [projectCount, meetingCount, contactCount, blogCount, recentProjects, recentLeadsForChart] = await Promise.all([
+    const [projectCount, meetingCount, contactCount, blogCount, recentProjects, recentLeadsForChart, currentUsername] = await Promise.all([
         ProjectInquiry.countDocuments(),
         MeetingRequest.countDocuments(),
         Contact.countDocuments(),
         Blog.countDocuments(),
         ProjectInquiry.find().sort({ createdAt: -1 }).limit(5).lean(),
         ProjectInquiry.find({ createdAt: { $gte: sevenDaysAgo } }).select('createdAt').lean(),
+        getAdminUsername()
     ]);
 
     // Aggregate data for the chart (starting from today going backwards 7 days)
@@ -89,7 +91,7 @@ export default async function DashboardPage() {
     return (
         <div className="w-full max-w-6xl mx-auto flex flex-col gap-8 pb-12">
             <div>
-                <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Welcome Back, Admin</h1>
+                <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 capitalize">Welcome Back, {currentUsername}</h1>
                 <p className="text-slate-500 dark:text-slate-400">Here is what's happening with your agency today. Real-time data connected.</p>
             </div>
 

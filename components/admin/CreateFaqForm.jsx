@@ -40,7 +40,15 @@ const PAGE_OPTIONS = [
     { value: "ai-seo", label: "AI SEO" },
 ];
 
-export default function CreateFaqForm({ initialData = null }) {
+export default function CreateFaqForm({ initialData = null, dynamicPages = [] }) {
+    // Combine static options with dynamic ones, removing duplicates (prefer dynamic if same value)
+    const combinedPagesMap = new Map();
+    
+    PAGE_OPTIONS.forEach(opt => combinedPagesMap.set(opt.value, opt));
+    dynamicPages.forEach(opt => combinedPagesMap.set(opt.value, opt));
+    
+    // Convert back to array
+    const allOptions = Array.from(combinedPagesMap.values());
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -157,7 +165,7 @@ export default function CreateFaqForm({ initialData = null }) {
                                 onChange={handleChange}
                                 className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
                             >
-                                {PAGE_OPTIONS.map(opt => (
+                                {allOptions.map(opt => (
                                     <option key={opt.value} value={opt.value}>{opt.label}</option>
                                 ))}
                             </select>

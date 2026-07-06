@@ -24,9 +24,18 @@ export default async function EditFaqPage({ params }) {
         _id: faq._id.toString()
     };
 
+    // Fetch dynamic pages from WebPage model
+    const { default: WebPage } = await import("@/models/WebPage");
+    const webPages = await WebPage.find({ status: "active" }).select('name path').lean();
+    
+    const dynamicPages = webPages.map(page => ({
+        value: page.path.replace(/^\/+/, ''), // remove leading slash
+        label: page.name
+    }));
+
     return (
         <AuthGuard permissionKey="faqs">
-            <CreateFaqForm initialData={faqData} />
+            <CreateFaqForm initialData={faqData} dynamicPages={dynamicPages} />
         </AuthGuard>
     );
 }
