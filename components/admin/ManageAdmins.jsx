@@ -18,7 +18,8 @@ const CONTENT_MODULES = [
     { id: 'meetings', label: 'Meetings' },
     { id: 'applications', label: 'Job Applications' },
     { id: 'contact', label: 'Contact Messages' },
-    { id: 'subscribers', label: 'Subscribers' }
+    { id: 'subscribers', label: 'Subscribers' },
+    { id: 'create_page', label: 'Create a Page' }
 ];
 
 export default function ManageAdmins() {
