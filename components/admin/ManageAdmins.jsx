@@ -138,17 +138,16 @@ export default function ManageAdmins() {
             const updated = { ...prev };
             if (!updated[moduleId]) {
                 // Since system is Default-Allow, untracked modules are assumed true
-                updated[moduleId] = { view: true, manage: true, create: true };
+                updated[moduleId] = { view: true, manage: true };
             }
             
             updated[moduleId][type] = value;
             
-            if ((type === 'manage' || type === 'create') && value === true) {
-                updated[moduleId].view = true; // Auto-grant view if manage or create is true
+            if (type === 'manage' && value === true) {
+                updated[moduleId].view = true; // Auto-grant view if manage is true
             }
             if (type === 'view' && value === false) {
                 updated[moduleId].manage = false; // Auto-revoke manage if view is false
-                updated[moduleId].create = false; // Auto-revoke create if view is false
             }
             
             return updated;
@@ -306,10 +305,9 @@ export default function ManageAdmins() {
                                                             <table className="w-full text-left">
                                                                 <thead>
                                                                     <tr className="bg-white dark:bg-[#0f172a]/50 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-white/10">
-                                                                        <th className="py-4 px-8 w-[25%]">Module Name</th>
-                                                                        <th className="py-4 px-8 w-[25%]">Allow View (Read-Only)</th>
-                                                                        <th className="py-4 px-8 w-[25%]">Allow Create (Add New)</th>
-                                                                        <th className="py-4 px-8 w-[25%]">Allow Modify (Edit/Delete)</th>
+                                                                        <th className="py-4 px-8 w-[40%]">Module Name</th>
+                                                                        <th className="py-4 px-8 w-[30%]">Allow View (Read-Only)</th>
+                                                                        <th className="py-4 px-8 w-[30%]">Allow Modify (Add/Edit/Delete)</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody className="divide-y divide-slate-100 dark:divide-white/5">
@@ -317,7 +315,6 @@ export default function ManageAdmins() {
                                                                         const permObj = editingPermissions[module.id] || {};
                                                                         const perms = { 
                                                                             view: permObj.view !== false, 
-                                                                            create: permObj.create !== false,
                                                                             manage: permObj.manage !== false 
                                                                         };
                                                                         
@@ -362,25 +359,6 @@ export default function ManageAdmins() {
                                                                                     </td>
                                                                                     <td className="py-4 px-8">
                                                                                         <label className="flex items-center gap-3 cursor-pointer group w-fit">
-                                                                                            <div className={`w-5 h-5 rounded-[6px] border flex items-center justify-center transition-all duration-200 ${perms.create ? 'bg-emerald-500 border-emerald-500 shadow-sm shadow-emerald-500/20' : 'bg-slate-50 dark:bg-slate-800/80 border-slate-300 dark:border-slate-600 group-hover:border-emerald-400'}`}>
-                                                                                                {perms.create && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
-                                                                                            </div>
-                                                                                            <input 
-                                                                                                type="checkbox" 
-                                                                                                className="hidden" 
-                                                                                                checked={perms.create} 
-                                                                                                onChange={(e) => {
-                                                                                                    handlePermissionChange(module.id, 'create', e.target.checked);
-                                                                                                    if (isPagesModule) {
-                                                                                                        websitePages.forEach(p => handlePermissionChange(`page_${p._id}`, 'create', e.target.checked));
-                                                                                                    }
-                                                                                                }} 
-                                                                                            />
-                                                                                            <span className="text-sm font-medium text-slate-600 dark:text-slate-400 select-none group-hover:text-slate-900 dark:group-hover:text-slate-300 transition-colors">Can Create</span>
-                                                                                        </label>
-                                                                                    </td>
-                                                                                    <td className="py-4 px-8">
-                                                                                        <label className="flex items-center gap-3 cursor-pointer group w-fit">
                                                                                             <div className={`w-5 h-5 rounded-[6px] border flex items-center justify-center transition-all duration-200 ${perms.manage ? 'bg-purple-500 border-purple-500 shadow-sm shadow-purple-500/20' : 'bg-slate-50 dark:bg-slate-800/80 border-slate-300 dark:border-slate-600 group-hover:border-purple-400'}`}>
                                                                                                 {perms.manage && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
                                                                                             </div>
@@ -418,9 +396,6 @@ export default function ManageAdmins() {
                                                                                                     </div>
                                                                                                     <input type="checkbox" className="hidden" checked={subPerms.view} onChange={(e) => handlePermissionChange(subId, 'view', e.target.checked)} />
                                                                                                 </label>
-                                                                                            </td>
-                                                                                            <td className="py-3 px-8">
-                                                                                                <span className="text-xs text-slate-400 italic">N/A</span>
                                                                                             </td>
                                                                                             <td className="py-3 px-8">
                                                                                                 <label className="flex items-center gap-3 cursor-pointer group w-fit">

@@ -29,11 +29,9 @@ export default function WebsitePages() {
     const role = admin?.role || 'super_admin';
     const perms = admin?.permissions || {};
     let canManage = true;
-    let canCreate = true;
     if (role !== 'super_admin') {
         if (perms.pages) {
             canManage = perms.pages.manage !== false;
-            canCreate = perms.pages.create !== false;
         }
     }
 
@@ -221,7 +219,7 @@ export default function WebsitePages() {
                             className="w-full pl-9 pr-4 py-2 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 dark:text-white"
                         />
                     </div>
-                    {canCreate && (
+                    {canManage && (
                         <button onClick={() => setIsAddModalOpen(true)} className="w-full sm:w-auto px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-sm">
                             <Plus className="w-4 h-4" />
                             Add New Page
