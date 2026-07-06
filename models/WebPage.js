@@ -6,6 +6,9 @@ const WebPageSchema = new mongoose.Schema({
     seoTitle: { type: String, default: "" },
     seoDescription: { type: String, default: "" },
     status: { type: String, enum: ["active", "inactive"], default: "active" },
+    category: { type: String, default: "" },
+    subcategory: { type: String, default: "" },
+    templateType: { type: String, default: "default" },
     content: { type: mongoose.Schema.Types.Mixed, default: {} },
 }, { timestamps: true });
 

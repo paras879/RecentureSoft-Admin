@@ -83,7 +83,10 @@ export async function POST(req) {
         const newPage = await WebPage.create({
             name: data.name,
             path: formattedPath,
-            status: "active"
+            status: "active",
+            category: data.category || "",
+            subcategory: data.subcategory || "",
+            templateType: data.templateType || "default"
         });
 
         return NextResponse.json({ success: true, page: newPage });
@@ -107,6 +110,9 @@ export async function PUT(req) {
         if (data.seoTitle !== undefined) updateData.seoTitle = data.seoTitle;
         if (data.seoDescription !== undefined) updateData.seoDescription = data.seoDescription;
         if (data.content !== undefined) updateData.content = data.content;
+        if (data.category !== undefined) updateData.category = data.category;
+        if (data.subcategory !== undefined) updateData.subcategory = data.subcategory;
+        if (data.templateType !== undefined) updateData.templateType = data.templateType;
 
         const updatedPage = await WebPage.findByIdAndUpdate(
             data.id,
@@ -144,3 +150,27 @@ export async function PUT(req) {
         return NextResponse.json({ success: false, message: "Internal server error" }, { status: 500 });
     }
 }
+
+export async function DELETE(req) {
+    try {
+        await connectDB();
+        const url = new URL(req.url);
+        const id = url.searchParams.get("id");
+
+        if (!id) {
+            return NextResponse.json({ success: false, message: "ID is required" }, { status: 400 });
+        }
+
+        const deletedPage = await WebPage.findByIdAndDelete(id);
+
+        if (!deletedPage) {
+            return NextResponse.json({ success: false, message: "Page not found" }, { status: 404 });
+        }
+
+        return NextResponse.json({ success: true, message: "Page deleted successfully" });
+    } catch (error) {
+        console.error("Error deleting page:", error);
+        return NextResponse.json({ success: false, message: "Internal server error" }, { status: 500 });
+    }
+}
+
