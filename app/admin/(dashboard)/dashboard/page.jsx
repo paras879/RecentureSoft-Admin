@@ -80,10 +80,10 @@ export default async function DashboardPage() {
     }
 
     const stats = [
-        { title: "Total Project Leads", value: projectCount, iconName: "MessageSquare", color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-100 dark:bg-blue-500/10" },
-        { title: "Meetings Scheduled", value: meetingCount, iconName: "CalendarCheck", color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-100 dark:bg-purple-500/10" },
-        { title: "General Inquiries", value: contactCount, iconName: "Users", color: "text-cyan-600 dark:text-cyan-400", bg: "bg-cyan-100 dark:bg-cyan-500/10" },
-        { title: "Published Blogs", value: blogCount, iconName: "FileText", color: "text-orange-600 dark:text-orange-400", bg: "bg-orange-100 dark:bg-orange-500/10" },
+        { title: "Total Project Leads", value: projectCount, iconName: "MessageSquare", color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-100 dark:bg-blue-500/10", href: "/admin/projects" },
+        { title: "Meetings Scheduled", value: meetingCount, iconName: "CalendarCheck", color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-100 dark:bg-purple-500/10", href: "/admin/meetings" },
+        { title: "General Inquiries", value: contactCount, iconName: "Users", color: "text-cyan-600 dark:text-cyan-400", bg: "bg-cyan-100 dark:bg-cyan-500/10", href: "/admin/leads" },
+        { title: "Published Blogs", value: blogCount, iconName: "FileText", color: "text-orange-600 dark:text-orange-400", bg: "bg-orange-100 dark:bg-orange-500/10", href: "/admin/blogs" },
     ];
 
     return (

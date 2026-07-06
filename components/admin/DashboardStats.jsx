@@ -10,18 +10,20 @@ const ICON_MAP = {
     FileText,
 };
 
+import Link from "next/link";
+
 export default function DashboardStats({ stats }) {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, idx) => {
                 const Icon = ICON_MAP[stat.iconName];
-                return (
+                const cardContent = (
                     <motion.div 
                         key={idx}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1, duration: 0.4 }}
-                        className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col gap-4"
+                        className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col gap-4 hover:border-blue-500/30 transition-colors"
                     >
                         <div className="flex justify-between items-center mb-1">
                             <div className="flex items-center gap-4">
@@ -40,6 +42,16 @@ export default function DashboardStats({ stats }) {
                         </div>
                     </motion.div>
                 );
+
+                if (stat.href) {
+                    return (
+                        <Link href={stat.href} key={idx} className="block hover:-translate-y-1 transition-transform">
+                            {cardContent}
+                        </Link>
+                    );
+                }
+
+                return cardContent;
             })}
         </div>
     );

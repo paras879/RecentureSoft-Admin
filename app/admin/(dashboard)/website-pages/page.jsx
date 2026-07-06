@@ -522,6 +522,16 @@ export default function WebsitePages() {
                                         >
                                             <FileText className="w-4 h-4" /> Page Content
                                         </button>
+                                        
+                                        {activeEditTab === 'crm-content' && (
+                                            <div className="flex flex-col gap-1.5 pl-6 mt-1 mb-2">
+                                                <button type="button" onClick={() => handleAddBlock('text')} className="text-left px-3 py-2 text-xs font-medium bg-cyan-50 text-cyan-700 dark:bg-cyan-500/10 dark:text-cyan-400 hover:bg-cyan-100 dark:hover:bg-cyan-500/20 rounded-lg transition-colors border border-cyan-100 dark:border-cyan-500/20 shadow-sm">+ Add Text Block</button>
+                                                <button type="button" onClick={() => handleAddBlock('highlight')} className="text-left px-3 py-2 text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-500/20 rounded-lg transition-colors border border-blue-100 dark:border-blue-500/20 shadow-sm">+ Add Highlight Box</button>
+                                                <button type="button" onClick={() => handleAddBlock('cards')} className="text-left px-3 py-2 text-xs font-medium bg-purple-50 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-purple-500/20 rounded-lg transition-colors border border-purple-100 dark:border-purple-500/20 shadow-sm">+ Add Cards Section</button>
+                                                <button type="button" onClick={() => handleAddBlock('steps')} className="text-left px-3 py-2 text-xs font-medium bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-500/20 rounded-lg transition-colors border border-rose-100 dark:border-rose-500/20 shadow-sm">+ Add Steps Section</button>
+                                                <button type="button" onClick={() => handleAddBlock('image')} className="text-left px-3 py-2 text-xs font-medium bg-amber-50 text-amber-700 dark:bg-amber-500/10 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-500/20 rounded-lg transition-colors border border-amber-100 dark:border-amber-500/20 shadow-sm">+ Add Image Banner</button>
+                                            </div>
+                                        )}
                                     </>
                                 )}
                             </div>
@@ -919,20 +929,13 @@ export default function WebsitePages() {
 
                                 {activeEditTab === "crm-content" && (editFormData.templateType === "crm-template" || editFormData.templateType === "location-template") && (
                                     <div className="max-w-4xl space-y-6">
-                                        <div className="flex items-center justify-between mb-4">
+                                        <div className="mb-4">
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white">Page Content Settings (Section Builder)</h3>
-                                            <div className="flex gap-2">
-                                                <button type="button" onClick={() => handleAddBlock('text')} className="px-3 py-1.5 text-xs font-medium bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-400 rounded hover:bg-cyan-200 transition-colors">Add Text</button>
-                                                <button type="button" onClick={() => handleAddBlock('highlight')} className="px-3 py-1.5 text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 rounded hover:bg-blue-200 transition-colors">Add Highlight Box</button>
-                                                <button type="button" onClick={() => handleAddBlock('cards')} className="px-3 py-1.5 text-xs font-medium bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 rounded hover:bg-purple-200 transition-colors">Add Cards</button>
-                                                <button type="button" onClick={() => handleAddBlock('steps')} className="px-3 py-1.5 text-xs font-medium bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400 rounded hover:bg-rose-200 transition-colors">Add Steps</button>
-                                                <button type="button" onClick={() => handleAddBlock('image')} className="px-3 py-1.5 text-xs font-medium bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 rounded hover:bg-amber-200 transition-colors">Add Image</button>
-                                            </div>
                                         </div>
 
                                         {(editFormData.content?.crmBlocks || []).length === 0 ? (
                                             <div className="bg-white dark:bg-slate-800 rounded-xl p-8 border border-dashed border-slate-300 dark:border-slate-600 text-center text-slate-500 dark:text-slate-400">
-                                                No sections added yet. Click the buttons above to build your page.
+                                                No sections added yet. Click the "Add" buttons in the left sidebar under "Page Content" to build your page.
                                             </div>
                                         ) : (
                                             <div className="space-y-6">
@@ -1056,6 +1059,8 @@ export default function WebsitePages() {
                                                 ))}
                                             </div>
                                         )}
+
+
                                     </div>
                                 )}
 
