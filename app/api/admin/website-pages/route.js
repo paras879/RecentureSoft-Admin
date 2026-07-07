@@ -44,6 +44,13 @@ export async function GET() {
             { name: "Content Writing", path: "/content-writing", category: "Solutions", subcategory: "Digital Marketing" },
             { name: "AI SEO", path: "/ai-seo", category: "Solutions", subcategory: "Digital Marketing" },
 
+            // AI Development Solutions
+            { name: "Generative AI", path: "/generative-ai", category: "Solutions", subcategory: "AI Development Solutions" },
+            { name: "AI Services", path: "/ai-services", category: "Solutions", subcategory: "AI Development Solutions" },
+            { name: "AI Agent Development", path: "/ai-agent-development", category: "Solutions", subcategory: "AI Development Solutions" },
+            { name: "AI Chatbot Development", path: "/ai-chatbot-development", category: "Solutions", subcategory: "AI Development Solutions" },
+            { name: "RAG Development", path: "/rag-development", category: "Solutions", subcategory: "AI Development Solutions" },
+
             // Other Pages
             { name: "Blog", path: "/blog" },
             { name: "Career", path: "/career" },

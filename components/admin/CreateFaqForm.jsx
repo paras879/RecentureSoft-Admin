@@ -38,6 +38,11 @@ const PAGE_OPTIONS = [
     { value: "social-networking", label: "Social Networking" },
     { value: "content-writing", label: "Content Writing" },
     { value: "ai-seo", label: "AI SEO" },
+    { value: "generative-ai", label: "Generative AI" },
+    { value: "ai-services", label: "AI Services" },
+    { value: "ai-agent-development", label: "AI Agent Development" },
+    { value: "ai-chatbot-development", label: "AI Chatbot Development" },
+    { value: "rag-development", label: "RAG Development" },
 ];
 
 export default function CreateFaqForm({ initialData = null, dynamicPages = [] }) {
