@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, CheckCircle2, XCircle, Save, Loader2, ArrowRight, Package, ListChecks, Star } from 'lucide-react';
+import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, Briefcase, Code, Layers, Package, ShieldCheck, Star, CheckCircle2, XCircle, Save, Loader2, ArrowRight, ListChecks } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useAdmin } from "@/components/admin/AdminProvider";
 import ImageUploader from "@/components/admin/ImageUploader";
@@ -845,6 +845,207 @@ export default function WebsitePages() {
                                             className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'contact-form' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
                                         >
                                             <FileText className="w-4 h-4" /> Contact Form
+                                        </button>
+                                    </>
+                                )}
+                                {editPage.path === "/ai-services" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("aiconsulting-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'aiconsulting-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Hero Section
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("aiconsulting-techlogos")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'aiconsulting-techlogos' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Layers className="w-4 h-4" /> Tech Logos
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("aiconsulting-about")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'aiconsulting-about' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> About Section
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("aiconsulting-services")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'aiconsulting-services' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Package className="w-4 h-4" /> Services
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("aiconsulting-solutions")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'aiconsulting-solutions' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Briefcase className="w-4 h-4" /> Solutions
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("aiconsulting-industries")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'aiconsulting-industries' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Globe className="w-4 h-4" /> Industries
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("aiconsulting-whychoose")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'aiconsulting-whychoose' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <ShieldCheck className="w-4 h-4" /> Why Choose Us
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("aiconsulting-casestudies")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'aiconsulting-casestudies' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Star className="w-4 h-4" /> Case Studies
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("aiconsulting-cta")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'aiconsulting-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Bottom CTA
+                                        </button>
+                                    </>
+                                )}
+
+                                {editPage.path === "/rag-development" && (
+                                    <>
+                                        <button onClick={() => setActiveEditTab("rag-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Hero Section
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("rag-techlogos")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-techlogos' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Code className="w-4 h-4" /> Tech Logos
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("rag-about")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-about' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Layers className="w-4 h-4" /> About Section
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("rag-services")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-services' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Package className="w-4 h-4" /> Services
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("rag-solutions")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-solutions' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Briefcase className="w-4 h-4" /> Solutions
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("rag-whychoose")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-whychoose' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Star className="w-4 h-4" /> Why Choose Us
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("rag-casestudies")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-casestudies' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <FileText className="w-4 h-4" /> Case Studies
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("rag-cta")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <ArrowRight className="w-4 h-4" /> CTA
+                                        </button>
+                                    </>
+                                )}
+                                {editPage.path === "/ai-chatbot-development" && (
+                                    <>
+                                        <button onClick={() => setActiveEditTab("chatbot-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'chatbot-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Hero Section
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("chatbot-techlogos")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'chatbot-techlogos' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Code className="w-4 h-4" /> Tech Logos
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("chatbot-about")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'chatbot-about' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Layers className="w-4 h-4" /> About Section
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("chatbot-services")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'chatbot-services' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Package className="w-4 h-4" /> Services
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("chatbot-solutions")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'chatbot-solutions' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Briefcase className="w-4 h-4" /> Solutions
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("chatbot-whychoose")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'chatbot-whychoose' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Star className="w-4 h-4" /> Why Choose Us
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("chatbot-casestudies")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'chatbot-casestudies' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <FileText className="w-4 h-4" /> Case Studies
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("chatbot-cta")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'chatbot-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <ArrowRight className="w-4 h-4" /> CTA
+                                        </button>
+                                    </>
+                                )}
+                                {editPage.path === "/ai-agent-development" && (
+                                    <>
+                                        <button onClick={() => setActiveEditTab("agent-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'agent-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Hero Section
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("agent-techlogos")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'agent-techlogos' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Code className="w-4 h-4" /> Tech Logos
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("agent-about")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'agent-about' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Layers className="w-4 h-4" /> About Section
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("agent-services")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'agent-services' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Package className="w-4 h-4" /> Services
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("agent-solutions")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'agent-solutions' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Briefcase className="w-4 h-4" /> Solutions
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("agent-whychoose")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'agent-whychoose' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Star className="w-4 h-4" /> Why Choose Us
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("agent-casestudies")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'agent-casestudies' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <FileText className="w-4 h-4" /> Case Studies
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("agent-cta")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'agent-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <ArrowRight className="w-4 h-4" /> CTA
+                                        </button>
+                                    </>
+                                )}
+                                {editPage.path === "/generative-ai" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("genai-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'genai-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Hero Section
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("genai-techlogos")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'genai-techlogos' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Layers className="w-4 h-4" /> Tech Logos
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("genai-about")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'genai-about' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> About AI
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("genai-services")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'genai-services' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Package className="w-4 h-4" /> AI Services
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("genai-solutions")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'genai-solutions' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Briefcase className="w-4 h-4" /> Solutions
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("genai-techstack")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'genai-techstack' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Code className="w-4 h-4" /> Tech Stack
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("genai-whychoose")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'genai-whychoose' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <ShieldCheck className="w-4 h-4" /> Why Choose Us
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("genai-casestudies")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'genai-casestudies' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Star className="w-4 h-4" /> Case Studies
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("genai-cta")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'genai-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Bottom CTA
                                         </button>
                                     </>
                                 )}
@@ -3243,6 +3444,2092 @@ export default function WebsitePages() {
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
                                                     <input type="text" value={editFormData.content?.contactFormSection?.email || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactFormSection: { ...editFormData.content?.contactFormSection, email: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="info@recenturesoft.com" />
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                                {/* AICONSULTING HERO TAB */}
+                                {activeEditTab === "aiconsulting-hero" && editPage.path === "/ai-services" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Title</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingHero: { ...editFormData.content?.aiConsultingHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlighted Title</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingHero: { ...editFormData.content?.aiConsultingHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                <textarea value={editFormData.content?.aiConsultingHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingHero: { ...editFormData.content?.aiConsultingHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Image</label>
+                                                <ImageUploader value={editFormData.content?.aiConsultingHero?.image || ""} onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingHero: { ...editFormData.content?.aiConsultingHero, image: url } } })} />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Primary Button Text</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingHero: { ...editFormData.content?.aiConsultingHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Secondary Button Text</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingHero: { ...editFormData.content?.aiConsultingHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AICONSULTING TECHLOGOS TAB */}
+                                {activeEditTab === "aiconsulting-techlogos" && editPage.path === "/ai-services" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Technologies Logos Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingTechLogos: { ...editFormData.content?.aiConsultingTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div className="space-y-4 border-t pt-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Tech Tags</h4>
+                                                    <button onClick={() => {
+                                                        const currentTags = editFormData.content?.aiConsultingTechLogos?.tags || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingTechLogos: { ...editFormData.content?.aiConsultingTechLogos, tags: [...currentTags, ""] } } });
+                                                    }} className="text-blue-600">
+                                                        + Add Tag
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.aiConsultingTechLogos?.tags || []).map((tag, i) => (
+                                                    <div key={i} className="flex gap-2">
+                                                        <input type="text" value={tag || ""} placeholder="OpenAI" className="w-full bg-white border border-slate-200 rounded px-3 py-1" onChange={(e) => {
+                                                            const tags = [...(editFormData.content?.aiConsultingTechLogos?.tags || [])];
+                                                            tags[i] = e.target.value;
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingTechLogos: { ...editFormData.content?.aiConsultingTechLogos, tags } } });
+                                                        }} />
+                                                        <button className="text-red-500" onClick={() => {
+                                                            const tags = [...(editFormData.content?.aiConsultingTechLogos?.tags || [])];
+                                                            tags.splice(i, 1);
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingTechLogos: { ...editFormData.content?.aiConsultingTechLogos, tags } } });
+                                                        }}><Trash2 className="w-4 h-4"/></button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AICONSULTING ABOUT TAB */}
+                                {activeEditTab === "aiconsulting-about" && editPage.path === "/ai-services" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description Part 1</label>
+                                                <textarea value={editFormData.content?.aiConsultingAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2}/>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description Part 2</label>
+                                                <textarea value={editFormData.content?.aiConsultingAbout?.desc2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, desc2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2}/>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">About Image</label>
+                                                <ImageUploader value={editFormData.content?.aiConsultingAbout?.image || ""} onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, image: url } } })} />
+                                            </div>
+
+                                            <div className="space-y-4 border-t pt-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Stats Boxes</h4>
+                                                    <button onClick={() => {
+                                                        const currentStats = editFormData.content?.aiConsultingAbout?.stats || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, stats: [...currentStats, {}] } } });
+                                                    }} className="text-blue-600">
+                                                        + Add Stat
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.aiConsultingAbout?.stats || []).map((stat, i) => (
+                                                    <div key={i} className="flex gap-2">
+                                                        <input type="text" value={stat.stat || ""} placeholder="95%" className="w-1/3 bg-white border border-slate-200 rounded px-3 py-1" onChange={(e) => {
+                                                            const stats = [...(editFormData.content?.aiConsultingAbout?.stats || [])];
+                                                            stats[i] = { ...stats[i], stat: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, stats } } });
+                                                        }} />
+                                                        <input type="text" value={stat.label || ""} placeholder="Accuracy" className="w-full bg-white border border-slate-200 rounded px-3 py-1" onChange={(e) => {
+                                                            const stats = [...(editFormData.content?.aiConsultingAbout?.stats || [])];
+                                                            stats[i] = { ...stats[i], label: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, stats } } });
+                                                        }} />
+                                                        <button className="text-red-500" onClick={() => {
+                                                            const stats = [...(editFormData.content?.aiConsultingAbout?.stats || [])];
+                                                            stats.splice(i, 1);
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, stats } } });
+                                                        }}><Trash2 className="w-4 h-4"/></button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AICONSULTING SERVICES TAB */}
+                                {activeEditTab === "aiconsulting-services" && editPage.path === "/ai-services" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Consulting Services Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.aiConsultingServices?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentItems = editFormData.content?.aiConsultingServices?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: [...currentItems, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.aiConsultingServices?.cards || []).map((item, i) => {
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
+                                                                    currentItems.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: currentItems } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={item.title || item.name || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
+                                                            if (item.name !== undefined) {
+                                                                newItems[i] = { ...newItems[i], name: e.target.value };
+                                                            } else {
+                                                                newItems[i] = { ...newItems[i], title: e.target.value };
+                                                            }
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: newItems } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
+                                                        
+                                                        <textarea value={item.desc || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
+                                                            newItems[i] = { ...newItems[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: newItems } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                            <ImageUploader 
+                                                                value={item.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
+                                                                    newItems[i] = { ...newItems[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: newItems } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AICONSULTING SOLUTIONS TAB */}
+                                {activeEditTab === "aiconsulting-solutions" && editPage.path === "/ai-services" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Industry Solutions Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Solution Cards ({(editFormData.content?.aiConsultingSolutions?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentItems = editFormData.content?.aiConsultingSolutions?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: [...currentItems, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.aiConsultingSolutions?.cards || []).map((item, i) => {
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentItems = [...(editFormData.content?.aiConsultingSolutions?.cards || [])];
+                                                                    currentItems.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: currentItems } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={item.title || item.name || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.aiConsultingSolutions?.cards || [])];
+                                                            if (item.name !== undefined) {
+                                                                newItems[i] = { ...newItems[i], name: e.target.value };
+                                                            } else {
+                                                                newItems[i] = { ...newItems[i], title: e.target.value };
+                                                            }
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: newItems } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                            <ImageUploader 
+                                                                value={item.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newItems = [...(editFormData.content?.aiConsultingSolutions?.cards || [])];
+                                                                    newItems[i] = { ...newItems[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: newItems } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AICONSULTING INDUSTRIES TAB */}
+                                {activeEditTab === "aiconsulting-industries" && editPage.path === "/ai-services" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Industries We Consult Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingIndustries?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Industry Cards ({(editFormData.content?.aiConsultingIndustries?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentItems = editFormData.content?.aiConsultingIndustries?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: [...currentItems, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.aiConsultingIndustries?.cards || []).map((item, i) => {
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentItems = [...(editFormData.content?.aiConsultingIndustries?.cards || [])];
+                                                                    currentItems.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: currentItems } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={item.title || item.name || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.aiConsultingIndustries?.cards || [])];
+                                                            if (item.name !== undefined) {
+                                                                newItems[i] = { ...newItems[i], name: e.target.value };
+                                                            } else {
+                                                                newItems[i] = { ...newItems[i], title: e.target.value };
+                                                            }
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: newItems } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                            <ImageUploader 
+                                                                value={item.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newItems = [...(editFormData.content?.aiConsultingIndustries?.cards || [])];
+                                                                    newItems[i] = { ...newItems[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: newItems } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AICONSULTING WHYCHOOSE TAB */}
+                                {activeEditTab === "aiconsulting-whychoose" && editPage.path === "/ai-services" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Us Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Reason Cards ({(editFormData.content?.aiConsultingWhyChoose?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentItems = editFormData.content?.aiConsultingWhyChoose?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: [...currentItems, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.aiConsultingWhyChoose?.cards || []).map((item, i) => {
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
+                                                                    currentItems.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: currentItems } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={item.title || item.name || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
+                                                            if (item.name !== undefined) {
+                                                                newItems[i] = { ...newItems[i], name: e.target.value };
+                                                            } else {
+                                                                newItems[i] = { ...newItems[i], title: e.target.value };
+                                                            }
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: newItems } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
+                                                        
+                                                        <textarea value={item.desc || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
+                                                            newItems[i] = { ...newItems[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: newItems } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                            <ImageUploader 
+                                                                value={item.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
+                                                                    newItems[i] = { ...newItems[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: newItems } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AICONSULTING CASESTUDIES TAB */}
+                                {activeEditTab === "aiconsulting-casestudies" && editPage.path === "/ai-services" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Study Cards ({(editFormData.content?.aiConsultingCaseStudies?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentItems = editFormData.content?.aiConsultingCaseStudies?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: [...currentItems, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.aiConsultingCaseStudies?.cards || []).map((item, i) => {
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
+                                                                    currentItems.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: currentItems } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={item.title || item.name || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
+                                                            if (item.name !== undefined) {
+                                                                newItems[i] = { ...newItems[i], name: e.target.value };
+                                                            } else {
+                                                                newItems[i] = { ...newItems[i], title: e.target.value };
+                                                            }
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: newItems } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
+                                                        
+                                                            <input type="text" value={item.problem || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
+                                                                newItems[i] = { ...newItems[i], problem: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: newItems } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Problem" />
+                                                            <input type="text" value={item.solution || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
+                                                                newItems[i] = { ...newItems[i], solution: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: newItems } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Solution" />
+                                                            <input type="text" value={item.result || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
+                                                                newItems[i] = { ...newItems[i], result: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: newItems } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Result" />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                            <ImageUploader 
+                                                                value={item.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
+                                                                    newItems[i] = { ...newItems[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: newItems } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AICONSULTING CTA TAB */}
+                                {activeEditTab === "aiconsulting-cta" && editPage.path === "/ai-services" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCTA: { ...editFormData.content?.aiConsultingCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                <textarea value={editFormData.content?.aiConsultingCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCTA: { ...editFormData.content?.aiConsultingCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3}/>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Primary Button</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCTA: { ...editFormData.content?.aiConsultingCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Secondary Button</label>
+                                                <input type="text" value={editFormData.content?.aiConsultingCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCTA: { ...editFormData.content?.aiConsultingCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* GENAI HERO TAB */}
+           
+
+
+                     {/* RAG DEVELOPMENT: HERO */}
+                     {activeEditTab === "rag-hero" && editPage.path === "/rag-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.ragHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Enterprise RAG" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title Highlight</label>
+                                    <input type="text" value={editFormData.content?.ragHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Development Services" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <textarea value={editFormData.content?.ragHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Build intelligent AI applications..." />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                    <input type="text" value={editFormData.content?.ragHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Get Free Consultation" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                    <input type="text" value={editFormData.content?.ragHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Talk to AI Experts" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Hero Image</label>
+                                    <ImageUploader
+                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, image: url } } })}
+                                        defaultImage={editFormData.content?.ragHero?.image || "/images/rag-development/hero_rag.webp"}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* RAG DEVELOPMENT: TECH LOGOS */}
+                     {activeEditTab === "rag-techlogos" && editPage.path === "/rag-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Tech Logos Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.ragTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragTechLogos: { ...editFormData.content?.ragTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Technologies We Specialize In" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
+                                    <textarea value={editFormData.content?.ragTechLogos?.tags ? editFormData.content.ragTechLogos.tags.join(', ') : ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragTechLogos: { ...editFormData.content?.ragTechLogos, tags: e.target.value.split(',').map(s => s.trim()) } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="OpenAI, Gemini, Claude..." />
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* RAG DEVELOPMENT: ABOUT */}
+                     {activeEditTab === "rag-about" && editPage.path === "/rag-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Heading</label>
+                                    <input type="text" value={editFormData.content?.ragAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Unlock Your Data with RAG" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <textarea value={editFormData.content?.ragAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Generative AI is powerful, but it hallucinates..." />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">About Image</label>
+                                    <ImageUploader
+                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, image: url } } })}
+                                        defaultImage={editFormData.content?.ragAbout?.image || "/images/rag-development/about_rag.webp"}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Stats</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.ragAbout?.stats || []).map((stat, idx) => (
+                                            <div key={idx} className="flex gap-4 items-center bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                                                <input type="text" value={stat.stat} onChange={(e) => {
+                                                    const newStats = [...(editFormData.content?.ragAbout?.stats || [])];
+                                                    newStats[idx].stat = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
+                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="200+" />
+                                                <input type="text" value={stat.label} onChange={(e) => {
+                                                    const newStats = [...(editFormData.content?.ragAbout?.stats || [])];
+                                                    newStats[idx].label = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
+                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Projects Consulted" />
+                                                <button type="button" onClick={() => {
+                                                    const newStats = (editFormData.content?.ragAbout?.stats || []).filter((_, i) => i !== idx);
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
+                                                }} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg">
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newStats = [...(editFormData.content?.ragAbout?.stats || []), { stat: "", label: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Stat
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* RAG DEVELOPMENT: SERVICES */}
+                     {activeEditTab === "rag-services" && editPage.path === "/rag-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.ragServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Our RAG Solutions" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <input type="text" value={editFormData.content?.ragServices?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Custom RAG architectures..." />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Service Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.ragServices?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.ragServices?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.ragServices?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                <textarea value={card.desc} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.ragServices?.cards || [])];
+                                                    newCards[idx].desc = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.ragServices?.cards || []), { title: "", desc: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Service Card
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* RAG DEVELOPMENT: SOLUTIONS */}
+                     {activeEditTab === "rag-solutions" && editPage.path === "/rag-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Solutions Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.ragSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Business Challenges We Solve" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Solution Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.ragSolutions?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.ragSolutions?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.ragSolutions?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.ragSolutions?.cards || []), { title: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Solution Card
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* RAG DEVELOPMENT: WHY CHOOSE */}
+                     {activeEditTab === "rag-whychoose" && editPage.path === "/rag-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.ragWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Why Choose RecentureSoft" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Why Choose Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.ragWhyChoose?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.ragWhyChoose?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.ragWhyChoose?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                <textarea value={card.desc} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.ragWhyChoose?.cards || [])];
+                                                    newCards[idx].desc = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.ragWhyChoose?.cards || []), { title: "", desc: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Why Choose Card
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* RAG DEVELOPMENT: CASE STUDIES */}
+                     {activeEditTab === "rag-casestudies" && editPage.path === "/rag-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.ragCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="RAG Case Studies" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Case Study Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.ragCaseStudies?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.ragCaseStudies?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                <input type="text" value={card.problem} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
+                                                    newCards[idx].problem = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Problem" />
+                                                <input type="text" value={card.solution} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
+                                                    newCards[idx].solution = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Solution" />
+                                                <input type="text" value={card.result} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
+                                                    newCards[idx].result = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Result" />
+                                                <div>
+                                                    <label className="block text-sm font-medium mb-1">Image</label>
+                                                    <ImageUploader
+                                                        onUpload={(url) => {
+                                                            const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
+                                                            newCards[idx].image = url;
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                        }}
+                                                        defaultImage={card.image || "/images/rag-development/hero_rag.webp"}
+                                                    />
+                                                </div>
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.ragCaseStudies?.cards || []), { title: "", problem: "", solution: "", result: "", image: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Case Study
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* RAG DEVELOPMENT: CTA */}
+                     {activeEditTab === "rag-cta" && editPage.path === "/rag-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.ragCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Implement Enterprise RAG Architecture" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <textarea value={editFormData.content?.ragCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Stop hallucinations and empower your AI..." />
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                        <input type="text" value={editFormData.content?.ragCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Book Free Consultation" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                        <input type="text" value={editFormData.content?.ragCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Contact Us" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+                     {/* AI CHATBOT DEVELOPMENT: HERO */}
+                     {activeEditTab === "chatbot-hero" && editPage.path === "/ai-chatbot-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Enterprise AI" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title Highlight</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Chatbot Development" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <textarea value={editFormData.content?.aiChatbotHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Enhance customer experience..." />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Get Free Consultation" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Talk to AI Experts" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Hero Image</label>
+                                    <ImageUploader
+                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, image: url } } })}
+                                        defaultImage={editFormData.content?.aiChatbotHero?.image || "/images/ai-chatbot/hero_ai_chatbot.webp"}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI CHATBOT DEVELOPMENT: TECH LOGOS */}
+                     {activeEditTab === "chatbot-techlogos" && editPage.path === "/ai-chatbot-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Tech Logos Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotTechLogos: { ...editFormData.content?.aiChatbotTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Technologies We Specialize In" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
+                                    <textarea value={editFormData.content?.aiChatbotTechLogos?.tags ? editFormData.content.aiChatbotTechLogos.tags.join(', ') : ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotTechLogos: { ...editFormData.content?.aiChatbotTechLogos, tags: e.target.value.split(',').map(s => s.trim()) } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="OpenAI, Gemini, Claude..." />
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI CHATBOT DEVELOPMENT: ABOUT */}
+                     {activeEditTab === "chatbot-about" && editPage.path === "/ai-chatbot-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Heading</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Next-Generation Conversational AI" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <textarea value={editFormData.content?.aiChatbotAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Our AI chatbots aren't just simple rule-based..." />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">About Image</label>
+                                    <ImageUploader
+                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, image: url } } })}
+                                        defaultImage={editFormData.content?.aiChatbotAbout?.image || "/images/ai-chatbot/about_ai_chatbot.webp"}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Stats</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.aiChatbotAbout?.stats || []).map((stat, idx) => (
+                                            <div key={idx} className="flex gap-4 items-center bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                                                <input type="text" value={stat.stat} onChange={(e) => {
+                                                    const newStats = [...(editFormData.content?.aiChatbotAbout?.stats || [])];
+                                                    newStats[idx].stat = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
+                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="200+" />
+                                                <input type="text" value={stat.label} onChange={(e) => {
+                                                    const newStats = [...(editFormData.content?.aiChatbotAbout?.stats || [])];
+                                                    newStats[idx].label = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
+                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Projects Consulted" />
+                                                <button type="button" onClick={() => {
+                                                    const newStats = (editFormData.content?.aiChatbotAbout?.stats || []).filter((_, i) => i !== idx);
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
+                                                }} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg">
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newStats = [...(editFormData.content?.aiChatbotAbout?.stats || []), { stat: "", label: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Stat
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI CHATBOT DEVELOPMENT: SERVICES */}
+                     {activeEditTab === "chatbot-services" && editPage.path === "/ai-chatbot-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Our Chatbot Services" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotServices?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Advanced conversational AI..." />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Service Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.aiChatbotServices?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.aiChatbotServices?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiChatbotServices?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                <textarea value={card.desc} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiChatbotServices?.cards || [])];
+                                                    newCards[idx].desc = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.aiChatbotServices?.cards || []), { title: "", desc: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Service Card
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI CHATBOT DEVELOPMENT: SOLUTIONS */}
+                     {activeEditTab === "chatbot-solutions" && editPage.path === "/ai-chatbot-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Solutions Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Business Challenges We Solve" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Solution Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.aiChatbotSolutions?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.aiChatbotSolutions?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiChatbotSolutions?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.aiChatbotSolutions?.cards || []), { title: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Solution Card
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI CHATBOT DEVELOPMENT: WHY CHOOSE */}
+                     {activeEditTab === "chatbot-whychoose" && editPage.path === "/ai-chatbot-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Why Choose RecentureSoft" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Why Choose Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.aiChatbotWhyChoose?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.aiChatbotWhyChoose?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiChatbotWhyChoose?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                <textarea value={card.desc} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiChatbotWhyChoose?.cards || [])];
+                                                    newCards[idx].desc = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.aiChatbotWhyChoose?.cards || []), { title: "", desc: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Why Choose Card
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI CHATBOT DEVELOPMENT: CASE STUDIES */}
+                     {activeEditTab === "chatbot-casestudies" && editPage.path === "/ai-chatbot-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Chatbot Case Studies" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Case Study Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.aiChatbotCaseStudies?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.aiChatbotCaseStudies?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                <input type="text" value={card.problem} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
+                                                    newCards[idx].problem = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Problem" />
+                                                <input type="text" value={card.solution} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
+                                                    newCards[idx].solution = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Solution" />
+                                                <input type="text" value={card.result} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
+                                                    newCards[idx].result = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Result" />
+                                                <div>
+                                                    <label className="block text-sm font-medium mb-1">Image</label>
+                                                    <ImageUploader
+                                                        onUpload={(url) => {
+                                                            const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
+                                                            newCards[idx].image = url;
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                        }}
+                                                        defaultImage={card.image || "/images/ai-chatbot/hero_ai_chatbot.webp"}
+                                                    />
+                                                </div>
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || []), { title: "", problem: "", solution: "", result: "", image: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Case Study
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI CHATBOT DEVELOPMENT: CTA */}
+                     {activeEditTab === "chatbot-cta" && editPage.path === "/ai-chatbot-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiChatbotCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Ready to Build Your AI Chatbot?" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <textarea value={editFormData.content?.aiChatbotCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Contact our experts..." />
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                        <input type="text" value={editFormData.content?.aiChatbotCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Book Free Consultation" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                        <input type="text" value={editFormData.content?.aiChatbotCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Contact Us" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+                     {/* AI AGENT DEVELOPMENT: HERO */}
+                     {activeEditTab === "agent-hero" && editPage.path === "/ai-agent-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Development" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title Highlight</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Services" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <textarea value={editFormData.content?.aiDevelopmentHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Build intelligent AI-powered software solutions..." />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Get Free Consultation" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Talk to AI Experts" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Hero Image</label>
+                                    <ImageUploader
+                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, image: url } } })}
+                                        defaultImage={editFormData.content?.aiDevelopmentHero?.image || "/images/ai-development/hero_ai_development.webp"}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI AGENT DEVELOPMENT: TECH LOGOS */}
+                     {activeEditTab === "agent-techlogos" && editPage.path === "/ai-agent-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Tech Logos Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentTechLogos: { ...editFormData.content?.aiDevelopmentTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Technologies We Specialize In" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
+                                    <textarea value={editFormData.content?.aiDevelopmentTechLogos?.tags ? editFormData.content.aiDevelopmentTechLogos.tags.join(', ') : ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentTechLogos: { ...editFormData.content?.aiDevelopmentTechLogos, tags: e.target.value.split(',').map(s => s.trim()) } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="OpenAI, Gemini, Claude..." />
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI AGENT DEVELOPMENT: ABOUT */}
+                     {activeEditTab === "agent-about" && editPage.path === "/ai-agent-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Heading</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Empowering Businesses with Custom AI" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <textarea value={editFormData.content?.aiDevelopmentAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="At RecentureSoft, we don't just build AI..." />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">About Image</label>
+                                    <ImageUploader
+                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, image: url } } })}
+                                        defaultImage={editFormData.content?.aiDevelopmentAbout?.image || "/images/ai-development/about_ai_development.webp"}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Stats</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.aiDevelopmentAbout?.stats || []).map((stat, idx) => (
+                                            <div key={idx} className="flex gap-4 items-center bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                                                <input type="text" value={stat.stat} onChange={(e) => {
+                                                    const newStats = [...(editFormData.content?.aiDevelopmentAbout?.stats || [])];
+                                                    newStats[idx].stat = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
+                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="200+" />
+                                                <input type="text" value={stat.label} onChange={(e) => {
+                                                    const newStats = [...(editFormData.content?.aiDevelopmentAbout?.stats || [])];
+                                                    newStats[idx].label = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
+                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Projects Consulted" />
+                                                <button type="button" onClick={() => {
+                                                    const newStats = (editFormData.content?.aiDevelopmentAbout?.stats || []).filter((_, i) => i !== idx);
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
+                                                }} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg">
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newStats = [...(editFormData.content?.aiDevelopmentAbout?.stats || []), { stat: "", label: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Stat
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI AGENT DEVELOPMENT: SERVICES */}
+                     {activeEditTab === "agent-services" && editPage.path === "/ai-agent-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Our Core AI Services" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Service Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.aiDevelopmentServices?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.aiDevelopmentServices?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiDevelopmentServices?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                <textarea value={card.desc} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiDevelopmentServices?.cards || [])];
+                                                    newCards[idx].desc = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.aiDevelopmentServices?.cards || []), { title: "", desc: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Service Card
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI AGENT DEVELOPMENT: SOLUTIONS */}
+                     {activeEditTab === "agent-solutions" && editPage.path === "/ai-agent-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Solutions Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Business Challenges We Solve" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Solution Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.aiDevelopmentSolutions?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.aiDevelopmentSolutions?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiDevelopmentSolutions?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.aiDevelopmentSolutions?.cards || []), { title: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Solution Card
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI AGENT DEVELOPMENT: WHY CHOOSE */}
+                     {activeEditTab === "agent-whychoose" && editPage.path === "/ai-agent-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Why Choose RecentureSoft" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Why Choose Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.aiDevelopmentWhyChoose?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.aiDevelopmentWhyChoose?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiDevelopmentWhyChoose?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                <textarea value={card.desc} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiDevelopmentWhyChoose?.cards || [])];
+                                                    newCards[idx].desc = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.aiDevelopmentWhyChoose?.cards || []), { title: "", desc: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Why Choose Card
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI AGENT DEVELOPMENT: CASE STUDIES */}
+                     {activeEditTab === "agent-casestudies" && editPage.path === "/ai-agent-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Development Case Studies" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">Case Study Cards</label>
+                                    <div className="space-y-4">
+                                        {(editFormData.content?.aiDevelopmentCaseStudies?.cards || []).map((card, idx) => (
+                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = (editFormData.content?.aiDevelopmentCaseStudies?.cards || []).filter((_, i) => i !== idx);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                    }} className="text-red-500 hover:text-red-600">
+                                                        <Trash2 className="w-4 h-4" />
+                                                    </button>
+                                                </div>
+                                                <input type="text" value={card.title} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
+                                                    newCards[idx].title = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                <input type="text" value={card.problem} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
+                                                    newCards[idx].problem = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Problem" />
+                                                <input type="text" value={card.solution} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
+                                                    newCards[idx].solution = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Solution" />
+                                                <input type="text" value={card.result} onChange={(e) => {
+                                                    const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
+                                                    newCards[idx].result = e.target.value;
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Result" />
+                                                <div>
+                                                    <label className="block text-sm font-medium mb-1">Image</label>
+                                                    <ImageUploader
+                                                        onUpload={(url) => {
+                                                            const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
+                                                            newCards[idx].image = url;
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                        }}
+                                                        defaultImage={card.image || "/images/ai-development/case_study_document.webp"}
+                                                    />
+                                                </div>
+                                            </div>
+                                        ))}
+                                        <button type="button" onClick={() => {
+                                            const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || []), { title: "", problem: "", solution: "", result: "", image: "" }];
+                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                            <Plus className="w-4 h-4" /> Add Case Study
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+
+                     {/* AI AGENT DEVELOPMENT: CTA */}
+                     {activeEditTab === "agent-cta" && editPage.path === "/ai-agent-development" && (
+                        <div className="max-w-3xl space-y-8">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Settings</h3>
+                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Title</label>
+                                    <input type="text" value={editFormData.content?.aiDevelopmentCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Ready to Develop Your AI Solution?" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">Description</label>
+                                    <textarea value={editFormData.content?.aiDevelopmentCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Contact our experts..." />
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                        <input type="text" value={editFormData.content?.aiDevelopmentCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Book Free Consultation" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                        <input type="text" value={editFormData.content?.aiDevelopmentCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Contact Us" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     )}
+                     {activeEditTab === "genai-hero" && editPage.path === "/generative-ai" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Title</label>
+                                                <input type="text" value={editFormData.content?.genAiHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiHero: { ...editFormData.content?.genAiHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlighted Title</label>
+                                                <input type="text" value={editFormData.content?.genAiHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiHero: { ...editFormData.content?.genAiHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                <textarea value={editFormData.content?.genAiHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiHero: { ...editFormData.content?.genAiHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Image</label>
+                                                <ImageUploader value={editFormData.content?.genAiHero?.image || ""} onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiHero: { ...editFormData.content?.genAiHero, image: url } } })} />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Primary Button Text</label>
+                                                <input type="text" value={editFormData.content?.genAiHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiHero: { ...editFormData.content?.genAiHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Secondary Button Text</label>
+                                                <input type="text" value={editFormData.content?.genAiHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiHero: { ...editFormData.content?.genAiHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* GENAI ABOUT TAB */}
+                                {activeEditTab === "genai-about" && editPage.path === "/generative-ai" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.genAiAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description Part 1</label>
+                                                <textarea value={editFormData.content?.genAiAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2}/>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description Part 2</label>
+                                                <textarea value={editFormData.content?.genAiAbout?.desc2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, desc2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2}/>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">About Image</label>
+                                                <ImageUploader value={editFormData.content?.genAiAbout?.image || ""} onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, image: url } } })} />
+                                            </div>
+
+                                            <div className="space-y-4 border-t pt-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Stats Boxes</h4>
+                                                    <button onClick={() => {
+                                                        const currentStats = editFormData.content?.genAiAbout?.stats || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, stats: [...currentStats, {}] } } });
+                                                    }} className="text-blue-600">
+                                                        + Add Stat
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.genAiAbout?.stats || []).map((stat, i) => (
+                                                    <div key={i} className="flex gap-2">
+                                                        <input type="text" value={stat.stat || ""} placeholder="95%" className="w-1/3 bg-white border border-slate-200 rounded px-3 py-1" onChange={(e) => {
+                                                            const stats = [...(editFormData.content?.genAiAbout?.stats || [])];
+                                                            stats[i] = { ...stats[i], stat: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, stats } } });
+                                                        }} />
+                                                        <input type="text" value={stat.label || ""} placeholder="Accuracy" className="w-full bg-white border border-slate-200 rounded px-3 py-1" onChange={(e) => {
+                                                            const stats = [...(editFormData.content?.genAiAbout?.stats || [])];
+                                                            stats[i] = { ...stats[i], label: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, stats } } });
+                                                        }} />
+                                                        <button className="text-red-500" onClick={() => {
+                                                            const stats = [...(editFormData.content?.genAiAbout?.stats || [])];
+                                                            stats.splice(i, 1);
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, stats } } });
+                                                        }}><Trash2 className="w-4 h-4"/></button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* TECH LOGOS TAB */}
+                                {activeEditTab === "genai-techlogos" && editPage.path === "/generative-ai" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Technologies Logos Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.genAiTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechLogos: { ...editFormData.content?.genAiTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div className="space-y-4 border-t pt-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Tech Tags</h4>
+                                                    <button onClick={() => {
+                                                        const currentTags = editFormData.content?.genAiTechLogos?.tags || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechLogos: { ...editFormData.content?.genAiTechLogos, tags: [...currentTags, ""] } } });
+                                                    }} className="text-blue-600">
+                                                        + Add Tag
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.genAiTechLogos?.tags || []).map((tag, i) => (
+                                                    <div key={i} className="flex gap-2">
+                                                        <input type="text" value={tag || ""} placeholder="OpenAI" className="w-full bg-white border border-slate-200 rounded px-3 py-1" onChange={(e) => {
+                                                            const tags = [...(editFormData.content?.genAiTechLogos?.tags || [])];
+                                                            tags[i] = e.target.value;
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechLogos: { ...editFormData.content?.genAiTechLogos, tags } } });
+                                                        }} />
+                                                        <button className="text-red-500" onClick={() => {
+                                                            const tags = [...(editFormData.content?.genAiTechLogos?.tags || [])];
+                                                            tags.splice(i, 1);
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechLogos: { ...editFormData.content?.genAiTechLogos, tags } } });
+                                                        }}><Trash2 className="w-4 h-4"/></button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* CTA TAB */}
+                                {activeEditTab === "genai-cta" && editPage.path === "/generative-ai" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.genAiCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCTA: { ...editFormData.content?.genAiCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                <textarea value={editFormData.content?.genAiCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCTA: { ...editFormData.content?.genAiCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3}/>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Primary Button</label>
+                                                <input type="text" value={editFormData.content?.genAiCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCTA: { ...editFormData.content?.genAiCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Secondary Button</label>
+                                                <input type="text" value={editFormData.content?.genAiCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCTA: { ...editFormData.content?.genAiCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* GENAI SERVICES TAB */}
+                                {activeEditTab === "genai-services" && editPage.path === "/generative-ai" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Generative AI Services Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.genAiServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Generative AI Services" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.genAiServices?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.genAiServices?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.genAiServices?.cards || []).map((card, i) => {
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.genAiServices?.cards || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.genAiServices?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.genAiServices?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        
+
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.genAiServices?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* GENAI SOLUTIONS TAB */}
+                                {activeEditTab === "genai-solutions" && editPage.path === "/generative-ai" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Industry Solutions Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.genAiSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Industry Solutions" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Solution Cards ({(editFormData.content?.genAiSolutions?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.genAiSolutions?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.genAiSolutions?.cards || []).map((card, i) => {
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        
+
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* GENAI WHYCHOOSE TAB */}
+                                {activeEditTab === "genai-whychoose" && editPage.path === "/generative-ai" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose RecentureSoft Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.genAiWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Why Choose RecentureSoft" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Reason Cards ({(editFormData.content?.genAiWhyChoose?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.genAiWhyChoose?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.genAiWhyChoose?.cards || []).map((card, i) => {
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        
+
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* GENAI CASESTUDIES TAB */}
+                                {activeEditTab === "genai-casestudies" && editPage.path === "/generative-ai" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.genAiCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Case Studies" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Study Cards ({(editFormData.content?.genAiCaseStudies?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.genAiCaseStudies?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.genAiCaseStudies?.cards || []).map((card, i) => {
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        
+                                                            <input type="text" value={card.tech || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], tech: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Tech Used (e.g. GPT-4, React)" />
+                                                            <input type="text" value={card.result || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], result: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Result (e.g. 75% Faster)" />
+                                                        
+
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* TECH STACK TAB */}
+                                {activeEditTab === "genai-techstack" && editPage.path === "/generative-ai" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Tech Stack Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.genAiTechStack?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechStack: { ...editFormData.content?.genAiTechStack, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Stack Categories</h4>
+                                                    <button onClick={() => {
+                                                        const currentStacks = editFormData.content?.genAiTechStack?.stacks || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechStack: { ...editFormData.content?.genAiTechStack, stacks: [...currentStacks, { category: '', items: '' }] } } });
+                                                    }} className="text-blue-600">
+                                                        + Add Category
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.genAiTechStack?.stacks || []).map((stack, i) => (
+                                                    <div key={i} className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-3 relative">
+                                                        <div className="flex justify-between items-center">
+                                                            <div className="font-medium text-sm text-slate-500">Category {i+1}</div>
+                                                            <button className="text-red-500" onClick={() => {
+                                                                const stacks = [...(editFormData.content?.genAiTechStack?.stacks || [])];
+                                                                stacks.splice(i, 1);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechStack: { ...editFormData.content?.genAiTechStack, stacks } } });
+                                                            }}><Trash2 className="w-4 h-4"/></button>
+                                                        </div>
+                                                        <input type="text" value={stack.category || ""} placeholder="e.g. Frontend" className="w-full bg-white border border-slate-200 rounded px-3 py-2" onChange={(e) => {
+                                                            const stacks = [...(editFormData.content?.genAiTechStack?.stacks || [])];
+                                                            stacks[i] = { ...stacks[i], category: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechStack: { ...editFormData.content?.genAiTechStack, stacks } } });
+                                                        }} />
+                                                        <textarea value={Array.isArray(stack.items) ? stack.items.join(', ') : (stack.items || "")} placeholder="React, Next.js, Tailwind (Comma Separated)" className="w-full bg-white border border-slate-200 rounded px-3 py-2" onChange={(e) => {
+                                                            const stacks = [...(editFormData.content?.genAiTechStack?.stacks || [])];
+                                                            stacks[i] = { ...stacks[i], items: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechStack: { ...editFormData.content?.genAiTechStack, stacks } } });
+                                                        }} rows={2} />
+                                                    </div>
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
