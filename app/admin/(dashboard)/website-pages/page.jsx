@@ -555,6 +555,34 @@ export default function WebsitePages() {
                                         </button>
                                     </>
                                 )}
+                                {editPage.path === "/portfolio" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("portfolio-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'portfolio-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Portfolio Hero
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("portfolio-gallery")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'portfolio-gallery' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Globe className="w-4 h-4" /> Gallery Setup
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("portfolio-transform")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'portfolio-transform' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Transformations
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("portfolio-cta")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'portfolio-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> Call to Action
+                                        </button>
+                                    </>
+                                )}
                                 {(editFormData.templateType === "crm-template" || editFormData.templateType === "location-template") && (
                                     <>
                                         <button
@@ -970,6 +998,127 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
+                                {/* PORTFOLIO TABS */}
+                                {activeEditTab === "portfolio-hero" && editPage.path === "/portfolio" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">Portfolio Hero Section</h4>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge</label>
+                                                    <input type="text" value={editFormData.content?.hero?.badge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, badge: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Our Work" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                    <input type="text" value={editFormData.content?.hero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Engineering" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Word</label>
+                                                    <input type="text" value={editFormData.content?.hero?.highlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, highlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Success" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.hero?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" placeholder="Discover award-worthy digital products..." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {activeEditTab === "portfolio-gallery" && editPage.path === "/portfolio" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">Project Gallery Section</h4>
+                                            <div className="grid grid-cols-1 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading 1</label>
+                                                    <input type="text" value={editFormData.content?.gallery?.heading1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, gallery: { ...editFormData.content?.gallery, heading1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Selected" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading Accent</label>
+                                                    <input type="text" value={editFormData.content?.gallery?.headingAccent || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, gallery: { ...editFormData.content?.gallery, headingAccent: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Works" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Empty State Text</label>
+                                                    <textarea value={editFormData.content?.gallery?.emptyStateText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, gallery: { ...editFormData.content?.gallery, emptyStateText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="We are currently updating our showcase..." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {activeEditTab === "portfolio-transform" && editPage.path === "/portfolio" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Transformations Section</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.transformations?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, transformations: { ...editFormData.content?.transformations, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                    <input type="text" value={editFormData.content?.transformations?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, transformations: { ...editFormData.content?.transformations, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Digital Transformations" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.transformations?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, transformations: { ...editFormData.content?.transformations, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Compare legacy systems with modern digital experiences..." />
+                                                </div>
+                                                <div className="md:col-span-1">
+                                                    <ImageUploader 
+                                                        label="Before Image (Legacy)"
+                                                        value={editFormData.content?.transformations?.beforeImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, transformations: { ...editFormData.content?.transformations, beforeImage: url } } })}
+                                                    />
+                                                </div>
+                                                <div className="md:col-span-1">
+                                                    <ImageUploader 
+                                                        label="After Image (Modernized)"
+                                                        value={editFormData.content?.transformations?.afterImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, transformations: { ...editFormData.content?.transformations, afterImage: url } } })}
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {activeEditTab === "portfolio-cta" && editPage.path === "/portfolio" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Call to Action (CTA)</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.cta?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, cta: { ...editFormData.content?.cta, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                    <input type="text" value={editFormData.content?.cta?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, cta: { ...editFormData.content?.cta, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Ready to engineer your success?" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.cta?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, cta: { ...editFormData.content?.cta, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Let's create something extraordinary together..." />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Primary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.cta?.primaryBtn || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, cta: { ...editFormData.content?.cta, primaryBtn: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Start Your Project" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Secondary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.cta?.secondaryBtn || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, cta: { ...editFormData.content?.cta, secondaryBtn: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Explore Case Studies" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                                
                                 {/* HERO TAB (For Home Page) */}
                                 {activeEditTab === "hero" && editPage.path === "/" && (
                                     <div className="max-w-3xl space-y-8">
