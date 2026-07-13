@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FileText, Loader2, Globe, Search, ArrowRight, CheckCircle2, XCircle, Plus, Edit, Eye, Trash2, Save, LayoutTemplate } from "lucide-react";
+import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, CheckCircle2, XCircle, Save, Loader2, ArrowRight } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { useAdmin } from "@/components/admin/AdminProvider";
 import ImageUploader from "@/components/admin/ImageUploader";
 
@@ -508,6 +509,52 @@ export default function WebsitePages() {
                                         </button>
                                     </>
                                 )}
+                                {editPage.path === "/about" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("about-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'about-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> About Hero
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("about-timeline")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'about-timeline' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Globe className="w-4 h-4" /> Company Story
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("about-why")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'about-why' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Why Choose Us
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("about-stats")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'about-stats' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Company Stats
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("about-culture")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'about-culture' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Culture Gallery
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("about-process")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'about-process' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> Process & Tech
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("about-leadership")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'about-leadership' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> Leadership & CTA
+                                        </button>
+                                    </>
+                                )}
                                 {(editFormData.templateType === "crm-template" || editFormData.templateType === "location-template") && (
                                     <>
                                         <button
@@ -575,6 +622,349 @@ export default function WebsitePages() {
                                                     className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none transition-all shadow-sm min-h-[120px] resize-y"
                                                     placeholder="Meta description for Google"
                                                 />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* ABOUT HERO TAB (For About Page) */}
+                                {activeEditTab === "about-hero" && editPage.path === "/about" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Hero Section</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.aboutHero?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aboutHero: { ...editFormData.content?.aboutHero, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading 1</label>
+                                                    <input
+                                                        type="text"
+                                                        value={editFormData.content?.aboutHero?.heading1 || ""}
+                                                        onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aboutHero: { ...editFormData.content?.aboutHero, heading1: e.target.value } } })}
+                                                        className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none"
+                                                        placeholder="Engineering The Future"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading Accent</label>
+                                                    <input
+                                                        type="text"
+                                                        value={editFormData.content?.aboutHero?.headingAccent || ""}
+                                                        onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aboutHero: { ...editFormData.content?.aboutHero, headingAccent: e.target.value } } })}
+                                                        className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none"
+                                                        placeholder="Digital Innovation"
+                                                    />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea
+                                                        value={editFormData.content?.aboutHero?.desc || ""}
+                                                        onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aboutHero: { ...editFormData.content?.aboutHero, desc: e.target.value } } })}
+                                                        className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none min-h-[80px]"
+                                                        placeholder="We help global businesses build scalable software..."
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* ABOUT TIMELINE TAB (For About Page) */}
+                                {activeEditTab === "about-timeline" && editPage.path === "/about" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Company Story Timeline</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.storyTimeline?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, storyTimeline: { ...editFormData.content?.storyTimeline, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+                                        {[0, 1, 2, 3, 4].map((index) => (
+                                            <div key={index} className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                                <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">Timeline Item {index + 1}</h4>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Year</label>
+                                                        <input
+                                                            type="text"
+                                                            value={editFormData.content?.storyTimeline?.[index]?.year || ""}
+                                                            onChange={(e) => {
+                                                                const newTimeline = [...(editFormData.content?.storyTimeline || Array(5).fill({}))];
+                                                                newTimeline[index] = { ...newTimeline[index], year: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, storyTimeline: newTimeline } });
+                                                            }}
+                                                            className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none"
+                                                            placeholder="2018"
+                                                        />
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                        <input
+                                                            type="text"
+                                                            value={editFormData.content?.storyTimeline?.[index]?.title || ""}
+                                                            onChange={(e) => {
+                                                                const newTimeline = [...(editFormData.content?.storyTimeline || Array(5).fill({}))];
+                                                                newTimeline[index] = { ...newTimeline[index], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, storyTimeline: newTimeline } });
+                                                            }}
+                                                            className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none"
+                                                            placeholder="Started"
+                                                        />
+                                                    </div>
+                                                    <div className="md:col-span-2">
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                        <input
+                                                            type="text"
+                                                            value={editFormData.content?.storyTimeline?.[index]?.desc || ""}
+                                                            onChange={(e) => {
+                                                                const newTimeline = [...(editFormData.content?.storyTimeline || Array(5).fill({}))];
+                                                                newTimeline[index] = { ...newTimeline[index], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, storyTimeline: newTimeline } });
+                                                            }}
+                                                            className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none"
+                                                            placeholder="A small collective..."
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {/* ABOUT WHY CHOOSE US TAB */}
+                                {activeEditTab === "about-why" && editPage.path === "/about" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Us</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.whyChoose?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChoose: { ...editFormData.content?.whyChoose, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading 1</label>
+                                                    <input type="text" value={editFormData.content?.whyChoose?.heading1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChoose: { ...editFormData.content?.whyChoose, heading1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Why" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading Accent</label>
+                                                    <input type="text" value={editFormData.content?.whyChoose?.headingAccent || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChoose: { ...editFormData.content?.whyChoose, headingAccent: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Choose Us" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.whyChoose?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChoose: { ...editFormData.content?.whyChoose, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="We don't just write code..." />
+                                                </div>
+                                                <div className="md:col-span-2 mt-4">
+                                                    <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">Bento Box Images</h4>
+                                                </div>
+                                                {["Agile Development", "Enterprise Security", "Cloud Native", "Global Delivery", "AI First Approach"].map((title, index) => (
+                                                    <div key={index} className="md:col-span-1">
+                                                        <ImageUploader 
+                                                            label={`${title} Image`}
+                                                            value={editFormData.content?.whyChoose?.bentoImages?.[index] || ""}
+                                                            onChange={(url) => {
+                                                                const newImages = [...(editFormData.content?.whyChoose?.bentoImages || [])];
+                                                                newImages[index] = url;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChoose: { ...editFormData.content?.whyChoose, bentoImages: newImages } } });
+                                                            }}
+                                                        />
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* ABOUT STATS TAB */}
+                                {activeEditTab === "about-stats" && editPage.path === "/about" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Company Stats</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.companyStatsVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, companyStatsVisible: e.target.checked } })} className="sr-only peer" />
+                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+                                        {[0, 1, 2, 3].map((index) => (
+                                            <div key={index} className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                                <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">Stat Item {index + 1}</h4>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Value</label>
+                                                        <input type="text" value={editFormData.content?.companyStats?.[index]?.value || ""} onChange={(e) => {
+                                                            const newStats = [...(editFormData.content?.companyStats || Array(4).fill({}))];
+                                                            newStats[index] = { ...newStats[index], value: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, companyStats: newStats } });
+                                                        }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="250+" />
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Label</label>
+                                                        <input type="text" value={editFormData.content?.companyStats?.[index]?.label || ""} onChange={(e) => {
+                                                            const newStats = [...(editFormData.content?.companyStats || Array(4).fill({}))];
+                                                            newStats[index] = { ...newStats[index], label: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, companyStats: newStats } });
+                                                        }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Projects Delivered" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {/* ABOUT PROCESS & TECH TAB */}
+                                {activeEditTab === "about-process" && editPage.path === "/about" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Process & Technology</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.processVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, processVisible: e.target.checked } })} className="sr-only peer" />
+                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">The Engineering Process</h4>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading 1</label>
+                                                    <input type="text" value={editFormData.content?.process?.heading1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, process: { ...editFormData.content?.process, heading1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="The Engineering" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading Accent</label>
+                                                    <input type="text" value={editFormData.content?.process?.headingAccent || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, process: { ...editFormData.content?.process, headingAccent: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Process" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">Technology Ecosystem</h4>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading 1</label>
+                                                    <input type="text" value={editFormData.content?.techEcosystem?.heading1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, techEcosystem: { ...editFormData.content?.techEcosystem, heading1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Technology" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading Accent</label>
+                                                    <input type="text" value={editFormData.content?.techEcosystem?.headingAccent || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, techEcosystem: { ...editFormData.content?.techEcosystem, headingAccent: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Ecosystem" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* ABOUT CULTURE TAB */}
+                                {activeEditTab === "about-culture" && editPage.path === "/about" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Culture Gallery</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.culture?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, culture: { ...editFormData.content?.culture, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading</label>
+                                                    <input type="text" value={editFormData.content?.culture?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, culture: { ...editFormData.content?.culture, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Our Culture" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.culture?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, culture: { ...editFormData.content?.culture, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Life at RecentureSoft..." />
+                                                </div>
+                                                <div className="md:col-span-2 mt-4">
+                                                    <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">Gallery Images</h4>
+                                                </div>
+                                                {(() => {
+                                                    const cultureImages = editFormData.content?.culture?.images || [];
+                                                    const displayImages = [...cultureImages, ""];
+                                                    return displayImages.map((imgSrc, index) => (
+                                                        <div key={index} className="md:col-span-1">
+                                                            <ImageUploader 
+                                                                label={`Image ${index + 1}`}
+                                                                value={imgSrc}
+                                                                onChange={(url) => {
+                                                                    const newImages = [...cultureImages];
+                                                                    if (url === "") {
+                                                                        newImages.splice(index, 1);
+                                                                    } else {
+                                                                        newImages[index] = url;
+                                                                    }
+                                                                    setEditFormData({ 
+                                                                        ...editFormData, 
+                                                                        content: { 
+                                                                            ...editFormData.content, 
+                                                                            culture: { 
+                                                                                ...editFormData.content?.culture, 
+                                                                                images: newImages 
+                                                                            } 
+                                                                        } 
+                                                                    });
+                                                                }}
+                                                            />
+                                                        </div>
+                                                    ));
+                                                })()}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* ABOUT LEADERSHIP & CTA TAB */}
+                                {activeEditTab === "about-leadership" && editPage.path === "/about" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Leadership & CTA</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.leadership?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, leadership: { ...editFormData.content?.leadership, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">Global Leadership</h4>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="md:col-span-2">
+                                                    <ImageUploader 
+                                                        label="Leader Avatar"
+                                                        value={editFormData.content?.leadership?.avatarUrl || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, leadership: { ...editFormData.content?.leadership, avatarUrl: url } } })}
+                                                    />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Quote / Message</label>
+                                                    <textarea value={editFormData.content?.leadership?.message || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, leadership: { ...editFormData.content?.leadership, message: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Technology is only as powerful as the minds..." />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Name</label>
+                                                    <input type="text" value={editFormData.content?.leadership?.name || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, leadership: { ...editFormData.content?.leadership, name: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="David Chen" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Role</label>
+                                                    <input type="text" value={editFormData.content?.leadership?.role || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, leadership: { ...editFormData.content?.leadership, role: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Chief Executive Officer" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">Bottom CTA</h4>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading 1</label>
+                                                    <input type="text" value={editFormData.content?.cta?.heading1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, cta: { ...editFormData.content?.cta, heading1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Let's Build The" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading Accent</label>
+                                                    <input type="text" value={editFormData.content?.cta?.headingAccent || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, cta: { ...editFormData.content?.cta, headingAccent: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Future" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

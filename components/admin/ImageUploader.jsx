@@ -1,123 +1,88 @@
 "use client";
 
-import { useState } from "react";
-import { Loader2, UploadCloud, Image as ImageIcon } from "lucide-react";
+import React, { useState } from 'react';
+import { Upload, X, Loader2, Image as ImageIcon } from 'lucide-react';
+import Image from 'next/image';
 
-export default function ImageUploader({ value, onChange, label = "Cover Image" }) {
-    const [isDragging, setIsDragging] = useState(false);
-    const [uploadingImage, setUploadingImage] = useState(false);
+export default function ImageUploader({ value, onChange, label = "Upload Image", className = "" }) {
+    const [isUploading, setIsUploading] = useState(false);
 
-    const handleImageUpload = async (file) => {
+    const handleFileUpload = async (e) => {
+        const file = e.target.files[0];
         if (!file) return;
-        if (!file.type.startsWith('image/')) {
-            alert('Please upload a valid image file (JPEG, PNG, WEBP).');
-            return;
-        }
-        
-        setUploadingImage(true);
-        const uploadData = new FormData();
-        uploadData.append('file', file);
-        uploadData.append('upload_preset', process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || 'recenturesoft_upload');
-        uploadData.append('cloud_name', process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dgsebwvvs');
-        
+
+        setIsUploading(true);
         try {
-            const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dgsebwvvs';
-            const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || 'recenturesoft_upload');
+
+            const res = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dgsebwvvs'}/image/upload`, {
                 method: 'POST',
-                body: uploadData
+                body: formData
             });
+
             const data = await res.json();
-            
             if (data.secure_url) {
                 onChange(data.secure_url);
             } else {
-                alert('Upload failed: ' + (data.error?.message || "Unknown error"));
+                console.error("Upload failed", data);
+                alert("Failed to upload image. Please try again.");
             }
-        } catch (err) {
-            console.error(err);
-            alert('Failed to upload image. Please try again.');
+        } catch (error) {
+            console.error("Upload error", error);
+            alert("An error occurred while uploading.");
         } finally {
-            setUploadingImage(false);
-        }
-    };
-
-    const handleDragOver = (e) => {
-        e.preventDefault();
-        setIsDragging(true);
-    };
-
-    const handleDragLeave = (e) => {
-        e.preventDefault();
-        setIsDragging(false);
-    };
-
-    const handleDrop = (e) => {
-        e.preventDefault();
-        setIsDragging(false);
-        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-            handleImageUpload(e.dataTransfer.files[0]);
+            setIsUploading(false);
+            e.target.value = null;
         }
     };
 
     return (
-        <div className="space-y-1.5">
+        <div className={`flex flex-col gap-2 ${className}`}>
             {label && <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">{label}</label>}
             
-            <div 
-                onDragOver={handleDragOver}
-                onDragLeave={handleDragLeave}
-                onDrop={handleDrop}
-                className={`relative flex flex-col items-center justify-center p-4 md:p-6 border-2 border-dashed rounded-xl transition-colors cursor-pointer overflow-hidden ${isDragging ? 'border-cyan-500 bg-cyan-50 dark:bg-cyan-500/10' : 'border-slate-300 dark:border-slate-600 hover:border-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
-            >
-                <input 
-                    type="file" 
-                    accept="image/*" 
-                    onChange={(e) => {
-                        if (e.target.files && e.target.files.length > 0) {
-                            handleImageUpload(e.target.files[0]);
-                        }
-                    }}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                />
-
-                {uploadingImage ? (
-                    <div className="flex flex-col items-center gap-2 text-cyan-600 dark:text-cyan-400 py-4">
-                        <Loader2 className="w-8 h-8 animate-spin" />
-                        <span className="text-sm font-medium">Uploading to Cloudinary...</span>
+            {value ? (
+                <div className="relative group rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 aspect-video bg-slate-100 dark:bg-slate-800">
+                    <Image src={value} alt="Uploaded" fill sizes="300px" className="object-cover" />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                        <label className="cursor-pointer p-2 bg-white/20 hover:bg-white/40 rounded-full backdrop-blur-sm transition-colors text-white">
+                            <Upload className="w-5 h-5" />
+                            <input type="file" accept="image/*" className="hidden" onChange={handleFileUpload} disabled={isUploading} />
+                        </label>
+                        <button 
+                            type="button" 
+                            onClick={() => onChange("")} 
+                            className="p-2 bg-red-500/80 hover:bg-red-500 rounded-full backdrop-blur-sm transition-colors text-white"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
                     </div>
-                ) : value ? (
-                    <div className="flex flex-col items-center w-full">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={value} alt="Preview" className="w-full max-h-40 object-cover rounded-lg mb-3 shadow-sm border border-slate-200 dark:border-slate-700" />
-                        <span className="text-xs text-slate-500 font-medium bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full truncate max-w-full">
-                            {value.split('/').pop()}
-                        </span>
-                        <span className="text-xs text-cyan-600 dark:text-cyan-400 mt-2 font-medium">Click or drag to replace image</span>
-                    </div>
-                ) : (
-                    <div className="flex flex-col items-center gap-2 text-slate-500 dark:text-slate-400 py-4">
-                        <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mb-1">
-                            <UploadCloud className="w-6 h-6 text-slate-400" />
+                    {isUploading && (
+                        <div className="absolute inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm">
+                            <Loader2 className="w-8 h-8 text-white animate-spin" />
                         </div>
-                        <p className="text-sm font-medium text-slate-700 dark:text-slate-200">Drag & Drop image here</p>
-                        <p className="text-xs">or click to browse from your computer</p>
-                    </div>
-                )}
-            </div>
-
-            <div className="relative mt-2">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <ImageIcon className="h-4 w-4 text-slate-400" />
+                    )}
                 </div>
-                <input 
-                    type="text"
-                    required
-                    value={value || ""}
-                    onChange={(e) => onChange(e.target.value)}
-                    placeholder="Or paste direct Cloudinary URL"
-                    className="w-full pl-9 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:border-cyan-500 outline-none text-slate-600 dark:text-slate-300 text-sm"
-                />
-            </div>
+            ) : (
+                <label className="relative cursor-pointer flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors p-6 aspect-video">
+                    {isUploading ? (
+                        <>
+                            <Loader2 className="w-8 h-8 text-cyan-500 animate-spin mb-2" />
+                            <span className="text-sm font-medium text-slate-500 dark:text-slate-400">Uploading...</span>
+                        </>
+                    ) : (
+                        <>
+                            <div className="p-3 bg-white dark:bg-slate-700 rounded-full shadow-sm mb-1">
+                                <ImageIcon className="w-6 h-6 text-slate-400 dark:text-slate-300" />
+                            </div>
+                            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Click to upload image</span>
+                            <span className="text-xs text-slate-500 dark:text-slate-400">PNG, JPG up to 10MB</span>
+                        </>
+                    )}
+                    <input type="file" accept="image/*" className="hidden" onChange={handleFileUpload} disabled={isUploading} />
+                </label>
+            )}
         </div>
     );
 }
