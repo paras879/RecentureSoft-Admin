@@ -662,7 +662,7 @@ export default function WebsitePages() {
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Hero Section</h3>
                                             <label className="flex items-center gap-2 cursor-pointer">
                                                 <input type="checkbox" checked={editFormData.content?.aboutHero?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aboutHero: { ...editFormData.content?.aboutHero, isVisible: e.target.checked } } })} className="sr-only peer" />
-                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
                                                 <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
                                             </label>
                                         </div>
@@ -708,8 +708,8 @@ export default function WebsitePages() {
                                         <div className="flex items-center justify-between">
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Company Story Timeline</h3>
                                             <label className="flex items-center gap-2 cursor-pointer">
-                                                <input type="checkbox" checked={editFormData.content?.storyTimeline?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, storyTimeline: { ...editFormData.content?.storyTimeline, isVisible: e.target.checked } } })} className="sr-only peer" />
-                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <input type="checkbox" checked={editFormData.content?.storyTimelineVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, storyTimelineVisible: e.target.checked } })} className="sr-only peer" />
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
                                                 <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
                                             </label>
                                         </div>
@@ -723,7 +723,7 @@ export default function WebsitePages() {
                                                             type="text"
                                                             value={editFormData.content?.storyTimeline?.[index]?.year || ""}
                                                             onChange={(e) => {
-                                                                const newTimeline = [...(editFormData.content?.storyTimeline || Array(5).fill({}))];
+                                                                const newTimeline = [...(Array.isArray(editFormData.content?.storyTimeline) ? editFormData.content.storyTimeline : Array(5).fill({}))];
                                                                 newTimeline[index] = { ...newTimeline[index], year: e.target.value };
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, storyTimeline: newTimeline } });
                                                             }}
@@ -737,7 +737,7 @@ export default function WebsitePages() {
                                                             type="text"
                                                             value={editFormData.content?.storyTimeline?.[index]?.title || ""}
                                                             onChange={(e) => {
-                                                                const newTimeline = [...(editFormData.content?.storyTimeline || Array(5).fill({}))];
+                                                                const newTimeline = [...(Array.isArray(editFormData.content?.storyTimeline) ? editFormData.content.storyTimeline : Array(5).fill({}))];
                                                                 newTimeline[index] = { ...newTimeline[index], title: e.target.value };
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, storyTimeline: newTimeline } });
                                                             }}
@@ -751,7 +751,7 @@ export default function WebsitePages() {
                                                             type="text"
                                                             value={editFormData.content?.storyTimeline?.[index]?.desc || ""}
                                                             onChange={(e) => {
-                                                                const newTimeline = [...(editFormData.content?.storyTimeline || Array(5).fill({}))];
+                                                                const newTimeline = [...(Array.isArray(editFormData.content?.storyTimeline) ? editFormData.content.storyTimeline : Array(5).fill({}))];
                                                                 newTimeline[index] = { ...newTimeline[index], desc: e.target.value };
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, storyTimeline: newTimeline } });
                                                             }}
@@ -772,7 +772,7 @@ export default function WebsitePages() {
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Us</h3>
                                             <label className="flex items-center gap-2 cursor-pointer">
                                                 <input type="checkbox" checked={editFormData.content?.whyChoose?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChoose: { ...editFormData.content?.whyChoose, isVisible: e.target.checked } } })} className="sr-only peer" />
-                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
                                                 <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
                                             </label>
                                         </div>
@@ -818,7 +818,7 @@ export default function WebsitePages() {
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Company Stats</h3>
                                             <label className="flex items-center gap-2 cursor-pointer">
                                                 <input type="checkbox" checked={editFormData.content?.companyStatsVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, companyStatsVisible: e.target.checked } })} className="sr-only peer" />
-                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
                                                 <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
                                             </label>
                                         </div>
@@ -829,7 +829,7 @@ export default function WebsitePages() {
                                                     <div>
                                                         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Value</label>
                                                         <input type="text" value={editFormData.content?.companyStats?.[index]?.value || ""} onChange={(e) => {
-                                                            const newStats = [...(editFormData.content?.companyStats || Array(4).fill({}))];
+                                                            const newStats = [...(Array.isArray(editFormData.content?.companyStats) ? editFormData.content.companyStats : Array(4).fill({}))];
                                                             newStats[index] = { ...newStats[index], value: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, companyStats: newStats } });
                                                         }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="250+" />
@@ -837,7 +837,7 @@ export default function WebsitePages() {
                                                     <div>
                                                         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Label</label>
                                                         <input type="text" value={editFormData.content?.companyStats?.[index]?.label || ""} onChange={(e) => {
-                                                            const newStats = [...(editFormData.content?.companyStats || Array(4).fill({}))];
+                                                            const newStats = [...(Array.isArray(editFormData.content?.companyStats) ? editFormData.content.companyStats : Array(4).fill({}))];
                                                             newStats[index] = { ...newStats[index], label: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, companyStats: newStats } });
                                                         }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Projects Delivered" />
@@ -855,7 +855,7 @@ export default function WebsitePages() {
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Process & Technology</h3>
                                             <label className="flex items-center gap-2 cursor-pointer">
                                                 <input type="checkbox" checked={editFormData.content?.processVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, processVisible: e.target.checked } })} className="sr-only peer" />
-                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
                                                 <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
                                             </label>
                                         </div>
@@ -895,7 +895,7 @@ export default function WebsitePages() {
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Culture Gallery</h3>
                                             <label className="flex items-center gap-2 cursor-pointer">
                                                 <input type="checkbox" checked={editFormData.content?.culture?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, culture: { ...editFormData.content?.culture, isVisible: e.target.checked } } })} className="sr-only peer" />
-                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
                                                 <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
                                             </label>
                                         </div>
@@ -954,7 +954,7 @@ export default function WebsitePages() {
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Leadership & CTA</h3>
                                             <label className="flex items-center gap-2 cursor-pointer">
                                                 <input type="checkbox" checked={editFormData.content?.leadership?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, leadership: { ...editFormData.content?.leadership, isVisible: e.target.checked } } })} className="sr-only peer" />
-                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
                                                 <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
                                             </label>
                                         </div>
@@ -1053,7 +1053,7 @@ export default function WebsitePages() {
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Transformations Section</h3>
                                             <label className="flex items-center gap-2 cursor-pointer">
                                                 <input type="checkbox" checked={editFormData.content?.transformations?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, transformations: { ...editFormData.content?.transformations, isVisible: e.target.checked } } })} className="sr-only peer" />
-                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
                                                 <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
                                             </label>
                                         </div>
@@ -1092,7 +1092,7 @@ export default function WebsitePages() {
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Call to Action (CTA)</h3>
                                             <label className="flex items-center gap-2 cursor-pointer">
                                                 <input type="checkbox" checked={editFormData.content?.cta?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, cta: { ...editFormData.content?.cta, isVisible: e.target.checked } } })} className="sr-only peer" />
-                                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
                                                 <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
                                             </label>
                                         </div>
