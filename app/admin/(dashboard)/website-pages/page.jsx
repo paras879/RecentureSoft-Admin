@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, CheckCircle2, XCircle, Save, Loader2, ArrowRight } from 'lucide-react';
+import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, CheckCircle2, XCircle, Save, Loader2, ArrowRight, Package, ListChecks, Star } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useAdmin } from "@/components/admin/AdminProvider";
 import ImageUploader from "@/components/admin/ImageUploader";
@@ -583,6 +583,271 @@ export default function WebsitePages() {
                                         </button>
                                     </>
                                 )}
+
+                                {editPage.path === "/amazon-store-management" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("amazon-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'amazon-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Amazon Store Hero
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("amazon-intro")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'amazon-intro' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> Amazon Intro
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("amazon-services")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'amazon-services' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Package className="w-4 h-4" /> Amazon Services
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("amazon-process")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'amazon-process' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <ListChecks className="w-4 h-4" /> Amazon Process
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("amazon-benefits")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'amazon-benefits' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Star className="w-4 h-4" /> Amazon Benefits
+                                        </button>
+                                    </>
+                                )}
+
+                                {editPage.path === "/opencart-development" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("opencart-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'opencart-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> OpenCart Hero
+                                        </button>
+
+                                        <button
+                                            onClick={() => setActiveEditTab("opencart-intro")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'opencart-intro' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> OpenCart Intro
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("opencart-whatis")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'opencart-whatis' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Info className="w-4 h-4" /> What is OpenCart
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("opencart-benefits")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'opencart-benefits' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Star className="w-4 h-4" /> Key Benefits
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("opencart-solutions")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'opencart-solutions' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Package className="w-4 h-4" /> Solutions
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("opencart-process")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'opencart-process' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <ListChecks className="w-4 h-4" /> Development Cycle
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("opencart-industries")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'opencart-industries' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Globe className="w-4 h-4" /> Industries
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("opencart-cta")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'opencart-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> OpenCart CTA
+                                        </button>
+                                    </>
+                                )}
+
+                                {editPage.path === "/magento-development" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("magento-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'magento-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Magento Hero
+                                        </button>
+
+                                        <button
+                                            onClick={() => setActiveEditTab("magento-intro")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'magento-intro' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> Magento Intro
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("magento-reasons")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'magento-reasons' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Star className="w-4 h-4" /> Magento Reasons
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("magento-process")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'magento-process' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <ListChecks className="w-4 h-4" /> Magento Lifecycle
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("magento-benefits")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'magento-benefits' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Globe className="w-4 h-4" /> Magento Benefits
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("magento-services")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'magento-services' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Package className="w-4 h-4" /> Magento Services
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("magento-cta")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'magento-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Magento CTA
+                                        </button>
+                                    </>
+                                )}
+
+                                {editPage.path === "/ebay-store-management" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("ebay-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'ebay-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> eBay Store Hero
+                                        </button>
+
+                                        <button
+                                            onClick={() => setActiveEditTab("ebay-intro")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'ebay-intro' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> eBay Intro
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("ebay-value")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'ebay-value' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Star className="w-4 h-4" /> Value Proposition
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("ebay-services")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'ebay-services' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Package className="w-4 h-4" /> Primary Services
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("ebay-offerings")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'ebay-offerings' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <ListChecks className="w-4 h-4" /> Additional Offerings
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("ebay-cta")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'ebay-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> eBay CTA
+                                        </button>
+                                    </>
+                                )}
+
+                                {editPage.path === "/wordpress-development-customization" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("wordpress-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'wordpress-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> WordPress Hero
+                                        </button>
+
+                                        <button
+                                            onClick={() => setActiveEditTab("wp-intro")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'wp-intro' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> WP Intro
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("wp-concept")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'wp-concept' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Info className="w-4 h-4" /> WP Concept
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("wp-reasons")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'wp-reasons' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Star className="w-4 h-4" /> Why WP?
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("wp-services")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'wp-services' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <Package className="w-4 h-4" /> WP Services
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("wp-choose-us")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'wp-choose-us' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <ShieldCheck className="w-4 h-4" /> Why Choose Us
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("wp-process")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'wp-process' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <ListChecks className="w-4 h-4" /> WP Process
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("wp-cta")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'wp-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> WP CTA
+                                        </button>
+                                    </>
+                                )}
+                                {editPage.path === "/news" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("news-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'news-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> News Hero
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("news-cta")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'news-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> News CTA
+                                        </button>
+                                    </>
+                                )}
+                                {editPage.path === "/contact" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("contact-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'contact-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Contact Hero
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("contact-form")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'contact-form' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <FileText className="w-4 h-4" /> Contact Form
+                                        </button>
+                                    </>
+                                )}
                                 {(editFormData.templateType === "crm-template" || editFormData.templateType === "location-template") && (
                                     <>
                                         <button
@@ -1119,7 +1384,1871 @@ export default function WebsitePages() {
                                     </div>
                                 )}
                                 
-                                {/* HERO TAB (For Home Page) */}
+                                
+                                
+                                
+
+                                {/* AMAZON INTRO TAB */}
+                                {activeEditTab === "amazon-intro" && editPage.path === "/amazon-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Intro Section Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Heading</label>
+                                                    <input type="text" value={editFormData.content?.amazonIntro?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonIntro: { ...editFormData.content?.amazonIntro, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Manage Items Better with Amazon Store Management" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
+                                                    <textarea value={editFormData.content?.amazonIntro?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonIntro: { ...editFormData.content?.amazonIntro, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" placeholder="Making a powerful presence on Amazon requires..." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AMAZON SERVICES TAB */}
+                                {activeEditTab === "amazon-services" && editPage.path === "/amazon-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services Section Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.amazonServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Our Wide Range of Amazon Services" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}]).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.amazonServices?.cards || [{},{},{},{},{}];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Card
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}]).map((card, i) => (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Card"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Service Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Service Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AMAZON PROCESS TAB */}
+                                {activeEditTab === "amazon-process" && editPage.path === "/amazon-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Process Section Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.amazonProcess?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonProcess: { ...editFormData.content?.amazonProcess, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Amazon Store Management Process" />
+                                            </div>
+
+                                            <div className="grid grid-cols-1 gap-4">
+                                                <div className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Step 1 Title</label>
+                                                    <input type="text" value={editFormData.content?.amazonProcess?.step1Title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonProcess: { ...editFormData.content?.amazonProcess, step1Title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white mb-3" placeholder="Analysis & Roadmap" />
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Step 1 Desc</label>
+                                                    <textarea value={editFormData.content?.amazonProcess?.step1Desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonProcess: { ...editFormData.content?.amazonProcess, step1Desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2} />
+                                                </div>
+                                                <div className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Step 2 Title</label>
+                                                    <input type="text" value={editFormData.content?.amazonProcess?.step2Title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonProcess: { ...editFormData.content?.amazonProcess, step2Title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white mb-3" placeholder="Launch & Support" />
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Step 2 Desc</label>
+                                                    <textarea value={editFormData.content?.amazonProcess?.step2Desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonProcess: { ...editFormData.content?.amazonProcess, step2Desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2} />
+                                                </div>
+                                                <div className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Checklist Title</label>
+                                                    <input type="text" value={editFormData.content?.amazonProcess?.checklistTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonProcess: { ...editFormData.content?.amazonProcess, checklistTitle: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white mb-3" placeholder="Our Development Checklist" />
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Checklist Items (Comma separated)</label>
+                                                    <textarea value={editFormData.content?.amazonProcess?.checklistItems?.join("\n") || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonProcess: { ...editFormData.content?.amazonProcess, checklistItems: e.target.value.split("\n") } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={6} placeholder="One item per line..." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AMAZON BENEFITS TAB */}
+                                {activeEditTab === "amazon-benefits" && editPage.path === "/amazon-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Benefits Section Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.amazonBenefits?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Benefits Of Professional Management" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Benefit Cards ({(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}]).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Card
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}]).map((card, i) => (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Card"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Benefit Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Benefit Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                                {/* AMAZON STORE HERO TAB */}
+                                {activeEditTab === "amazon-hero" && editPage.path === "/amazon-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Amazon Store Hero Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge Text</label>
+                                                    <input type="text" value={editFormData.content?.amazonHero?.badge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonHero: { ...editFormData.content?.amazonHero, badge: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Store Management" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                    <input type="text" value={editFormData.content?.amazonHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonHero: { ...editFormData.content?.amazonHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Amazon Store" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Text</label>
+                                                    <input type="text" value={editFormData.content?.amazonHero?.highlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonHero: { ...editFormData.content?.amazonHero, highlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Solutions" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.amazonHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonHero: { ...editFormData.content?.amazonHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Establish a powerful presence..." />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.amazonHero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonHero: { ...editFormData.content?.amazonHero, bannerImage: url } } })} 
+                                                    />
+                                                    <p className="text-xs text-slate-500 mt-1">Recommended size: 1920x1080 (WebP or WebM for videos)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+
+
+                                {/* OPENCART INTRO TAB */}
+                                {activeEditTab === "opencart-intro" && editPage.path === "/opencart-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Intro Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Heading</label>
+                                                <input type="text" value={editFormData.content?.openIntro?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openIntro: { ...editFormData.content?.openIntro, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
+                                                <textarea value={editFormData.content?.openIntro?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openIntro: { ...editFormData.content?.openIntro, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* OPENCART WHATIS TAB */}
+                                {activeEditTab === "opencart-whatis" && editPage.path === "/opencart-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">What is OpenCart Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.openWhatIs?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openWhatIs: { ...editFormData.content?.openWhatIs, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description 1</label>
+                                                <textarea value={editFormData.content?.openWhatIs?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openWhatIs: { ...editFormData.content?.openWhatIs, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3} />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description 2</label>
+                                                <textarea value={editFormData.content?.openWhatIs?.desc2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openWhatIs: { ...editFormData.content?.openWhatIs, desc2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* OPENCART-BENEFITS TAB */}
+                                {activeEditTab === "opencart-benefits" && editPage.path === "/opencart-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Key Benefits Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.openBenefits?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Key Benefits" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Benefit Cards ({(editFormData.content?.openBenefits?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const arrName = 'cards';
+                                                            const currentCards = editFormData.content?.openBenefits?.[arrName] || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, [arrName]: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.openBenefits?.cards || []).map((card, i) => {
+                                                    const val = typeof card === 'string' ? { title: card } : card;
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const arrName = 'cards';
+                                                                    const currentCards = [...(editFormData.content?.openBenefits?.[arrName] || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, [arrName]: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Item"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={val.title || ""} onChange={(e) => {
+                                                            const arrName = 'cards';
+                                                            const newCards = [...(editFormData.content?.openBenefits?.[arrName] || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, [arrName]: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        
+                                                        <textarea value={val.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.openBenefits?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={val.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.openBenefits?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* OPENCART-SOLUTIONS TAB */}
+                                {activeEditTab === "opencart-solutions" && editPage.path === "/opencart-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">End-To-End Solutions Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.openSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="End-To-End Solutions" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Solution Cards ({(editFormData.content?.openSolutions?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const arrName = 'cards';
+                                                            const currentCards = editFormData.content?.openSolutions?.[arrName] || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, [arrName]: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.openSolutions?.cards || []).map((card, i) => {
+                                                    const val = typeof card === 'string' ? { title: card } : card;
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const arrName = 'cards';
+                                                                    const currentCards = [...(editFormData.content?.openSolutions?.[arrName] || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, [arrName]: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Item"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={val.title || ""} onChange={(e) => {
+                                                            const arrName = 'cards';
+                                                            const newCards = [...(editFormData.content?.openSolutions?.[arrName] || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, [arrName]: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        
+                                                        <textarea value={val.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.openSolutions?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={val.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.openSolutions?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* OPENCART-PROCESS TAB */}
+                                {activeEditTab === "opencart-process" && editPage.path === "/opencart-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Development Cycle Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.openProcess?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openProcess: { ...editFormData.content?.openProcess, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Development Cycle" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Steps ({(editFormData.content?.openProcess?.steps || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const arrName = 'steps';
+                                                            const currentCards = editFormData.content?.openProcess?.[arrName] || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openProcess: { ...editFormData.content?.openProcess, [arrName]: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.openProcess?.steps || []).map((card, i) => {
+                                                    const val = typeof card === 'string' ? { title: card } : card;
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const arrName = 'steps';
+                                                                    const currentCards = [...(editFormData.content?.openProcess?.[arrName] || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openProcess: { ...editFormData.content?.openProcess, [arrName]: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Item"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={val.title || ""} onChange={(e) => {
+                                                            const arrName = 'steps';
+                                                            const newCards = [...(editFormData.content?.openProcess?.[arrName] || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openProcess: { ...editFormData.content?.openProcess, [arrName]: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* OPENCART-INDUSTRIES TAB */}
+                                {activeEditTab === "opencart-industries" && editPage.path === "/opencart-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Rich Industry Experience Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.openIndustries?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openIndustries: { ...editFormData.content?.openIndustries, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Rich Industry Experience" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Industries ({(editFormData.content?.openIndustries?.steps || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const arrName = 'steps';
+                                                            const currentCards = editFormData.content?.openIndustries?.[arrName] || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openIndustries: { ...editFormData.content?.openIndustries, [arrName]: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.openIndustries?.steps || []).map((card, i) => {
+                                                    const val = typeof card === 'string' ? { title: card } : card;
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const arrName = 'steps';
+                                                                    const currentCards = [...(editFormData.content?.openIndustries?.[arrName] || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openIndustries: { ...editFormData.content?.openIndustries, [arrName]: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Item"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={val.title || ""} onChange={(e) => {
+                                                            const arrName = 'steps';
+                                                            const newCards = [...(editFormData.content?.openIndustries?.[arrName] || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openIndustries: { ...editFormData.content?.openIndustries, [arrName]: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* OPENCART CTA TAB */}
+                                {activeEditTab === "opencart-cta" && editPage.path === "/opencart-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Title</label>
+                                                <input type="text" value={editFormData.content?.openCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openCTA: { ...editFormData.content?.openCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Description</label>
+                                                <textarea value={editFormData.content?.openCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openCTA: { ...editFormData.content?.openCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Button Text</label>
+                                                <input type="text" value={editFormData.content?.openCTA?.btnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openCTA: { ...editFormData.content?.openCTA, btnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* OPENCART HERO TAB */}
+                                {activeEditTab === "opencart-hero" && editPage.path === "/opencart-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">OpenCart Hero Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge Text</label>
+                                                    <input type="text" value={editFormData.content?.opencartHero?.badge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, opencartHero: { ...editFormData.content?.opencartHero, badge: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Store Management" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                    <input type="text" value={editFormData.content?.opencartHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, opencartHero: { ...editFormData.content?.opencartHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="OpenCart" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Text</label>
+                                                    <input type="text" value={editFormData.content?.opencartHero?.highlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, opencartHero: { ...editFormData.content?.opencartHero, highlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Solutions" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.opencartHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, opencartHero: { ...editFormData.content?.opencartHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Establish a powerful presence..." />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.opencartHero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, opencartHero: { ...editFormData.content?.opencartHero, bannerImage: url } } })} 
+                                                    />
+                                                    <p className="text-xs text-slate-500 mt-1">Recommended size: 1920x1080 (WebP or WebM for videos)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+
+
+                                {/* MAGENTO INTRO TAB */}
+                                {activeEditTab === "magento-intro" && editPage.path === "/magento-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Intro Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Heading</label>
+                                                <input type="text" value={editFormData.content?.magentoIntro?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoIntro: { ...editFormData.content?.magentoIntro, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
+                                                <textarea value={editFormData.content?.magentoIntro?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoIntro: { ...editFormData.content?.magentoIntro, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* MAGENTO-REASONS TAB */}
+                                {activeEditTab === "magento-reasons" && editPage.path === "/magento-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Reasons Section Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.magentoReasons?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoReasons: { ...editFormData.content?.magentoReasons, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Reasons Section" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Reason Cards ({(editFormData.content?.magentoReasons?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.magentoReasons?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoReasons: { ...editFormData.content?.magentoReasons, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Card
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.magentoReasons?.cards || []).map((card, i) => (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.magentoReasons?.cards || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoReasons: { ...editFormData.content?.magentoReasons, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Card"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.magentoReasons?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoReasons: { ...editFormData.content?.magentoReasons, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.magentoReasons?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoReasons: { ...editFormData.content?.magentoReasons, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.magentoReasons?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoReasons: { ...editFormData.content?.magentoReasons, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* MAGENTO-PROCESS TAB */}
+                                {activeEditTab === "magento-process" && editPage.path === "/magento-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Lifecycle Process Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.magentoProcess?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoProcess: { ...editFormData.content?.magentoProcess, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Lifecycle Process" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Steps ({(editFormData.content?.magentoProcess?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.magentoProcess?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoProcess: { ...editFormData.content?.magentoProcess, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Card
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.magentoProcess?.cards || []).map((card, i) => (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.magentoProcess?.cards || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoProcess: { ...editFormData.content?.magentoProcess, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Card"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.magentoProcess?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoProcess: { ...editFormData.content?.magentoProcess, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.magentoProcess?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoProcess: { ...editFormData.content?.magentoProcess, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.magentoProcess?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoProcess: { ...editFormData.content?.magentoProcess, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* MAGENTO-BENEFITS TAB */}
+                                {activeEditTab === "magento-benefits" && editPage.path === "/magento-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Benefits Section Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.magentoBenefits?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoBenefits: { ...editFormData.content?.magentoBenefits, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Benefits Section" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Benefit Cards ({(editFormData.content?.magentoBenefits?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.magentoBenefits?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoBenefits: { ...editFormData.content?.magentoBenefits, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Card
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.magentoBenefits?.cards || []).map((card, i) => (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.magentoBenefits?.cards || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoBenefits: { ...editFormData.content?.magentoBenefits, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Card"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.magentoBenefits?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoBenefits: { ...editFormData.content?.magentoBenefits, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.magentoBenefits?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoBenefits: { ...editFormData.content?.magentoBenefits, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.magentoBenefits?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoBenefits: { ...editFormData.content?.magentoBenefits, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* MAGENTO-SERVICES TAB */}
+                                {activeEditTab === "magento-services" && editPage.path === "/magento-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services List Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.magentoServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoServices: { ...editFormData.content?.magentoServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Services List" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.magentoServices?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.magentoServices?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoServices: { ...editFormData.content?.magentoServices, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Card
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.magentoServices?.cards || []).map((card, i) => (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.magentoServices?.cards || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoServices: { ...editFormData.content?.magentoServices, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Card"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.magentoServices?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoServices: { ...editFormData.content?.magentoServices, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.magentoServices?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoServices: { ...editFormData.content?.magentoServices, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.magentoServices?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoServices: { ...editFormData.content?.magentoServices, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* MAGENTO CTA TAB */}
+                                {activeEditTab === "magento-cta" && editPage.path === "/magento-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Title</label>
+                                                <input type="text" value={editFormData.content?.magentoCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoCTA: { ...editFormData.content?.magentoCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Description</label>
+                                                <textarea value={editFormData.content?.magentoCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoCTA: { ...editFormData.content?.magentoCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Button Text</label>
+                                                <input type="text" value={editFormData.content?.magentoCTA?.btnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoCTA: { ...editFormData.content?.magentoCTA, btnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* MAGENTO HERO TAB */}
+                                {activeEditTab === "magento-hero" && editPage.path === "/magento-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Magento Hero Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge Text</label>
+                                                    <input type="text" value={editFormData.content?.magentoHero?.badge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoHero: { ...editFormData.content?.magentoHero, badge: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Store Management" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                    <input type="text" value={editFormData.content?.magentoHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoHero: { ...editFormData.content?.magentoHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Magento" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Text</label>
+                                                    <input type="text" value={editFormData.content?.magentoHero?.highlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoHero: { ...editFormData.content?.magentoHero, highlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Solutions" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.magentoHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoHero: { ...editFormData.content?.magentoHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Establish a powerful presence..." />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.magentoHero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoHero: { ...editFormData.content?.magentoHero, bannerImage: url } } })} 
+                                                    />
+                                                    <p className="text-xs text-slate-500 mt-1">Recommended size: 1920x1080 (WebP or WebM for videos)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+
+
+                                {/* EBAY INTRO TAB */}
+                                {activeEditTab === "ebay-intro" && editPage.path === "/ebay-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Intro Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Heading</label>
+                                                <input type="text" value={editFormData.content?.ebayIntro?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayIntro: { ...editFormData.content?.ebayIntro, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
+                                                <textarea value={editFormData.content?.ebayIntro?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayIntro: { ...editFormData.content?.ebayIntro, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* EBAY VALUE TAB */}
+                                {activeEditTab === "ebay-value" && editPage.path === "/ebay-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Value Proposition Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Value Heading</label>
+                                                <input type="text" value={editFormData.content?.ebayValue?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayValue: { ...editFormData.content?.ebayValue, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description 1</label>
+                                                <textarea value={editFormData.content?.ebayValue?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayValue: { ...editFormData.content?.ebayValue, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2} />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description 2</label>
+                                                <textarea value={editFormData.content?.ebayValue?.desc2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayValue: { ...editFormData.content?.ebayValue, desc2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2} />
+                                            </div>
+                                            <hr className="my-4 border-slate-200 dark:border-slate-700" />
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Box Title</label>
+                                                <input type="text" value={editFormData.content?.ebayValue?.boxTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayValue: { ...editFormData.content?.ebayValue, boxTitle: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Box Content (HTML Supported)</label>
+                                                <textarea value={editFormData.content?.ebayValue?.boxDesc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayValue: { ...editFormData.content?.ebayValue, boxDesc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* EBAY-SERVICES TAB */}
+                                {activeEditTab === "ebay-services" && editPage.path === "/ebay-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Primary Services Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.ebayServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayServices: { ...editFormData.content?.ebayServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Primary Services" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.ebayServices?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.ebayServices?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayServices: { ...editFormData.content?.ebayServices, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Card
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.ebayServices?.cards || []).map((card, i) => (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.ebayServices?.cards || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayServices: { ...editFormData.content?.ebayServices, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Card"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.ebayServices?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayServices: { ...editFormData.content?.ebayServices, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.ebayServices?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayServices: { ...editFormData.content?.ebayServices, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.ebayServices?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayServices: { ...editFormData.content?.ebayServices, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* EBAY-OFFERINGS TAB */}
+                                {activeEditTab === "ebay-offerings" && editPage.path === "/ebay-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Additional Offerings Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.ebayOfferings?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayOfferings: { ...editFormData.content?.ebayOfferings, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Additional Offerings" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Offering Cards ({(editFormData.content?.ebayOfferings?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const currentCards = editFormData.content?.ebayOfferings?.cards || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayOfferings: { ...editFormData.content?.ebayOfferings, cards: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Card
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.ebayOfferings?.cards || []).map((card, i) => (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const currentCards = [...(editFormData.content?.ebayOfferings?.cards || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayOfferings: { ...editFormData.content?.ebayOfferings, cards: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Card"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={card.title || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.ebayOfferings?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayOfferings: { ...editFormData.content?.ebayOfferings, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        <textarea value={card.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.ebayOfferings?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayOfferings: { ...editFormData.content?.ebayOfferings, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={card.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.ebayOfferings?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayOfferings: { ...editFormData.content?.ebayOfferings, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* EBAY CTA TAB */}
+                                {activeEditTab === "ebay-cta" && editPage.path === "/ebay-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Title</label>
+                                                <input type="text" value={editFormData.content?.ebayCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayCTA: { ...editFormData.content?.ebayCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Description</label>
+                                                <textarea value={editFormData.content?.ebayCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayCTA: { ...editFormData.content?.ebayCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Button Text</label>
+                                                <input type="text" value={editFormData.content?.ebayCTA?.btnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayCTA: { ...editFormData.content?.ebayCTA, btnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* EBAY STORE HERO TAB */}
+                                {activeEditTab === "ebay-hero" && editPage.path === "/ebay-store-management" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">eBay Store Hero Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge Text</label>
+                                                    <input type="text" value={editFormData.content?.ebayHero?.badge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayHero: { ...editFormData.content?.ebayHero, badge: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Store Management" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                    <input type="text" value={editFormData.content?.ebayHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayHero: { ...editFormData.content?.ebayHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="eBay Store" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Text</label>
+                                                    <input type="text" value={editFormData.content?.ebayHero?.highlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayHero: { ...editFormData.content?.ebayHero, highlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Solutions" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.ebayHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayHero: { ...editFormData.content?.ebayHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Establish a powerful presence..." />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.ebayHero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayHero: { ...editFormData.content?.ebayHero, bannerImage: url } } })} 
+                                                    />
+                                                    <p className="text-xs text-slate-500 mt-1">Recommended size: 1920x1080 (WebP or WebM for videos)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+
+
+                                {/* WP INTRO TAB */}
+                                {activeEditTab === "wp-intro" && editPage.path === "/wordpress-development-customization" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Intro Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Heading</label>
+                                                <input type="text" value={editFormData.content?.wpIntro?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpIntro: { ...editFormData.content?.wpIntro, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
+                                                <textarea value={editFormData.content?.wpIntro?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpIntro: { ...editFormData.content?.wpIntro, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* WP CONCEPT TAB */}
+                                {activeEditTab === "wp-concept" && editPage.path === "/wordpress-development-customization" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">WordPress Concept Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Concept Heading</label>
+                                                <input type="text" value={editFormData.content?.wpConcept?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpConcept: { ...editFormData.content?.wpConcept, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description 1</label>
+                                                <textarea value={editFormData.content?.wpConcept?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpConcept: { ...editFormData.content?.wpConcept, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3} />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description 2</label>
+                                                <textarea value={editFormData.content?.wpConcept?.desc2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpConcept: { ...editFormData.content?.wpConcept, desc2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* WP-REASONS TAB */}
+                                {activeEditTab === "wp-reasons" && editPage.path === "/wordpress-development-customization" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Build A Website With WordPress? Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.wpReasons?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Why Build A Website With WordPress?" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Reason Cards ({(editFormData.content?.wpReasons?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const arrName = 'cards';
+                                                            const currentCards = editFormData.content?.wpReasons?.[arrName] || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, [arrName]: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.wpReasons?.cards || []).map((card, i) => {
+                                                    const val = typeof card === 'string' ? { title: card } : card;
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const arrName = 'cards';
+                                                                    const currentCards = [...(editFormData.content?.wpReasons?.[arrName] || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, [arrName]: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Item"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={val.title || ""} onChange={(e) => {
+                                                            const arrName = 'cards';
+                                                            const newCards = [...(editFormData.content?.wpReasons?.[arrName] || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, [arrName]: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        
+                                                        <textarea value={val.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.wpReasons?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={val.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.wpReasons?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* WP-SERVICES TAB */}
+                                {activeEditTab === "wp-services" && editPage.path === "/wordpress-development-customization" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Our Range Of WordPress Services Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.wpServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Our Range Of WordPress Services" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.wpServices?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const arrName = 'cards';
+                                                            const currentCards = editFormData.content?.wpServices?.[arrName] || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, [arrName]: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.wpServices?.cards || []).map((card, i) => {
+                                                    const val = typeof card === 'string' ? { title: card } : card;
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const arrName = 'cards';
+                                                                    const currentCards = [...(editFormData.content?.wpServices?.[arrName] || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, [arrName]: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Item"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={val.title || ""} onChange={(e) => {
+                                                            const arrName = 'cards';
+                                                            const newCards = [...(editFormData.content?.wpServices?.[arrName] || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, [arrName]: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        
+                                                        <textarea value={val.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.wpServices?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={val.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.wpServices?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* WP-CHOOSE-US TAB */}
+                                {activeEditTab === "wp-choose-us" && editPage.path === "/wordpress-development-customization" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Recenturesoft? Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.wpChooseUs?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Why Recenturesoft?" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Features ({(editFormData.content?.wpChooseUs?.cards || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const arrName = 'cards';
+                                                            const currentCards = editFormData.content?.wpChooseUs?.[arrName] || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, [arrName]: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.wpChooseUs?.cards || []).map((card, i) => {
+                                                    const val = typeof card === 'string' ? { title: card } : card;
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const arrName = 'cards';
+                                                                    const currentCards = [...(editFormData.content?.wpChooseUs?.[arrName] || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, [arrName]: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Item"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={val.title || ""} onChange={(e) => {
+                                                            const arrName = 'cards';
+                                                            const newCards = [...(editFormData.content?.wpChooseUs?.[arrName] || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, [arrName]: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        
+                                                        <textarea value={val.desc || ""} onChange={(e) => {
+                                                            const newCards = [...(editFormData.content?.wpChooseUs?.cards || [])];
+                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, cards: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+                                                        
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                            <ImageUploader 
+                                                                value={val.image || ""} 
+                                                                onChange={(url) => {
+                                                                    const newCards = [...(editFormData.content?.wpChooseUs?.cards || [])];
+                                                                    newCards[i] = { ...newCards[i], image: url };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, cards: newCards } } });
+                                                                }} 
+                                                            />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* WP-PROCESS TAB */}
+                                {activeEditTab === "wp-process" && editPage.path === "/wordpress-development-customization" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Our Development Approach Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Section Title</label>
+                                                <input type="text" value={editFormData.content?.wpProcess?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpProcess: { ...editFormData.content?.wpProcess, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Our Development Approach" />
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between">
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Steps ({(editFormData.content?.wpProcess?.steps || []).length})</h4>
+                                                    <button 
+                                                        onClick={() => {
+                                                            const arrName = 'steps';
+                                                            const currentCards = editFormData.content?.wpProcess?.[arrName] || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpProcess: { ...editFormData.content?.wpProcess, [arrName]: [...currentCards, {}] } } });
+                                                        }}
+                                                        className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
+                                                    >
+                                                        <Plus className="w-4 h-4" /> Add Item
+                                                    </button>
+                                                </div>
+                                                {(editFormData.content?.wpProcess?.steps || []).map((card, i) => {
+                                                    const val = typeof card === 'string' ? { title: card } : card;
+                                                    return (
+                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const arrName = 'steps';
+                                                                    const currentCards = [...(editFormData.content?.wpProcess?.[arrName] || [])];
+                                                                    currentCards.splice(i, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpProcess: { ...editFormData.content?.wpProcess, [arrName]: currentCards } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                title="Delete Item"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <input type="text" value={val.title || ""} onChange={(e) => {
+                                                            const arrName = 'steps';
+                                                            const newCards = [...(editFormData.content?.wpProcess?.[arrName] || [])];
+                                                            newCards[i] = { ...newCards[i], title: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpProcess: { ...editFormData.content?.wpProcess, [arrName]: newCards } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+                                                        
+                                                        
+                                                    </div>
+                                                )})}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* WP CTA TAB */}
+                                {activeEditTab === "wp-cta" && editPage.path === "/wordpress-development-customization" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Section Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Title</label>
+                                                <input type="text" value={editFormData.content?.wpCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpCTA: { ...editFormData.content?.wpCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Description</label>
+                                                <textarea value={editFormData.content?.wpCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpCTA: { ...editFormData.content?.wpCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Button Text</label>
+                                                <input type="text" value={editFormData.content?.wpCTA?.btnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpCTA: { ...editFormData.content?.wpCTA, btnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* WORDPRESS HERO TAB */}
+                                {activeEditTab === "wordpress-hero" && editPage.path === "/wordpress-development-customization" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">WordPress Hero Settings</h3>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge Text</label>
+                                                    <input type="text" value={editFormData.content?.wordpressHero?.badge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wordpressHero: { ...editFormData.content?.wordpressHero, badge: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Store Management" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                    <input type="text" value={editFormData.content?.wordpressHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wordpressHero: { ...editFormData.content?.wordpressHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="WordPress" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Text</label>
+                                                    <input type="text" value={editFormData.content?.wordpressHero?.highlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wordpressHero: { ...editFormData.content?.wordpressHero, highlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Solutions" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.wordpressHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wordpressHero: { ...editFormData.content?.wordpressHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Establish a powerful presence..." />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.wordpressHero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wordpressHero: { ...editFormData.content?.wordpressHero, bannerImage: url } } })} 
+                                                    />
+                                                    <p className="text-xs text-slate-500 mt-1">Recommended size: 1920x1080 (WebP or WebM for videos)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+{/* NEWS HERO TAB */}
+                                {activeEditTab === "news-hero" && editPage.path === "/news" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">News Hero Settings</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.newsHero?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge Text</label>
+                                                    <input type="text" value={editFormData.content?.newsHero?.badge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, badge: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Live Updates" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                    <input type="text" value={editFormData.content?.newsHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Tech News" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.newsHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Discover real-time global technology news..." />
+                                                </div>
+                                                
+                                                <div className="md:col-span-2 flex items-center justify-between mt-2 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-700">
+                                                    <div>
+                                                        <span className="block text-sm font-medium text-slate-900 dark:text-white">Hide Contact Button</span>
+                                                        <span className="text-xs text-slate-500 dark:text-slate-400">Hide the default 'Contact Us' button in the Hero section</span>
+                                                    </div>
+                                                    <label className="flex items-center gap-2 cursor-pointer">
+                                                        <input type="checkbox" checked={editFormData.content?.newsHero?.hideContactButton !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, hideContactButton: e.target.checked } } })} className="sr-only peer" />
+                                                        <div className="relative w-10 h-5 bg-slate-300/80 peer-focus:outline-none rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-cyan-500"></div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* NEWS CTA TAB */}
+                                {activeEditTab === "news-cta" && editPage.path === "/news" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">News CTA Settings</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.newsCTA?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsCTA: { ...editFormData.content?.newsCTA, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Title</label>
+                                                    <input type="text" value={editFormData.content?.newsCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsCTA: { ...editFormData.content?.newsCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Media Inquiries" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.newsCTA?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsCTA: { ...editFormData.content?.newsCTA, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Are you a journalist or analyst?..." />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Primary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.newsCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsCTA: { ...editFormData.content?.newsCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Contact PR Team" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Secondary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.newsCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsCTA: { ...editFormData.content?.newsCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Download Press Kit" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+{/* CONTACT HERO TAB */}
+                                {activeEditTab === "contact-hero" && editPage.path === "/contact" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Contact Hero Settings</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.contactHero?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactHero: { ...editFormData.content?.contactHero, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading (Part 1)</label>
+                                                    <input type="text" value={editFormData.content?.contactHero?.heading1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactHero: { ...editFormData.content?.contactHero, heading1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Delivering Enterprise Technology" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading Accent</label>
+                                                    <input type="text" value={editFormData.content?.contactHero?.headingAccent || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactHero: { ...editFormData.content?.contactHero, headingAccent: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Worldwide" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.contactHero?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactHero: { ...editFormData.content?.contactHero, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="RecentureSoft helps businesses build..." />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Primary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.contactHero?.primaryBtn || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactHero: { ...editFormData.content?.contactHero, primaryBtn: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Start a Project" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Secondary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.contactHero?.secondaryBtn || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactHero: { ...editFormData.content?.contactHero, secondaryBtn: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Schedule Consultation" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-2 pt-4 border-t border-slate-100 dark:border-slate-700">Trust Indicators</h4>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            {[0, 1, 2, 3].map((index) => (
+                                                <div key={index}>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Indicator {index + 1}</label>
+                                                    <input type="text" value={editFormData.content?.contactHero?.trustIndicators?.[index] || ""} onChange={(e) => {
+                                                        const newArr = [...(Array.isArray(editFormData.content?.contactHero?.trustIndicators) ? editFormData.content.contactHero.trustIndicators : Array(4).fill(""))];
+                                                        newArr[index] = e.target.value;
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, contactHero: { ...editFormData.content?.contactHero, trustIndicators: newArr } } });
+                                                    }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="500+ Projects Delivered" />
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-2 pt-4 border-t border-slate-100 dark:border-slate-700">Hero Stats</h4>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            {[0, 1, 2, 3, 4].map((index) => (
+                                                <div key={index} className="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-200 dark:border-slate-700">
+                                                    <label className="block text-xs font-semibold text-slate-500 mb-2 uppercase">Stat {index + 1}</label>
+                                                    <div className="space-y-2">
+                                                        <input type="text" value={editFormData.content?.contactHero?.stats?.[index]?.value || ""} onChange={(e) => {
+                                                            const newArr = [...(Array.isArray(editFormData.content?.contactHero?.stats) ? editFormData.content.contactHero.stats : Array(5).fill({}))];
+                                                            newArr[index] = { ...newArr[index], value: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, contactHero: { ...editFormData.content?.contactHero, stats: newArr } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-600 rounded px-3 py-1.5 text-sm text-slate-900 dark:text-white" placeholder="Value (e.g. 500+)" />
+                                                        <input type="text" value={editFormData.content?.contactHero?.stats?.[index]?.label || ""} onChange={(e) => {
+                                                            const newArr = [...(Array.isArray(editFormData.content?.contactHero?.stats) ? editFormData.content.contactHero.stats : Array(5).fill({}))];
+                                                            newArr[index] = { ...newArr[index], label: e.target.value };
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, contactHero: { ...editFormData.content?.contactHero, stats: newArr } } });
+                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-600 rounded px-3 py-1.5 text-sm text-slate-900 dark:text-white" placeholder="Label (e.g. Global Clients)" />
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* CONTACT FORM TAB */}
+                                {activeEditTab === "contact-form" && editPage.path === "/contact" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Contact Form Settings</h3>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input type="checkbox" checked={editFormData.content?.contactFormSection?.isVisible !== false} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactFormSection: { ...editFormData.content?.contactFormSection, isVisible: e.target.checked } } })} className="sr-only peer" />
+                                                <div className="relative w-12 h-6 bg-slate-300/80 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-300/30 dark:peer-focus:ring-cyan-800/30 rounded-full peer dark:bg-slate-700/80 peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-5 after:w-5 after:transition-all after:duration-300 after:shadow-sm dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-blue-500 peer-checked:shadow-lg peer-checked:shadow-cyan-500/40 border border-slate-200 dark:border-slate-600"></div>
+                                                <span className="text-sm font-medium text-slate-900 dark:text-gray-300">Visible</span>
+                                            </label>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading (Part 1)</label>
+                                                    <input type="text" value={editFormData.content?.contactFormSection?.heading1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactFormSection: { ...editFormData.content?.contactFormSection, heading1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Let's build something" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading Accent</label>
+                                                    <input type="text" value={editFormData.content?.contactFormSection?.headingAccent || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactFormSection: { ...editFormData.content?.contactFormSection, headingAccent: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="extraordinary." />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.contactFormSection?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactFormSection: { ...editFormData.content?.contactFormSection, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Whether you need a full-scale enterprise transformation..." />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Phone Number</label>
+                                                    <input type="text" value={editFormData.content?.contactFormSection?.phone || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactFormSection: { ...editFormData.content?.contactFormSection, phone: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="+91 777 000 3288" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
+                                                    <input type="text" value={editFormData.content?.contactFormSection?.email || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, contactFormSection: { ...editFormData.content?.contactFormSection, email: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="info@recenturesoft.com" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+{/* HERO TAB (For Home Page) */}
                                 {activeEditTab === "hero" && editPage.path === "/" && (
                                     <div className="max-w-3xl space-y-8">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Section Settings (3 Slides)</h3>
