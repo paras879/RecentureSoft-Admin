@@ -1164,6 +1164,20 @@ export default function WebsitePages() {
                                                     />
                                                 </div>
                                             </div>
+
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.aboutHero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aboutHero: { ...editFormData.content?.aboutHero, bannerImage: url } } })} 
+                                                    />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Banner Opacity Overlay (0 to 100)</label>
+                                                    <input type="number" min="0" max="100" value={editFormData.content?.aboutHero?.bannerOpacity ?? 70} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aboutHero: { ...editFormData.content?.aboutHero, bannerOpacity: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="70" />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 )}
@@ -1485,6 +1499,18 @@ export default function WebsitePages() {
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
                                                     <textarea value={editFormData.content?.hero?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" placeholder="Discover award-worthy digital products..." />
+                                                </div>
+
+                                                <div className="md:col-span-2 mt-4">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.hero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerImage: url } } })} 
+                                                    />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Banner Opacity Overlay (0 to 100)</label>
+                                                    <input type="number" min="0" max="100" value={editFormData.content?.hero?.bannerOpacity ?? 70} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerOpacity: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="70" />
                                                 </div>
                                             </div>
                                         </div>
@@ -3285,6 +3311,18 @@ export default function WebsitePages() {
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
                                                     <textarea value={editFormData.content?.newsHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Discover real-time global technology news..." />
+                                                </div>
+
+                                                <div className="md:col-span-2 mt-4">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.newsHero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, bannerImage: url } } })} 
+                                                    />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Banner Opacity Overlay (0 to 100)</label>
+                                                    <input type="number" min="0" max="100" value={editFormData.content?.newsHero?.bannerOpacity ?? 70} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, bannerOpacity: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="70" />
                                                 </div>
                                                 
                                                 <div className="md:col-span-2 flex items-center justify-between mt-2 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-700">
