@@ -482,6 +482,43 @@ export default function WebsitePages() {
                                     <Search className="w-4 h-4" /> General Settings
                                 </button>
 
+                                {editPage.path === "/salesforce" && (
+                                    <>
+                                        <button onClick={() => setActiveEditTab("salesforce-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'salesforce-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Salesforce Hero
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("salesforce-intro")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'salesforce-intro' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Intro Section
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("salesforce-whatWeDo")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'salesforce-whatWeDo' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> What We Do
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("salesforce-integration")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'salesforce-integration' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Integration Company
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("salesforce-whatWeBring")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'salesforce-whatWeBring' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> What We Bring
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("salesforce-solutionsDeliver")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'salesforce-solutionsDeliver' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Solutions Deliver
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("salesforce-whatWeCanDo")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'salesforce-whatWeCanDo' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> What We Can Do
+                                        </button>
+                                    </>
+                                )}
+
+                                {editPage.path === "/dashboard" && (
+                                    <>
+                                        <button onClick={() => setActiveEditTab("dashboard-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'dashboard-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Dashboard Hero
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("dashboard-content")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'dashboard-content' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Dashboard Content
+                                        </button>
+                                    </>
+                                )}
+
                                 {editPage.path === "/crm" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("crm-page-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'crm-page-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
@@ -4157,7 +4194,467 @@ export default function WebsitePages() {
                                         </div>
                                     </div>
                                 )}
-\n{/* EVENTS HERO TAB */}
+
+                                {/* DASHBOARD HERO TAB */}
+                                {activeEditTab === "dashboard-hero" && editPage.path === "/dashboard" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Dashboard Hero Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge Text</label>
+                                                    <input type="text" value={editFormData.content?.hero?.badge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, badge: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Data Visualization" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                    <input type="text" value={editFormData.content?.hero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Custom Dashboard" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Word</label>
+                                                    <input type="text" value={editFormData.content?.hero?.highlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, highlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Development" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.hero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Consolidate complex data into intuitive, real-time visual interfaces..." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* DASHBOARD CONTENT TAB */}
+                                {activeEditTab === "dashboard-content" && editPage.path === "/dashboard" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Dashboard Content Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.dashboardContent?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Transform Raw Data into" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Subtitle</label>
+                                                <input type="text" value={editFormData.content?.dashboardContent?.subtitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, subtitle: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Actionable Insights" />
+                                            </div>
+                                            
+                                            <div className="flex justify-between items-center mt-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Intro Paragraphs ({(editFormData.content?.dashboardContent?.introParagraphs || []).length})</h4>
+                                                <button 
+                                                    onClick={() => {
+                                                        const currentParas = editFormData.content?.dashboardContent?.introParagraphs || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, introParagraphs: [...currentParas, ""] } } });
+                                                    }}
+                                                    className="px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+                                                >
+                                                    Add Paragraph
+                                                </button>
+                                            </div>
+                                            <div className="space-y-3">
+                                                {(editFormData.content?.dashboardContent?.introParagraphs || []).map((para, idx) => (
+                                                    <div key={idx} className="relative flex flex-col gap-3">
+                                                        <div className="flex gap-2">
+                                                            <textarea value={para || ""} onChange={(e) => {
+                                                                const newParas = [...(editFormData.content?.dashboardContent?.introParagraphs || [])];
+                                                                newParas[idx] = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, introParagraphs: newParas } } });
+                                                            }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[60px]" placeholder="In today's fast-paced digital economy..." />
+                                                            <button 
+                                                                onClick={() => {
+                                                                    const newParas = [...(editFormData.content?.dashboardContent?.introParagraphs || [])];
+                                                                    newParas.splice(idx, 1);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, introParagraphs: newParas } } });
+                                                                }}
+                                                                className="text-red-500 hover:text-red-600 p-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 h-fit"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+
+                                            <div className="flex justify-between items-center mt-6">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Features ({(editFormData.content?.dashboardContent?.features || []).length})</h4>
+                                                <button 
+                                                    onClick={() => {
+                                                        const currentFeatures = editFormData.content?.dashboardContent?.features || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, features: [...currentFeatures, { iconName: "LayoutDashboard", title: "", desc: "", highlights: ["", "", ""] }] } } });
+                                                    }}
+                                                    className="px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+                                                >
+                                                    Add Feature
+                                                </button>
+                                            </div>
+                                            <div className="space-y-4">
+                                                {(editFormData.content?.dashboardContent?.features || []).map((feat, idx) => (
+                                                    <div key={idx} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg relative flex flex-col gap-3">
+                                                        <div className="grid grid-cols-2 gap-4">
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Title</label>
+                                                                <input type="text" value={feat.title || ""} onChange={(e) => {
+                                                                    const newFeats = [...(editFormData.content?.dashboardContent?.features || [])];
+                                                                    newFeats[idx] = { ...newFeats[idx], title: e.target.value };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, features: newFeats } } });
+                                                                }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Customizable Interfaces" />
+                                                            </div>
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Icon Name</label>
+                                                                <select value={feat.iconName || "LayoutDashboard"} onChange={(e) => {
+                                                                    const newFeats = [...(editFormData.content?.dashboardContent?.features || [])];
+                                                                    newFeats[idx] = { ...newFeats[idx], iconName: e.target.value };
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, features: newFeats } } });
+                                                                }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm">
+                                                                    <option value="LayoutDashboard">LayoutDashboard</option>
+                                                                    <option value="BarChart3">BarChart3</option>
+                                                                    <option value="LineChart">LineChart</option>
+                                                                    <option value="PieChart">PieChart</option>
+                                                                    <option value="Activity">Activity</option>
+                                                                    <option value="ShieldCheck">ShieldCheck</option>
+                                                                    <option value="Zap">Zap</option>
+                                                                    <option value="Database">Database</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Description</label>
+                                                            <textarea value={feat.desc || ""} onChange={(e) => {
+                                                                const newFeats = [...(editFormData.content?.dashboardContent?.features || [])];
+                                                                newFeats[idx] = { ...newFeats[idx], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, features: newFeats } } });
+                                                            }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[60px]" placeholder="Drag-and-drop widgets and personalized layouts..." />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Highlights (comma separated)</label>
+                                                            <input type="text" value={(feat.highlights || []).join(", ")} onChange={(e) => {
+                                                                const newFeats = [...(editFormData.content?.dashboardContent?.features || [])];
+                                                                newFeats[idx] = { ...newFeats[idx], highlights: e.target.value.split(",").map(s => s.trim()) };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, features: newFeats } } });
+                                                            }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Live data streams, Instant KPI tracking, Automated refresh" />
+                                                        </div>
+                                                        <button 
+                                                            onClick={() => {
+                                                                const newFeats = [...(editFormData.content?.dashboardContent?.features || [])];
+                                                                newFeats.splice(idx, 1);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, dashboardContent: { ...editFormData.content?.dashboardContent, features: newFeats } } });
+                                                            }}
+                                                            className="text-red-500 hover:text-red-600 absolute top-2 right-2 p-1 bg-white dark:bg-slate-800 rounded-full shadow-sm"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+
+                                {/* SALESFORCE HERO TAB */}
+                                {activeEditTab === "salesforce-hero" && editPage.path === "/salesforce" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Salesforce Hero Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge Text</label>
+                                                    <input type="text" value={editFormData.content?.hero?.badge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, badge: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Salesforce Integration" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                    <input type="text" value={editFormData.content?.hero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Salesforce" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Word</label>
+                                                    <input type="text" value={editFormData.content?.hero?.highlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, highlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Solutions" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.hero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Leverage the world's leading CRM platform..." />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Desktop Banner (Cloudinary)</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.hero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerImage: url } } })} 
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* SALESFORCE INTRO TAB */}
+                                {activeEditTab === "salesforce-intro" && editPage.path === "/salesforce" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Intro Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.salesforceIntro?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceIntro: { ...editFormData.content?.salesforceIntro, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Increase Business Efficiency..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Paragraph 1</label>
+                                                <textarea value={editFormData.content?.salesforceIntro?.p1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceIntro: { ...editFormData.content?.salesforceIntro, p1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="The road to gaining customers goes through..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Paragraph 2</label>
+                                                <textarea value={editFormData.content?.salesforceIntro?.p2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceIntro: { ...editFormData.content?.salesforceIntro, p2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="We provide personalised services..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Paragraph 3</label>
+                                                <textarea value={editFormData.content?.salesforceIntro?.p3 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceIntro: { ...editFormData.content?.salesforceIntro, p3: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Recenturesoft’s Salesforce puts your target customers..." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* SALESFORCE WHAT WE DO TAB */}
+                                {activeEditTab === "salesforce-whatWeDo" && editPage.path === "/salesforce" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">What We Do Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.salesforceWhatWeDo?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeDo: { ...editFormData.content?.salesforceWhatWeDo, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="What we do?" />
+                                            </div>
+                                            <div className="flex justify-between items-center mt-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Items ({(editFormData.content?.salesforceWhatWeDo?.items || []).length})</h4>
+                                                <button 
+                                                    onClick={() => {
+                                                        const currentItems = editFormData.content?.salesforceWhatWeDo?.items || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeDo: { ...editFormData.content?.salesforceWhatWeDo, items: [...currentItems, ""] } } });
+                                                    }}
+                                                    className="px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+                                                >
+                                                    Add Item
+                                                </button>
+                                            </div>
+                                            <div className="space-y-3">
+                                                {(editFormData.content?.salesforceWhatWeDo?.items || []).map((item, idx) => (
+                                                    <div key={idx} className="relative flex gap-2">
+                                                        <input type="text" value={item || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.salesforceWhatWeDo?.items || [])];
+                                                            newItems[idx] = e.target.value;
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeDo: { ...editFormData.content?.salesforceWhatWeDo, items: newItems } } });
+                                                        }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Strategic assessment" />
+                                                        <button 
+                                                            onClick={() => {
+                                                                const newItems = [...(editFormData.content?.salesforceWhatWeDo?.items || [])];
+                                                                newItems.splice(idx, 1);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeDo: { ...editFormData.content?.salesforceWhatWeDo, items: newItems } } });
+                                                            }}
+                                                            className="text-red-500 hover:text-red-600 p-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* SALESFORCE INTEGRATION TAB */}
+                                {activeEditTab === "salesforce-integration" && editPage.path === "/salesforce" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Integration Company Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.salesforceIntegration?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceIntegration: { ...editFormData.content?.salesforceIntegration, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Salesforce Integration Company in India" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Paragraph 1</label>
+                                                <textarea value={editFormData.content?.salesforceIntegration?.p1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceIntegration: { ...editFormData.content?.salesforceIntegration, p1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="We help you achieve real, tangible, and significant business results..." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* SALESFORCE WHAT WE BRING TAB */}
+                                {activeEditTab === "salesforce-whatWeBring" && editPage.path === "/salesforce" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">What We Bring Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.salesforceWhatWeBring?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeBring: { ...editFormData.content?.salesforceWhatWeBring, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="What we bring to your project?" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Paragraph</label>
+                                                <textarea value={editFormData.content?.salesforceWhatWeBring?.intro || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeBring: { ...editFormData.content?.salesforceWhatWeBring, intro: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[60px]" placeholder="Recenturesoft’s team is qualified to deliver..." />
+                                            </div>
+                                            <div className="flex justify-between items-center mt-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Items ({(editFormData.content?.salesforceWhatWeBring?.items || []).length})</h4>
+                                                <button 
+                                                    onClick={() => {
+                                                        const currentItems = editFormData.content?.salesforceWhatWeBring?.items || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeBring: { ...editFormData.content?.salesforceWhatWeBring, items: [...currentItems, ""] } } });
+                                                    }}
+                                                    className="px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+                                                >
+                                                    Add Item
+                                                </button>
+                                            </div>
+                                            <div className="space-y-3">
+                                                {(editFormData.content?.salesforceWhatWeBring?.items || []).map((item, idx) => (
+                                                    <div key={idx} className="relative flex gap-2">
+                                                        <input type="text" value={item || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.salesforceWhatWeBring?.items || [])];
+                                                            newItems[idx] = e.target.value;
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeBring: { ...editFormData.content?.salesforceWhatWeBring, items: newItems } } });
+                                                        }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Roll-out of the sales cloud" />
+                                                        <button 
+                                                            onClick={() => {
+                                                                const newItems = [...(editFormData.content?.salesforceWhatWeBring?.items || [])];
+                                                                newItems.splice(idx, 1);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeBring: { ...editFormData.content?.salesforceWhatWeBring, items: newItems } } });
+                                                            }}
+                                                            className="text-red-500 hover:text-red-600 p-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1 mt-4">Outro Paragraph</label>
+                                                <textarea value={editFormData.content?.salesforceWhatWeBring?.outro || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeBring: { ...editFormData.content?.salesforceWhatWeBring, outro: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[60px]" placeholder="Recenturesoft comprehends the idea of being connected..." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* SALESFORCE SOLUTIONS DELIVER TAB */}
+                                {activeEditTab === "salesforce-solutionsDeliver" && editPage.path === "/salesforce" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Solutions Deliver Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.salesforceSolutionsDeliver?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceSolutionsDeliver: { ...editFormData.content?.salesforceSolutionsDeliver, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Our salesforce solutions deliver:" />
+                                            </div>
+                                            <div className="flex justify-between items-center mt-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Items ({(editFormData.content?.salesforceSolutionsDeliver?.items || []).length})</h4>
+                                                <button 
+                                                    onClick={() => {
+                                                        const currentItems = editFormData.content?.salesforceSolutionsDeliver?.items || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceSolutionsDeliver: { ...editFormData.content?.salesforceSolutionsDeliver, items: [...currentItems, ""] } } });
+                                                    }}
+                                                    className="px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+                                                >
+                                                    Add Item
+                                                </button>
+                                            </div>
+                                            <div className="space-y-3">
+                                                {(editFormData.content?.salesforceSolutionsDeliver?.items || []).map((item, idx) => (
+                                                    <div key={idx} className="relative flex gap-2">
+                                                        <input type="text" value={item || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.salesforceSolutionsDeliver?.items || [])];
+                                                            newItems[idx] = e.target.value;
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceSolutionsDeliver: { ...editFormData.content?.salesforceSolutionsDeliver, items: newItems } } });
+                                                        }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Improved business efficiency" />
+                                                        <button 
+                                                            onClick={() => {
+                                                                const newItems = [...(editFormData.content?.salesforceSolutionsDeliver?.items || [])];
+                                                                newItems.splice(idx, 1);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceSolutionsDeliver: { ...editFormData.content?.salesforceSolutionsDeliver, items: newItems } } });
+                                                            }}
+                                                            className="text-red-500 hover:text-red-600 p-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1 mt-4">Outro Paragraph</label>
+                                                <textarea value={editFormData.content?.salesforceSolutionsDeliver?.outro || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceSolutionsDeliver: { ...editFormData.content?.salesforceSolutionsDeliver, outro: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[60px]" placeholder="We also provide Salesforce add-ons..." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* SALESFORCE WHAT WE CAN DO TAB */}
+                                {activeEditTab === "salesforce-whatWeCanDo" && editPage.path === "/salesforce" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">What We Can Do Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.salesforceWhatWeCanDo?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeCanDo: { ...editFormData.content?.salesforceWhatWeCanDo, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="What we can do" />
+                                            </div>
+                                            <div className="flex justify-between items-center mt-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Items ({(editFormData.content?.salesforceWhatWeCanDo?.items || []).length})</h4>
+                                                <button 
+                                                    onClick={() => {
+                                                        const currentItems = editFormData.content?.salesforceWhatWeCanDo?.items || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeCanDo: { ...editFormData.content?.salesforceWhatWeCanDo, items: [...currentItems, ""] } } });
+                                                    }}
+                                                    className="px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+                                                >
+                                                    Add Item
+                                                </button>
+                                            </div>
+                                            <div className="space-y-3">
+                                                {(editFormData.content?.salesforceWhatWeCanDo?.items || []).map((item, idx) => (
+                                                    <div key={idx} className="relative flex gap-2">
+                                                        <textarea value={item || ""} onChange={(e) => {
+                                                            const newItems = [...(editFormData.content?.salesforceWhatWeCanDo?.items || [])];
+                                                            newItems[idx] = e.target.value;
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeCanDo: { ...editFormData.content?.salesforceWhatWeCanDo, items: newItems } } });
+                                                        }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[40px]" placeholder="Transform scattered customer..." />
+                                                        <button 
+                                                            onClick={() => {
+                                                                const newItems = [...(editFormData.content?.salesforceWhatWeCanDo?.items || [])];
+                                                                newItems.splice(idx, 1);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeCanDo: { ...editFormData.content?.salesforceWhatWeCanDo, items: newItems } } });
+                                                            }}
+                                                            className="text-red-500 hover:text-red-600 p-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 h-fit"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1 mt-4">Paragraph 1</label>
+                                                <textarea value={editFormData.content?.salesforceWhatWeCanDo?.p1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeCanDo: { ...editFormData.content?.salesforceWhatWeCanDo, p1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Paragraph 2</label>
+                                                <textarea value={editFormData.content?.salesforceWhatWeCanDo?.p2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeCanDo: { ...editFormData.content?.salesforceWhatWeCanDo, p2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Paragraph 3</label>
+                                                <textarea value={editFormData.content?.salesforceWhatWeCanDo?.p3 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeCanDo: { ...editFormData.content?.salesforceWhatWeCanDo, p3: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Paragraph 4</label>
+                                                <textarea value={editFormData.content?.salesforceWhatWeCanDo?.p4 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, salesforceWhatWeCanDo: { ...editFormData.content?.salesforceWhatWeCanDo, p4: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+{/* EVENTS HERO TAB */}
                                 {activeEditTab === "events-hero" && editPage.path === "/events" && (
                                     <div className="max-w-3xl space-y-8">
                                         <div className="flex items-center justify-between">
