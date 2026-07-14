@@ -481,6 +481,45 @@ export default function WebsitePages() {
                                 >
                                     <Search className="w-4 h-4" /> General Settings
                                 </button>
+
+                                {editPage.path === "/blog" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("blog-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'blog-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Blog Hero
+                                        </button>
+                                    </>
+                                )}
+                                {editPage.path === "/events" && (
+                                    <>
+                                        <button
+                                            onClick={() => setActiveEditTab("events-hero")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'events-hero' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Events Hero
+                                        </button>
+                                                                            <button
+                                            onClick={() => setActiveEditTab("events-timeline")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'events-timeline' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Events Timeline
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("events-stats")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'events-stats' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Culture Stats
+                                        </button>
+                                        <button
+                                            onClick={() => setActiveEditTab("events-video")}
+                                            className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'events-video' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                        >
+                                            <LayoutTemplate className="w-4 h-4" /> Video Reel
+                                        </button>
+                                    </>
+                                )}
                                 {editPage.path === "/" && (
                                     <>
                                         <button
@@ -3286,6 +3325,170 @@ export default function WebsitePages() {
                                         </div>
                                     </div>
                                 )}
+
+                                {/* BLOG HERO TAB */}
+                                {activeEditTab === "blog-hero" && editPage.path === "/blog" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Blog Hero Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge Text</label>
+                                                    <input type="text" value={editFormData.content?.hero?.badge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, badge: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Editorial" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                    <input type="text" value={editFormData.content?.hero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Insights &" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Word</label>
+                                                    <input type="text" value={editFormData.content?.hero?.highlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, highlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Perspectives" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.hero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Explore deep technical..." />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.hero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerImage: url } } })} 
+                                                    />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Banner Opacity Overlay (0 to 100)</label>
+                                                    <input type="number" min="0" max="100" value={editFormData.content?.hero?.bannerOpacity ?? 70} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerOpacity: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="70" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                
+                                {/* EVENTS TIMELINE TAB */}
+                                {activeEditTab === "events-timeline" && editPage.path === "/events" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Events Timeline Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title Part 1</label>
+                                                    <input type="text" value={editFormData.content?.timeline?.titlePart1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, timeline: { ...editFormData.content?.timeline, titlePart1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Our" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title Highlight</label>
+                                                    <input type="text" value={editFormData.content?.timeline?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, timeline: { ...editFormData.content?.timeline, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Journey" />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.timeline?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, timeline: { ...editFormData.content?.timeline, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="From our humble beginnings..." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* CULTURE STATS TAB */}
+                                {activeEditTab === "events-stats" && editPage.path === "/events" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Culture Stats Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="flex justify-between items-center">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Stats Items ({(editFormData.content?.stats?.items || []).length})</h4>
+                                                <button 
+                                                    onClick={() => {
+                                                        const currentItems = editFormData.content?.stats?.items || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, stats: { ...editFormData.content?.stats, items: [...currentItems, { num: "", label: "" }] } } });
+                                                    }}
+                                                    className="px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+                                                >
+                                                    Add Stat
+                                                </button>
+                                            </div>
+                                            <div className="space-y-3">
+                                                {(editFormData.content?.stats?.items || []).map((item, idx) => (
+                                                    <div key={idx} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg relative flex gap-4">
+                                                        <div className="flex-1">
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Number (e.g. 500+)</label>
+                                                            <input type="text" value={item.num || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.stats?.items || [])];
+                                                                newItems[idx] = { ...newItems[idx], num: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, stats: { ...editFormData.content?.stats, items: newItems } } });
+                                                            }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" />
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Label (e.g. Projects)</label>
+                                                            <input type="text" value={item.label || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.stats?.items || [])];
+                                                                newItems[idx] = { ...newItems[idx], label: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, stats: { ...editFormData.content?.stats, items: newItems } } });
+                                                            }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" />
+                                                        </div>
+                                                        <button 
+                                                            onClick={() => {
+                                                                const newItems = [...(editFormData.content?.stats?.items || [])];
+                                                                newItems.splice(idx, 1);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, stats: { ...editFormData.content?.stats, items: newItems } } });
+                                                            }}
+                                                            className="text-red-500 hover:text-red-600 absolute top-2 right-2 p-1"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* VIDEO REEL TAB */}
+                                {activeEditTab === "events-video" && editPage.path === "/events" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Video Reel Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Video Thumbnail Image (Cloudinary)</label>
+                                                <ImageUploader 
+                                                    value={editFormData.content?.videoReel?.thumbnail || ""} 
+                                                    onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, videoReel: { ...editFormData.content?.videoReel, thumbnail: url } } })} 
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+{/* EVENTS HERO TAB */}
+                                {activeEditTab === "events-hero" && editPage.path === "/events" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Events Hero Settings</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
+                                                    <ImageUploader 
+                                                        value={editFormData.content?.hero?.bannerImage || ""} 
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerImage: url } } })} 
+                                                    />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Banner Opacity Overlay (0 to 100)</label>
+                                                    <input type="number" min="0" max="100" value={editFormData.content?.hero?.bannerOpacity ?? 70} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerOpacity: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="70" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
 {/* NEWS HERO TAB */}
                                 {activeEditTab === "news-hero" && editPage.path === "/news" && (
                                     <div className="max-w-3xl space-y-8">
