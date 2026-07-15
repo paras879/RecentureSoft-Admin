@@ -10666,43 +10666,92 @@ export default function WebsitePages() {
                                                                         <div className="border-t border-slate-100 dark:border-slate-800/80 pt-5 mt-5 space-y-4">
                                                                             <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Text Colors & Styling</label>
 
-                                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                                                {/* Heading Color Settings */}
+                                                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                {/* Main Heading Color Settings */}
                                                                                 <div className="space-y-2 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
-                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Heading Color (H2 / H3 / Title)</label>
-                                                                                    <div className="flex gap-2">
+                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Main Heading Color (H2 / Section Title)</label>
+                                                                                    <div className="flex flex-col gap-2">
                                                                                         <select
-                                                                                            value={block.headingColorType || 'preset'}
+                                                                                            value={block.mainHeadingColorType || block.headingColorType || 'preset'}
                                                                                             onChange={(e) => {
-                                                                                                handleUpdateBlock(index, 'headingColorType', e.target.value);
+                                                                                                handleUpdateBlock(index, 'mainHeadingColorType', e.target.value);
                                                                                             }}
-                                                                                            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
                                                                                         >
                                                                                             <option value="preset">Preset Gradients</option>
                                                                                             <option value="custom">Custom Hex Picker</option>
                                                                                         </select>
 
-                                                                                        {block.headingColorType === 'custom' ? (
-                                                                                            <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                                                                                        {(block.mainHeadingColorType || block.headingColorType) === 'custom' ? (
+                                                                                            <div className="flex items-center gap-1.5 w-full">
                                                                                                 <input
                                                                                                     type="color"
-                                                                                                    value={block.customHeadingColor || '#0f172a'}
-                                                                                                    onChange={(e) => handleUpdateBlock(index, 'customHeadingColor', e.target.value)}
+                                                                                                    value={block.customMainHeadingColor || block.customHeadingColor || '#0f172a'}
+                                                                                                    onChange={(e) => handleUpdateBlock(index, 'customMainHeadingColor', e.target.value)}
                                                                                                     className="w-8 h-8 rounded cursor-pointer border border-slate-200 dark:border-slate-700 bg-transparent shrink-0"
                                                                                                 />
                                                                                                 <input
                                                                                                     type="text"
-                                                                                                    value={block.customHeadingColor || '#0f172a'}
-                                                                                                    onChange={(e) => handleUpdateBlock(index, 'customHeadingColor', e.target.value)}
+                                                                                                    value={block.customMainHeadingColor || block.customHeadingColor || '#0f172a'}
+                                                                                                    onChange={(e) => handleUpdateBlock(index, 'customMainHeadingColor', e.target.value)}
                                                                                                     placeholder="#0f172a"
                                                                                                     className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white"
                                                                                                 />
                                                                                             </div>
                                                                                         ) : (
                                                                                             <select
-                                                                                                value={block.headingColor || 'default'}
-                                                                                                onChange={(e) => handleUpdateBlock(index, 'headingColor', e.target.value)}
-                                                                                                className="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                                value={block.mainHeadingColor || block.headingColor || 'default'}
+                                                                                                onChange={(e) => handleUpdateBlock(index, 'mainHeadingColor', e.target.value)}
+                                                                                                className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                            >
+                                                                                                <option value="default">Default Theme Colors</option>
+                                                                                                <option value="blue-gradient">Ocean Blue Gradient</option>
+                                                                                                <option value="indigo-gradient">Indigo Purple Gradient</option>
+                                                                                                <option value="emerald">Emerald Green</option>
+                                                                                                <option value="orange-gradient">Sunset Orange Gradient</option>
+                                                                                                <option value="amber">Amber Yellow</option>
+                                                                                                <option value="rose">Rose Red</option>
+                                                                                            </select>
+                                                                                        )}
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                {/* Sub Heading / Card / Step Title Color Settings */}
+                                                                                <div className="space-y-2 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
+                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Sub Heading / Item Title Color (H3 / Cards / Steps)</label>
+                                                                                    <div className="flex flex-col gap-2">
+                                                                                        <select
+                                                                                            value={block.subHeadingColorType || 'preset'}
+                                                                                            onChange={(e) => {
+                                                                                                handleUpdateBlock(index, 'subHeadingColorType', e.target.value);
+                                                                                            }}
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        >
+                                                                                            <option value="preset">Preset Gradients</option>
+                                                                                            <option value="custom">Custom Hex Picker</option>
+                                                                                        </select>
+
+                                                                                        {block.subHeadingColorType === 'custom' ? (
+                                                                                            <div className="flex items-center gap-1.5 w-full">
+                                                                                                <input
+                                                                                                    type="color"
+                                                                                                    value={block.customSubHeadingColor || '#0f172a'}
+                                                                                                    onChange={(e) => handleUpdateBlock(index, 'customSubHeadingColor', e.target.value)}
+                                                                                                    className="w-8 h-8 rounded cursor-pointer border border-slate-200 dark:border-slate-700 bg-transparent shrink-0"
+                                                                                                />
+                                                                                                <input
+                                                                                                    type="text"
+                                                                                                    value={block.customSubHeadingColor || '#0f172a'}
+                                                                                                    onChange={(e) => handleUpdateBlock(index, 'customSubHeadingColor', e.target.value)}
+                                                                                                    placeholder="#0f172a"
+                                                                                                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white"
+                                                                                                />
+                                                                                            </div>
+                                                                                        ) : (
+                                                                                            <select
+                                                                                                value={block.subHeadingColor || 'default'}
+                                                                                                onChange={(e) => handleUpdateBlock(index, 'subHeadingColor', e.target.value)}
+                                                                                                className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
                                                                                             >
                                                                                                 <option value="default">Default Theme Colors</option>
                                                                                                 <option value="blue-gradient">Ocean Blue Gradient</option>
@@ -10719,20 +10768,20 @@ export default function WebsitePages() {
                                                                                 {/* Description/Text Color Settings */}
                                                                                 <div className="space-y-2 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
                                                                                     <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Text Color (Description / Paragraphs)</label>
-                                                                                    <div className="flex gap-2">
+                                                                                    <div className="flex flex-col gap-2">
                                                                                         <select
                                                                                             value={block.textColorType || 'preset'}
                                                                                             onChange={(e) => {
                                                                                                 handleUpdateBlock(index, 'textColorType', e.target.value);
                                                                                             }}
-                                                                                            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
                                                                                         >
                                                                                             <option value="preset">Preset Colors</option>
                                                                                             <option value="custom">Custom Hex Picker</option>
                                                                                         </select>
 
                                                                                         {block.textColorType === 'custom' ? (
-                                                                                            <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                                                                                            <div className="flex items-center gap-1.5 w-full">
                                                                                                 <input
                                                                                                     type="color"
                                                                                                     value={block.customTextColor || '#475569'}
@@ -10751,7 +10800,7 @@ export default function WebsitePages() {
                                                                                             <select
                                                                                                 value={block.textColor || 'default'}
                                                                                                 onChange={(e) => handleUpdateBlock(index, 'textColor', e.target.value)}
-                                                                                                className="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                                className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
                                                                                             >
                                                                                                 <option value="default">Default Theme Colors</option>
                                                                                                 <option value="muted">Muted Slate Gray</option>
@@ -10770,65 +10819,110 @@ export default function WebsitePages() {
                                                                                 {/* Main Heading Size */}
                                                                                 <div className="space-y-1.5 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
                                                                                     <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Main Heading Size</label>
-                                                                                    <select
-                                                                                        value={block.mainHeadingSize || 'default'}
+                                                                                    <input
+                                                                                        type="text"
+                                                                                        value={block.mainHeadingSize || ''}
                                                                                         onChange={(e) => handleUpdateBlock(index, 'mainHeadingSize', e.target.value)}
+                                                                                        placeholder="e.g. 40px, 3rem"
                                                                                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
-                                                                                    >
-                                                                                        <option value="default">Default (Font Size)</option>
-                                                                                        <option value="20px">20px</option>
-                                                                                        <option value="24px">24px</option>
-                                                                                        <option value="28px">28px</option>
-                                                                                        <option value="32px">32px</option>
-                                                                                        <option value="36px">36px</option>
-                                                                                        <option value="40px">40px</option>
-                                                                                        <option value="48px">48px</option>
-                                                                                        <option value="56px">56px</option>
-                                                                                        <option value="64px">64px</option>
-                                                                                    </select>
+                                                                                    />
                                                                                 </div>
 
                                                                                 {/* Sub Heading / Card Title Size */}
                                                                                 <div className="space-y-1.5 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
                                                                                     <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Sub Heading / Item Title Size</label>
-                                                                                    <select
-                                                                                        value={block.subHeadingSize || 'default'}
+                                                                                    <input
+                                                                                        type="text"
+                                                                                        value={block.subHeadingSize || ''}
                                                                                         onChange={(e) => handleUpdateBlock(index, 'subHeadingSize', e.target.value)}
+                                                                                        placeholder="e.g. 22px, 1.5rem"
                                                                                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
-                                                                                    >
-                                                                                        <option value="default">Default (Font Size)</option>
-                                                                                        <option value="14px">14px</option>
-                                                                                        <option value="16px">16px</option>
-                                                                                        <option value="18px">18px</option>
-                                                                                        <option value="20px">20px</option>
-                                                                                        <option value="22px">22px</option>
-                                                                                        <option value="24px">24px</option>
-                                                                                        <option value="28px">28px</option>
-                                                                                        <option value="32px">32px</option>
-                                                                                        <option value="36px">36px</option>
-                                                                                    </select>
+                                                                                    />
                                                                                 </div>
 
                                                                                 {/* Body / Paragraph Text Size */}
                                                                                 <div className="space-y-1.5 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
                                                                                     <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Body / Description Size</label>
-                                                                                    <select
-                                                                                        value={block.bodyTextSize || 'default'}
+                                                                                    <input
+                                                                                        type="text"
+                                                                                        value={block.bodyTextSize || ''}
                                                                                         onChange={(e) => handleUpdateBlock(index, 'bodyTextSize', e.target.value)}
+                                                                                        placeholder="e.g. 16px, 1rem"
                                                                                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
-                                                                                    >
-                                                                                        <option value="default">Default (Font Size)</option>
-                                                                                        <option value="12px">12px</option>
-                                                                                        <option value="13px">13px</option>
-                                                                                        <option value="14px">14px</option>
-                                                                                        <option value="15px">15px</option>
-                                                                                        <option value="16px">16px</option>
-                                                                                        <option value="17px">17px</option>
-                                                                                        <option value="18px">18px</option>
-                                                                                        <option value="20px">20px</option>
-                                                                                        <option value="22px">22px</option>
-                                                                                        <option value="24px">24px</option>
-                                                                                    </select>
+                                                                                    />
+                                                                                </div>
+                                                                            </div>
+
+                                                                            {/* Section Spacing Row */}
+                                                                            <div className="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-2 space-y-3">
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Section Spacing & Margins (e.g. 2px, 10px, 1.5rem, 5%)</label>
+                                                                                <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+                                                                                    {/* Margin Top */}
+                                                                                    <div className="space-y-1">
+                                                                                        <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Margin Top</label>
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            value={block.marginTop || ''}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'marginTop', e.target.value)}
+                                                                                            placeholder="e.g. 20px"
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500"
+                                                                                        />
+                                                                                    </div>
+                                                                                    {/* Margin Bottom */}
+                                                                                    <div className="space-y-1">
+                                                                                        <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Margin Bottom</label>
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            value={block.marginBottom || ''}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'marginBottom', e.target.value)}
+                                                                                            placeholder="e.g. 20px"
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        />
+                                                                                    </div>
+                                                                                    {/* Margin Left/Right */}
+                                                                                    <div className="space-y-1">
+                                                                                        <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Margin L/R</label>
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            value={block.marginLeftRight || ''}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'marginLeftRight', e.target.value)}
+                                                                                            placeholder="e.g. auto"
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        />
+                                                                                    </div>
+                                                                                    {/* Padding Top */}
+                                                                                    <div className="space-y-1">
+                                                                                        <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Padding Top</label>
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            value={block.paddingTop || ''}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'paddingTop', e.target.value)}
+                                                                                            placeholder="e.g. 50px"
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        />
+                                                                                    </div>
+                                                                                    {/* Padding Bottom */}
+                                                                                    <div className="space-y-1">
+                                                                                        <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Padding Bottom</label>
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            value={block.paddingBottom || ''}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'paddingBottom', e.target.value)}
+                                                                                            placeholder="e.g. 50px"
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        />
+                                                                                    </div>
+                                                                                    {/* Padding Left/Right */}
+                                                                                    <div className="space-y-1">
+                                                                                        <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Padding L/R</label>
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            value={block.paddingLeftRight || ''}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'paddingLeftRight', e.target.value)}
+                                                                                            placeholder="e.g. 10%"
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        />
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
