@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, Briefcase, Code, Layers, Package, ShieldCheck, Star, CheckCircle2, XCircle, Save, Loader2, ArrowRight, ListChecks } from 'lucide-react';
+import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, Briefcase, Code, Layers, Package, ShieldCheck, Star, CheckCircle2, XCircle, Save, Loader2, ArrowRight, ListChecks, ChevronDown, ChevronUp, ArrowUp, ArrowDown, GripVertical, Image as ImageIcon } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useAdmin } from "@/components/admin/AdminProvider";
 import ImageUploader from "@/components/admin/ImageUploader";
@@ -25,6 +25,14 @@ export default function WebsitePages() {
     const [editFormData, setEditFormData] = useState({ seoTitle: "", seoDescription: "", content: {} });
     const [isSavingEdit, setIsSavingEdit] = useState(false);
     const [activeEditTab, setActiveEditTab] = useState("seo"); // 'seo', 'hero', 'about', 'services', 'stats'
+    const [collapsedBlocks, setCollapsedBlocks] = useState({});
+
+    const toggleBlockCollapse = (index) => {
+        setCollapsedBlocks(prev => ({
+            ...prev,
+            [index]: !prev[index]
+        }));
+    };
 
     const { admin } = useAdmin();
     const role = admin?.role || 'super_admin';
@@ -322,6 +330,7 @@ export default function WebsitePages() {
                                                         <button onClick={() => {
                                                             setIsViewOnly(false);
                                                             setEditPage(page);
+                                                            setCollapsedBlocks({});
                                                             setActiveEditTab("seo");
                                                             setEditFormData({
                                                                 seoTitle: page.seoTitle || "",
@@ -1281,6 +1290,17 @@ export default function WebsitePages() {
                                         </button>
                                         <button onClick={() => setActiveEditTab("react-features")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'react-features' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Features & Details
+                                        </button>
+                                    </>
+                                )}
+
+                                {editPage.path === "/seo-package" && (
+                                    <>
+                                        <button onClick={() => setActiveEditTab("seopackage-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'seopackage-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> SEO Hero Tab
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("seopackage-table")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'seopackage-table' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> SEO Packages Table
                                         </button>
                                     </>
                                 )}
@@ -2360,6 +2380,224 @@ export default function WebsitePages() {
                                                     </div>
                                                 </div>
                                             ))}
+                                        </div>
+                                    </div>
+                                )}
+
+{/* SEO PACKAGE HERO TAB */}
+                                {activeEditTab === "seopackage-hero" && editPage.path === "/seo-package" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">SEO Package — Hero Section</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="space-y-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge</label>
+                                                    <input type="text" value={editFormData.content?.heroBadge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroBadge: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Pricing & Plans" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                    <input type="text" value={editFormData.content?.heroTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. SEO Package" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title Highlight (optional colored word)</label>
+                                                    <input type="text" value={editFormData.content?.heroHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroHighlight: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. leave blank for none" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.heroDescription || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroDescription: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" rows={3} placeholder="e.g. Choose the perfect SEO package..." />
+                                                </div>
+                                            </div>
+                                            <div className="border-t border-slate-200 dark:border-slate-700 pt-4 space-y-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Hero Banner Image</h4>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Image URL</label>
+                                                    <input type="text" value={editFormData.content?.heroImage || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroImage: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="/Banner/seo_package.webp" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Image Alt Text</label>
+                                                    <input type="text" value={editFormData.content?.heroImageAlt || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroImageAlt: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="seo-package Banner" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* SEO PACKAGE TABLE TAB */}
+                                {activeEditTab === "seopackage-table" && editPage.path === "/seo-package" && (
+                                    <div className="max-w-5xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">SEO Packages Comparison Table</h3>
+
+                                        {/* Plans Section */}
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Plan Columns (locked to 4)</h4>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                {(editFormData.content?.plans || []).map((plan, idx) => (
+                                                    <div key={idx} className="bg-slate-50 dark:bg-slate-900 rounded-lg p-4 border border-slate-200 dark:border-slate-700 space-y-2">
+                                                        <p className="text-xs font-bold uppercase text-blue-600 dark:text-blue-400">Plan {idx + 1}</p>
+                                                        <div>
+                                                            <label className="block text-xs text-slate-500 mb-1">Plan Name</label>
+                                                            <input type="text" value={plan.name || ""} onChange={(e) => { const p = [...(editFormData.content?.plans || [])]; p[idx] = { ...p[idx], name: e.target.value }; setEditFormData({ ...editFormData, content: { ...editFormData.content, plans: p } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs text-slate-500 mb-1">Keywords Subtitle</label>
+                                                            <input type="text" value={plan.keywords || ""} onChange={(e) => { const p = [...(editFormData.content?.plans || [])]; p[idx] = { ...p[idx], keywords: e.target.value }; setEditFormData({ ...editFormData, content: { ...editFormData.content, plans: p } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" placeholder="e.g. 20 keywords to be optimized" />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs text-slate-500 mb-1">CTA Button Text</label>
+                                                            <input type="text" value={plan.ctaText || ""} onChange={(e) => { const p = [...(editFormData.content?.plans || [])]; p[idx] = { ...p[idx], ctaText: e.target.value }; setEditFormData({ ...editFormData, content: { ...editFormData.content, plans: p } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" placeholder="Contact Us" />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs text-slate-500 mb-1">CTA Button Link</label>
+                                                            <input type="text" value={plan.ctaLink || ""} onChange={(e) => { const p = [...(editFormData.content?.plans || [])]; p[idx] = { ...p[idx], ctaLink: e.target.value }; setEditFormData({ ...editFormData, content: { ...editFormData.content, plans: p } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" placeholder="/contact" />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Minimum Contract Period */}
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Minimum Contract Period (per plan)</h4>
+                                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                                {(editFormData.content?.minContractPeriodValues || ["","","",""]).map((val, idx) => (
+                                                    <div key={idx}>
+                                                        <label className="block text-xs text-slate-500 mb-1">Plan {idx + 1}</label>
+                                                        <input type="text" value={val || ""} onChange={(e) => { const v = [...(editFormData.content?.minContractPeriodValues || ["","","",""])]; v[idx] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, minContractPeriodValues: v } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" placeholder="6 Months" />
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Website Audit */}
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-3">
+                                            <div className="flex items-center justify-between border-b pb-2">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Website Audit (✓ all plans)</h4>
+                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.websiteAudit || []), ""]; setEditFormData({ ...editFormData, content: { ...editFormData.content, websiteAudit: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Item</button>
+                                            </div>
+                                            <div className="space-y-2">
+                                                {(editFormData.content?.websiteAudit || []).map((item, idx) => (
+                                                    <div key={idx} className="flex gap-2">
+                                                        <input type="text" value={item || ""} onChange={(e) => { const list = [...(editFormData.content?.websiteAudit || [])]; list[idx] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, websiteAudit: list } }); }} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" />
+                                                        <button type="button" onClick={() => { const list = [...(editFormData.content?.websiteAudit || [])]; list.splice(idx, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, websiteAudit: list } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* On-Page Optimization */}
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-3">
+                                            <div className="flex items-center justify-between border-b pb-2">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">On-Page Optimization (✓ all plans)</h4>
+                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.onPageOptimization || []), ""]; setEditFormData({ ...editFormData, content: { ...editFormData.content, onPageOptimization: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Item</button>
+                                            </div>
+                                            <div className="space-y-2">
+                                                {(editFormData.content?.onPageOptimization || []).map((item, idx) => (
+                                                    <div key={idx} className="flex gap-2">
+                                                        <input type="text" value={item || ""} onChange={(e) => { const list = [...(editFormData.content?.onPageOptimization || [])]; list[idx] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, onPageOptimization: list } }); }} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" />
+                                                        <button type="button" onClick={() => { const list = [...(editFormData.content?.onPageOptimization || [])]; list.splice(idx, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, onPageOptimization: list } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Content Marketing */}
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-3">
+                                            <div className="flex items-center justify-between border-b pb-2">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Content Marketing Per Month (per-plan values)</h4>
+                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.contentMarketing || []), { name: "", values: ["","","",""] }]; setEditFormData({ ...editFormData, content: { ...editFormData.content, contentMarketing: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Row</button>
+                                            </div>
+                                            <div className="space-y-3">
+                                                {(editFormData.content?.contentMarketing || []).map((row, idx) => (
+                                                    <div key={idx} className="bg-slate-50 dark:bg-slate-900 rounded-lg p-3 border border-slate-200 dark:border-slate-700">
+                                                        <div className="flex gap-2 mb-2">
+                                                            <input type="text" value={row.name || ""} onChange={(e) => { const list = [...(editFormData.content?.contentMarketing || [])]; list[idx] = { ...list[idx], name: e.target.value }; setEditFormData({ ...editFormData, content: { ...editFormData.content, contentMarketing: list } }); }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm font-medium" placeholder="Feature name" />
+                                                            <button type="button" onClick={() => { const list = [...(editFormData.content?.contentMarketing || [])]; list.splice(idx, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, contentMarketing: list } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                        </div>
+                                                        <div className="grid grid-cols-4 gap-2">
+                                                            {(row.values || ["","","",""]).map((val, vIdx) => (
+                                                                <div key={vIdx}>
+                                                                    <label className="block text-xs text-slate-400 mb-1">Plan {vIdx+1}</label>
+                                                                    <input type="text" value={val || ""} onChange={(e) => { const list = [...(editFormData.content?.contentMarketing || [])]; const vals = [...(list[idx].values || [])]; vals[vIdx] = e.target.value; list[idx] = { ...list[idx], values: vals }; setEditFormData({ ...editFormData, content: { ...editFormData.content, contentMarketing: list } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs" />
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* SMO Per Month */}
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-3">
+                                            <div className="flex items-center justify-between border-b pb-2">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">SMO Per Month (per-plan values)</h4>
+                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.smo || []), { name: "", values: ["","","",""] }]; setEditFormData({ ...editFormData, content: { ...editFormData.content, smo: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Row</button>
+                                            </div>
+                                            <div className="space-y-3">
+                                                {(editFormData.content?.smo || []).map((row, idx) => (
+                                                    <div key={idx} className="bg-slate-50 dark:bg-slate-900 rounded-lg p-3 border border-slate-200 dark:border-slate-700">
+                                                        <div className="flex gap-2 mb-2">
+                                                            <input type="text" value={row.name || ""} onChange={(e) => { const list = [...(editFormData.content?.smo || [])]; list[idx] = { ...list[idx], name: e.target.value }; setEditFormData({ ...editFormData, content: { ...editFormData.content, smo: list } }); }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm font-medium" placeholder="Feature name" />
+                                                            <button type="button" onClick={() => { const list = [...(editFormData.content?.smo || [])]; list.splice(idx, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, smo: list } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                        </div>
+                                                        <div className="grid grid-cols-4 gap-2">
+                                                            {(row.values || ["","","",""]).map((val, vIdx) => (
+                                                                <div key={vIdx}>
+                                                                    <label className="block text-xs text-slate-400 mb-1">Plan {vIdx+1}</label>
+                                                                    <input type="text" value={val || ""} onChange={(e) => { const list = [...(editFormData.content?.smo || [])]; const vals = [...(list[idx].values || [])]; vals[vIdx] = e.target.value; list[idx] = { ...list[idx], values: vals }; setEditFormData({ ...editFormData, content: { ...editFormData.content, smo: list } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs" />
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* SMO Checks */}
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-3">
+                                            <div className="flex items-center justify-between border-b pb-2">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">SMO Checklist Items (✓ all plans)</h4>
+                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.smoChecks || []), ""]; setEditFormData({ ...editFormData, content: { ...editFormData.content, smoChecks: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Item</button>
+                                            </div>
+                                            <div className="space-y-2">
+                                                {(editFormData.content?.smoChecks || []).map((item, idx) => (
+                                                    <div key={idx} className="flex gap-2">
+                                                        <input type="text" value={item || ""} onChange={(e) => { const list = [...(editFormData.content?.smoChecks || [])]; list[idx] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, smoChecks: list } }); }} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" />
+                                                        <button type="button" onClick={() => { const list = [...(editFormData.content?.smoChecks || [])]; list.splice(idx, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, smoChecks: list } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Monthly Reporting */}
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-3">
+                                            <div className="flex items-center justify-between border-b pb-2">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Monthly Reporting (✓ all plans)</h4>
+                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.reporting || []), ""]; setEditFormData({ ...editFormData, content: { ...editFormData.content, reporting: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Item</button>
+                                            </div>
+                                            <div className="space-y-2">
+                                                {(editFormData.content?.reporting || []).map((item, idx) => (
+                                                    <div key={idx} className="flex gap-2">
+                                                        <input type="text" value={item || ""} onChange={(e) => { const list = [...(editFormData.content?.reporting || [])]; list[idx] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, reporting: list } }); }} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" />
+                                                        <button type="button" onClick={() => { const list = [...(editFormData.content?.reporting || [])]; list.splice(idx, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, reporting: list } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Customer Support */}
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-3">
+                                            <div className="flex items-center justify-between border-b pb-2">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Customer Support (✓ all plans)</h4>
+                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.customerSupport || []), ""]; setEditFormData({ ...editFormData, content: { ...editFormData.content, customerSupport: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Item</button>
+                                            </div>
+                                            <div className="space-y-2">
+                                                {(editFormData.content?.customerSupport || []).map((item, idx) => (
+                                                    <div key={idx} className="flex gap-2">
+                                                        <input type="text" value={item || ""} onChange={(e) => { const list = [...(editFormData.content?.customerSupport || [])]; list[idx] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, customerSupport: list } }); }} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" />
+                                                        <button type="button" onClick={() => { const list = [...(editFormData.content?.customerSupport || [])]; list.splice(idx, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, customerSupport: list } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
                                 )}
@@ -7179,7 +7417,7 @@ export default function WebsitePages() {
                                         </div>
                                     </div>
                                 )}
-\n{/* EVENTS HERO TAB */}
+                                {/* EVENTS HERO TAB */}
                                 {activeEditTab === "events-hero" && editPage.path === "/events" && (
                                     <div className="max-w-3xl space-y-8">
                                         <div className="flex items-center justify-between">
@@ -9849,128 +10087,675 @@ export default function WebsitePages() {
                                             </div>
                                         ) : (
                                             <div className="space-y-6">
-                                                {(editFormData.content?.crmBlocks || []).map((block, index) => (
-                                                    <div key={index} className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-5 relative group">
-                                                        <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                            <button type="button" onClick={() => handleMoveBlock(index, 'up')} disabled={index === 0} className="p-1.5 bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded shadow hover:text-cyan-500 disabled:opacity-50">↑</button>
-                                                            <button type="button" onClick={() => handleMoveBlock(index, 'down')} disabled={index === (editFormData.content?.crmBlocks?.length || 0) - 1} className="p-1.5 bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded shadow hover:text-cyan-500 disabled:opacity-50">↓</button>
-                                                            <button type="button" onClick={() => handleRemoveBlock(index)} className="p-1.5 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded shadow hover:bg-red-200">X</button>
-                                                        </div>
-                                                        <div className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-4">{block.type} BLOCK</div>
-
-                                                        {block.type === 'text' && (
-                                                            <div className="space-y-4">
-                                                                <input type="text" value={block.h2 || ''} onChange={(e) => handleUpdateBlock(index, 'h2', e.target.value)} placeholder="Main Heading (H2) e.g. Why Choose Us?" className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
-                                                                <input type="text" value={block.h3 || ''} onChange={(e) => handleUpdateBlock(index, 'h3', e.target.value)} placeholder="Sub Heading (H3) e.g. Core Features" className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
-                                                                <textarea value={block.desc || ''} onChange={(e) => handleUpdateBlock(index, 'desc', e.target.value)} placeholder="Paragraph Text..." rows={4} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white resize-y" />
-                                                                <textarea value={block.list || ''} onChange={(e) => handleUpdateBlock(index, 'list', e.target.value)} placeholder="Bullet Points (one per line)" rows={3} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white resize-y font-mono" />
-                                                            </div>
-                                                        )}
-
-                                                        {block.type === 'highlight' && (
-                                                            <div className="space-y-4">
-                                                                <input type="text" value={block.title || ''} onChange={(e) => handleUpdateBlock(index, 'title', e.target.value)} placeholder="Box Title" className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
-                                                                <textarea value={block.desc1 || ''} onChange={(e) => handleUpdateBlock(index, 'desc1', e.target.value)} placeholder="First Paragraph" rows="3" className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
-                                                                <textarea value={block.desc2 || ''} onChange={(e) => handleUpdateBlock(index, 'desc2', e.target.value)} placeholder="Second Paragraph (optional)" rows="3" className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
-                                                            </div>
-                                                        )}
-
-                                                        {block.type === 'cards' && (
-                                                            <div className="space-y-4">
-                                                                <input type="text" value={block.title || ''} onChange={(e) => handleUpdateBlock(index, 'title', e.target.value)} placeholder="Section Title (e.g. Our Services)" className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
-                                                                <textarea
-                                                                    value={block.items?.map(i => `${i.title}|${i.desc}`).join('\n') || ''}
-                                                                    onChange={(e) => {
-                                                                        const lines = e.target.value.split('\n');
-                                                                        const parsed = lines.map(l => {
-                                                                            const [t, ...d] = l.split('|');
-                                                                            return { title: t, desc: d.join('|') };
-                                                                        });
-                                                                        handleUpdateBlock(index, 'items', parsed);
-                                                                    }}
-                                                                    placeholder="Cards: format as 'Title|Description' (one card per line)"
-                                                                    rows="5"
-                                                                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white font-mono"
-                                                                />
-                                                                <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mt-4">
-                                                                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Cards Background Image (Peeche Image Lagayein)</label>
-                                                                    <ImageUploader
-                                                                        label="Upload Background Image"
-                                                                        value={block.bgImageUrl || ""}
-                                                                        onChange={(val) => handleUpdateBlock(index, 'bgImageUrl', val)}
-                                                                    />
+                                                {(editFormData.content?.crmBlocks || []).map((block, index) => {
+                                                    const isCollapsed = !!collapsedBlocks[index];
+                                                    return (
+                                                        <div key={index} className="bg-white dark:bg-slate-900/45 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md rounded-2xl transition-all duration-200 overflow-hidden">
+                                                            {/* Header Bar */}
+                                                            <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20">
+                                                                <div 
+                                                                    onClick={() => toggleBlockCollapse(index)} 
+                                                                    className="flex items-center gap-3 cursor-pointer select-none min-w-0 flex-1 mr-4"
+                                                                >
+                                                                    <GripVertical className="w-4 h-4 text-slate-400 shrink-0" />
+                                                                    
+                                                                    {block.type === 'text' && (
+                                                                        <div className="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-500/10 text-cyan-500 dark:text-cyan-400 shrink-0">
+                                                                            <FileText className="w-4 h-4" />
+                                                                        </div>
+                                                                    )}
+                                                                    {block.type === 'highlight' && (
+                                                                        <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-500 dark:text-blue-400 shrink-0">
+                                                                            <Star className="w-4 h-4" />
+                                                                        </div>
+                                                                    )}
+                                                                    {block.type === 'cards' && (
+                                                                        <div className="p-2 rounded-lg bg-purple-50 dark:bg-purple-500/10 text-purple-500 dark:text-purple-400 shrink-0">
+                                                                            <Layers className="w-4 h-4" />
+                                                                        </div>
+                                                                    )}
+                                                                    {block.type === 'steps' && (
+                                                                        <div className="p-2 rounded-lg bg-rose-50 dark:bg-rose-500/10 text-rose-500 dark:text-rose-400 shrink-0">
+                                                                            <ListChecks className="w-4 h-4" />
+                                                                        </div>
+                                                                    )}
+                                                                    {block.type === 'image' && (
+                                                                        <div className="p-2 rounded-lg bg-amber-50 dark:bg-amber-500/10 text-amber-500 dark:text-amber-400 shrink-0">
+                                                                            <ImageIcon className="w-4 h-4" />
+                                                                        </div>
+                                                                    )}
+                                                                    
+                                                                    <div className="min-w-0 flex items-center gap-2">
+                                                                        <span className="font-semibold text-xs text-slate-800 dark:text-slate-200 uppercase tracking-wider">
+                                                                            {block.type} Block
+                                                                        </span>
+                                                                        {block.type === 'text' && block.h2 && (
+                                                                            <span className="text-xs text-slate-400 dark:text-slate-500 font-medium truncate hidden sm:inline max-w-[200px]">
+                                                                                — {block.h2}
+                                                                            </span>
+                                                                        )}
+                                                                        {block.type === 'highlight' && block.title && (
+                                                                            <span className="text-xs text-slate-400 dark:text-slate-500 font-medium truncate hidden sm:inline max-w-[200px]">
+                                                                                — {block.title}
+                                                                            </span>
+                                                                        )}
+                                                                        {block.type === 'cards' && block.title && (
+                                                                            <span className="text-xs text-slate-400 dark:text-slate-500 font-medium truncate hidden sm:inline max-w-[200px]">
+                                                                                — {block.title} ({block.items?.length || 0} cards)
+                                                                            </span>
+                                                                        )}
+                                                                        {block.type === 'steps' && block.title && (
+                                                                            <span className="text-xs text-slate-400 dark:text-slate-500 font-medium truncate hidden sm:inline max-w-[200px]">
+                                                                                — {block.title} ({block.steps?.length || 0} steps)
+                                                                            </span>
+                                                                        )}
+                                                                        {block.type === 'image' && block.url && (
+                                                                            <span className="text-xs text-slate-400 dark:text-slate-500 font-medium truncate hidden sm:inline max-w-[200px] font-mono">
+                                                                                — {block.url.substring(block.url.lastIndexOf('/') + 1)}
+                                                                            </span>
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div className="flex items-center gap-1">
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => handleMoveBlock(index, 'up')}
+                                                                        disabled={index === 0}
+                                                                        className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors disabled:opacity-30 disabled:pointer-events-none"
+                                                                        title="Move Up"
+                                                                    >
+                                                                        <ArrowUp className="w-4 h-4" />
+                                                                    </button>
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => handleMoveBlock(index, 'down')}
+                                                                        disabled={index === (editFormData.content?.crmBlocks?.length || 0) - 1}
+                                                                        className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors disabled:opacity-30 disabled:pointer-events-none"
+                                                                        title="Move Down"
+                                                                    >
+                                                                        <ArrowDown className="w-4 h-4" />
+                                                                    </button>
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => toggleBlockCollapse(index)}
+                                                                        className="p-1.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                                                                        title={isCollapsed ? "Expand" : "Collapse"}
+                                                                    >
+                                                                        {isCollapsed ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
+                                                                    </button>
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => handleRemoveBlock(index)}
+                                                                        className="p-1.5 text-red-500 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-colors ml-1"
+                                                                        title="Delete Section"
+                                                                    >
+                                                                        <Trash2 className="w-4 h-4" />
+                                                                    </button>
                                                                 </div>
                                                             </div>
-                                                        )}
+                                                            
+                                                            {/* Expanded Content */}
+                                                            {!isCollapsed && (
+                                                                <div className="p-6 space-y-5 bg-white dark:bg-slate-900/10">
+                                                                    {block.type === 'text' && (
+                                                                        <div className="space-y-4">
+                                                                            <div>
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Main Heading (H2)</label>
+                                                                                <input type="text" value={block.h2 || ''} onChange={(e) => handleUpdateBlock(index, 'h2', e.target.value)} placeholder="e.g. Why Choose Us?" className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all" />
+                                                                            </div>
+                                                                            <div>
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Sub Heading (H3)</label>
+                                                                                <input type="text" value={block.h3 || ''} onChange={(e) => handleUpdateBlock(index, 'h3', e.target.value)} placeholder="e.g. Core Features" className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all" />
+                                                                            </div>
+                                                                            <div>
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Paragraph Text</label>
+                                                                                <textarea value={block.desc || ''} onChange={(e) => handleUpdateBlock(index, 'desc', e.target.value)} placeholder="Paragraph Text..." rows={4} className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all resize-y" />
+                                                                            </div>
+                                                                            <div>
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Bullet Points (One per line)</label>
+                                                                                <textarea value={block.list || ''} onChange={(e) => handleUpdateBlock(index, 'list', e.target.value)} placeholder="Bullet point item 1&#10;Bullet point item 2" rows={3} className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all resize-y font-mono" />
+                                                                            </div>
+                                                                        </div>
+                                                                    )}
+                                                                    
+                                                                    {block.type === 'highlight' && (
+                                                                        <div className="space-y-4">
+                                                                            <div>
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Box Title</label>
+                                                                                <input type="text" value={block.title || ''} onChange={(e) => handleUpdateBlock(index, 'title', e.target.value)} placeholder="Box Title" className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all" />
+                                                                            </div>
+                                                                            <div>
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">First Paragraph</label>
+                                                                                <textarea value={block.desc1 || ''} onChange={(e) => handleUpdateBlock(index, 'desc1', e.target.value)} placeholder="First Paragraph" rows={3} className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all resize-y" />
+                                                                            </div>
+                                                                            <div>
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Second Paragraph (Optional)</label>
+                                                                                <textarea value={block.desc2 || ''} onChange={(e) => handleUpdateBlock(index, 'desc2', e.target.value)} placeholder="Second Paragraph" rows={3} className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all resize-y" />
+                                                                            </div>
+                                                                        </div>
+                                                                    )}
+                                                                    
+                                                                    {block.type === 'cards' && (
+                                                                        <div className="space-y-4">
+                                                                            <div>
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Section Title</label>
+                                                                                <input type="text" value={block.title || ''} onChange={(e) => handleUpdateBlock(index, 'title', e.target.value)} placeholder="Section Title (e.g. Our Services)" className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all" />
+                                                                            </div>
+                                                                            
+                                                                            <div className="space-y-3">
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Card Items</label>
+                                                                                {(block.items || []).length === 0 ? (
+                                                                                    <div className="p-4 border border-dashed border-slate-200 dark:border-slate-700 rounded-xl text-center text-xs text-slate-400">
+                                                                                        No cards added yet.
+                                                                                    </div>
+                                                                                ) : (
+                                                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                        {(block.items || []).map((item, itemIndex) => (
+                                                                                            <div key={itemIndex} className="p-4 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50/50 dark:bg-slate-900/30 relative space-y-3 group/card">
+                                                                                                <div className="flex justify-between items-center">
+                                                                                                    <span className="text-[10px] font-bold text-slate-400 tracking-wider">CARD #{itemIndex + 1}</span>
+                                                                                                    <button
+                                                                                                        type="button"
+                                                                                                        onClick={() => {
+                                                                                                            const newItems = [...(block.items || [])];
+                                                                                                            newItems.splice(itemIndex, 1);
+                                                                                                            handleUpdateBlock(index, 'items', newItems);
+                                                                                                        }}
+                                                                                                        className="text-red-500 hover:text-red-600 transition-colors opacity-60 hover:opacity-100"
+                                                                                                        title="Remove Card"
+                                                                                                    >
+                                                                                                        <Trash2 className="w-3.5 h-3.5" />
+                                                                                                    </button>
+                                                                                                </div>
+                                                                                                <div className="space-y-2">
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        value={item.title || ''}
+                                                                                                        onChange={(e) => {
+                                                                                                            const newItems = [...(block.items || [])];
+                                                                                                            newItems[itemIndex] = { ...newItems[itemIndex], title: e.target.value };
+                                                                                                            handleUpdateBlock(index, 'items', newItems);
+                                                                                                        }}
+                                                                                                        placeholder="Card Title"
+                                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                                                                                                    />
+                                                                                                    <textarea
+                                                                                                        value={item.desc || ''}
+                                                                                                        onChange={(e) => {
+                                                                                                            const newItems = [...(block.items || [])];
+                                                                                                            newItems[itemIndex] = { ...newItems[itemIndex], desc: e.target.value };
+                                                                                                            handleUpdateBlock(index, 'items', newItems);
+                                                                                                        }}
+                                                                                                        placeholder="Card Description"
+                                                                                                        rows={3}
+                                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-cyan-500 resize-y"
+                                                                                                    />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        ))}
+                                                                                    </div>
+                                                                                )}
+                                                                                <button
+                                                                                    type="button"
+                                                                                    onClick={() => {
+                                                                                        const newItems = [...(block.items || []), { title: '', desc: '' }];
+                                                                                        handleUpdateBlock(index, 'items', newItems);
+                                                                                    }}
+                                                                                    className="w-full py-2 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1 border border-dashed border-slate-300 dark:border-slate-700"
+                                                                                >
+                                                                                    <Plus className="w-3.5 h-3.5" /> Add Card Item
+                                                                                </button>
+                                                                            </div>
+                                                                            
+                                                                            <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mt-4">
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2.5">Cards Background Image (Peeche Image Lagayein)</label>
+                                                                                <ImageUploader
+                                                                                    label="Upload Background Image"
+                                                                                    value={block.bgImageUrl || ""}
+                                                                                    onChange={(val) => handleUpdateBlock(index, 'bgImageUrl', val)}
+                                                                                />
+                                                                            </div>
+                                                                        </div>
+                                                                    )}
+                                                                    
+                                                                    {block.type === 'steps' && (
+                                                                        <div className="space-y-4">
+                                                                            <div>
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Section Title</label>
+                                                                                <input type="text" value={block.title || ''} onChange={(e) => handleUpdateBlock(index, 'title', e.target.value)} placeholder="Section Title (e.g. Our Process)" className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all" />
+                                                                            </div>
+                                                                            
+                                                                            <div className="space-y-3">
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Step Items</label>
+                                                                                {(block.steps || []).length === 0 ? (
+                                                                                    <div className="p-4 border border-dashed border-slate-200 dark:border-slate-700 rounded-xl text-center text-xs text-slate-400">
+                                                                                        No steps added yet.
+                                                                                    </div>
+                                                                                ) : (
+                                                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                        {(block.steps || []).map((step, stepIndex) => (
+                                                                                            <div key={stepIndex} className="p-4 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50/50 dark:bg-slate-900/30 relative space-y-3 group/step">
+                                                                                                <div className="flex justify-between items-center">
+                                                                                                    <span className="text-[10px] font-bold text-slate-400 tracking-wider">STEP #{stepIndex + 1}</span>
+                                                                                                    <button
+                                                                                                        type="button"
+                                                                                                        onClick={() => {
+                                                                                                            const newSteps = [...(block.steps || [])];
+                                                                                                            newSteps.splice(stepIndex, 1);
+                                                                                                            handleUpdateBlock(index, 'steps', newSteps);
+                                                                                                        }}
+                                                                                                        className="text-red-500 hover:text-red-600 transition-colors opacity-60 hover:opacity-100"
+                                                                                                        title="Remove Step"
+                                                                                                    >
+                                                                                                        <Trash2 className="w-3.5 h-3.5" />
+                                                                                                    </button>
+                                                                                                </div>
+                                                                                                <div className="space-y-2">
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        value={step.stage || ''}
+                                                                                                        onChange={(e) => {
+                                                                                                            const newSteps = [...(block.steps || [])];
+                                                                                                            newSteps[stepIndex] = { ...newSteps[stepIndex], stage: e.target.value };
+                                                                                                            handleUpdateBlock(index, 'steps', newSteps);
+                                                                                                        }}
+                                                                                                        placeholder="Stage / Step Name (e.g. Discovery)"
+                                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                                                                                                    />
+                                                                                                    <textarea
+                                                                                                        value={step.desc || ''}
+                                                                                                        onChange={(e) => {
+                                                                                                            const newSteps = [...(block.steps || [])];
+                                                                                                            newSteps[stepIndex] = { ...newSteps[stepIndex], desc: e.target.value };
+                                                                                                            handleUpdateBlock(index, 'steps', newSteps);
+                                                                                                        }}
+                                                                                                        placeholder="Step Description"
+                                                                                                        rows={3}
+                                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-cyan-500 resize-y"
+                                                                                                    />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        ))}
+                                                                                    </div>
+                                                                                )}
+                                                                                <button
+                                                                                    type="button"
+                                                                                    onClick={() => {
+                                                                                        const newSteps = [...(block.steps || []), { stage: '', desc: '' }];
+                                                                                        handleUpdateBlock(index, 'steps', newSteps);
+                                                                                    }}
+                                                                                    className="w-full py-2 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1 border border-dashed border-slate-300 dark:border-slate-700"
+                                                                                >
+                                                                                    <Plus className="w-3.5 h-3.5" /> Add Step Item
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    )}
+                                                                    
+                                                                    {block.type === 'image' && (
+                                                                        <div className="space-y-4">
+                                                                            {((block.images || []).length === 0 && block.url) ? (
+                                                                                <div className="p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl text-xs text-amber-600 dark:text-amber-400 flex flex-col sm:flex-row gap-3 items-center justify-between">
+                                                                                    <span>This image section has a legacy single image. Click "Migrate Image" to convert it to the new multi-image system.</span>
+                                                                                    <button
+                                                                                        type="button"
+                                                                                        onClick={() => {
+                                                                                            const newImages = [{ url: block.url, align: block.align || 'center', size: block.size || 'large', alt: block.alt || '' }];
+                                                                                            handleUpdateBlock(index, 'images', newImages);
+                                                                                            handleUpdateBlock(index, 'url', ''); // Clear legacy fields
+                                                                                            handleUpdateBlock(index, 'size', '');
+                                                                                            handleUpdateBlock(index, 'align', '');
+                                                                                            handleUpdateBlock(index, 'alt', '');
+                                                                                        }}
+                                                                                        className="px-3 py-1 bg-amber-500 hover:bg-amber-600 text-white rounded-lg font-semibold transition-colors shrink-0 text-xs"
+                                                                                    >
+                                                                                        Migrate Image
+                                                                                    </button>
+                                                                                </div>
+                                                                            ) : null}
 
-                                                        {block.type === 'steps' && (
-                                                            <div className="space-y-4">
-                                                                <input type="text" value={block.title || ''} onChange={(e) => handleUpdateBlock(index, 'title', e.target.value)} placeholder="Section Title (e.g. Our Process)" className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
-                                                                <textarea
-                                                                    value={block.steps?.map(s => `${s.stage}|${s.desc}`).join('\n') || ''}
-                                                                    onChange={(e) => {
-                                                                        const lines = e.target.value.split('\n');
-                                                                        const parsed = lines.map(l => {
-                                                                            const [t, ...d] = l.split('|');
-                                                                            return { stage: t, desc: d.join('|') };
-                                                                        });
-                                                                        handleUpdateBlock(index, 'steps', parsed);
-                                                                    }}
-                                                                    placeholder="Steps: format as 'Stage Name|Description' (one step per line)"
-                                                                    rows="5"
-                                                                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white font-mono"
-                                                                />
-                                                            </div>
-                                                        )}
+                                                                            {((block.images || []).length === 0 && !block.url) && (
+                                                                                <div className="p-4 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl text-center text-xs text-slate-400 bg-slate-50/20 dark:bg-transparent">
+                                                                                    No images added to this section.
+                                                                                </div>
+                                                                            )}
 
-                                                        {block.type === 'image' && (
-                                                            <div className="space-y-4">
-                                                                <ImageUploader
-                                                                    label="Section Image"
-                                                                    value={block.url || ""}
-                                                                    onChange={(val) => handleUpdateBlock(index, 'url', val)}
-                                                                />
-                                                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                                    <input type="text" value={block.alt || ''} onChange={(e) => handleUpdateBlock(index, 'alt', e.target.value)} placeholder="Image Alt Text (optional)" className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
-                                                                    <select value={block.size || 'large'} onChange={(e) => handleUpdateBlock(index, 'size', e.target.value)} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white">
-                                                                        <option value="small">Small (Max Width: md)</option>
-                                                                        <option value="medium">Medium (Max Width: 3xl)</option>
-                                                                        <option value="large">Large (Max Width: 5xl)</option>
-                                                                        <option value="full">Full Width</option>
-                                                                    </select>
-                                                                    <select value={block.align || 'center'} onChange={(e) => handleUpdateBlock(index, 'align', e.target.value)} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white">
-                                                                        <option value="left">Align Left</option>
-                                                                        <option value="center">Align Center</option>
-                                                                        <option value="right">Align Right</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        )}
+                                                                            {(block.images || []).map((img, imgIndex) => (
+                                                                                <div key={imgIndex} className="p-4 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50/50 dark:bg-slate-900/30 relative space-y-4">
+                                                                                    <div className="flex justify-between items-center">
+                                                                                        <span className="text-[10px] font-bold text-slate-400 tracking-wider">IMAGE #{imgIndex + 1}</span>
+                                                                                        <button
+                                                                                            type="button"
+                                                                                            onClick={() => {
+                                                                                                const newImages = [...(block.images || [])];
+                                                                                                newImages.splice(imgIndex, 1);
+                                                                                                handleUpdateBlock(index, 'images', newImages);
+                                                                                            }}
+                                                                                            className="text-red-500 hover:text-red-600 transition-colors"
+                                                                                            title="Remove Image"
+                                                                                        >
+                                                                                            <Trash2 className="w-3.5 h-3.5" />
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    
+                                                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+                                                                                        <ImageUploader
+                                                                                            label="Upload Image"
+                                                                                            value={img.url || ""}
+                                                                                            onChange={(val) => {
+                                                                                                const newImages = [...(block.images || [])];
+                                                                                                newImages[imgIndex] = { ...newImages[imgIndex], url: val };
+                                                                                                handleUpdateBlock(index, 'images', newImages);
+                                                                                            }}
+                                                                                        />
+                                                                                        <div className="space-y-3">
+                                                                                            <div>
+                                                                                                <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Position / Placement</label>
+                                                                                                <select
+                                                                                                    value={img.align || 'center'}
+                                                                                                    onChange={(e) => {
+                                                                                                        const newImages = [...(block.images || [])];
+                                                                                                        newImages[imgIndex] = { ...newImages[imgIndex], align: e.target.value };
+                                                                                                        handleUpdateBlock(index, 'images', newImages);
+                                                                                                    }}
+                                                                                                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white"
+                                                                                                >
+                                                                                                    <option value="left">Align Left</option>
+                                                                                                    <option value="center">Align Center</option>
+                                                                                                    <option value="right">Align Right</option>
+                                                                                                    <option value="top">Above Content (Top)</option>
+                                                                                                    <option value="bottom">Below Content (Bottom)</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            
+                                                                                            <div>
+                                                                                                <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Image Size</label>
+                                                                                                <select
+                                                                                                    value={img.size || 'large'}
+                                                                                                    onChange={(e) => {
+                                                                                                        const newImages = [...(block.images || [])];
+                                                                                                        newImages[imgIndex] = { ...newImages[imgIndex], size: e.target.value };
+                                                                                                        handleUpdateBlock(index, 'images', newImages);
+                                                                                                    }}
+                                                                                                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white"
+                                                                                                >
+                                                                                                    <option value="small">Small (Max Width: md)</option>
+                                                                                                    <option value="medium">Medium (Max Width: 3xl)</option>
+                                                                                                    <option value="large">Large (Max Width: 5xl)</option>
+                                                                                                    <option value="full">Full Width</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            
+                                                                                            <div>
+                                                                                                <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Image Alt Text (SEO)</label>
+                                                                                                <input
+                                                                                                    type="text"
+                                                                                                    value={img.alt || ''}
+                                                                                                    onChange={(e) => {
+                                                                                                        const newImages = [...(block.images || [])];
+                                                                                                        newImages[imgIndex] = { ...newImages[imgIndex], alt: e.target.value };
+                                                                                                        handleUpdateBlock(index, 'images', newImages);
+                                                                                                    }}
+                                                                                                    placeholder="Image alt text..."
+                                                                                                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white"
+                                                                                                />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            ))}
+                                                                            
+                                                                            <button
+                                                                                type="button"
+                                                                                onClick={() => {
+                                                                                    const newImages = [...(block.images || []), { url: '', align: 'center', size: 'large', alt: '' }];
+                                                                                    handleUpdateBlock(index, 'images', newImages);
+                                                                                }}
+                                                                                className="w-full py-2 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1 border border-dashed border-slate-300 dark:border-slate-700"
+                                                                            >
+                                                                                <Plus className="w-3.5 h-3.5" /> Add Image
+                                                                            </button>
+                                                                        </div>
+                                                                    )}
+                                                                    
+                                                                    {block.type !== 'image' && (
+                                                                        <div className="border-t border-slate-100 dark:border-slate-800/80 pt-5 mt-5 space-y-4">
+                                                                            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Images & Position Settings (Multi-Image Builder)</label>
+                                                                            
+                                                                            <div className="space-y-4">
+                                                                                {((block.images || []).length === 0 && block.imageUrl) ? (
+                                                                                    <div className="p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl text-xs text-amber-600 dark:text-amber-400 flex flex-col sm:flex-row gap-3 items-center justify-between">
+                                                                                        <span>This block has a legacy side image. Click "Migrate Image" to convert it to the new multi-image system.</span>
+                                                                                        <button
+                                                                                            type="button"
+                                                                                            onClick={() => {
+                                                                                                const newImages = [{ url: block.imageUrl, align: block.imageAlign || 'right', size: 'medium', alt: block.title || block.h2 || '' }];
+                                                                                                handleUpdateBlock(index, 'images', newImages);
+                                                                                                handleUpdateBlock(index, 'imageUrl', ''); // Clear legacy field to avoid duplication
+                                                                                            }}
+                                                                                            className="px-3 py-1 bg-amber-500 hover:bg-amber-600 text-white rounded-lg font-semibold transition-colors shrink-0 text-xs"
+                                                                                        >
+                                                                                            Migrate Image
+                                                                                        </button>
+                                                                                    </div>
+                                                                                ) : null}
 
-                                                        {block.type !== 'image' && (
-                                                            <div className="border-t border-slate-200 dark:border-slate-700 pt-5 mt-5">
-                                                                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Optional Side Image (Left or Right)</label>
-                                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                                    <ImageUploader
-                                                                        label="Upload Side Image"
-                                                                        value={block.imageUrl || ""}
-                                                                        onChange={(val) => handleUpdateBlock(index, 'imageUrl', val)}
-                                                                    />
-                                                                    {block.imageUrl && (
-                                                                        <select value={block.imageAlign || 'right'} onChange={(e) => handleUpdateBlock(index, 'imageAlign', e.target.value)} className="w-full h-fit bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white">
-                                                                            <option value="right">Image on Right Side</option>
-                                                                            <option value="left">Image on Left Side</option>
-                                                                        </select>
+                                                                                {((block.images || []).length === 0 && !block.imageUrl) && (
+                                                                                    <div className="p-4 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl text-center text-xs text-slate-400 bg-slate-50/20 dark:bg-transparent">
+                                                                                        No images added to this section.
+                                                                                    </div>
+                                                                                )}
+
+                                                                                {(block.images || []).map((img, imgIndex) => (
+                                                                                    <div key={imgIndex} className="p-4 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50/50 dark:bg-slate-900/30 relative space-y-4">
+                                                                                        <div className="flex justify-between items-center">
+                                                                                            <span className="text-[10px] font-bold text-slate-400 tracking-wider">IMAGE #{imgIndex + 1}</span>
+                                                                                            <button
+                                                                                                type="button"
+                                                                                                onClick={() => {
+                                                                                                    const newImages = [...(block.images || [])];
+                                                                                                    newImages.splice(imgIndex, 1);
+                                                                                                    handleUpdateBlock(index, 'images', newImages);
+                                                                                                }}
+                                                                                                className="text-red-500 hover:text-red-600 transition-colors"
+                                                                                                title="Remove Image"
+                                                                                            >
+                                                                                                <Trash2 className="w-3.5 h-3.5" />
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        
+                                                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+                                                                                            <ImageUploader
+                                                                                                label="Upload Image"
+                                                                                                value={img.url || ""}
+                                                                                                onChange={(val) => {
+                                                                                                    const newImages = [...(block.images || [])];
+                                                                                                    newImages[imgIndex] = { ...newImages[imgIndex], url: val };
+                                                                                                    handleUpdateBlock(index, 'images', newImages);
+                                                                                                }}
+                                                                                            />
+                                                                                            <div className="space-y-3">
+                                                                                                <div>
+                                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Position / Placement</label>
+                                                                                                    <select
+                                                                                                        value={img.align || 'right'}
+                                                                                                        onChange={(e) => {
+                                                                                                            const newImages = [...(block.images || [])];
+                                                                                                            newImages[imgIndex] = { ...newImages[imgIndex], align: e.target.value };
+                                                                                                            handleUpdateBlock(index, 'images', newImages);
+                                                                                                        }}
+                                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white"
+                                                                                                    >
+                                                                                                        <option value="left">Left of Content (Side Image)</option>
+                                                                                                        <option value="right">Right of Content (Side Image)</option>
+                                                                                                        <option value="top">Above Content (Top)</option>
+                                                                                                        <option value="bottom">Below Content (Bottom)</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                                
+                                                                                                <div>
+                                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Image Size</label>
+                                                                                                    <select
+                                                                                                        value={img.size || 'medium'}
+                                                                                                        onChange={(e) => {
+                                                                                                            const newImages = [...(block.images || [])];
+                                                                                                            newImages[imgIndex] = { ...newImages[imgIndex], size: e.target.value };
+                                                                                                            handleUpdateBlock(index, 'images', newImages);
+                                                                                                        }}
+                                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white"
+                                                                                                    >
+                                                                                                        <option value="small">Small (Max Width: md)</option>
+                                                                                                        <option value="medium">Medium (Max Width: 3xl)</option>
+                                                                                                        <option value="large">Large (Max Width: 5xl)</option>
+                                                                                                        <option value="full">Full Width</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                                
+                                                                                                <div>
+                                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Image Alt Text (SEO)</label>
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        value={img.alt || ''}
+                                                                                                        onChange={(e) => {
+                                                                                                            const newImages = [...(block.images || [])];
+                                                                                                            newImages[imgIndex] = { ...newImages[imgIndex], alt: e.target.value };
+                                                                                                            handleUpdateBlock(index, 'images', newImages);
+                                                                                                        }}
+                                                                                                        placeholder="Image alt text..."
+                                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white"
+                                                                                                    />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                ))}
+                                                                                
+                                                                                <button
+                                                                                    type="button"
+                                                                                    onClick={() => {
+                                                                                        const newImages = [...(block.images || []), { url: '', align: 'right', size: 'medium', alt: '' }];
+                                                                                        handleUpdateBlock(index, 'images', newImages);
+                                                                                    }}
+                                                                                    className="w-full py-2 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1 border border-dashed border-slate-300 dark:border-slate-700"
+                                                                                >
+                                                                                    <Plus className="w-3.5 h-3.5" /> Add Image
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    )}
+                                                                    
+                                                                    {block.type !== 'image' && (
+                                                                        <div className="border-t border-slate-100 dark:border-slate-800/80 pt-5 mt-5 space-y-4">
+                                                                            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Text Colors & Styling</label>
+                                                                            
+                                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                {/* Heading Color Settings */}
+                                                                                <div className="space-y-2 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
+                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Heading Color (H2 / H3 / Title)</label>
+                                                                                    <div className="flex gap-2">
+                                                                                        <select
+                                                                                            value={block.headingColorType || 'preset'}
+                                                                                            onChange={(e) => {
+                                                                                                handleUpdateBlock(index, 'headingColorType', e.target.value);
+                                                                                            }}
+                                                                                            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        >
+                                                                                            <option value="preset">Preset Gradients</option>
+                                                                                            <option value="custom">Custom Hex Picker</option>
+                                                                                        </select>
+                                                                                        
+                                                                                        {block.headingColorType === 'custom' ? (
+                                                                                            <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                                                                                                <input
+                                                                                                    type="color"
+                                                                                                    value={block.customHeadingColor || '#0f172a'}
+                                                                                                    onChange={(e) => handleUpdateBlock(index, 'customHeadingColor', e.target.value)}
+                                                                                                    className="w-8 h-8 rounded cursor-pointer border border-slate-200 dark:border-slate-700 bg-transparent shrink-0"
+                                                                                                />
+                                                                                                <input
+                                                                                                    type="text"
+                                                                                                    value={block.customHeadingColor || '#0f172a'}
+                                                                                                    onChange={(e) => handleUpdateBlock(index, 'customHeadingColor', e.target.value)}
+                                                                                                    placeholder="#0f172a"
+                                                                                                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white"
+                                                                                                />
+                                                                                            </div>
+                                                                                        ) : (
+                                                                                            <select
+                                                                                                value={block.headingColor || 'default'}
+                                                                                                onChange={(e) => handleUpdateBlock(index, 'headingColor', e.target.value)}
+                                                                                                className="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                            >
+                                                                                                <option value="default">Default Theme Colors</option>
+                                                                                                <option value="blue-gradient">Ocean Blue Gradient</option>
+                                                                                                <option value="indigo-gradient">Indigo Purple Gradient</option>
+                                                                                                <option value="emerald">Emerald Green</option>
+                                                                                                <option value="orange-gradient">Sunset Orange Gradient</option>
+                                                                                                <option value="amber">Amber Yellow</option>
+                                                                                                <option value="rose">Rose Red</option>
+                                                                                            </select>
+                                                                                        )}
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                                {/* Description/Text Color Settings */}
+                                                                                <div className="space-y-2 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
+                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Text Color (Description / Paragraphs)</label>
+                                                                                    <div className="flex gap-2">
+                                                                                        <select
+                                                                                            value={block.textColorType || 'preset'}
+                                                                                            onChange={(e) => {
+                                                                                                handleUpdateBlock(index, 'textColorType', e.target.value);
+                                                                                            }}
+                                                                                            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        >
+                                                                                            <option value="preset">Preset Colors</option>
+                                                                                            <option value="custom">Custom Hex Picker</option>
+                                                                                        </select>
+                                                                                        
+                                                                                        {block.textColorType === 'custom' ? (
+                                                                                            <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                                                                                                <input
+                                                                                                    type="color"
+                                                                                                    value={block.customTextColor || '#475569'}
+                                                                                                    onChange={(e) => handleUpdateBlock(index, 'customTextColor', e.target.value)}
+                                                                                                    className="w-8 h-8 rounded cursor-pointer border border-slate-200 dark:border-slate-700 bg-transparent shrink-0"
+                                                                                                />
+                                                                                                <input
+                                                                                                    type="text"
+                                                                                                    value={block.customTextColor || '#475569'}
+                                                                                                    onChange={(e) => handleUpdateBlock(index, 'customTextColor', e.target.value)}
+                                                                                                    placeholder="#475569"
+                                                                                                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white"
+                                                                                                />
+                                                                                            </div>
+                                                                                        ) : (
+                                                                                            <select
+                                                                                                value={block.textColor || 'default'}
+                                                                                                onChange={(e) => handleUpdateBlock(index, 'textColor', e.target.value)}
+                                                                                                className="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                            >
+                                                                                                <option value="default">Default Theme Colors</option>
+                                                                                                <option value="muted">Muted Slate Gray</option>
+                                                                                                <option value="indigo">Indigo Accent</option>
+                                                                                                <option value="emerald">Emerald Green</option>
+                                                                                                <option value="amber">Amber Yellow</option>
+                                                                                                <option value="rose">Rose Red</option>
+                                                                                            </select>
+                                                                                        )}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     )}
                                                                 </div>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                ))}
+                                                            )}
+                                                        </div>
+                                                    );
+                                                })}
                                             </div>
                                         )}
-
-
                                     </div>
                                 )}
 
