@@ -85,7 +85,9 @@ export default function WebsitePages() {
                     seoTitle: editFormData.seoTitle,
                     seoDescription: editFormData.seoDescription,
                     content: editFormData.content,
-                    templateType: editFormData.templateType
+                    templateType: editFormData.templateType,
+                    category: editFormData.category,
+                    subcategory: editFormData.subcategory
                 })
             });
             const data = await res.json();
@@ -309,7 +311,9 @@ export default function WebsitePages() {
                                                             seoTitle: page.seoTitle || "",
                                                             seoDescription: page.seoDescription || "",
                                                             content: page.content || {},
-                                                            templateType: page.templateType || "default"
+                                                            templateType: page.templateType || "default",
+                                                            category: page.category || "None",
+                                                            subcategory: page.subcategory || ""
                                                         });
                                                     }} className="inline-flex items-center justify-center p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors" title="View Page Data">
                                                         <Eye className="w-4 h-4" />
@@ -323,7 +327,9 @@ export default function WebsitePages() {
                                                                 seoTitle: page.seoTitle || "",
                                                                 seoDescription: page.seoDescription || "",
                                                                 content: page.content || {},
-                                                                templateType: page.templateType || "default"
+                                                                templateType: page.templateType || "default",
+                                                                category: page.category || "None",
+                                                                subcategory: page.subcategory || ""
                                                             });
                                                         }} className="inline-flex items-center justify-center p-2 text-slate-400 hover:text-cyan-500 hover:bg-cyan-500/10 rounded-lg transition-colors" title="Edit Page">
                                                             <Edit className="w-4 h-4" />
@@ -391,6 +397,7 @@ export default function WebsitePages() {
                                         >
                                             <option value="None">None</option>
                                             <option value="Solutions">Solutions</option>
+                                            <option value="Industries">Industries</option>
                                         </select>
                                     </div>
                                     {newCategory !== "None" && (
@@ -1500,6 +1507,34 @@ export default function WebsitePages() {
                                                 </select>
                                                 <p className="text-xs text-slate-500 mt-1">Select "CRM Template" to enable the Section Builder and hero banner for this page.</p>
                                             </div>
+                                            {editFormData.templateType !== 'location-template' && (
+                                                <>
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Category (Navbar Link)</label>
+                                                        <select
+                                                            value={editFormData.category || "None"}
+                                                            onChange={(e) => setEditFormData({ ...editFormData, category: e.target.value })}
+                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none transition-all shadow-sm"
+                                                        >
+                                                            <option value="None">None</option>
+                                                            <option value="Solutions">Solutions</option>
+                                                            <option value="Industries">Industries</option>
+                                                        </select>
+                                                    </div>
+                                                    {(editFormData.category || "None") !== "None" && (
+                                                        <div>
+                                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Sub-Category (Column Title)</label>
+                                                            <input
+                                                                type="text"
+                                                                value={editFormData.subcategory || ""}
+                                                                onChange={(e) => setEditFormData({ ...editFormData, subcategory: e.target.value })}
+                                                                placeholder="e.g. Web Development"
+                                                                className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none transition-all shadow-sm"
+                                                            />
+                                                        </div>
+                                                    )}
+                                                </>
+                                            )}
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">SEO Title</label>
                                                 <input
