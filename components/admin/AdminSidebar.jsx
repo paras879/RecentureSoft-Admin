@@ -92,7 +92,7 @@ export default function AdminSidebar() {
         hasAccess("meetings") && { name: "Meeting Requests", href: "/admin/meetings", icon: CalendarCheck },
         hasAccess("applications") && { name: "Job Applications", href: "/admin/applications", icon: Briefcase },
         hasAccess("subscribers") && { name: "Newsletter Subs", href: "/admin/subscribers", icon: Mail },
-        role === "super_admin" && { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
+        hasAccess("chats") && { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
         {
             name: "Manage Website",
             icon: Globe,

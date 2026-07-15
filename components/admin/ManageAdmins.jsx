@@ -19,6 +19,7 @@ const CONTENT_MODULES = [
     { id: 'applications', label: 'Job Applications' },
     { id: 'contact', label: 'Contact Messages' },
     { id: 'subscribers', label: 'Subscribers' },
+    { id: 'chats', label: 'AI Chat History' },
     { id: 'create_page', label: 'Create a Page' }
 ];
 
