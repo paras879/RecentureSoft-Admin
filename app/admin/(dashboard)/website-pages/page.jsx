@@ -566,7 +566,7 @@ export default function WebsitePages() {
                                         >
                                             <LayoutTemplate className="w-4 h-4" /> Events Hero
                                         </button>
-                                                                            <button
+                                        <button
                                             onClick={() => setActiveEditTab("events-timeline")}
                                             className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'events-timeline' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
                                         >
@@ -1168,7 +1168,7 @@ export default function WebsitePages() {
                                         >
                                             <FileText className="w-4 h-4" /> Page Content
                                         </button>
-                                        
+
                                         {activeEditTab === 'crm-content' && (
                                             <div className="flex flex-col gap-1.5 pl-6 mt-1 mb-2">
                                                 <button type="button" onClick={() => handleAddBlock('text')} className="text-left px-3 py-2 text-xs font-medium bg-cyan-50 text-cyan-700 dark:bg-cyan-500/10 dark:text-cyan-400 hover:bg-cyan-100 dark:hover:bg-cyan-500/20 rounded-lg transition-colors border border-cyan-100 dark:border-cyan-500/20 shadow-sm">+ Add Text Block</button>
@@ -1199,9 +1199,9 @@ export default function WebsitePages() {
                                         </button>
                                     </>
                                 )}
-                                
-                                
-                                
+
+
+
                                 {editPage.path === "/python-development" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("py-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'py-hero' ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
@@ -1230,13 +1230,13 @@ export default function WebsitePages() {
                                         </button>
                                     </>
                                 )}
-                                
-                                
-                                
-                                
-                                
-                                
-                                
+
+
+
+
+
+
+
                                 {editPage.path === "/next-js" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("nextjs-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'nextjs-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
@@ -1265,7 +1265,7 @@ export default function WebsitePages() {
                                     </>
                                 )}
 
-                                
+
                                 {editPage.path === "/react-native" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("reactnative-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'reactnative-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
@@ -1280,7 +1280,7 @@ export default function WebsitePages() {
                                     </>
                                 )}
 
-{editPage.path === "/react" && (
+                                {editPage.path === "/react" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("react-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'react-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Hero Section
@@ -1305,7 +1305,7 @@ export default function WebsitePages() {
                                     </>
                                 )}
 
-{editPage.path === "/iphone-apps-development" && (
+                                {editPage.path === "/iphone-apps-development" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("iphone-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'iphone-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Hero Section
@@ -1325,7 +1325,7 @@ export default function WebsitePages() {
                                     </>
                                 )}
 
-{editPage.path === "/ipad-app-development" && (
+                                {editPage.path === "/ipad-app-development" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("ipad-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'ipad-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Hero Section
@@ -1342,7 +1342,7 @@ export default function WebsitePages() {
                                     </>
                                 )}
 
-{editPage.path === "/php-development" && (
+                                {editPage.path === "/php-development" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("php-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'php-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Hero Section
@@ -1371,7 +1371,7 @@ export default function WebsitePages() {
                                     </>
                                 )}
 
-{editPage.path === "/flutter" && (
+                                {editPage.path === "/flutter" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("flutter-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'flutter-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Hero Section
@@ -1400,7 +1400,7 @@ export default function WebsitePages() {
                                     </>
                                 )}
 
-{editPage.path === "/javascript-development" && (
+                                {editPage.path === "/javascript-development" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("js-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'js-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Hero Section
@@ -1429,7 +1429,7 @@ export default function WebsitePages() {
                                     </>
                                 )}
 
-{editPage.path === "/laravel-development" && (
+                                {editPage.path === "/laravel-development" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("laravel-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'laravel-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Hero Section
@@ -1458,7 +1458,7 @@ export default function WebsitePages() {
                                     </>
                                 )}
 
-{editPage.path === "/cookies" && (
+                                {editPage.path === "/cookies" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("cookies-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'cookies-hero' ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Hero Settings
@@ -1523,7 +1523,7 @@ export default function WebsitePages() {
                                                     <option value="default">Default Blank Template</option>
                                                     <option value="crm-template">CRM/Solutions Template</option>
                                                     <option value="location-template">Location Pages Template</option>
-                                    <option value="android-template">Android App Template</option>
+                                                    <option value="android-template">Android App Template</option>
                                                 </select>
                                                 <p className="text-xs text-slate-500 mt-1">Select "CRM Template" to enable the Section Builder and hero banner for this page.</p>
                                             </div>
@@ -1578,13 +1578,13 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-                                
-                                
-                                
-                                
-                                
-                                
-                                
+
+
+
+
+
+
+
                                 {/* NEXT.JS HERO TAB */}
                                 {activeEditTab === "nextjs-hero" && editPage.path === "/next-js" && (
                                     <div className="max-w-3xl space-y-6">
@@ -1629,7 +1629,7 @@ export default function WebsitePages() {
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Cinematic Overview & SEO</h3>
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
-                                            
+
                                             {/* Overview content */}
                                             <div className="space-y-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Overview Headers & Theme</h4>
@@ -1827,7 +1827,7 @@ export default function WebsitePages() {
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Cinematic Overview & SEO</h3>
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
-                                            
+
                                             {/* Overview content */}
                                             <div className="space-y-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Overview Headers & Theme</h4>
@@ -1981,7 +1981,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-                                
+
                                 {/* REACT NATIVE HERO TAB */}
                                 {activeEditTab === "reactnative-hero" && editPage.path === "/react-native" && (
                                     <div className="max-w-3xl space-y-6">
@@ -2032,7 +2032,7 @@ export default function WebsitePages() {
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">React Native Cinematic Overview & SEO</h3>
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
-                                            
+
                                             {/* Overview content */}
                                             <div className="space-y-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Overview Headers & Theme</h4>
@@ -2186,7 +2186,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* REACT HERO TAB */}
+                                {/* REACT HERO TAB */}
                                 {activeEditTab === "react-hero" && editPage.path === "/react" && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">React Hero Section</h3>
@@ -2230,7 +2230,7 @@ export default function WebsitePages() {
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">React Cinematic Overview & SEO</h3>
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
-                                            
+
                                             {/* Overview content */}
                                             <div className="space-y-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Overview Headers & Theme</h4>
@@ -2384,7 +2384,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* SEO PACKAGE HERO TAB */}
+                                {/* SEO PACKAGE HERO TAB */}
                                 {activeEditTab === "seopackage-hero" && editPage.path === "/seo-package" && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">SEO Package — Hero Section</h3>
@@ -2459,10 +2459,10 @@ export default function WebsitePages() {
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
                                             <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Minimum Contract Period (per plan)</h4>
                                             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                                {(editFormData.content?.minContractPeriodValues || ["","","",""]).map((val, idx) => (
+                                                {(editFormData.content?.minContractPeriodValues || ["", "", "", ""]).map((val, idx) => (
                                                     <div key={idx}>
                                                         <label className="block text-xs text-slate-500 mb-1">Plan {idx + 1}</label>
-                                                        <input type="text" value={val || ""} onChange={(e) => { const v = [...(editFormData.content?.minContractPeriodValues || ["","","",""])]; v[idx] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, minContractPeriodValues: v } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" placeholder="6 Months" />
+                                                        <input type="text" value={val || ""} onChange={(e) => { const v = [...(editFormData.content?.minContractPeriodValues || ["", "", "", ""])]; v[idx] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, minContractPeriodValues: v } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" placeholder="6 Months" />
                                                     </div>
                                                 ))}
                                             </div>
@@ -2504,7 +2504,7 @@ export default function WebsitePages() {
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-3">
                                             <div className="flex items-center justify-between border-b pb-2">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">Content Marketing Per Month (per-plan values)</h4>
-                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.contentMarketing || []), { name: "", values: ["","","",""] }]; setEditFormData({ ...editFormData, content: { ...editFormData.content, contentMarketing: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Row</button>
+                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.contentMarketing || []), { name: "", values: ["", "", "", ""] }]; setEditFormData({ ...editFormData, content: { ...editFormData.content, contentMarketing: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Row</button>
                                             </div>
                                             <div className="space-y-3">
                                                 {(editFormData.content?.contentMarketing || []).map((row, idx) => (
@@ -2514,9 +2514,9 @@ export default function WebsitePages() {
                                                             <button type="button" onClick={() => { const list = [...(editFormData.content?.contentMarketing || [])]; list.splice(idx, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, contentMarketing: list } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
                                                         </div>
                                                         <div className="grid grid-cols-4 gap-2">
-                                                            {(row.values || ["","","",""]).map((val, vIdx) => (
+                                                            {(row.values || ["", "", "", ""]).map((val, vIdx) => (
                                                                 <div key={vIdx}>
-                                                                    <label className="block text-xs text-slate-400 mb-1">Plan {vIdx+1}</label>
+                                                                    <label className="block text-xs text-slate-400 mb-1">Plan {vIdx + 1}</label>
                                                                     <input type="text" value={val || ""} onChange={(e) => { const list = [...(editFormData.content?.contentMarketing || [])]; const vals = [...(list[idx].values || [])]; vals[vIdx] = e.target.value; list[idx] = { ...list[idx], values: vals }; setEditFormData({ ...editFormData, content: { ...editFormData.content, contentMarketing: list } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs" />
                                                                 </div>
                                                             ))}
@@ -2530,7 +2530,7 @@ export default function WebsitePages() {
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-3">
                                             <div className="flex items-center justify-between border-b pb-2">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">SMO Per Month (per-plan values)</h4>
-                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.smo || []), { name: "", values: ["","","",""] }]; setEditFormData({ ...editFormData, content: { ...editFormData.content, smo: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Row</button>
+                                                <button type="button" onClick={() => { const list = [...(editFormData.content?.smo || []), { name: "", values: ["", "", "", ""] }]; setEditFormData({ ...editFormData, content: { ...editFormData.content, smo: list } }); }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs rounded">+ Add Row</button>
                                             </div>
                                             <div className="space-y-3">
                                                 {(editFormData.content?.smo || []).map((row, idx) => (
@@ -2540,9 +2540,9 @@ export default function WebsitePages() {
                                                             <button type="button" onClick={() => { const list = [...(editFormData.content?.smo || [])]; list.splice(idx, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, smo: list } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
                                                         </div>
                                                         <div className="grid grid-cols-4 gap-2">
-                                                            {(row.values || ["","","",""]).map((val, vIdx) => (
+                                                            {(row.values || ["", "", "", ""]).map((val, vIdx) => (
                                                                 <div key={vIdx}>
-                                                                    <label className="block text-xs text-slate-400 mb-1">Plan {vIdx+1}</label>
+                                                                    <label className="block text-xs text-slate-400 mb-1">Plan {vIdx + 1}</label>
                                                                     <input type="text" value={val || ""} onChange={(e) => { const list = [...(editFormData.content?.smo || [])]; const vals = [...(list[idx].values || [])]; vals[vIdx] = e.target.value; list[idx] = { ...list[idx], values: vals }; setEditFormData({ ...editFormData, content: { ...editFormData.content, smo: list } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs" />
                                                                 </div>
                                                             ))}
@@ -2602,7 +2602,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* IPHONE HERO TAB */}
+                                {/* IPHONE HERO TAB */}
                                 {activeEditTab === "iphone-hero" && editPage.path === "/iphone-apps-development" && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">iPhone Hero Section</h3>
@@ -2685,7 +2685,7 @@ export default function WebsitePages() {
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why iOS & Partner Settings</h3>
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
-                                            
+
                                             {/* Why iOS */}
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
@@ -2760,7 +2760,7 @@ export default function WebsitePages() {
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Process & Industry Experience</h3>
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
-                                            
+
                                             {/* Process */}
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
@@ -2830,7 +2830,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* IPAD HERO TAB */}
+                                {/* IPAD HERO TAB */}
                                 {activeEditTab === "ipad-hero" && editPage.path === "/ipad-app-development" && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">iPad Hero Section</h3>
@@ -2918,7 +2918,7 @@ export default function WebsitePages() {
                                         </div>
                                     </div>
                                 )}
-{activeEditTab === "ipad-services" && editPage.path === "/ipad-app-development" && (
+                                {activeEditTab === "ipad-services" && editPage.path === "/ipad-app-development" && (
                                     <div className="max-w-3xl space-y-6">
                                         <div className="flex items-center justify-between">
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Our iPad App Services</h3>
@@ -3017,7 +3017,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* PHP HERO TAB */}
+                                {/* PHP HERO TAB */}
                                 {activeEditTab === "php-hero" && editPage.path === "/php-development" && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">PHP Hero Section</h3>
@@ -3283,7 +3283,7 @@ export default function WebsitePages() {
                                                     }} className="px-2 py-1 bg-cyan-50 text-cyan-600 text-xs rounded">+ Add Feature</button>
                                                 </div>
                                                 <input type="text" value={editFormData.content?.featuresTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, featuresTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
-                                                
+
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                     {(editFormData.content?.featuresList || []).map((item, index) => (
                                                         <div key={index} className="flex gap-2 bg-slate-50 dark:bg-slate-900 p-2 rounded-lg border border-slate-200 dark:border-slate-700">
@@ -3401,7 +3401,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* FLUTTER HERO TAB */}
+                                {/* FLUTTER HERO TAB */}
                                 {activeEditTab === "flutter-hero" && editPage.path === "/flutter" && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Flutter Hero Section</h3>
@@ -3667,7 +3667,7 @@ export default function WebsitePages() {
                                                     }} className="px-2 py-1 bg-cyan-50 text-cyan-600 text-xs rounded">+ Add Feature</button>
                                                 </div>
                                                 <input type="text" value={editFormData.content?.featuresTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, featuresTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
-                                                
+
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                     {(editFormData.content?.featuresList || []).map((item, index) => (
                                                         <div key={index} className="flex gap-2 bg-slate-50 dark:bg-slate-900 p-2 rounded-lg border border-slate-200 dark:border-slate-700">
@@ -3785,7 +3785,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* JAVASCRIPT HERO TAB */}
+                                {/* JAVASCRIPT HERO TAB */}
                                 {activeEditTab === "js-hero" && editPage.path === "/javascript-development" && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">JavaScript Hero Section</h3>
@@ -4102,7 +4102,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* LARAVEL HERO TAB */}
+                                {/* LARAVEL HERO TAB */}
                                 {activeEditTab === "laravel-hero" && editPage.path === "/laravel-development" && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Laravel Hero Section</h3>
@@ -4365,7 +4365,7 @@ export default function WebsitePages() {
                                                     }} className="px-2 py-1 bg-cyan-50 text-cyan-600 text-xs rounded">+ Add Feature</button>
                                                 </div>
                                                 <input type="text" value={editFormData.content?.featuresTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, featuresTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
-                                                
+
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                     {(editFormData.content?.featuresList || []).map((item, index) => (
                                                         <div key={index} className="flex gap-2 bg-slate-50 dark:bg-slate-900 p-2 rounded-lg border border-slate-200 dark:border-slate-700">
@@ -4469,7 +4469,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* ABOUT HERO TAB (For About Page) */}
+                                {/* ABOUT HERO TAB (For About Page) */}
                                 {activeEditTab === "about-hero" && editPage.path === "/about" && (
                                     <div className="max-w-3xl space-y-6">
                                         <div className="flex items-center justify-between">
@@ -4516,9 +4516,9 @@ export default function WebsitePages() {
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.aboutHero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aboutHero: { ...editFormData.content?.aboutHero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.aboutHero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aboutHero: { ...editFormData.content?.aboutHero, bannerImage: url } } })}
                                                     />
                                                 </div>
                                                 <div className="md:col-span-2">
@@ -4623,7 +4623,7 @@ export default function WebsitePages() {
                                                 </div>
                                                 {["Agile Development", "Enterprise Security", "Cloud Native", "Global Delivery", "AI First Approach"].map((title, index) => (
                                                     <div key={index} className="md:col-span-1">
-                                                        <ImageUploader 
+                                                        <ImageUploader
                                                             label={`${title} Image`}
                                                             value={editFormData.content?.whyChoose?.bentoImages?.[index] || ""}
                                                             onChange={(url) => {
@@ -4745,7 +4745,7 @@ export default function WebsitePages() {
                                                     const displayImages = [...cultureImages, ""];
                                                     return displayImages.map((imgSrc, index) => (
                                                         <div key={index} className="md:col-span-1">
-                                                            <ImageUploader 
+                                                            <ImageUploader
                                                                 label={`Image ${index + 1}`}
                                                                 value={imgSrc}
                                                                 onChange={(url) => {
@@ -4755,15 +4755,15 @@ export default function WebsitePages() {
                                                                     } else {
                                                                         newImages[index] = url;
                                                                     }
-                                                                    setEditFormData({ 
-                                                                        ...editFormData, 
-                                                                        content: { 
-                                                                            ...editFormData.content, 
-                                                                            culture: { 
-                                                                                ...editFormData.content?.culture, 
-                                                                                images: newImages 
-                                                                            } 
-                                                                        } 
+                                                                    setEditFormData({
+                                                                        ...editFormData,
+                                                                        content: {
+                                                                            ...editFormData.content,
+                                                                            culture: {
+                                                                                ...editFormData.content?.culture,
+                                                                                images: newImages
+                                                                            }
+                                                                        }
                                                                     });
                                                                 }}
                                                             />
@@ -4790,7 +4790,7 @@ export default function WebsitePages() {
                                             <h4 className="text-md font-bold text-slate-800 dark:text-slate-200 uppercase mb-2 border-b border-slate-100 dark:border-slate-700 pb-2">Global Leadership</h4>
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="md:col-span-2">
-                                                    <ImageUploader 
+                                                    <ImageUploader
                                                         label="Leader Avatar"
                                                         value={editFormData.content?.leadership?.avatarUrl || ""}
                                                         onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, leadership: { ...editFormData.content?.leadership, avatarUrl: url } } })}
@@ -4851,9 +4851,9 @@ export default function WebsitePages() {
 
                                                 <div className="md:col-span-2 mt-4">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.hero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.hero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerImage: url } } })}
                                                     />
                                                 </div>
                                                 <div className="md:col-span-2">
@@ -4908,14 +4908,14 @@ export default function WebsitePages() {
                                                     <textarea value={editFormData.content?.transformations?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, transformations: { ...editFormData.content?.transformations, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Compare legacy systems with modern digital experiences..." />
                                                 </div>
                                                 <div className="md:col-span-1">
-                                                    <ImageUploader 
+                                                    <ImageUploader
                                                         label="Before Image (Legacy)"
                                                         value={editFormData.content?.transformations?.beforeImage || ""}
                                                         onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, transformations: { ...editFormData.content?.transformations, beforeImage: url } } })}
                                                     />
                                                 </div>
                                                 <div className="md:col-span-1">
-                                                    <ImageUploader 
+                                                    <ImageUploader
                                                         label="After Image (Modernized)"
                                                         value={editFormData.content?.transformations?.afterImage || ""}
                                                         onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, transformations: { ...editFormData.content?.transformations, afterImage: url } } })}
@@ -4958,10 +4958,10 @@ export default function WebsitePages() {
                                         </div>
                                     </div>
                                 )}
-                                
-                                
-                                
-                                
+
+
+
+
 
                                 {/* AMAZON INTRO TAB */}
                                 {activeEditTab === "amazon-intro" && editPage.path === "/amazon-store-management" && (
@@ -5000,10 +5000,10 @@ export default function WebsitePages() {
 
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
-                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}]).length})</h4>
-                                                    <button 
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.amazonServices?.cards || [{}, {}, {}, {}, {}]).length})</h4>
+                                                    <button
                                                         onClick={() => {
-                                                            const currentCards = editFormData.content?.amazonServices?.cards || [{},{},{},{},{}];
+                                                            const currentCards = editFormData.content?.amazonServices?.cards || [{}, {}, {}, {}, {}];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, cards: [...currentCards, {}] } } });
                                                         }}
                                                         className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
@@ -5011,13 +5011,13 @@ export default function WebsitePages() {
                                                         <Plus className="w-4 h-4" /> Add Card
                                                     </button>
                                                 </div>
-                                                {(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}]).map((card, i) => (
+                                                {(editFormData.content?.amazonServices?.cards || [{}, {}, {}, {}, {}]).map((card, i) => (
                                                     <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
                                                         <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
-                                                            <button 
+                                                            <div className="font-medium text-sm text-slate-500">Card {i + 1}</div>
+                                                            <button
                                                                 onClick={() => {
-                                                                    const currentCards = [...(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}])];
+                                                                    const currentCards = [...(editFormData.content?.amazonServices?.cards || [{}, {}, {}, {}, {}])];
                                                                     currentCards.splice(i, 1);
                                                                     setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, cards: currentCards } } });
                                                                 }}
@@ -5027,28 +5027,28 @@ export default function WebsitePages() {
                                                                 <Trash2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
-                                                        
+
                                                         <input type="text" value={card.title || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}])];
+                                                            const newCards = [...(editFormData.content?.amazonServices?.cards || [{}, {}, {}, {}, {}])];
                                                             newCards[i] = { ...newCards[i], title: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Service Title" />
-                                                        
+
                                                         <textarea value={card.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}])];
+                                                            const newCards = [...(editFormData.content?.amazonServices?.cards || [{}, {}, {}, {}, {}])];
                                                             newCards[i] = { ...newCards[i], desc: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Service Description" rows={2} />
-                                                        
+
                                                         <div>
                                                             <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
+                                                            <ImageUploader
+                                                                value={card.image || ""}
                                                                 onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.amazonServices?.cards || [{},{},{},{},{}])];
+                                                                    const newCards = [...(editFormData.content?.amazonServices?.cards || [{}, {}, {}, {}, {}])];
                                                                     newCards[i] = { ...newCards[i], image: url };
                                                                     setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonServices: { ...editFormData.content?.amazonServices, cards: newCards } } });
-                                                                }} 
+                                                                }}
                                                             />
                                                         </div>
                                                     </div>
@@ -5110,10 +5110,10 @@ export default function WebsitePages() {
 
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
-                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Benefit Cards ({(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}]).length})</h4>
-                                                    <button 
+                                                    <h4 className="font-semibold text-slate-800 dark:text-slate-200">Benefit Cards ({(editFormData.content?.amazonBenefits?.cards || [{}, {}, {}, {}, {}, {}]).length})</h4>
+                                                    <button
                                                         onClick={() => {
-                                                            const currentCards = editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}];
+                                                            const currentCards = editFormData.content?.amazonBenefits?.cards || [{}, {}, {}, {}, {}, {}];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, cards: [...currentCards, {}] } } });
                                                         }}
                                                         className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 transition-colors"
@@ -5121,13 +5121,13 @@ export default function WebsitePages() {
                                                         <Plus className="w-4 h-4" /> Add Card
                                                     </button>
                                                 </div>
-                                                {(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}]).map((card, i) => (
+                                                {(editFormData.content?.amazonBenefits?.cards || [{}, {}, {}, {}, {}, {}]).map((card, i) => (
                                                     <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
                                                         <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
-                                                            <button 
+                                                            <div className="font-medium text-sm text-slate-500">Card {i + 1}</div>
+                                                            <button
                                                                 onClick={() => {
-                                                                    const currentCards = [...(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}])];
+                                                                    const currentCards = [...(editFormData.content?.amazonBenefits?.cards || [{}, {}, {}, {}, {}, {}])];
                                                                     currentCards.splice(i, 1);
                                                                     setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, cards: currentCards } } });
                                                                 }}
@@ -5137,28 +5137,28 @@ export default function WebsitePages() {
                                                                 <Trash2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
-                                                        
+
                                                         <input type="text" value={card.title || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}])];
+                                                            const newCards = [...(editFormData.content?.amazonBenefits?.cards || [{}, {}, {}, {}, {}, {}])];
                                                             newCards[i] = { ...newCards[i], title: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Benefit Title" />
-                                                        
+
                                                         <textarea value={card.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}])];
+                                                            const newCards = [...(editFormData.content?.amazonBenefits?.cards || [{}, {}, {}, {}, {}, {}])];
                                                             newCards[i] = { ...newCards[i], desc: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Benefit Description" rows={2} />
-                                                        
+
                                                         <div>
                                                             <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
+                                                            <ImageUploader
+                                                                value={card.image || ""}
                                                                 onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.amazonBenefits?.cards || [{},{},{},{},{},{}])];
+                                                                    const newCards = [...(editFormData.content?.amazonBenefits?.cards || [{}, {}, {}, {}, {}, {}])];
                                                                     newCards[i] = { ...newCards[i], image: url };
                                                                     setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonBenefits: { ...editFormData.content?.amazonBenefits, cards: newCards } } });
-                                                                }} 
+                                                                }}
                                                             />
                                                         </div>
                                                     </div>
@@ -5194,9 +5194,9 @@ export default function WebsitePages() {
                                                 </div>
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.amazonHero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonHero: { ...editFormData.content?.amazonHero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.amazonHero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, amazonHero: { ...editFormData.content?.amazonHero, bannerImage: url } } })}
                                                     />
                                                     <p className="text-xs text-slate-500 mt-1">Recommended size: 1920x1080 (WebP or WebM for videos)</p>
                                                 </div>
@@ -5265,7 +5265,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Benefit Cards ({(editFormData.content?.openBenefits?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const arrName = 'cards';
                                                             const currentCards = editFormData.content?.openBenefits?.[arrName] || [];
@@ -5279,51 +5279,52 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.openBenefits?.cards || []).map((card, i) => {
                                                     const val = typeof card === 'string' ? { title: card } : card;
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const arrName = 'cards';
-                                                                    const currentCards = [...(editFormData.content?.openBenefits?.[arrName] || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, [arrName]: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                                title="Delete Item"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const arrName = 'cards';
+                                                                        const currentCards = [...(editFormData.content?.openBenefits?.[arrName] || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, [arrName]: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                    title="Delete Item"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={val.title || ""} onChange={(e) => {
+                                                                const arrName = 'cards';
+                                                                const newCards = [...(editFormData.content?.openBenefits?.[arrName] || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, [arrName]: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+
+                                                            <textarea value={val.desc || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.openBenefits?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                                <ImageUploader
+                                                                    value={val.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newCards = [...(editFormData.content?.openBenefits?.cards || [])];
+                                                                        newCards[i] = { ...newCards[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, cards: newCards } } });
+                                                                    }}
+                                                                />
+                                                            </div>
+
                                                         </div>
-                                                        
-                                                        <input type="text" value={val.title || ""} onChange={(e) => {
-                                                            const arrName = 'cards';
-                                                            const newCards = [...(editFormData.content?.openBenefits?.[arrName] || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, [arrName]: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        
-                                                        <textarea value={val.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.openBenefits?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={val.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.openBenefits?.cards || [])];
-                                                                    newCards[i] = { ...newCards[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openBenefits: { ...editFormData.content?.openBenefits, cards: newCards } } });
-                                                                }} 
-                                                            />
-                                                        </div>
-                                                        
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -5345,7 +5346,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Solution Cards ({(editFormData.content?.openSolutions?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const arrName = 'cards';
                                                             const currentCards = editFormData.content?.openSolutions?.[arrName] || [];
@@ -5359,51 +5360,52 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.openSolutions?.cards || []).map((card, i) => {
                                                     const val = typeof card === 'string' ? { title: card } : card;
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const arrName = 'cards';
-                                                                    const currentCards = [...(editFormData.content?.openSolutions?.[arrName] || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, [arrName]: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                                title="Delete Item"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const arrName = 'cards';
+                                                                        const currentCards = [...(editFormData.content?.openSolutions?.[arrName] || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, [arrName]: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                    title="Delete Item"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={val.title || ""} onChange={(e) => {
+                                                                const arrName = 'cards';
+                                                                const newCards = [...(editFormData.content?.openSolutions?.[arrName] || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, [arrName]: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+
+                                                            <textarea value={val.desc || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.openSolutions?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                                <ImageUploader
+                                                                    value={val.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newCards = [...(editFormData.content?.openSolutions?.cards || [])];
+                                                                        newCards[i] = { ...newCards[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, cards: newCards } } });
+                                                                    }}
+                                                                />
+                                                            </div>
+
                                                         </div>
-                                                        
-                                                        <input type="text" value={val.title || ""} onChange={(e) => {
-                                                            const arrName = 'cards';
-                                                            const newCards = [...(editFormData.content?.openSolutions?.[arrName] || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, [arrName]: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        
-                                                        <textarea value={val.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.openSolutions?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={val.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.openSolutions?.cards || [])];
-                                                                    newCards[i] = { ...newCards[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openSolutions: { ...editFormData.content?.openSolutions, cards: newCards } } });
-                                                                }} 
-                                                            />
-                                                        </div>
-                                                        
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -5425,7 +5427,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Steps ({(editFormData.content?.openProcess?.steps || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const arrName = 'steps';
                                                             const currentCards = editFormData.content?.openProcess?.[arrName] || [];
@@ -5439,33 +5441,34 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.openProcess?.steps || []).map((card, i) => {
                                                     const val = typeof card === 'string' ? { title: card } : card;
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const arrName = 'steps';
-                                                                    const currentCards = [...(editFormData.content?.openProcess?.[arrName] || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openProcess: { ...editFormData.content?.openProcess, [arrName]: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                                title="Delete Item"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const arrName = 'steps';
+                                                                        const currentCards = [...(editFormData.content?.openProcess?.[arrName] || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, openProcess: { ...editFormData.content?.openProcess, [arrName]: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                    title="Delete Item"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={val.title || ""} onChange={(e) => {
+                                                                const arrName = 'steps';
+                                                                const newCards = [...(editFormData.content?.openProcess?.[arrName] || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, openProcess: { ...editFormData.content?.openProcess, [arrName]: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+
                                                         </div>
-                                                        
-                                                        <input type="text" value={val.title || ""} onChange={(e) => {
-                                                            const arrName = 'steps';
-                                                            const newCards = [...(editFormData.content?.openProcess?.[arrName] || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openProcess: { ...editFormData.content?.openProcess, [arrName]: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -5487,7 +5490,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Industries ({(editFormData.content?.openIndustries?.steps || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const arrName = 'steps';
                                                             const currentCards = editFormData.content?.openIndustries?.[arrName] || [];
@@ -5501,33 +5504,34 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.openIndustries?.steps || []).map((card, i) => {
                                                     const val = typeof card === 'string' ? { title: card } : card;
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const arrName = 'steps';
-                                                                    const currentCards = [...(editFormData.content?.openIndustries?.[arrName] || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, openIndustries: { ...editFormData.content?.openIndustries, [arrName]: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                                title="Delete Item"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const arrName = 'steps';
+                                                                        const currentCards = [...(editFormData.content?.openIndustries?.[arrName] || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, openIndustries: { ...editFormData.content?.openIndustries, [arrName]: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                    title="Delete Item"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={val.title || ""} onChange={(e) => {
+                                                                const arrName = 'steps';
+                                                                const newCards = [...(editFormData.content?.openIndustries?.[arrName] || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, openIndustries: { ...editFormData.content?.openIndustries, [arrName]: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+
                                                         </div>
-                                                        
-                                                        <input type="text" value={val.title || ""} onChange={(e) => {
-                                                            const arrName = 'steps';
-                                                            const newCards = [...(editFormData.content?.openIndustries?.[arrName] || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, openIndustries: { ...editFormData.content?.openIndustries, [arrName]: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -5583,9 +5587,9 @@ export default function WebsitePages() {
                                                 </div>
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.opencartHero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, opencartHero: { ...editFormData.content?.opencartHero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.opencartHero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, opencartHero: { ...editFormData.content?.opencartHero, bannerImage: url } } })}
                                                     />
                                                     <p className="text-xs text-slate-500 mt-1">Recommended size: 1920x1080 (WebP or WebM for videos)</p>
                                                 </div>
@@ -5631,7 +5635,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Reason Cards ({(editFormData.content?.magentoReasons?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentCards = editFormData.content?.magentoReasons?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoReasons: { ...editFormData.content?.magentoReasons, cards: [...currentCards, {}] } } });
@@ -5644,8 +5648,8 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.magentoReasons?.cards || []).map((card, i) => (
                                                     <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
                                                         <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
-                                                            <button 
+                                                            <div className="font-medium text-sm text-slate-500">Card {i + 1}</div>
+                                                            <button
                                                                 onClick={() => {
                                                                     const currentCards = [...(editFormData.content?.magentoReasons?.cards || [])];
                                                                     currentCards.splice(i, 1);
@@ -5657,28 +5661,28 @@ export default function WebsitePages() {
                                                                 <Trash2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
-                                                        
+
                                                         <input type="text" value={card.title || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.magentoReasons?.cards || [])];
                                                             newCards[i] = { ...newCards[i], title: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoReasons: { ...editFormData.content?.magentoReasons, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
+
                                                         <textarea value={card.desc || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.magentoReasons?.cards || [])];
                                                             newCards[i] = { ...newCards[i], desc: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoReasons: { ...editFormData.content?.magentoReasons, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
+
                                                         <div>
                                                             <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
+                                                            <ImageUploader
+                                                                value={card.image || ""}
                                                                 onChange={(url) => {
                                                                     const newCards = [...(editFormData.content?.magentoReasons?.cards || [])];
                                                                     newCards[i] = { ...newCards[i], image: url };
                                                                     setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoReasons: { ...editFormData.content?.magentoReasons, cards: newCards } } });
-                                                                }} 
+                                                                }}
                                                             />
                                                         </div>
                                                     </div>
@@ -5704,7 +5708,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Steps ({(editFormData.content?.magentoProcess?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentCards = editFormData.content?.magentoProcess?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoProcess: { ...editFormData.content?.magentoProcess, cards: [...currentCards, {}] } } });
@@ -5717,8 +5721,8 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.magentoProcess?.cards || []).map((card, i) => (
                                                     <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
                                                         <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
-                                                            <button 
+                                                            <div className="font-medium text-sm text-slate-500">Card {i + 1}</div>
+                                                            <button
                                                                 onClick={() => {
                                                                     const currentCards = [...(editFormData.content?.magentoProcess?.cards || [])];
                                                                     currentCards.splice(i, 1);
@@ -5730,28 +5734,28 @@ export default function WebsitePages() {
                                                                 <Trash2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
-                                                        
+
                                                         <input type="text" value={card.title || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.magentoProcess?.cards || [])];
                                                             newCards[i] = { ...newCards[i], title: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoProcess: { ...editFormData.content?.magentoProcess, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
+
                                                         <textarea value={card.desc || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.magentoProcess?.cards || [])];
                                                             newCards[i] = { ...newCards[i], desc: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoProcess: { ...editFormData.content?.magentoProcess, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
+
                                                         <div>
                                                             <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
+                                                            <ImageUploader
+                                                                value={card.image || ""}
                                                                 onChange={(url) => {
                                                                     const newCards = [...(editFormData.content?.magentoProcess?.cards || [])];
                                                                     newCards[i] = { ...newCards[i], image: url };
                                                                     setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoProcess: { ...editFormData.content?.magentoProcess, cards: newCards } } });
-                                                                }} 
+                                                                }}
                                                             />
                                                         </div>
                                                     </div>
@@ -5777,7 +5781,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Benefit Cards ({(editFormData.content?.magentoBenefits?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentCards = editFormData.content?.magentoBenefits?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoBenefits: { ...editFormData.content?.magentoBenefits, cards: [...currentCards, {}] } } });
@@ -5790,8 +5794,8 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.magentoBenefits?.cards || []).map((card, i) => (
                                                     <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
                                                         <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
-                                                            <button 
+                                                            <div className="font-medium text-sm text-slate-500">Card {i + 1}</div>
+                                                            <button
                                                                 onClick={() => {
                                                                     const currentCards = [...(editFormData.content?.magentoBenefits?.cards || [])];
                                                                     currentCards.splice(i, 1);
@@ -5803,28 +5807,28 @@ export default function WebsitePages() {
                                                                 <Trash2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
-                                                        
+
                                                         <input type="text" value={card.title || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.magentoBenefits?.cards || [])];
                                                             newCards[i] = { ...newCards[i], title: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoBenefits: { ...editFormData.content?.magentoBenefits, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
+
                                                         <textarea value={card.desc || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.magentoBenefits?.cards || [])];
                                                             newCards[i] = { ...newCards[i], desc: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoBenefits: { ...editFormData.content?.magentoBenefits, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
+
                                                         <div>
                                                             <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
+                                                            <ImageUploader
+                                                                value={card.image || ""}
                                                                 onChange={(url) => {
                                                                     const newCards = [...(editFormData.content?.magentoBenefits?.cards || [])];
                                                                     newCards[i] = { ...newCards[i], image: url };
                                                                     setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoBenefits: { ...editFormData.content?.magentoBenefits, cards: newCards } } });
-                                                                }} 
+                                                                }}
                                                             />
                                                         </div>
                                                     </div>
@@ -5850,7 +5854,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.magentoServices?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentCards = editFormData.content?.magentoServices?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoServices: { ...editFormData.content?.magentoServices, cards: [...currentCards, {}] } } });
@@ -5863,8 +5867,8 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.magentoServices?.cards || []).map((card, i) => (
                                                     <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
                                                         <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
-                                                            <button 
+                                                            <div className="font-medium text-sm text-slate-500">Card {i + 1}</div>
+                                                            <button
                                                                 onClick={() => {
                                                                     const currentCards = [...(editFormData.content?.magentoServices?.cards || [])];
                                                                     currentCards.splice(i, 1);
@@ -5876,28 +5880,28 @@ export default function WebsitePages() {
                                                                 <Trash2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
-                                                        
+
                                                         <input type="text" value={card.title || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.magentoServices?.cards || [])];
                                                             newCards[i] = { ...newCards[i], title: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoServices: { ...editFormData.content?.magentoServices, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
+
                                                         <textarea value={card.desc || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.magentoServices?.cards || [])];
                                                             newCards[i] = { ...newCards[i], desc: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoServices: { ...editFormData.content?.magentoServices, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
+
                                                         <div>
                                                             <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
+                                                            <ImageUploader
+                                                                value={card.image || ""}
                                                                 onChange={(url) => {
                                                                     const newCards = [...(editFormData.content?.magentoServices?.cards || [])];
                                                                     newCards[i] = { ...newCards[i], image: url };
                                                                     setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoServices: { ...editFormData.content?.magentoServices, cards: newCards } } });
-                                                                }} 
+                                                                }}
                                                             />
                                                         </div>
                                                     </div>
@@ -5957,9 +5961,9 @@ export default function WebsitePages() {
                                                 </div>
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.magentoHero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoHero: { ...editFormData.content?.magentoHero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.magentoHero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoHero: { ...editFormData.content?.magentoHero, bannerImage: url } } })}
                                                     />
                                                     <p className="text-xs text-slate-500 mt-1">Recommended size: 1920x1080 (WebP or WebM for videos)</p>
                                                 </div>
@@ -6037,7 +6041,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.ebayServices?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentCards = editFormData.content?.ebayServices?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayServices: { ...editFormData.content?.ebayServices, cards: [...currentCards, {}] } } });
@@ -6050,8 +6054,8 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.ebayServices?.cards || []).map((card, i) => (
                                                     <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
                                                         <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
-                                                            <button 
+                                                            <div className="font-medium text-sm text-slate-500">Card {i + 1}</div>
+                                                            <button
                                                                 onClick={() => {
                                                                     const currentCards = [...(editFormData.content?.ebayServices?.cards || [])];
                                                                     currentCards.splice(i, 1);
@@ -6063,28 +6067,28 @@ export default function WebsitePages() {
                                                                 <Trash2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
-                                                        
+
                                                         <input type="text" value={card.title || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.ebayServices?.cards || [])];
                                                             newCards[i] = { ...newCards[i], title: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayServices: { ...editFormData.content?.ebayServices, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
+
                                                         <textarea value={card.desc || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.ebayServices?.cards || [])];
                                                             newCards[i] = { ...newCards[i], desc: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayServices: { ...editFormData.content?.ebayServices, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
+
                                                         <div>
                                                             <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
+                                                            <ImageUploader
+                                                                value={card.image || ""}
                                                                 onChange={(url) => {
                                                                     const newCards = [...(editFormData.content?.ebayServices?.cards || [])];
                                                                     newCards[i] = { ...newCards[i], image: url };
                                                                     setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayServices: { ...editFormData.content?.ebayServices, cards: newCards } } });
-                                                                }} 
+                                                                }}
                                                             />
                                                         </div>
                                                     </div>
@@ -6110,7 +6114,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Offering Cards ({(editFormData.content?.ebayOfferings?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentCards = editFormData.content?.ebayOfferings?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayOfferings: { ...editFormData.content?.ebayOfferings, cards: [...currentCards, {}] } } });
@@ -6123,8 +6127,8 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.ebayOfferings?.cards || []).map((card, i) => (
                                                     <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
                                                         <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Card {i+1}</div>
-                                                            <button 
+                                                            <div className="font-medium text-sm text-slate-500">Card {i + 1}</div>
+                                                            <button
                                                                 onClick={() => {
                                                                     const currentCards = [...(editFormData.content?.ebayOfferings?.cards || [])];
                                                                     currentCards.splice(i, 1);
@@ -6136,28 +6140,28 @@ export default function WebsitePages() {
                                                                 <Trash2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
-                                                        
+
                                                         <input type="text" value={card.title || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.ebayOfferings?.cards || [])];
                                                             newCards[i] = { ...newCards[i], title: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayOfferings: { ...editFormData.content?.ebayOfferings, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
+
                                                         <textarea value={card.desc || ""} onChange={(e) => {
                                                             const newCards = [...(editFormData.content?.ebayOfferings?.cards || [])];
                                                             newCards[i] = { ...newCards[i], desc: e.target.value };
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayOfferings: { ...editFormData.content?.ebayOfferings, cards: newCards } } });
                                                         }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
+
                                                         <div>
                                                             <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
+                                                            <ImageUploader
+                                                                value={card.image || ""}
                                                                 onChange={(url) => {
                                                                     const newCards = [...(editFormData.content?.ebayOfferings?.cards || [])];
                                                                     newCards[i] = { ...newCards[i], image: url };
                                                                     setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayOfferings: { ...editFormData.content?.ebayOfferings, cards: newCards } } });
-                                                                }} 
+                                                                }}
                                                             />
                                                         </div>
                                                     </div>
@@ -6217,9 +6221,9 @@ export default function WebsitePages() {
                                                 </div>
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.ebayHero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayHero: { ...editFormData.content?.ebayHero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.ebayHero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayHero: { ...editFormData.content?.ebayHero, bannerImage: url } } })}
                                                     />
                                                     <p className="text-xs text-slate-500 mt-1">Recommended size: 1920x1080 (WebP or WebM for videos)</p>
                                                 </div>
@@ -6288,7 +6292,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Reason Cards ({(editFormData.content?.wpReasons?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const arrName = 'cards';
                                                             const currentCards = editFormData.content?.wpReasons?.[arrName] || [];
@@ -6302,51 +6306,52 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.wpReasons?.cards || []).map((card, i) => {
                                                     const val = typeof card === 'string' ? { title: card } : card;
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const arrName = 'cards';
-                                                                    const currentCards = [...(editFormData.content?.wpReasons?.[arrName] || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, [arrName]: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                                title="Delete Item"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const arrName = 'cards';
+                                                                        const currentCards = [...(editFormData.content?.wpReasons?.[arrName] || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, [arrName]: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                    title="Delete Item"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={val.title || ""} onChange={(e) => {
+                                                                const arrName = 'cards';
+                                                                const newCards = [...(editFormData.content?.wpReasons?.[arrName] || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, [arrName]: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+
+                                                            <textarea value={val.desc || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.wpReasons?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                                <ImageUploader
+                                                                    value={val.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newCards = [...(editFormData.content?.wpReasons?.cards || [])];
+                                                                        newCards[i] = { ...newCards[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, cards: newCards } } });
+                                                                    }}
+                                                                />
+                                                            </div>
+
                                                         </div>
-                                                        
-                                                        <input type="text" value={val.title || ""} onChange={(e) => {
-                                                            const arrName = 'cards';
-                                                            const newCards = [...(editFormData.content?.wpReasons?.[arrName] || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, [arrName]: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        
-                                                        <textarea value={val.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.wpReasons?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={val.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.wpReasons?.cards || [])];
-                                                                    newCards[i] = { ...newCards[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpReasons: { ...editFormData.content?.wpReasons, cards: newCards } } });
-                                                                }} 
-                                                            />
-                                                        </div>
-                                                        
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -6368,7 +6373,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.wpServices?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const arrName = 'cards';
                                                             const currentCards = editFormData.content?.wpServices?.[arrName] || [];
@@ -6382,51 +6387,52 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.wpServices?.cards || []).map((card, i) => {
                                                     const val = typeof card === 'string' ? { title: card } : card;
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const arrName = 'cards';
-                                                                    const currentCards = [...(editFormData.content?.wpServices?.[arrName] || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, [arrName]: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                                title="Delete Item"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const arrName = 'cards';
+                                                                        const currentCards = [...(editFormData.content?.wpServices?.[arrName] || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, [arrName]: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                    title="Delete Item"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={val.title || ""} onChange={(e) => {
+                                                                const arrName = 'cards';
+                                                                const newCards = [...(editFormData.content?.wpServices?.[arrName] || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, [arrName]: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+
+                                                            <textarea value={val.desc || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.wpServices?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                                <ImageUploader
+                                                                    value={val.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newCards = [...(editFormData.content?.wpServices?.cards || [])];
+                                                                        newCards[i] = { ...newCards[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, cards: newCards } } });
+                                                                    }}
+                                                                />
+                                                            </div>
+
                                                         </div>
-                                                        
-                                                        <input type="text" value={val.title || ""} onChange={(e) => {
-                                                            const arrName = 'cards';
-                                                            const newCards = [...(editFormData.content?.wpServices?.[arrName] || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, [arrName]: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        
-                                                        <textarea value={val.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.wpServices?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={val.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.wpServices?.cards || [])];
-                                                                    newCards[i] = { ...newCards[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpServices: { ...editFormData.content?.wpServices, cards: newCards } } });
-                                                                }} 
-                                                            />
-                                                        </div>
-                                                        
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -6448,7 +6454,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Features ({(editFormData.content?.wpChooseUs?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const arrName = 'cards';
                                                             const currentCards = editFormData.content?.wpChooseUs?.[arrName] || [];
@@ -6462,51 +6468,52 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.wpChooseUs?.cards || []).map((card, i) => {
                                                     const val = typeof card === 'string' ? { title: card } : card;
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const arrName = 'cards';
-                                                                    const currentCards = [...(editFormData.content?.wpChooseUs?.[arrName] || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, [arrName]: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                                title="Delete Item"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const arrName = 'cards';
+                                                                        const currentCards = [...(editFormData.content?.wpChooseUs?.[arrName] || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, [arrName]: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                    title="Delete Item"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={val.title || ""} onChange={(e) => {
+                                                                const arrName = 'cards';
+                                                                const newCards = [...(editFormData.content?.wpChooseUs?.[arrName] || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, [arrName]: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+
+                                                            <textarea value={val.desc || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.wpChooseUs?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
+                                                                <ImageUploader
+                                                                    value={val.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newCards = [...(editFormData.content?.wpChooseUs?.cards || [])];
+                                                                        newCards[i] = { ...newCards[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, cards: newCards } } });
+                                                                    }}
+                                                                />
+                                                            </div>
+
                                                         </div>
-                                                        
-                                                        <input type="text" value={val.title || ""} onChange={(e) => {
-                                                            const arrName = 'cards';
-                                                            const newCards = [...(editFormData.content?.wpChooseUs?.[arrName] || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, [arrName]: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        
-                                                        <textarea value={val.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.wpChooseUs?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon (Optional)</label>
-                                                            <ImageUploader 
-                                                                value={val.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.wpChooseUs?.cards || [])];
-                                                                    newCards[i] = { ...newCards[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpChooseUs: { ...editFormData.content?.wpChooseUs, cards: newCards } } });
-                                                                }} 
-                                                            />
-                                                        </div>
-                                                        
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -6528,7 +6535,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Steps ({(editFormData.content?.wpProcess?.steps || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const arrName = 'steps';
                                                             const currentCards = editFormData.content?.wpProcess?.[arrName] || [];
@@ -6542,33 +6549,34 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.wpProcess?.steps || []).map((card, i) => {
                                                     const val = typeof card === 'string' ? { title: card } : card;
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const arrName = 'steps';
-                                                                    const currentCards = [...(editFormData.content?.wpProcess?.[arrName] || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, wpProcess: { ...editFormData.content?.wpProcess, [arrName]: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                                title="Delete Item"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const arrName = 'steps';
+                                                                        const currentCards = [...(editFormData.content?.wpProcess?.[arrName] || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, wpProcess: { ...editFormData.content?.wpProcess, [arrName]: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                    title="Delete Item"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={val.title || ""} onChange={(e) => {
+                                                                const arrName = 'steps';
+                                                                const newCards = [...(editFormData.content?.wpProcess?.[arrName] || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, wpProcess: { ...editFormData.content?.wpProcess, [arrName]: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+
                                                         </div>
-                                                        
-                                                        <input type="text" value={val.title || ""} onChange={(e) => {
-                                                            const arrName = 'steps';
-                                                            const newCards = [...(editFormData.content?.wpProcess?.[arrName] || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, wpProcess: { ...editFormData.content?.wpProcess, [arrName]: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -6624,9 +6632,9 @@ export default function WebsitePages() {
                                                 </div>
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.wordpressHero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wordpressHero: { ...editFormData.content?.wordpressHero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.wordpressHero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wordpressHero: { ...editFormData.content?.wordpressHero, bannerImage: url } } })}
                                                     />
                                                     <p className="text-xs text-slate-500 mt-1">Recommended size: 1920x1080 (WebP or WebM for videos)</p>
                                                 </div>
@@ -6661,9 +6669,9 @@ export default function WebsitePages() {
                                                 </div>
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.hero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.hero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerImage: url } } })}
                                                     />
                                                 </div>
                                                 <div className="md:col-span-2">
@@ -6675,7 +6683,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-                                
+
                                 {/* EVENTS TIMELINE TAB */}
                                 {activeEditTab === "events-timeline" && editPage.path === "/events" && (
                                     <div className="max-w-3xl space-y-8">
@@ -6710,7 +6718,7 @@ export default function WebsitePages() {
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
                                             <div className="flex justify-between items-center">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">Stats Items ({(editFormData.content?.stats?.items || []).length})</h4>
-                                                <button 
+                                                <button
                                                     onClick={() => {
                                                         const currentItems = editFormData.content?.stats?.items || [];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, stats: { ...editFormData.content?.stats, items: [...currentItems, { num: "", label: "" }] } } });
@@ -6739,7 +6747,7 @@ export default function WebsitePages() {
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, stats: { ...editFormData.content?.stats, items: newItems } } });
                                                             }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" />
                                                         </div>
-                                                        <button 
+                                                        <button
                                                             onClick={() => {
                                                                 const newItems = [...(editFormData.content?.stats?.items || [])];
                                                                 newItems.splice(idx, 1);
@@ -6765,9 +6773,9 @@ export default function WebsitePages() {
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Video Thumbnail Image (Cloudinary)</label>
-                                                <ImageUploader 
-                                                    value={editFormData.content?.videoReel?.thumbnail || ""} 
-                                                    onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, videoReel: { ...editFormData.content?.videoReel, thumbnail: url } } })} 
+                                                <ImageUploader
+                                                    value={editFormData.content?.videoReel?.thumbnail || ""}
+                                                    onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, videoReel: { ...editFormData.content?.videoReel, thumbnail: url } } })}
                                                 />
                                             </div>
                                         </div>
@@ -6801,9 +6809,9 @@ export default function WebsitePages() {
                                                 </div>
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.cmsHero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, cmsHero: { ...editFormData.content?.cmsHero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.cmsHero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, cmsHero: { ...editFormData.content?.cmsHero, bannerImage: url } } })}
                                                     />
                                                 </div>
                                                 <div className="md:col-span-2">
@@ -6874,7 +6882,7 @@ export default function WebsitePages() {
                                             </div>
                                             <div className="flex justify-between items-center mt-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">Services Items ({(editFormData.content?.cmsServices?.items || []).length})</h4>
-                                                <button 
+                                                <button
                                                     onClick={() => {
                                                         const currentItems = editFormData.content?.cmsServices?.items || [];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, cmsServices: { ...editFormData.content?.cmsServices, items: [...currentItems, { title: "", desc: "" }] } } });
@@ -6903,7 +6911,7 @@ export default function WebsitePages() {
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, cmsServices: { ...editFormData.content?.cmsServices, items: newItems } } });
                                                             }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[60px]" placeholder="Our team can integrate a huge range..." />
                                                         </div>
-                                                        <button 
+                                                        <button
                                                             onClick={() => {
                                                                 const newItems = [...(editFormData.content?.cmsServices?.items || [])];
                                                                 newItems.splice(idx, 1);
@@ -6933,7 +6941,7 @@ export default function WebsitePages() {
                                             </div>
                                             <div className="flex justify-between items-center mt-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">Process Items ({(editFormData.content?.cmsProcess?.items || []).length})</h4>
-                                                <button 
+                                                <button
                                                     onClick={() => {
                                                         const currentItems = editFormData.content?.cmsProcess?.items || [];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, cmsProcess: { ...editFormData.content?.cmsProcess, items: [...currentItems, { title: "", desc: "" }] } } });
@@ -6962,7 +6970,7 @@ export default function WebsitePages() {
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, cmsProcess: { ...editFormData.content?.cmsProcess, items: newItems } } });
                                                             }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[60px]" placeholder="Our experts will first start by analysing..." />
                                                         </div>
-                                                        <button 
+                                                        <button
                                                             onClick={() => {
                                                                 const newItems = [...(editFormData.content?.cmsProcess?.items || [])];
                                                                 newItems.splice(idx, 1);
@@ -6992,7 +7000,7 @@ export default function WebsitePages() {
                                             </div>
                                             <div className="flex justify-between items-center mt-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">Benefits Items ({(editFormData.content?.cmsBenefits?.items || []).length})</h4>
-                                                <button 
+                                                <button
                                                     onClick={() => {
                                                         const currentItems = editFormData.content?.cmsBenefits?.items || [];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, cmsBenefits: { ...editFormData.content?.cmsBenefits, items: [...currentItems, { title: "", desc: "" }] } } });
@@ -7021,7 +7029,7 @@ export default function WebsitePages() {
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, cmsBenefits: { ...editFormData.content?.cmsBenefits, items: newItems } } });
                                                             }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[60px]" placeholder="Our CMS Development Company makes it easy..." />
                                                         </div>
-                                                        <button 
+                                                        <button
                                                             onClick={() => {
                                                                 const newItems = [...(editFormData.content?.cmsBenefits?.items || [])];
                                                                 newItems.splice(idx, 1);
@@ -7051,7 +7059,7 @@ export default function WebsitePages() {
                                             </div>
                                             <div className="flex justify-between items-center mt-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">Why Choose Us Items ({(editFormData.content?.cmsChooseUs?.items || []).length})</h4>
-                                                <button 
+                                                <button
                                                     onClick={() => {
                                                         const currentItems = editFormData.content?.cmsChooseUs?.items || [];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, cmsChooseUs: { ...editFormData.content?.cmsChooseUs, items: [...currentItems, { title: "", desc: "" }] } } });
@@ -7080,7 +7088,7 @@ export default function WebsitePages() {
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, cmsChooseUs: { ...editFormData.content?.cmsChooseUs, items: newItems } } });
                                                             }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[60px]" placeholder="Our team of experienced members..." />
                                                         </div>
-                                                        <button 
+                                                        <button
                                                             onClick={() => {
                                                                 const newItems = [...(editFormData.content?.cmsChooseUs?.items || [])];
                                                                 newItems.splice(idx, 1);
@@ -7124,16 +7132,16 @@ export default function WebsitePages() {
                                                 </div>
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Desktop Banner (Cloudinary)</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.crmHero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, crmHero: { ...editFormData.content?.crmHero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.crmHero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, crmHero: { ...editFormData.content?.crmHero, bannerImage: url } } })}
                                                     />
                                                 </div>
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Mobile Banner (Cloudinary)</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.crmHero?.bannerMobile || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, crmHero: { ...editFormData.content?.crmHero, bannerMobile: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.crmHero?.bannerMobile || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, crmHero: { ...editFormData.content?.crmHero, bannerMobile: url } } })}
                                                     />
                                                 </div>
                                                 <div className="md:col-span-2">
@@ -7173,7 +7181,7 @@ export default function WebsitePages() {
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Paragraph 4</label>
                                                 <textarea value={editFormData.content?.crmIntro?.p4 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, crmIntro: { ...editFormData.content?.crmIntro, p4: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[80px]" placeholder="Also, without partnering with a CRM development company in India..." />
                                             </div>
-                                            
+
                                             <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2 mb-2 mt-6">Fundamentals Section</h4>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Fundamentals Heading</label>
@@ -7181,7 +7189,7 @@ export default function WebsitePages() {
                                             </div>
                                             <div className="flex justify-between items-center mt-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">Fundamental Items ({(editFormData.content?.crmFundamentals?.items || []).length})</h4>
-                                                <button 
+                                                <button
                                                     onClick={() => {
                                                         const currentItems = editFormData.content?.crmFundamentals?.items || [];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, crmFundamentals: { ...editFormData.content?.crmFundamentals, items: [...currentItems, ""] } } });
@@ -7200,7 +7208,7 @@ export default function WebsitePages() {
                                                                 newItems[idx] = e.target.value;
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, crmFundamentals: { ...editFormData.content?.crmFundamentals, items: newItems } } });
                                                             }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[60px]" placeholder="A CRM database of mutual contacts..." />
-                                                            <button 
+                                                            <button
                                                                 onClick={() => {
                                                                     const newItems = [...(editFormData.content?.crmFundamentals?.items || [])];
                                                                     newItems.splice(idx, 1);
@@ -7254,7 +7262,7 @@ export default function WebsitePages() {
                                             </div>
                                             <div className="flex justify-between items-center mt-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">Services Items ({(editFormData.content?.crmServices?.items || []).length})</h4>
-                                                <button 
+                                                <button
                                                     onClick={() => {
                                                         const currentItems = editFormData.content?.crmServices?.items || [];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, crmServices: { ...editFormData.content?.crmServices, items: [...currentItems, { title: "", desc: "" }] } } });
@@ -7283,7 +7291,7 @@ export default function WebsitePages() {
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, crmServices: { ...editFormData.content?.crmServices, items: newItems } } });
                                                             }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[60px]" placeholder="Integrate platforms like WhatsApp, SFA, or Hubspot..." />
                                                         </div>
-                                                        <button 
+                                                        <button
                                                             onClick={() => {
                                                                 const newItems = [...(editFormData.content?.crmServices?.items || [])];
                                                                 newItems.splice(idx, 1);
@@ -7313,7 +7321,7 @@ export default function WebsitePages() {
                                             </div>
                                             <div className="flex justify-between items-center mt-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">Process Items ({(editFormData.content?.crmProcess?.items || []).length})</h4>
-                                                <button 
+                                                <button
                                                     onClick={() => {
                                                         const currentItems = editFormData.content?.crmProcess?.items || [];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, crmProcess: { ...editFormData.content?.crmProcess, items: [...currentItems, { stage: "", desc: "" }] } } });
@@ -7342,7 +7350,7 @@ export default function WebsitePages() {
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, crmProcess: { ...editFormData.content?.crmProcess, items: newItems } } });
                                                             }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[60px]" placeholder="Analyse the business and software requirements..." />
                                                         </div>
-                                                        <button 
+                                                        <button
                                                             onClick={() => {
                                                                 const newItems = [...(editFormData.content?.crmProcess?.items || [])];
                                                                 newItems.splice(idx, 1);
@@ -7372,7 +7380,7 @@ export default function WebsitePages() {
                                             </div>
                                             <div className="flex justify-between items-center mt-4">
                                                 <h4 className="font-semibold text-slate-800 dark:text-slate-200">Benefits Items ({(editFormData.content?.crmBenefits?.items || []).length})</h4>
-                                                <button 
+                                                <button
                                                     onClick={() => {
                                                         const currentItems = editFormData.content?.crmBenefits?.items || [];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, crmBenefits: { ...editFormData.content?.crmBenefits, items: [...currentItems, { title: "", desc: "" }] } } });
@@ -7401,7 +7409,7 @@ export default function WebsitePages() {
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, crmBenefits: { ...editFormData.content?.crmBenefits, items: newItems } } });
                                                             }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm min-h-[60px]" placeholder="Develop multi-channel campaigns with email marketing..." />
                                                         </div>
-                                                        <button 
+                                                        <button
                                                             onClick={() => {
                                                                 const newItems = [...(editFormData.content?.crmBenefits?.items || [])];
                                                                 newItems.splice(idx, 1);
@@ -7427,9 +7435,9 @@ export default function WebsitePages() {
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.hero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.hero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, hero: { ...editFormData.content?.hero, bannerImage: url } } })}
                                                     />
                                                 </div>
                                                 <div className="md:col-span-2">
@@ -7441,7 +7449,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* NEWS HERO TAB */}
+                                {/* NEWS HERO TAB */}
                                 {activeEditTab === "news-hero" && editPage.path === "/news" && (
                                     <div className="max-w-3xl space-y-8">
                                         <div className="flex items-center justify-between">
@@ -7470,16 +7478,16 @@ export default function WebsitePages() {
 
                                                 <div className="md:col-span-2 mt-4">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
-                                                    <ImageUploader 
-                                                        value={editFormData.content?.newsHero?.bannerImage || ""} 
-                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, bannerImage: url } } })} 
+                                                    <ImageUploader
+                                                        value={editFormData.content?.newsHero?.bannerImage || ""}
+                                                        onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, bannerImage: url } } })}
                                                     />
                                                 </div>
                                                 <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Banner Opacity Overlay (0 to 100)</label>
                                                     <input type="number" min="0" max="100" value={editFormData.content?.newsHero?.bannerOpacity ?? 70} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, newsHero: { ...editFormData.content?.newsHero, bannerOpacity: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="70" />
                                                 </div>
-                                                
+
                                                 <div className="md:col-span-2 flex items-center justify-between mt-2 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-700">
                                                     <div>
                                                         <span className="block text-sm font-medium text-slate-900 dark:text-white">Hide Contact Button</span>
@@ -7529,7 +7537,7 @@ export default function WebsitePages() {
                                         </div>
                                     </div>
                                 )}
-{/* CONTACT HERO TAB */}
+                                {/* CONTACT HERO TAB */}
                                 {activeEditTab === "contact-hero" && editPage.path === "/contact" && (
                                     <div className="max-w-3xl space-y-8">
                                         <div className="flex items-center justify-between">
@@ -7708,7 +7716,7 @@ export default function WebsitePages() {
                                                             const tags = [...(editFormData.content?.aiConsultingTechLogos?.tags || [])];
                                                             tags.splice(i, 1);
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingTechLogos: { ...editFormData.content?.aiConsultingTechLogos, tags } } });
-                                                        }}><Trash2 className="w-4 h-4"/></button>
+                                                        }}><Trash2 className="w-4 h-4" /></button>
                                                     </div>
                                                 ))}
                                             </div>
@@ -7729,11 +7737,11 @@ export default function WebsitePages() {
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description Part 1</label>
-                                                <textarea value={editFormData.content?.aiConsultingAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2}/>
+                                                <textarea value={editFormData.content?.aiConsultingAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2} />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description Part 2</label>
-                                                <textarea value={editFormData.content?.aiConsultingAbout?.desc2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, desc2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2}/>
+                                                <textarea value={editFormData.content?.aiConsultingAbout?.desc2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, desc2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2} />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">About Image</label>
@@ -7766,7 +7774,7 @@ export default function WebsitePages() {
                                                             const stats = [...(editFormData.content?.aiConsultingAbout?.stats || [])];
                                                             stats.splice(i, 1);
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingAbout: { ...editFormData.content?.aiConsultingAbout, stats } } });
-                                                        }}><Trash2 className="w-4 h-4"/></button>
+                                                        }}><Trash2 className="w-4 h-4" /></button>
                                                     </div>
                                                 ))}
                                             </div>
@@ -7790,7 +7798,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.aiConsultingServices?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentItems = editFormData.content?.aiConsultingServices?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: [...currentItems, {}] } } });
@@ -7802,50 +7810,51 @@ export default function WebsitePages() {
                                                 </div>
                                                 {(editFormData.content?.aiConsultingServices?.cards || []).map((item, i) => {
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const currentItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
-                                                                    currentItems.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: currentItems } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const currentItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
+                                                                        currentItems.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: currentItems } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={item.title || item.name || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
+                                                                if (item.name !== undefined) {
+                                                                    newItems[i] = { ...newItems[i], name: e.target.value };
+                                                                } else {
+                                                                    newItems[i] = { ...newItems[i], title: e.target.value };
+                                                                }
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: newItems } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
+
+                                                            <textarea value={item.desc || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
+                                                                newItems[i] = { ...newItems[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: newItems } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                                <ImageUploader
+                                                                    value={item.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
+                                                                        newItems[i] = { ...newItems[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: newItems } } });
+                                                                    }}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                        
-                                                        <input type="text" value={item.title || item.name || ""} onChange={(e) => {
-                                                            const newItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
-                                                            if (item.name !== undefined) {
-                                                                newItems[i] = { ...newItems[i], name: e.target.value };
-                                                            } else {
-                                                                newItems[i] = { ...newItems[i], title: e.target.value };
-                                                            }
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: newItems } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
-                                                        
-                                                        <textarea value={item.desc || ""} onChange={(e) => {
-                                                            const newItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
-                                                            newItems[i] = { ...newItems[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: newItems } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
-                                                            <ImageUploader 
-                                                                value={item.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newItems = [...(editFormData.content?.aiConsultingServices?.cards || [])];
-                                                                    newItems[i] = { ...newItems[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingServices: { ...editFormData.content?.aiConsultingServices, cards: newItems } } });
-                                                                }} 
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -7867,7 +7876,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Solution Cards ({(editFormData.content?.aiConsultingSolutions?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentItems = editFormData.content?.aiConsultingSolutions?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: [...currentItems, {}] } } });
@@ -7879,44 +7888,45 @@ export default function WebsitePages() {
                                                 </div>
                                                 {(editFormData.content?.aiConsultingSolutions?.cards || []).map((item, i) => {
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const currentItems = [...(editFormData.content?.aiConsultingSolutions?.cards || [])];
-                                                                    currentItems.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: currentItems } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const currentItems = [...(editFormData.content?.aiConsultingSolutions?.cards || [])];
+                                                                        currentItems.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: currentItems } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={item.title || item.name || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.aiConsultingSolutions?.cards || [])];
+                                                                if (item.name !== undefined) {
+                                                                    newItems[i] = { ...newItems[i], name: e.target.value };
+                                                                } else {
+                                                                    newItems[i] = { ...newItems[i], title: e.target.value };
+                                                                }
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: newItems } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                                <ImageUploader
+                                                                    value={item.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newItems = [...(editFormData.content?.aiConsultingSolutions?.cards || [])];
+                                                                        newItems[i] = { ...newItems[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: newItems } } });
+                                                                    }}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                        
-                                                        <input type="text" value={item.title || item.name || ""} onChange={(e) => {
-                                                            const newItems = [...(editFormData.content?.aiConsultingSolutions?.cards || [])];
-                                                            if (item.name !== undefined) {
-                                                                newItems[i] = { ...newItems[i], name: e.target.value };
-                                                            } else {
-                                                                newItems[i] = { ...newItems[i], title: e.target.value };
-                                                            }
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: newItems } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
-                                                        
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
-                                                            <ImageUploader 
-                                                                value={item.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newItems = [...(editFormData.content?.aiConsultingSolutions?.cards || [])];
-                                                                    newItems[i] = { ...newItems[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingSolutions: { ...editFormData.content?.aiConsultingSolutions, cards: newItems } } });
-                                                                }} 
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -7938,7 +7948,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Industry Cards ({(editFormData.content?.aiConsultingIndustries?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentItems = editFormData.content?.aiConsultingIndustries?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: [...currentItems, {}] } } });
@@ -7950,44 +7960,45 @@ export default function WebsitePages() {
                                                 </div>
                                                 {(editFormData.content?.aiConsultingIndustries?.cards || []).map((item, i) => {
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const currentItems = [...(editFormData.content?.aiConsultingIndustries?.cards || [])];
-                                                                    currentItems.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: currentItems } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const currentItems = [...(editFormData.content?.aiConsultingIndustries?.cards || [])];
+                                                                        currentItems.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: currentItems } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={item.title || item.name || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.aiConsultingIndustries?.cards || [])];
+                                                                if (item.name !== undefined) {
+                                                                    newItems[i] = { ...newItems[i], name: e.target.value };
+                                                                } else {
+                                                                    newItems[i] = { ...newItems[i], title: e.target.value };
+                                                                }
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: newItems } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                                <ImageUploader
+                                                                    value={item.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newItems = [...(editFormData.content?.aiConsultingIndustries?.cards || [])];
+                                                                        newItems[i] = { ...newItems[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: newItems } } });
+                                                                    }}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                        
-                                                        <input type="text" value={item.title || item.name || ""} onChange={(e) => {
-                                                            const newItems = [...(editFormData.content?.aiConsultingIndustries?.cards || [])];
-                                                            if (item.name !== undefined) {
-                                                                newItems[i] = { ...newItems[i], name: e.target.value };
-                                                            } else {
-                                                                newItems[i] = { ...newItems[i], title: e.target.value };
-                                                            }
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: newItems } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
-                                                        
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
-                                                            <ImageUploader 
-                                                                value={item.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newItems = [...(editFormData.content?.aiConsultingIndustries?.cards || [])];
-                                                                    newItems[i] = { ...newItems[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingIndustries: { ...editFormData.content?.aiConsultingIndustries, cards: newItems } } });
-                                                                }} 
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -8009,7 +8020,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Reason Cards ({(editFormData.content?.aiConsultingWhyChoose?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentItems = editFormData.content?.aiConsultingWhyChoose?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: [...currentItems, {}] } } });
@@ -8021,50 +8032,51 @@ export default function WebsitePages() {
                                                 </div>
                                                 {(editFormData.content?.aiConsultingWhyChoose?.cards || []).map((item, i) => {
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const currentItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
-                                                                    currentItems.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: currentItems } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const currentItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
+                                                                        currentItems.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: currentItems } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={item.title || item.name || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
+                                                                if (item.name !== undefined) {
+                                                                    newItems[i] = { ...newItems[i], name: e.target.value };
+                                                                } else {
+                                                                    newItems[i] = { ...newItems[i], title: e.target.value };
+                                                                }
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: newItems } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
+
+                                                            <textarea value={item.desc || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
+                                                                newItems[i] = { ...newItems[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: newItems } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                                <ImageUploader
+                                                                    value={item.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
+                                                                        newItems[i] = { ...newItems[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: newItems } } });
+                                                                    }}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                        
-                                                        <input type="text" value={item.title || item.name || ""} onChange={(e) => {
-                                                            const newItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
-                                                            if (item.name !== undefined) {
-                                                                newItems[i] = { ...newItems[i], name: e.target.value };
-                                                            } else {
-                                                                newItems[i] = { ...newItems[i], title: e.target.value };
-                                                            }
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: newItems } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
-                                                        
-                                                        <textarea value={item.desc || ""} onChange={(e) => {
-                                                            const newItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
-                                                            newItems[i] = { ...newItems[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: newItems } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
-                                                            <ImageUploader 
-                                                                value={item.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newItems = [...(editFormData.content?.aiConsultingWhyChoose?.cards || [])];
-                                                                    newItems[i] = { ...newItems[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingWhyChoose: { ...editFormData.content?.aiConsultingWhyChoose, cards: newItems } } });
-                                                                }} 
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -8086,7 +8098,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Study Cards ({(editFormData.content?.aiConsultingCaseStudies?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentItems = editFormData.content?.aiConsultingCaseStudies?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: [...currentItems, {}] } } });
@@ -8098,31 +8110,31 @@ export default function WebsitePages() {
                                                 </div>
                                                 {(editFormData.content?.aiConsultingCaseStudies?.cards || []).map((item, i) => {
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const currentItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
-                                                                    currentItems.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: currentItems } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
-                                                        </div>
-                                                        
-                                                        <input type="text" value={item.title || item.name || ""} onChange={(e) => {
-                                                            const newItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
-                                                            if (item.name !== undefined) {
-                                                                newItems[i] = { ...newItems[i], name: e.target.value };
-                                                            } else {
-                                                                newItems[i] = { ...newItems[i], title: e.target.value };
-                                                            }
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: newItems } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
-                                                        
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const currentItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
+                                                                        currentItems.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: currentItems } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={item.title || item.name || ""} onChange={(e) => {
+                                                                const newItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
+                                                                if (item.name !== undefined) {
+                                                                    newItems[i] = { ...newItems[i], name: e.target.value };
+                                                                } else {
+                                                                    newItems[i] = { ...newItems[i], title: e.target.value };
+                                                                }
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: newItems } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title / Name" />
+
                                                             <input type="text" value={item.problem || ""} onChange={(e) => {
                                                                 const newItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
                                                                 newItems[i] = { ...newItems[i], problem: e.target.value };
@@ -8138,20 +8150,21 @@ export default function WebsitePages() {
                                                                 newItems[i] = { ...newItems[i], result: e.target.value };
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: newItems } } });
                                                             }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Result" />
-                                                        
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
-                                                            <ImageUploader 
-                                                                value={item.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
-                                                                    newItems[i] = { ...newItems[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: newItems } } });
-                                                                }} 
-                                                            />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                                <ImageUploader
+                                                                    value={item.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newItems = [...(editFormData.content?.aiConsultingCaseStudies?.cards || [])];
+                                                                        newItems[i] = { ...newItems[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCaseStudies: { ...editFormData.content?.aiConsultingCaseStudies, cards: newItems } } });
+                                                                    }}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -8170,7 +8183,7 @@ export default function WebsitePages() {
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
-                                                <textarea value={editFormData.content?.aiConsultingCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCTA: { ...editFormData.content?.aiConsultingCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3}/>
+                                                <textarea value={editFormData.content?.aiConsultingCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiConsultingCTA: { ...editFormData.content?.aiConsultingCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3} />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Primary Button</label>
@@ -8185,1032 +8198,1032 @@ export default function WebsitePages() {
                                 )}
 
                                 {/* GENAI HERO TAB */}
-           
 
 
-                     {/* RAG DEVELOPMENT: HERO */}
-                     {activeEditTab === "rag-hero" && editPage.path === "/rag-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.ragHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Enterprise RAG" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title Highlight</label>
-                                    <input type="text" value={editFormData.content?.ragHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Development Services" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <textarea value={editFormData.content?.ragHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Build intelligent AI applications..." />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Primary Button Text</label>
-                                    <input type="text" value={editFormData.content?.ragHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Get Free Consultation" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
-                                    <input type="text" value={editFormData.content?.ragHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Talk to AI Experts" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Hero Image</label>
-                                    <ImageUploader
-                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, image: url } } })}
-                                        defaultImage={editFormData.content?.ragHero?.image || "/images/rag-development/hero_rag.webp"}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                     )}
 
-                     {/* RAG DEVELOPMENT: TECH LOGOS */}
-                     {activeEditTab === "rag-techlogos" && editPage.path === "/rag-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Tech Logos Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.ragTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragTechLogos: { ...editFormData.content?.ragTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Technologies We Specialize In" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
-                                    <textarea value={editFormData.content?.ragTechLogos?.tags ? editFormData.content.ragTechLogos.tags.join(', ') : ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragTechLogos: { ...editFormData.content?.ragTechLogos, tags: e.target.value.split(',').map(s => s.trim()) } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="OpenAI, Gemini, Claude..." />
-                                </div>
-                            </div>
-                        </div>
-                     )}
-
-                     {/* RAG DEVELOPMENT: ABOUT */}
-                     {activeEditTab === "rag-about" && editPage.path === "/rag-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Heading</label>
-                                    <input type="text" value={editFormData.content?.ragAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Unlock Your Data with RAG" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <textarea value={editFormData.content?.ragAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Generative AI is powerful, but it hallucinates..." />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">About Image</label>
-                                    <ImageUploader
-                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, image: url } } })}
-                                        defaultImage={editFormData.content?.ragAbout?.image || "/images/rag-development/about_rag.webp"}
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Stats</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.ragAbout?.stats || []).map((stat, idx) => (
-                                            <div key={idx} className="flex gap-4 items-center bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                                                <input type="text" value={stat.stat} onChange={(e) => {
-                                                    const newStats = [...(editFormData.content?.ragAbout?.stats || [])];
-                                                    newStats[idx].stat = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
-                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="200+" />
-                                                <input type="text" value={stat.label} onChange={(e) => {
-                                                    const newStats = [...(editFormData.content?.ragAbout?.stats || [])];
-                                                    newStats[idx].label = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
-                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Projects Consulted" />
-                                                <button type="button" onClick={() => {
-                                                    const newStats = (editFormData.content?.ragAbout?.stats || []).filter((_, i) => i !== idx);
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
-                                                }} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg">
-                                                    <Trash2 className="w-4 h-4" />
-                                                </button>
+                                {/* RAG DEVELOPMENT: HERO */}
+                                {activeEditTab === "rag-hero" && editPage.path === "/rag-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.ragHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Enterprise RAG" />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newStats = [...(editFormData.content?.ragAbout?.stats || []), { stat: "", label: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Stat
-                                        </button>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title Highlight</label>
+                                                <input type="text" value={editFormData.content?.ragHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Development Services" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <textarea value={editFormData.content?.ragHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Build intelligent AI applications..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                                <input type="text" value={editFormData.content?.ragHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Get Free Consultation" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                                <input type="text" value={editFormData.content?.ragHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Talk to AI Experts" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Hero Image</label>
+                                                <ImageUploader
+                                                    onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragHero: { ...editFormData.content?.ragHero, image: url } } })}
+                                                    defaultImage={editFormData.content?.ragHero?.image || "/images/rag-development/hero_rag.webp"}
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* RAG DEVELOPMENT: SERVICES */}
-                     {activeEditTab === "rag-services" && editPage.path === "/rag-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.ragServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Our RAG Solutions" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <input type="text" value={editFormData.content?.ragServices?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Custom RAG architectures..." />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Service Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.ragServices?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* RAG DEVELOPMENT: TECH LOGOS */}
+                                {activeEditTab === "rag-techlogos" && editPage.path === "/rag-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Tech Logos Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.ragTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragTechLogos: { ...editFormData.content?.ragTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Technologies We Specialize In" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
+                                                <textarea value={editFormData.content?.ragTechLogos?.tags ? editFormData.content.ragTechLogos.tags.join(', ') : ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragTechLogos: { ...editFormData.content?.ragTechLogos, tags: e.target.value.split(',').map(s => s.trim()) } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="OpenAI, Gemini, Claude..." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* RAG DEVELOPMENT: ABOUT */}
+                                {activeEditTab === "rag-about" && editPage.path === "/rag-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.ragAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Unlock Your Data with RAG" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <textarea value={editFormData.content?.ragAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Generative AI is powerful, but it hallucinates..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">About Image</label>
+                                                <ImageUploader
+                                                    onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, image: url } } })}
+                                                    defaultImage={editFormData.content?.ragAbout?.image || "/images/rag-development/about_rag.webp"}
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Stats</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.ragAbout?.stats || []).map((stat, idx) => (
+                                                        <div key={idx} className="flex gap-4 items-center bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                                                            <input type="text" value={stat.stat} onChange={(e) => {
+                                                                const newStats = [...(editFormData.content?.ragAbout?.stats || [])];
+                                                                newStats[idx].stat = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
+                                                            }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="200+" />
+                                                            <input type="text" value={stat.label} onChange={(e) => {
+                                                                const newStats = [...(editFormData.content?.ragAbout?.stats || [])];
+                                                                newStats[idx].label = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
+                                                            }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Projects Consulted" />
+                                                            <button type="button" onClick={() => {
+                                                                const newStats = (editFormData.content?.ragAbout?.stats || []).filter((_, i) => i !== idx);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
+                                                            }} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg">
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.ragServices?.cards || []).filter((_, i) => i !== idx);
+                                                        const newStats = [...(editFormData.content?.ragAbout?.stats || []), { stat: "", label: "" }];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, ragAbout: { ...editFormData.content?.ragAbout, stats: newStats } } });
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Stat
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* RAG DEVELOPMENT: SERVICES */}
+                                {activeEditTab === "rag-services" && editPage.path === "/rag-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.ragServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Our RAG Solutions" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <input type="text" value={editFormData.content?.ragServices?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Custom RAG architectures..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Service Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.ragServices?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.ragServices?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.ragServices?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                            <textarea value={card.desc} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.ragServices?.cards || [])];
+                                                                newCards[idx].desc = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                                        </div>
+                                                    ))}
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = [...(editFormData.content?.ragServices?.cards || []), { title: "", desc: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Service Card
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.ragServices?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
-                                                <textarea value={card.desc} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.ragServices?.cards || [])];
-                                                    newCards[idx].desc = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.ragServices?.cards || []), { title: "", desc: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragServices: { ...editFormData.content?.ragServices, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Service Card
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* RAG DEVELOPMENT: SOLUTIONS */}
-                     {activeEditTab === "rag-solutions" && editPage.path === "/rag-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Solutions Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.ragSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Business Challenges We Solve" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Solution Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.ragSolutions?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* RAG DEVELOPMENT: SOLUTIONS */}
+                                {activeEditTab === "rag-solutions" && editPage.path === "/rag-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Solutions Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.ragSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Business Challenges We Solve" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Solution Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.ragSolutions?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.ragSolutions?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.ragSolutions?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.ragSolutions?.cards || []).filter((_, i) => i !== idx);
+                                                        const newCards = [...(editFormData.content?.ragSolutions?.cards || []), { title: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Solution Card
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.ragSolutions?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.ragSolutions?.cards || []), { title: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragSolutions: { ...editFormData.content?.ragSolutions, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Solution Card
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* RAG DEVELOPMENT: WHY CHOOSE */}
-                     {activeEditTab === "rag-whychoose" && editPage.path === "/rag-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.ragWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Why Choose RecentureSoft" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Why Choose Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.ragWhyChoose?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* RAG DEVELOPMENT: WHY CHOOSE */}
+                                {activeEditTab === "rag-whychoose" && editPage.path === "/rag-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.ragWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Why Choose RecentureSoft" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Why Choose Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.ragWhyChoose?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.ragWhyChoose?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.ragWhyChoose?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                            <textarea value={card.desc} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.ragWhyChoose?.cards || [])];
+                                                                newCards[idx].desc = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.ragWhyChoose?.cards || []).filter((_, i) => i !== idx);
+                                                        const newCards = [...(editFormData.content?.ragWhyChoose?.cards || []), { title: "", desc: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Why Choose Card
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.ragWhyChoose?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
-                                                <textarea value={card.desc} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.ragWhyChoose?.cards || [])];
-                                                    newCards[idx].desc = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.ragWhyChoose?.cards || []), { title: "", desc: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragWhyChoose: { ...editFormData.content?.ragWhyChoose, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Why Choose Card
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* RAG DEVELOPMENT: CASE STUDIES */}
-                     {activeEditTab === "rag-casestudies" && editPage.path === "/rag-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.ragCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="RAG Case Studies" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Case Study Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.ragCaseStudies?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* RAG DEVELOPMENT: CASE STUDIES */}
+                                {activeEditTab === "rag-casestudies" && editPage.path === "/rag-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.ragCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="RAG Case Studies" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Case Study Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.ragCaseStudies?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.ragCaseStudies?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                            <input type="text" value={card.problem} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
+                                                                newCards[idx].problem = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Problem" />
+                                                            <input type="text" value={card.solution} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
+                                                                newCards[idx].solution = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Solution" />
+                                                            <input type="text" value={card.result} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
+                                                                newCards[idx].result = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Result" />
+                                                            <div>
+                                                                <label className="block text-sm font-medium mb-1">Image</label>
+                                                                <ImageUploader
+                                                                    onUpload={(url) => {
+                                                                        const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
+                                                                        newCards[idx].image = url;
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
+                                                                    }}
+                                                                    defaultImage={card.image || "/images/rag-development/hero_rag.webp"}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.ragCaseStudies?.cards || []).filter((_, i) => i !== idx);
+                                                        const newCards = [...(editFormData.content?.ragCaseStudies?.cards || []), { title: "", problem: "", solution: "", result: "", image: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Case Study
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
-                                                <input type="text" value={card.problem} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
-                                                    newCards[idx].problem = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Problem" />
-                                                <input type="text" value={card.solution} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
-                                                    newCards[idx].solution = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Solution" />
-                                                <input type="text" value={card.result} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
-                                                    newCards[idx].result = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Result" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* RAG DEVELOPMENT: CTA */}
+                                {activeEditTab === "rag-cta" && editPage.path === "/rag-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.ragCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Implement Enterprise RAG Architecture" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <textarea value={editFormData.content?.ragCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Stop hallucinations and empower your AI..." />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div>
-                                                    <label className="block text-sm font-medium mb-1">Image</label>
-                                                    <ImageUploader
-                                                        onUpload={(url) => {
-                                                            const newCards = [...(editFormData.content?.ragCaseStudies?.cards || [])];
-                                                            newCards[idx].image = url;
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
-                                                        }}
-                                                        defaultImage={card.image || "/images/rag-development/hero_rag.webp"}
-                                                    />
+                                                    <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.ragCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Book Free Consultation" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.ragCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Contact Us" />
                                                 </div>
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.ragCaseStudies?.cards || []), { title: "", problem: "", solution: "", result: "", image: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCaseStudies: { ...editFormData.content?.ragCaseStudies, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Case Study
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
-
-                     {/* RAG DEVELOPMENT: CTA */}
-                     {activeEditTab === "rag-cta" && editPage.path === "/rag-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.ragCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Implement Enterprise RAG Architecture" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <textarea value={editFormData.content?.ragCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Stop hallucinations and empower your AI..." />
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-sm font-medium mb-1">Primary Button Text</label>
-                                        <input type="text" value={editFormData.content?.ragCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Book Free Consultation" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
-                                        <input type="text" value={editFormData.content?.ragCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragCTA: { ...editFormData.content?.ragCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Contact Us" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
-                     {/* AI CHATBOT DEVELOPMENT: HERO */}
-                     {activeEditTab === "chatbot-hero" && editPage.path === "/ai-chatbot-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Enterprise AI" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title Highlight</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Chatbot Development" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <textarea value={editFormData.content?.aiChatbotHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Enhance customer experience..." />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Primary Button Text</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Get Free Consultation" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Talk to AI Experts" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Hero Image</label>
-                                    <ImageUploader
-                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, image: url } } })}
-                                        defaultImage={editFormData.content?.aiChatbotHero?.image || "/images/ai-chatbot/hero_ai_chatbot.webp"}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                     )}
-
-                     {/* AI CHATBOT DEVELOPMENT: TECH LOGOS */}
-                     {activeEditTab === "chatbot-techlogos" && editPage.path === "/ai-chatbot-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Tech Logos Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotTechLogos: { ...editFormData.content?.aiChatbotTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Technologies We Specialize In" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
-                                    <textarea value={editFormData.content?.aiChatbotTechLogos?.tags ? editFormData.content.aiChatbotTechLogos.tags.join(', ') : ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotTechLogos: { ...editFormData.content?.aiChatbotTechLogos, tags: e.target.value.split(',').map(s => s.trim()) } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="OpenAI, Gemini, Claude..." />
-                                </div>
-                            </div>
-                        </div>
-                     )}
-
-                     {/* AI CHATBOT DEVELOPMENT: ABOUT */}
-                     {activeEditTab === "chatbot-about" && editPage.path === "/ai-chatbot-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Heading</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Next-Generation Conversational AI" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <textarea value={editFormData.content?.aiChatbotAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Our AI chatbots aren't just simple rule-based..." />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">About Image</label>
-                                    <ImageUploader
-                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, image: url } } })}
-                                        defaultImage={editFormData.content?.aiChatbotAbout?.image || "/images/ai-chatbot/about_ai_chatbot.webp"}
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Stats</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.aiChatbotAbout?.stats || []).map((stat, idx) => (
-                                            <div key={idx} className="flex gap-4 items-center bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                                                <input type="text" value={stat.stat} onChange={(e) => {
-                                                    const newStats = [...(editFormData.content?.aiChatbotAbout?.stats || [])];
-                                                    newStats[idx].stat = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
-                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="200+" />
-                                                <input type="text" value={stat.label} onChange={(e) => {
-                                                    const newStats = [...(editFormData.content?.aiChatbotAbout?.stats || [])];
-                                                    newStats[idx].label = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
-                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Projects Consulted" />
-                                                <button type="button" onClick={() => {
-                                                    const newStats = (editFormData.content?.aiChatbotAbout?.stats || []).filter((_, i) => i !== idx);
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
-                                                }} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg">
-                                                    <Trash2 className="w-4 h-4" />
-                                                </button>
+                                )}
+                                {/* AI CHATBOT DEVELOPMENT: HERO */}
+                                {activeEditTab === "chatbot-hero" && editPage.path === "/ai-chatbot-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Enterprise AI" />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newStats = [...(editFormData.content?.aiChatbotAbout?.stats || []), { stat: "", label: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Stat
-                                        </button>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title Highlight</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Chatbot Development" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <textarea value={editFormData.content?.aiChatbotHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Enhance customer experience..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Get Free Consultation" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Talk to AI Experts" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Hero Image</label>
+                                                <ImageUploader
+                                                    onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotHero: { ...editFormData.content?.aiChatbotHero, image: url } } })}
+                                                    defaultImage={editFormData.content?.aiChatbotHero?.image || "/images/ai-chatbot/hero_ai_chatbot.webp"}
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* AI CHATBOT DEVELOPMENT: SERVICES */}
-                     {activeEditTab === "chatbot-services" && editPage.path === "/ai-chatbot-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Our Chatbot Services" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotServices?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Advanced conversational AI..." />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Service Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.aiChatbotServices?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* AI CHATBOT DEVELOPMENT: TECH LOGOS */}
+                                {activeEditTab === "chatbot-techlogos" && editPage.path === "/ai-chatbot-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Tech Logos Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotTechLogos: { ...editFormData.content?.aiChatbotTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Technologies We Specialize In" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
+                                                <textarea value={editFormData.content?.aiChatbotTechLogos?.tags ? editFormData.content.aiChatbotTechLogos.tags.join(', ') : ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotTechLogos: { ...editFormData.content?.aiChatbotTechLogos, tags: e.target.value.split(',').map(s => s.trim()) } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="OpenAI, Gemini, Claude..." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AI CHATBOT DEVELOPMENT: ABOUT */}
+                                {activeEditTab === "chatbot-about" && editPage.path === "/ai-chatbot-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Next-Generation Conversational AI" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <textarea value={editFormData.content?.aiChatbotAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Our AI chatbots aren't just simple rule-based..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">About Image</label>
+                                                <ImageUploader
+                                                    onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, image: url } } })}
+                                                    defaultImage={editFormData.content?.aiChatbotAbout?.image || "/images/ai-chatbot/about_ai_chatbot.webp"}
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Stats</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.aiChatbotAbout?.stats || []).map((stat, idx) => (
+                                                        <div key={idx} className="flex gap-4 items-center bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                                                            <input type="text" value={stat.stat} onChange={(e) => {
+                                                                const newStats = [...(editFormData.content?.aiChatbotAbout?.stats || [])];
+                                                                newStats[idx].stat = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
+                                                            }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="200+" />
+                                                            <input type="text" value={stat.label} onChange={(e) => {
+                                                                const newStats = [...(editFormData.content?.aiChatbotAbout?.stats || [])];
+                                                                newStats[idx].label = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
+                                                            }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Projects Consulted" />
+                                                            <button type="button" onClick={() => {
+                                                                const newStats = (editFormData.content?.aiChatbotAbout?.stats || []).filter((_, i) => i !== idx);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
+                                                            }} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg">
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.aiChatbotServices?.cards || []).filter((_, i) => i !== idx);
+                                                        const newStats = [...(editFormData.content?.aiChatbotAbout?.stats || []), { stat: "", label: "" }];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotAbout: { ...editFormData.content?.aiChatbotAbout, stats: newStats } } });
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Stat
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AI CHATBOT DEVELOPMENT: SERVICES */}
+                                {activeEditTab === "chatbot-services" && editPage.path === "/ai-chatbot-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Our Chatbot Services" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotServices?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Advanced conversational AI..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Service Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.aiChatbotServices?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.aiChatbotServices?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiChatbotServices?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                            <textarea value={card.desc} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiChatbotServices?.cards || [])];
+                                                                newCards[idx].desc = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                                        </div>
+                                                    ))}
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = [...(editFormData.content?.aiChatbotServices?.cards || []), { title: "", desc: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Service Card
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiChatbotServices?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
-                                                <textarea value={card.desc} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiChatbotServices?.cards || [])];
-                                                    newCards[idx].desc = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.aiChatbotServices?.cards || []), { title: "", desc: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotServices: { ...editFormData.content?.aiChatbotServices, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Service Card
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* AI CHATBOT DEVELOPMENT: SOLUTIONS */}
-                     {activeEditTab === "chatbot-solutions" && editPage.path === "/ai-chatbot-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Solutions Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Business Challenges We Solve" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Solution Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.aiChatbotSolutions?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* AI CHATBOT DEVELOPMENT: SOLUTIONS */}
+                                {activeEditTab === "chatbot-solutions" && editPage.path === "/ai-chatbot-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Solutions Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Business Challenges We Solve" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Solution Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.aiChatbotSolutions?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.aiChatbotSolutions?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiChatbotSolutions?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.aiChatbotSolutions?.cards || []).filter((_, i) => i !== idx);
+                                                        const newCards = [...(editFormData.content?.aiChatbotSolutions?.cards || []), { title: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Solution Card
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiChatbotSolutions?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.aiChatbotSolutions?.cards || []), { title: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotSolutions: { ...editFormData.content?.aiChatbotSolutions, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Solution Card
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* AI CHATBOT DEVELOPMENT: WHY CHOOSE */}
-                     {activeEditTab === "chatbot-whychoose" && editPage.path === "/ai-chatbot-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Why Choose RecentureSoft" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Why Choose Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.aiChatbotWhyChoose?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* AI CHATBOT DEVELOPMENT: WHY CHOOSE */}
+                                {activeEditTab === "chatbot-whychoose" && editPage.path === "/ai-chatbot-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Why Choose RecentureSoft" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Why Choose Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.aiChatbotWhyChoose?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.aiChatbotWhyChoose?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiChatbotWhyChoose?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                            <textarea value={card.desc} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiChatbotWhyChoose?.cards || [])];
+                                                                newCards[idx].desc = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.aiChatbotWhyChoose?.cards || []).filter((_, i) => i !== idx);
+                                                        const newCards = [...(editFormData.content?.aiChatbotWhyChoose?.cards || []), { title: "", desc: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Why Choose Card
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiChatbotWhyChoose?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
-                                                <textarea value={card.desc} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiChatbotWhyChoose?.cards || [])];
-                                                    newCards[idx].desc = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.aiChatbotWhyChoose?.cards || []), { title: "", desc: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotWhyChoose: { ...editFormData.content?.aiChatbotWhyChoose, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Why Choose Card
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* AI CHATBOT DEVELOPMENT: CASE STUDIES */}
-                     {activeEditTab === "chatbot-casestudies" && editPage.path === "/ai-chatbot-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Chatbot Case Studies" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Case Study Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.aiChatbotCaseStudies?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* AI CHATBOT DEVELOPMENT: CASE STUDIES */}
+                                {activeEditTab === "chatbot-casestudies" && editPage.path === "/ai-chatbot-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Chatbot Case Studies" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Case Study Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.aiChatbotCaseStudies?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.aiChatbotCaseStudies?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                            <input type="text" value={card.problem} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
+                                                                newCards[idx].problem = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Problem" />
+                                                            <input type="text" value={card.solution} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
+                                                                newCards[idx].solution = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Solution" />
+                                                            <input type="text" value={card.result} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
+                                                                newCards[idx].result = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Result" />
+                                                            <div>
+                                                                <label className="block text-sm font-medium mb-1">Image</label>
+                                                                <ImageUploader
+                                                                    onUpload={(url) => {
+                                                                        const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
+                                                                        newCards[idx].image = url;
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
+                                                                    }}
+                                                                    defaultImage={card.image || "/images/ai-chatbot/hero_ai_chatbot.webp"}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.aiChatbotCaseStudies?.cards || []).filter((_, i) => i !== idx);
+                                                        const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || []), { title: "", problem: "", solution: "", result: "", image: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Case Study
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
-                                                <input type="text" value={card.problem} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
-                                                    newCards[idx].problem = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Problem" />
-                                                <input type="text" value={card.solution} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
-                                                    newCards[idx].solution = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Solution" />
-                                                <input type="text" value={card.result} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
-                                                    newCards[idx].result = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Result" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AI CHATBOT DEVELOPMENT: CTA */}
+                                {activeEditTab === "chatbot-cta" && editPage.path === "/ai-chatbot-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiChatbotCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Ready to Build Your AI Chatbot?" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <textarea value={editFormData.content?.aiChatbotCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Contact our experts..." />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div>
-                                                    <label className="block text-sm font-medium mb-1">Image</label>
-                                                    <ImageUploader
-                                                        onUpload={(url) => {
-                                                            const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || [])];
-                                                            newCards[idx].image = url;
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
-                                                        }}
-                                                        defaultImage={card.image || "/images/ai-chatbot/hero_ai_chatbot.webp"}
-                                                    />
+                                                    <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.aiChatbotCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Book Free Consultation" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.aiChatbotCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Contact Us" />
                                                 </div>
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.aiChatbotCaseStudies?.cards || []), { title: "", problem: "", solution: "", result: "", image: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCaseStudies: { ...editFormData.content?.aiChatbotCaseStudies, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Case Study
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
-
-                     {/* AI CHATBOT DEVELOPMENT: CTA */}
-                     {activeEditTab === "chatbot-cta" && editPage.path === "/ai-chatbot-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiChatbotCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Ready to Build Your AI Chatbot?" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <textarea value={editFormData.content?.aiChatbotCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Contact our experts..." />
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-sm font-medium mb-1">Primary Button Text</label>
-                                        <input type="text" value={editFormData.content?.aiChatbotCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Book Free Consultation" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
-                                        <input type="text" value={editFormData.content?.aiChatbotCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiChatbotCTA: { ...editFormData.content?.aiChatbotCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Contact Us" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
-                     {/* AI AGENT DEVELOPMENT: HERO */}
-                     {activeEditTab === "agent-hero" && editPage.path === "/ai-agent-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Development" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title Highlight</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Services" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <textarea value={editFormData.content?.aiDevelopmentHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Build intelligent AI-powered software solutions..." />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Primary Button Text</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Get Free Consultation" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Talk to AI Experts" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Hero Image</label>
-                                    <ImageUploader
-                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, image: url } } })}
-                                        defaultImage={editFormData.content?.aiDevelopmentHero?.image || "/images/ai-development/hero_ai_development.webp"}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                     )}
-
-                     {/* AI AGENT DEVELOPMENT: TECH LOGOS */}
-                     {activeEditTab === "agent-techlogos" && editPage.path === "/ai-agent-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Tech Logos Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentTechLogos: { ...editFormData.content?.aiDevelopmentTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Technologies We Specialize In" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
-                                    <textarea value={editFormData.content?.aiDevelopmentTechLogos?.tags ? editFormData.content.aiDevelopmentTechLogos.tags.join(', ') : ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentTechLogos: { ...editFormData.content?.aiDevelopmentTechLogos, tags: e.target.value.split(',').map(s => s.trim()) } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="OpenAI, Gemini, Claude..." />
-                                </div>
-                            </div>
-                        </div>
-                     )}
-
-                     {/* AI AGENT DEVELOPMENT: ABOUT */}
-                     {activeEditTab === "agent-about" && editPage.path === "/ai-agent-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Heading</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Empowering Businesses with Custom AI" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <textarea value={editFormData.content?.aiDevelopmentAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="At RecentureSoft, we don't just build AI..." />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">About Image</label>
-                                    <ImageUploader
-                                        onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, image: url } } })}
-                                        defaultImage={editFormData.content?.aiDevelopmentAbout?.image || "/images/ai-development/about_ai_development.webp"}
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Stats</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.aiDevelopmentAbout?.stats || []).map((stat, idx) => (
-                                            <div key={idx} className="flex gap-4 items-center bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                                                <input type="text" value={stat.stat} onChange={(e) => {
-                                                    const newStats = [...(editFormData.content?.aiDevelopmentAbout?.stats || [])];
-                                                    newStats[idx].stat = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
-                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="200+" />
-                                                <input type="text" value={stat.label} onChange={(e) => {
-                                                    const newStats = [...(editFormData.content?.aiDevelopmentAbout?.stats || [])];
-                                                    newStats[idx].label = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
-                                                }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Projects Consulted" />
-                                                <button type="button" onClick={() => {
-                                                    const newStats = (editFormData.content?.aiDevelopmentAbout?.stats || []).filter((_, i) => i !== idx);
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
-                                                }} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg">
-                                                    <Trash2 className="w-4 h-4" />
-                                                </button>
+                                )}
+                                {/* AI AGENT DEVELOPMENT: HERO */}
+                                {activeEditTab === "agent-hero" && editPage.path === "/ai-agent-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentHero?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Development" />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newStats = [...(editFormData.content?.aiDevelopmentAbout?.stats || []), { stat: "", label: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Stat
-                                        </button>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title Highlight</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentHero?.titleHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, titleHighlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Services" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <textarea value={editFormData.content?.aiDevelopmentHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Build intelligent AI-powered software solutions..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentHero?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Get Free Consultation" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentHero?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Talk to AI Experts" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Hero Image</label>
+                                                <ImageUploader
+                                                    onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentHero: { ...editFormData.content?.aiDevelopmentHero, image: url } } })}
+                                                    defaultImage={editFormData.content?.aiDevelopmentHero?.image || "/images/ai-development/hero_ai_development.webp"}
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* AI AGENT DEVELOPMENT: SERVICES */}
-                     {activeEditTab === "agent-services" && editPage.path === "/ai-agent-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Our Core AI Services" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Service Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.aiDevelopmentServices?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* AI AGENT DEVELOPMENT: TECH LOGOS */}
+                                {activeEditTab === "agent-techlogos" && editPage.path === "/ai-agent-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Tech Logos Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentTechLogos?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentTechLogos: { ...editFormData.content?.aiDevelopmentTechLogos, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="AI Technologies We Specialize In" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
+                                                <textarea value={editFormData.content?.aiDevelopmentTechLogos?.tags ? editFormData.content.aiDevelopmentTechLogos.tags.join(', ') : ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentTechLogos: { ...editFormData.content?.aiDevelopmentTechLogos, tags: e.target.value.split(',').map(s => s.trim()) } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="OpenAI, Gemini, Claude..." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AI AGENT DEVELOPMENT: ABOUT */}
+                                {activeEditTab === "agent-about" && editPage.path === "/ai-agent-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Heading</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentAbout?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Empowering Businesses with Custom AI" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <textarea value={editFormData.content?.aiDevelopmentAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="At RecentureSoft, we don't just build AI..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">About Image</label>
+                                                <ImageUploader
+                                                    onUpload={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, image: url } } })}
+                                                    defaultImage={editFormData.content?.aiDevelopmentAbout?.image || "/images/ai-development/about_ai_development.webp"}
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Stats</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.aiDevelopmentAbout?.stats || []).map((stat, idx) => (
+                                                        <div key={idx} className="flex gap-4 items-center bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                                                            <input type="text" value={stat.stat} onChange={(e) => {
+                                                                const newStats = [...(editFormData.content?.aiDevelopmentAbout?.stats || [])];
+                                                                newStats[idx].stat = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
+                                                            }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="200+" />
+                                                            <input type="text" value={stat.label} onChange={(e) => {
+                                                                const newStats = [...(editFormData.content?.aiDevelopmentAbout?.stats || [])];
+                                                                newStats[idx].label = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
+                                                            }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Projects Consulted" />
+                                                            <button type="button" onClick={() => {
+                                                                const newStats = (editFormData.content?.aiDevelopmentAbout?.stats || []).filter((_, i) => i !== idx);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
+                                                            }} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg">
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.aiDevelopmentServices?.cards || []).filter((_, i) => i !== idx);
+                                                        const newStats = [...(editFormData.content?.aiDevelopmentAbout?.stats || []), { stat: "", label: "" }];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentAbout: { ...editFormData.content?.aiDevelopmentAbout, stats: newStats } } });
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Stat
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AI AGENT DEVELOPMENT: SERVICES */}
+                                {activeEditTab === "agent-services" && editPage.path === "/ai-agent-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Services Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentServices?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Our Core AI Services" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Service Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.aiDevelopmentServices?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.aiDevelopmentServices?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiDevelopmentServices?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                            <textarea value={card.desc} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiDevelopmentServices?.cards || [])];
+                                                                newCards[idx].desc = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                                        </div>
+                                                    ))}
+                                                    <button type="button" onClick={() => {
+                                                        const newCards = [...(editFormData.content?.aiDevelopmentServices?.cards || []), { title: "", desc: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Service Card
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiDevelopmentServices?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
-                                                <textarea value={card.desc} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiDevelopmentServices?.cards || [])];
-                                                    newCards[idx].desc = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.aiDevelopmentServices?.cards || []), { title: "", desc: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentServices: { ...editFormData.content?.aiDevelopmentServices, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Service Card
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* AI AGENT DEVELOPMENT: SOLUTIONS */}
-                     {activeEditTab === "agent-solutions" && editPage.path === "/ai-agent-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Solutions Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Business Challenges We Solve" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Solution Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.aiDevelopmentSolutions?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* AI AGENT DEVELOPMENT: SOLUTIONS */}
+                                {activeEditTab === "agent-solutions" && editPage.path === "/ai-agent-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Solutions Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentSolutions?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Business Challenges We Solve" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Solution Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.aiDevelopmentSolutions?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.aiDevelopmentSolutions?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiDevelopmentSolutions?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.aiDevelopmentSolutions?.cards || []).filter((_, i) => i !== idx);
+                                                        const newCards = [...(editFormData.content?.aiDevelopmentSolutions?.cards || []), { title: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Solution Card
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiDevelopmentSolutions?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.aiDevelopmentSolutions?.cards || []), { title: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentSolutions: { ...editFormData.content?.aiDevelopmentSolutions, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Solution Card
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* AI AGENT DEVELOPMENT: WHY CHOOSE */}
-                     {activeEditTab === "agent-whychoose" && editPage.path === "/ai-agent-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Why Choose RecentureSoft" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Why Choose Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.aiDevelopmentWhyChoose?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* AI AGENT DEVELOPMENT: WHY CHOOSE */}
+                                {activeEditTab === "agent-whychoose" && editPage.path === "/ai-agent-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentWhyChoose?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Why Choose RecentureSoft" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Why Choose Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.aiDevelopmentWhyChoose?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.aiDevelopmentWhyChoose?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiDevelopmentWhyChoose?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                            <textarea value={card.desc} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiDevelopmentWhyChoose?.cards || [])];
+                                                                newCards[idx].desc = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.aiDevelopmentWhyChoose?.cards || []).filter((_, i) => i !== idx);
+                                                        const newCards = [...(editFormData.content?.aiDevelopmentWhyChoose?.cards || []), { title: "", desc: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Why Choose Card
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiDevelopmentWhyChoose?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
-                                                <textarea value={card.desc} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiDevelopmentWhyChoose?.cards || [])];
-                                                    newCards[idx].desc = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Description" rows={2} />
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.aiDevelopmentWhyChoose?.cards || []), { title: "", desc: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentWhyChoose: { ...editFormData.content?.aiDevelopmentWhyChoose, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Why Choose Card
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
+                                )}
 
-                     {/* AI AGENT DEVELOPMENT: CASE STUDIES */}
-                     {activeEditTab === "agent-casestudies" && editPage.path === "/ai-agent-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Development Case Studies" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2">Case Study Cards</label>
-                                    <div className="space-y-4">
-                                        {(editFormData.content?.aiDevelopmentCaseStudies?.cards || []).map((card, idx) => (
-                                            <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                {/* AI AGENT DEVELOPMENT: CASE STUDIES */}
+                                {activeEditTab === "agent-casestudies" && editPage.path === "/ai-agent-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Case Studies Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentCaseStudies?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Development Case Studies" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-2">Case Study Cards</label>
+                                                <div className="space-y-4">
+                                                    {(editFormData.content?.aiDevelopmentCaseStudies?.cards || []).map((card, idx) => (
+                                                        <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                                                            <div className="flex justify-between items-center">
+                                                                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Card #{idx + 1}</h4>
+                                                                <button type="button" onClick={() => {
+                                                                    const newCards = (editFormData.content?.aiDevelopmentCaseStudies?.cards || []).filter((_, i) => i !== idx);
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                                }} className="text-red-500 hover:text-red-600">
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                            <input type="text" value={card.title} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
+                                                                newCards[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
+                                                            <input type="text" value={card.problem} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
+                                                                newCards[idx].problem = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Problem" />
+                                                            <input type="text" value={card.solution} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
+                                                                newCards[idx].solution = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Solution" />
+                                                            <input type="text" value={card.result} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
+                                                                newCards[idx].result = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Result" />
+                                                            <div>
+                                                                <label className="block text-sm font-medium mb-1">Image</label>
+                                                                <ImageUploader
+                                                                    onUpload={(url) => {
+                                                                        const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
+                                                                        newCards[idx].image = url;
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
+                                                                    }}
+                                                                    defaultImage={card.image || "/images/ai-development/case_study_document.webp"}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    ))}
                                                     <button type="button" onClick={() => {
-                                                        const newCards = (editFormData.content?.aiDevelopmentCaseStudies?.cards || []).filter((_, i) => i !== idx);
+                                                        const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || []), { title: "", problem: "", solution: "", result: "", image: "" }];
                                                         setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
-                                                    }} className="text-red-500 hover:text-red-600">
-                                                        <Trash2 className="w-4 h-4" />
+                                                    }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
+                                                        <Plus className="w-4 h-4" /> Add Case Study
                                                     </button>
                                                 </div>
-                                                <input type="text" value={card.title} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
-                                                    newCards[idx].title = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Title" />
-                                                <input type="text" value={card.problem} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
-                                                    newCards[idx].problem = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Problem" />
-                                                <input type="text" value={card.solution} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
-                                                    newCards[idx].solution = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Solution" />
-                                                <input type="text" value={card.result} onChange={(e) => {
-                                                    const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
-                                                    newCards[idx].result = e.target.value;
-                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
-                                                }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm" placeholder="Result" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AI AGENT DEVELOPMENT: CTA */}
+                                {activeEditTab === "agent-cta" && editPage.path === "/ai-agent-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.aiDevelopmentCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Ready to Develop Your AI Solution?" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <textarea value={editFormData.content?.aiDevelopmentCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Contact our experts..." />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div>
-                                                    <label className="block text-sm font-medium mb-1">Image</label>
-                                                    <ImageUploader
-                                                        onUpload={(url) => {
-                                                            const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || [])];
-                                                            newCards[idx].image = url;
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
-                                                        }}
-                                                        defaultImage={card.image || "/images/ai-development/case_study_document.webp"}
-                                                    />
+                                                    <label className="block text-sm font-medium mb-1">Primary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.aiDevelopmentCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Book Free Consultation" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
+                                                    <input type="text" value={editFormData.content?.aiDevelopmentCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Contact Us" />
                                                 </div>
                                             </div>
-                                        ))}
-                                        <button type="button" onClick={() => {
-                                            const newCards = [...(editFormData.content?.aiDevelopmentCaseStudies?.cards || []), { title: "", problem: "", solution: "", result: "", image: "" }];
-                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCaseStudies: { ...editFormData.content?.aiDevelopmentCaseStudies, cards: newCards } } });
-                                        }} className="w-full py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-slate-200 dark:hover:bg-slate-700">
-                                            <Plus className="w-4 h-4" /> Add Case Study
-                                        </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
-
-                     {/* AI AGENT DEVELOPMENT: CTA */}
-                     {activeEditTab === "agent-cta" && editPage.path === "/ai-agent-development" && (
-                        <div className="max-w-3xl space-y-8">
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">CTA Settings</h3>
-                            <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Title</label>
-                                    <input type="text" value={editFormData.content?.aiDevelopmentCTA?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, title: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Ready to Develop Your AI Solution?" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-1">Description</label>
-                                    <textarea value={editFormData.content?.aiDevelopmentCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Contact our experts..." />
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-sm font-medium mb-1">Primary Button Text</label>
-                                        <input type="text" value={editFormData.content?.aiDevelopmentCTA?.primaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, primaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Book Free Consultation" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium mb-1">Secondary Button Text</label>
-                                        <input type="text" value={editFormData.content?.aiDevelopmentCTA?.secondaryBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, aiDevelopmentCTA: { ...editFormData.content?.aiDevelopmentCTA, secondaryBtnText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Contact Us" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                     )}
-                     {activeEditTab === "genai-hero" && editPage.path === "/generative-ai" && (
+                                )}
+                                {activeEditTab === "genai-hero" && editPage.path === "/generative-ai" && (
                                     <div className="max-w-3xl space-y-8">
                                         <div className="flex items-center justify-between">
                                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Section Settings</h3>
@@ -9257,11 +9270,11 @@ export default function WebsitePages() {
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description Part 1</label>
-                                                <textarea value={editFormData.content?.genAiAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2}/>
+                                                <textarea value={editFormData.content?.genAiAbout?.desc1 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, desc1: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2} />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description Part 2</label>
-                                                <textarea value={editFormData.content?.genAiAbout?.desc2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, desc2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2}/>
+                                                <textarea value={editFormData.content?.genAiAbout?.desc2 || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, desc2: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={2} />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">About Image</label>
@@ -9294,7 +9307,7 @@ export default function WebsitePages() {
                                                             const stats = [...(editFormData.content?.genAiAbout?.stats || [])];
                                                             stats.splice(i, 1);
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiAbout: { ...editFormData.content?.genAiAbout, stats } } });
-                                                        }}><Trash2 className="w-4 h-4"/></button>
+                                                        }}><Trash2 className="w-4 h-4" /></button>
                                                     </div>
                                                 ))}
                                             </div>
@@ -9334,7 +9347,7 @@ export default function WebsitePages() {
                                                             const tags = [...(editFormData.content?.genAiTechLogos?.tags || [])];
                                                             tags.splice(i, 1);
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechLogos: { ...editFormData.content?.genAiTechLogos, tags } } });
-                                                        }}><Trash2 className="w-4 h-4"/></button>
+                                                        }}><Trash2 className="w-4 h-4" /></button>
                                                     </div>
                                                 ))}
                                             </div>
@@ -9355,7 +9368,7 @@ export default function WebsitePages() {
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
-                                                <textarea value={editFormData.content?.genAiCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCTA: { ...editFormData.content?.genAiCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3}/>
+                                                <textarea value={editFormData.content?.genAiCTA?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCTA: { ...editFormData.content?.genAiCTA, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" rows={3} />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Primary Button</label>
@@ -9385,7 +9398,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Service Cards ({(editFormData.content?.genAiServices?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentCards = editFormData.content?.genAiServices?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: [...currentCards, {}] } } });
@@ -9397,48 +9410,49 @@ export default function WebsitePages() {
                                                 </div>
                                                 {(editFormData.content?.genAiServices?.cards || []).map((card, i) => {
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const currentCards = [...(editFormData.content?.genAiServices?.cards || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
-                                                        </div>
-                                                        
-                                                        <input type="text" value={card.title || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.genAiServices?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        <textarea value={card.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.genAiServices?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const currentCards = [...(editFormData.content?.genAiServices?.cards || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
 
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.genAiServices?.cards || [])];
-                                                                    newCards[i] = { ...newCards[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: newCards } } });
-                                                                }} 
-                                                            />
+                                                            <input type="text" value={card.title || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.genAiServices?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+                                                            <textarea value={card.desc || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.genAiServices?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                                <ImageUploader
+                                                                    value={card.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newCards = [...(editFormData.content?.genAiServices?.cards || [])];
+                                                                        newCards[i] = { ...newCards[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiServices: { ...editFormData.content?.genAiServices, cards: newCards } } });
+                                                                    }}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -9460,7 +9474,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Solution Cards ({(editFormData.content?.genAiSolutions?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentCards = editFormData.content?.genAiSolutions?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: [...currentCards, {}] } } });
@@ -9472,48 +9486,49 @@ export default function WebsitePages() {
                                                 </div>
                                                 {(editFormData.content?.genAiSolutions?.cards || []).map((card, i) => {
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const currentCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
-                                                        </div>
-                                                        
-                                                        <input type="text" value={card.title || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        <textarea value={card.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const currentCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
 
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
-                                                                    newCards[i] = { ...newCards[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: newCards } } });
-                                                                }} 
-                                                            />
+                                                            <input type="text" value={card.title || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+                                                            <textarea value={card.desc || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                                <ImageUploader
+                                                                    value={card.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newCards = [...(editFormData.content?.genAiSolutions?.cards || [])];
+                                                                        newCards[i] = { ...newCards[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiSolutions: { ...editFormData.content?.genAiSolutions, cards: newCards } } });
+                                                                    }}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -9535,7 +9550,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Reason Cards ({(editFormData.content?.genAiWhyChoose?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentCards = editFormData.content?.genAiWhyChoose?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: [...currentCards, {}] } } });
@@ -9547,48 +9562,49 @@ export default function WebsitePages() {
                                                 </div>
                                                 {(editFormData.content?.genAiWhyChoose?.cards || []).map((card, i) => {
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const currentCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
-                                                        </div>
-                                                        
-                                                        <input type="text" value={card.title || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        <textarea value={card.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const currentCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
 
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
-                                                                    newCards[i] = { ...newCards[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: newCards } } });
-                                                                }} 
-                                                            />
+                                                            <input type="text" value={card.title || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+                                                            <textarea value={card.desc || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                                <ImageUploader
+                                                                    value={card.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newCards = [...(editFormData.content?.genAiWhyChoose?.cards || [])];
+                                                                        newCards[i] = { ...newCards[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiWhyChoose: { ...editFormData.content?.genAiWhyChoose, cards: newCards } } });
+                                                                    }}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -9610,7 +9626,7 @@ export default function WebsitePages() {
                                             <div className="space-y-4">
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">Study Cards ({(editFormData.content?.genAiCaseStudies?.cards || []).length})</h4>
-                                                    <button 
+                                                    <button
                                                         onClick={() => {
                                                             const currentCards = editFormData.content?.genAiCaseStudies?.cards || [];
                                                             setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: [...currentCards, {}] } } });
@@ -9622,34 +9638,34 @@ export default function WebsitePages() {
                                                 </div>
                                                 {(editFormData.content?.genAiCaseStudies?.cards || []).map((card, i) => {
                                                     return (
-                                                    <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="font-medium text-sm text-slate-500">Item {i+1}</div>
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const currentCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
-                                                                    currentCards.splice(i, 1);
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: currentCards } } });
-                                                                }}
-                                                                className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
-                                                        </div>
-                                                        
-                                                        <input type="text" value={card.title || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], title: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
-                                                        
-                                                        <textarea value={card.desc || ""} onChange={(e) => {
-                                                            const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
-                                                            newCards[i] = { ...newCards[i], desc: e.target.value };
-                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
-                                                        }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
-                                                        
-                                                        
+                                                        <div key={i} className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50/50 dark:bg-slate-900/50 space-y-3 relative">
+                                                            <div className="flex items-center justify-between">
+                                                                <div className="font-medium text-sm text-slate-500">Item {i + 1}</div>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const currentCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
+                                                                        currentCards.splice(i, 1);
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: currentCards } } });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600 p-1 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+
+                                                            <input type="text" value={card.title || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], title: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Title" />
+
+                                                            <textarea value={card.desc || ""} onChange={(e) => {
+                                                                const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
+                                                                newCards[i] = { ...newCards[i], desc: e.target.value };
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
+                                                            }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Description" rows={2} />
+
+
                                                             <input type="text" value={card.tech || ""} onChange={(e) => {
                                                                 const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
                                                                 newCards[i] = { ...newCards[i], tech: e.target.value };
@@ -9660,21 +9676,22 @@ export default function WebsitePages() {
                                                                 newCards[i] = { ...newCards[i], result: e.target.value };
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
                                                             }} className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Result (e.g. 75% Faster)" />
-                                                        
 
-                                                        <div>
-                                                            <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
-                                                            <ImageUploader 
-                                                                value={card.image || ""} 
-                                                                onChange={(url) => {
-                                                                    const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
-                                                                    newCards[i] = { ...newCards[i], image: url };
-                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
-                                                                }} 
-                                                            />
+
+                                                            <div>
+                                                                <label className="block text-xs font-medium text-slate-500 mb-1">Custom Image / Icon</label>
+                                                                <ImageUploader
+                                                                    value={card.image || ""}
+                                                                    onChange={(url) => {
+                                                                        const newCards = [...(editFormData.content?.genAiCaseStudies?.cards || [])];
+                                                                        newCards[i] = { ...newCards[i], image: url };
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiCaseStudies: { ...editFormData.content?.genAiCaseStudies, cards: newCards } } });
+                                                                    }}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                )})}
+                                                    )
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -9704,12 +9721,12 @@ export default function WebsitePages() {
                                                 {(editFormData.content?.genAiTechStack?.stacks || []).map((stack, i) => (
                                                     <div key={i} className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-3 relative">
                                                         <div className="flex justify-between items-center">
-                                                            <div className="font-medium text-sm text-slate-500">Category {i+1}</div>
+                                                            <div className="font-medium text-sm text-slate-500">Category {i + 1}</div>
                                                             <button className="text-red-500" onClick={() => {
                                                                 const stacks = [...(editFormData.content?.genAiTechStack?.stacks || [])];
                                                                 stacks.splice(i, 1);
                                                                 setEditFormData({ ...editFormData, content: { ...editFormData.content, genAiTechStack: { ...editFormData.content?.genAiTechStack, stacks } } });
-                                                            }}><Trash2 className="w-4 h-4"/></button>
+                                                            }}><Trash2 className="w-4 h-4" /></button>
                                                         </div>
                                                         <input type="text" value={stack.category || ""} placeholder="e.g. Frontend" className="w-full bg-white border border-slate-200 rounded px-3 py-2" onChange={(e) => {
                                                             const stacks = [...(editFormData.content?.genAiTechStack?.stacks || [])];
@@ -9728,7 +9745,7 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
-{/* HERO TAB (For Home Page) */}
+                                {/* HERO TAB (For Home Page) */}
                                 {activeEditTab === "hero" && editPage.path === "/" && (
                                     <div className="max-w-3xl space-y-8">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Hero Section Settings (3 Slides)</h3>
@@ -10093,12 +10110,12 @@ export default function WebsitePages() {
                                                         <div key={index} className="bg-white dark:bg-slate-900/45 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md rounded-2xl transition-all duration-200 overflow-hidden">
                                                             {/* Header Bar */}
                                                             <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20">
-                                                                <div 
-                                                                    onClick={() => toggleBlockCollapse(index)} 
+                                                                <div
+                                                                    onClick={() => toggleBlockCollapse(index)}
                                                                     className="flex items-center gap-3 cursor-pointer select-none min-w-0 flex-1 mr-4"
                                                                 >
                                                                     <GripVertical className="w-4 h-4 text-slate-400 shrink-0" />
-                                                                    
+
                                                                     {block.type === 'text' && (
                                                                         <div className="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-500/10 text-cyan-500 dark:text-cyan-400 shrink-0">
                                                                             <FileText className="w-4 h-4" />
@@ -10124,7 +10141,7 @@ export default function WebsitePages() {
                                                                             <ImageIcon className="w-4 h-4" />
                                                                         </div>
                                                                     )}
-                                                                    
+
                                                                     <div className="min-w-0 flex items-center gap-2">
                                                                         <span className="font-semibold text-xs text-slate-800 dark:text-slate-200 uppercase tracking-wider">
                                                                             {block.type} Block
@@ -10156,7 +10173,7 @@ export default function WebsitePages() {
                                                                         )}
                                                                     </div>
                                                                 </div>
-                                                                
+
                                                                 <div className="flex items-center gap-1">
                                                                     <button
                                                                         type="button"
@@ -10194,7 +10211,7 @@ export default function WebsitePages() {
                                                                     </button>
                                                                 </div>
                                                             </div>
-                                                            
+
                                                             {/* Expanded Content */}
                                                             {!isCollapsed && (
                                                                 <div className="p-6 space-y-5 bg-white dark:bg-slate-900/10">
@@ -10218,7 +10235,7 @@ export default function WebsitePages() {
                                                                             </div>
                                                                         </div>
                                                                     )}
-                                                                    
+
                                                                     {block.type === 'highlight' && (
                                                                         <div className="space-y-4">
                                                                             <div>
@@ -10235,14 +10252,14 @@ export default function WebsitePages() {
                                                                             </div>
                                                                         </div>
                                                                     )}
-                                                                    
+
                                                                     {block.type === 'cards' && (
                                                                         <div className="space-y-4">
                                                                             <div>
                                                                                 <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Section Title</label>
                                                                                 <input type="text" value={block.title || ''} onChange={(e) => handleUpdateBlock(index, 'title', e.target.value)} placeholder="Section Title (e.g. Our Services)" className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all" />
                                                                             </div>
-                                                                            
+
                                                                             <div className="space-y-3">
                                                                                 <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Card Items</label>
                                                                                 {(block.items || []).length === 0 ? (
@@ -10307,7 +10324,7 @@ export default function WebsitePages() {
                                                                                     <Plus className="w-3.5 h-3.5" /> Add Card Item
                                                                                 </button>
                                                                             </div>
-                                                                            
+
                                                                             <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mt-4">
                                                                                 <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2.5">Cards Background Image (Peeche Image Lagayein)</label>
                                                                                 <ImageUploader
@@ -10318,14 +10335,14 @@ export default function WebsitePages() {
                                                                             </div>
                                                                         </div>
                                                                     )}
-                                                                    
+
                                                                     {block.type === 'steps' && (
                                                                         <div className="space-y-4">
                                                                             <div>
                                                                                 <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Section Title</label>
                                                                                 <input type="text" value={block.title || ''} onChange={(e) => handleUpdateBlock(index, 'title', e.target.value)} placeholder="Section Title (e.g. Our Process)" className="w-full bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all" />
                                                                             </div>
-                                                                            
+
                                                                             <div className="space-y-3">
                                                                                 <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Step Items</label>
                                                                                 {(block.steps || []).length === 0 ? (
@@ -10392,7 +10409,7 @@ export default function WebsitePages() {
                                                                             </div>
                                                                         </div>
                                                                     )}
-                                                                    
+
                                                                     {block.type === 'image' && (
                                                                         <div className="space-y-4">
                                                                             {((block.images || []).length === 0 && block.url) ? (
@@ -10438,7 +10455,7 @@ export default function WebsitePages() {
                                                                                             <Trash2 className="w-3.5 h-3.5" />
                                                                                         </button>
                                                                                     </div>
-                                                                                    
+
                                                                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
                                                                                         <ImageUploader
                                                                                             label="Upload Image"
@@ -10468,7 +10485,7 @@ export default function WebsitePages() {
                                                                                                     <option value="bottom">Below Content (Bottom)</option>
                                                                                                 </select>
                                                                                             </div>
-                                                                                            
+
                                                                                             <div>
                                                                                                 <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Image Size</label>
                                                                                                 <select
@@ -10486,7 +10503,7 @@ export default function WebsitePages() {
                                                                                                     <option value="full">Full Width</option>
                                                                                                 </select>
                                                                                             </div>
-                                                                                            
+
                                                                                             <div>
                                                                                                 <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Image Alt Text (SEO)</label>
                                                                                                 <input
@@ -10505,7 +10522,7 @@ export default function WebsitePages() {
                                                                                     </div>
                                                                                 </div>
                                                                             ))}
-                                                                            
+
                                                                             <button
                                                                                 type="button"
                                                                                 onClick={() => {
@@ -10518,11 +10535,11 @@ export default function WebsitePages() {
                                                                             </button>
                                                                         </div>
                                                                     )}
-                                                                    
+
                                                                     {block.type !== 'image' && (
                                                                         <div className="border-t border-slate-100 dark:border-slate-800/80 pt-5 mt-5 space-y-4">
                                                                             <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Images & Position Settings (Multi-Image Builder)</label>
-                                                                            
+
                                                                             <div className="space-y-4">
                                                                                 {((block.images || []).length === 0 && block.imageUrl) ? (
                                                                                     <div className="p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl text-xs text-amber-600 dark:text-amber-400 flex flex-col sm:flex-row gap-3 items-center justify-between">
@@ -10564,7 +10581,7 @@ export default function WebsitePages() {
                                                                                                 <Trash2 className="w-3.5 h-3.5" />
                                                                                             </button>
                                                                                         </div>
-                                                                                        
+
                                                                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
                                                                                             <ImageUploader
                                                                                                 label="Upload Image"
@@ -10593,7 +10610,7 @@ export default function WebsitePages() {
                                                                                                         <option value="bottom">Below Content (Bottom)</option>
                                                                                                     </select>
                                                                                                 </div>
-                                                                                                
+
                                                                                                 <div>
                                                                                                     <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Image Size</label>
                                                                                                     <select
@@ -10611,7 +10628,7 @@ export default function WebsitePages() {
                                                                                                         <option value="full">Full Width</option>
                                                                                                     </select>
                                                                                                 </div>
-                                                                                                
+
                                                                                                 <div>
                                                                                                     <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Image Alt Text (SEO)</label>
                                                                                                     <input
@@ -10630,7 +10647,7 @@ export default function WebsitePages() {
                                                                                         </div>
                                                                                     </div>
                                                                                 ))}
-                                                                                
+
                                                                                 <button
                                                                                     type="button"
                                                                                     onClick={() => {
@@ -10644,11 +10661,11 @@ export default function WebsitePages() {
                                                                             </div>
                                                                         </div>
                                                                     )}
-                                                                    
+
                                                                     {block.type !== 'image' && (
                                                                         <div className="border-t border-slate-100 dark:border-slate-800/80 pt-5 mt-5 space-y-4">
                                                                             <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Text Colors & Styling</label>
-                                                                            
+
                                                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                                                 {/* Heading Color Settings */}
                                                                                 <div className="space-y-2 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
@@ -10664,7 +10681,7 @@ export default function WebsitePages() {
                                                                                             <option value="preset">Preset Gradients</option>
                                                                                             <option value="custom">Custom Hex Picker</option>
                                                                                         </select>
-                                                                                        
+
                                                                                         {block.headingColorType === 'custom' ? (
                                                                                             <div className="flex items-center gap-1.5 flex-1 min-w-0">
                                                                                                 <input
@@ -10698,7 +10715,7 @@ export default function WebsitePages() {
                                                                                         )}
                                                                                     </div>
                                                                                 </div>
-                                                                                
+
                                                                                 {/* Description/Text Color Settings */}
                                                                                 <div className="space-y-2 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
                                                                                     <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Text Color (Description / Paragraphs)</label>
@@ -10713,7 +10730,7 @@ export default function WebsitePages() {
                                                                                             <option value="preset">Preset Colors</option>
                                                                                             <option value="custom">Custom Hex Picker</option>
                                                                                         </select>
-                                                                                        
+
                                                                                         {block.textColorType === 'custom' ? (
                                                                                             <div className="flex items-center gap-1.5 flex-1 min-w-0">
                                                                                                 <input
@@ -10745,6 +10762,73 @@ export default function WebsitePages() {
                                                                                             </select>
                                                                                         )}
                                                                                     </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            {/* Font Size Row */}
+                                                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-2">
+                                                                                {/* Main Heading Size */}
+                                                                                <div className="space-y-1.5 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
+                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Main Heading Size</label>
+                                                                                    <select
+                                                                                        value={block.mainHeadingSize || 'default'}
+                                                                                        onChange={(e) => handleUpdateBlock(index, 'mainHeadingSize', e.target.value)}
+                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                    >
+                                                                                        <option value="default">Default (Font Size)</option>
+                                                                                        <option value="20px">20px</option>
+                                                                                        <option value="24px">24px</option>
+                                                                                        <option value="28px">28px</option>
+                                                                                        <option value="32px">32px</option>
+                                                                                        <option value="36px">36px</option>
+                                                                                        <option value="40px">40px</option>
+                                                                                        <option value="48px">48px</option>
+                                                                                        <option value="56px">56px</option>
+                                                                                        <option value="64px">64px</option>
+                                                                                    </select>
+                                                                                </div>
+
+                                                                                {/* Sub Heading / Card Title Size */}
+                                                                                <div className="space-y-1.5 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
+                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Sub Heading / Item Title Size</label>
+                                                                                    <select
+                                                                                        value={block.subHeadingSize || 'default'}
+                                                                                        onChange={(e) => handleUpdateBlock(index, 'subHeadingSize', e.target.value)}
+                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                    >
+                                                                                        <option value="default">Default (Font Size)</option>
+                                                                                        <option value="14px">14px</option>
+                                                                                        <option value="16px">16px</option>
+                                                                                        <option value="18px">18px</option>
+                                                                                        <option value="20px">20px</option>
+                                                                                        <option value="22px">22px</option>
+                                                                                        <option value="24px">24px</option>
+                                                                                        <option value="28px">28px</option>
+                                                                                        <option value="32px">32px</option>
+                                                                                        <option value="36px">36px</option>
+                                                                                    </select>
+                                                                                </div>
+
+                                                                                {/* Body / Paragraph Text Size */}
+                                                                                <div className="space-y-1.5 p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-xl border border-slate-100 dark:border-slate-800">
+                                                                                    <label className="block text-[10px] font-bold text-slate-400 tracking-wider uppercase">Body / Description Size</label>
+                                                                                    <select
+                                                                                        value={block.bodyTextSize || 'default'}
+                                                                                        onChange={(e) => handleUpdateBlock(index, 'bodyTextSize', e.target.value)}
+                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                    >
+                                                                                        <option value="default">Default (Font Size)</option>
+                                                                                        <option value="12px">12px</option>
+                                                                                        <option value="13px">13px</option>
+                                                                                        <option value="14px">14px</option>
+                                                                                        <option value="15px">15px</option>
+                                                                                        <option value="16px">16px</option>
+                                                                                        <option value="17px">17px</option>
+                                                                                        <option value="18px">18px</option>
+                                                                                        <option value="20px">20px</option>
+                                                                                        <option value="22px">22px</option>
+                                                                                        <option value="24px">24px</option>
+                                                                                    </select>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -10904,9 +10988,9 @@ export default function WebsitePages() {
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Banner Image (Cloudinary)</label>
-                                                <ImageUploader 
-                                                    value={editFormData.content?.heroBanner || ""} 
-                                                    onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroBanner: url } })} 
+                                                <ImageUploader
+                                                    value={editFormData.content?.heroBanner || ""}
+                                                    onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroBanner: url } })}
                                                 />
                                             </div>
 
@@ -10950,9 +11034,9 @@ export default function WebsitePages() {
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium mb-1">Hero Banner Image (Cloudinary)</label>
-                                                <ImageUploader 
-                                                    value={editFormData.content?.heroBanner || ""} 
-                                                    onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroBanner: url } })} 
+                                                <ImageUploader
+                                                    value={editFormData.content?.heroBanner || ""}
+                                                    onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroBanner: url } })}
                                                 />
                                             </div>
                                         </div>
@@ -11190,9 +11274,9 @@ export default function WebsitePages() {
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium mb-1">Hero Banner Image (Cloudinary)</label>
-                                                <ImageUploader 
-                                                    value={editFormData.content?.heroImage || ""} 
-                                                    onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroImage: url } })} 
+                                                <ImageUploader
+                                                    value={editFormData.content?.heroImage || ""}
+                                                    onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroImage: url } })}
                                                 />
                                             </div>
                                             <div className="grid grid-cols-2 gap-4">
@@ -11310,9 +11394,9 @@ export default function WebsitePages() {
                                         </div>
                                         <div className="mb-4">
                                             <label className="block text-sm font-medium mb-1">About Image (Cloudinary)</label>
-                                            <ImageUploader 
-                                                value={editFormData.content?.growthImage || ""} 
-                                                onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, growthImage: url } })} 
+                                            <ImageUploader
+                                                value={editFormData.content?.growthImage || ""}
+                                                onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, growthImage: url } })}
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -11481,7 +11565,7 @@ export default function WebsitePages() {
 
 
 
-                                                                                                                                            </fieldset>
+                            </fieldset>
                         </div>
 
                         {/* Footer / Actions */}
