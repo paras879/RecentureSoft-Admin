@@ -71,7 +71,8 @@ export async function POST(req) {
             );
         }
         
-        // Login activity logging removed per user request
+        const { logAdminActivity } = await import("@/lib/adminUtils");
+        await logAdminActivity("LOGIN", "Authentication", "Logged in", username);
 
         // Create JWT token
         const secret = new TextEncoder().encode(

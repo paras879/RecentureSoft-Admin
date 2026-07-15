@@ -8,7 +8,7 @@ import Contact from "@/models/Contact";
 import Admin from "@/models/Admin";
 import bcrypt from "bcryptjs";
 import { revalidatePath } from "next/cache";
-import { checkPermission } from "@/lib/adminUtils";
+import { checkPermission, logAdminActivity } from "@/lib/adminUtils";
 
 export async function deleteBlog(id) {
     try {
@@ -19,6 +19,7 @@ export async function deleteBlog(id) {
         await Blog.findByIdAndDelete(id);
         revalidatePath("/admin/content/blogs");
         revalidatePath("/blog");
+        await logAdminActivity('DELETE', 'Blogs', 'Deleted blog with ID ' + id);
         return { success: true };
     } catch (error) {
         console.error("Error deleting blog:", error);
@@ -61,6 +62,7 @@ export async function createBlog(formData) {
         await newBlog.save();
         revalidatePath("/admin/content/blogs");
         revalidatePath("/blog");
+        await logAdminActivity('CREATE', 'Blogs', 'Created blog: ' + formData.title);
         return { success: true, slug };
     } catch (error) {
         console.error("Error creating blog:", error);
@@ -102,6 +104,7 @@ export async function updateBlog(id, formData) {
         revalidatePath("/admin/content/blogs");
         revalidatePath("/blog");
         revalidatePath(`/blog/${slug}`);
+        await logAdminActivity('UPDATE', 'Blogs', 'Updated blog with ID ' + id);
         return { success: true, slug };
     } catch (error) {
         console.error("Error updating blog:", error);
@@ -135,6 +138,7 @@ export async function createPortfolio(formData) {
 
         await newPortfolio.save();
         revalidatePath("/admin/content/portfolio");
+        await logAdminActivity('CREATE', 'Portfolio', 'Created portfolio project: ' + formData.title);
         return { success: true, slug };
     } catch (error) {
         console.error("Error creating portfolio:", error);
@@ -167,6 +171,7 @@ export async function updatePortfolio(id, formData) {
         });
 
         revalidatePath("/admin/content/portfolio");
+        await logAdminActivity('UPDATE', 'Portfolio', 'Updated portfolio project with ID ' + id);
         return { success: true, slug };
     } catch (error) {
         console.error("Error updating portfolio:", error);
@@ -209,6 +214,7 @@ export async function createService(formData) {
         revalidatePath("/admin/content/services");
         revalidatePath("/"); // Refresh homepage so new service images appear
         revalidatePath("/solutions");
+        await logAdminActivity('CREATE', 'Services', 'Created service: ' + formData.title);
         return { success: true, slug };
     } catch (error) {
         console.error("Error creating service:", error);
@@ -250,6 +256,7 @@ export async function updateService(id, formData) {
         revalidatePath("/admin/content/services");
         revalidatePath("/"); // Refresh homepage so updated service images appear
         revalidatePath("/solutions");
+        await logAdminActivity('UPDATE', 'Services', 'Updated service with ID ' + id);
         return { success: true, slug };
     } catch (error) {
         console.error("Error updating service:", error);
@@ -281,6 +288,7 @@ export async function markNotificationAsRead(type, id) {
         // Revalidate admin pages so the header updates
         revalidatePath("/admin", "layout");
         
+        await logAdminActivity('UPDATE', 'Notifications', `Marked ${type} notification as read`);
         return { success: true };
     } catch (error) {
         console.error("Error marking as read:", error);
@@ -307,6 +315,7 @@ export async function updateAdminPassword(currentPassword, newPassword) {
         admin.password = hashedPassword;
         await admin.save();
         
+        await logAdminActivity('UPDATE', 'Admins', 'Updated admin password');
         return { success: true };
     } catch (error) {
         console.error("Error updating password:", error);
@@ -338,6 +347,7 @@ export async function createNewAdmin(username, email, password, role = 'admin') 
             role
         });
 
+        await logAdminActivity('CREATE', 'Admins', 'Created new admin: ' + username);
         return { success: true };
     } catch (error) {
         console.error("Error creating new admin:", error);
@@ -373,6 +383,7 @@ export async function updateAdminDetails(id, username, email, role) {
         
         await admin.save();
 
+        await logAdminActivity('UPDATE', 'Admins', `Updated admin details for ${username}`);
         return { success: true };
     } catch (error) {
         console.error("Error updating admin details:", error);
@@ -389,6 +400,7 @@ export async function promoteAdmin(id) {
         admin.role = 'super_admin';
         await admin.save();
         
+        await logAdminActivity('UPDATE', 'Admins', `Promoted admin with ID ${id} to super_admin`);
         return { success: true };
     } catch (error) {
         console.error("Error promoting admin:", error);
@@ -407,6 +419,7 @@ export async function deleteAdmin(id) {
         }
 
         await Admin.findByIdAndDelete(id);
+        await logAdminActivity('DELETE', 'Admins', `Deleted admin with ID ${id}`);
         return { success: true };
     } catch (error) {
         console.error("Error deleting admin:", error);
@@ -440,6 +453,7 @@ export async function createJobOpening(formData) {
 
         await newJob.save();
         revalidatePath("/admin/content/jobs");
+        await logAdminActivity('CREATE', 'Jobs', 'Created job opening: ' + formData.title);
         return { success: true, slug };
     } catch (error) {
         console.error("Error creating job opening:", error);
@@ -472,6 +486,7 @@ export async function updateJobOpening(id, formData) {
         });
 
         revalidatePath("/admin/content/jobs");
+        await logAdminActivity('UPDATE', 'Jobs', 'Updated job opening with ID ' + id);
         return { success: true, slug };
     } catch (error) {
         console.error("Error updating job opening:", error);
@@ -487,6 +502,7 @@ export async function deleteJobOpening(id) {
         const JobOpening = (await import("@/models/JobOpening")).default;
         await JobOpening.findByIdAndDelete(id);
         revalidatePath("/admin/content/jobs");
+        await logAdminActivity('DELETE', 'Jobs', 'Deleted job opening with ID ' + id);
         return { success: true };
     } catch (error) {
         console.error("Error deleting job opening:", error);
@@ -502,6 +518,7 @@ export async function deleteSubscriber(id) {
         const Subscriber = (await import("@/models/Subscriber")).default;
         await Subscriber.findByIdAndDelete(id);
         revalidatePath("/admin/subscribers");
+        await logAdminActivity('DELETE', 'Subscribers', 'Deleted subscriber with ID ' + id);
         return { success: true };
     } catch (error) {
         console.error("Error deleting subscriber:", error);
@@ -524,6 +541,7 @@ export async function updateAdminPermissions(id, permissions) {
         admin.markModified('permissions');
         await admin.save();
 
+        await logAdminActivity('UPDATE', 'Admins', `Updated permissions for admin ID ${id}`);
         return { success: true };
     } catch (error) {
         console.error("Error updating admin permissions:", error);
@@ -549,6 +567,7 @@ export async function createFaq(formData) {
 
         await newFaq.save();
         revalidatePath("/admin/content/faqs");
+        await logAdminActivity('CREATE', 'FAQs', 'Created FAQ: ' + formData.question);
         return { success: true };
     } catch (error) {
         console.error("Error creating FAQ:", error);
@@ -573,6 +592,7 @@ export async function updateFaq(id, formData) {
         });
 
         revalidatePath("/admin/content/faqs");
+        await logAdminActivity('UPDATE', 'FAQs', 'Updated FAQ with ID ' + id);
         return { success: true };
     } catch (error) {
         console.error("Error updating FAQ:", error);
