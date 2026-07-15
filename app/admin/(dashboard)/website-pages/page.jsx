@@ -1220,7 +1220,50 @@ export default function WebsitePages() {
                                 
                                 
                                 
-                                {editPage.path === "/iphone-apps-development" && (
+                                
+                                {editPage.path === "/next-js" && (
+                                    <>
+                                        <button onClick={() => setActiveEditTab("nextjs-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'nextjs-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Hero Section
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("nextjs-overview")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'nextjs-overview' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Cinematic Overview
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("nextjs-features")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'nextjs-features' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Features & Details
+                                        </button>
+                                    </>
+                                )}
+
+                                {editPage.path === "/node-js" && (
+                                    <>
+                                        <button onClick={() => setActiveEditTab("nodejs-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'nodejs-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Hero Section
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("nodejs-overview")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'nodejs-overview' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Cinematic Overview
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("nodejs-features")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'nodejs-features' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Features & Details
+                                        </button>
+                                    </>
+                                )}
+
+                                {editPage.path === "/react" && (
+                                    <>
+                                        <button onClick={() => setActiveEditTab("react-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'react-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Hero Section
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("react-overview")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'react-overview' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Cinematic Overview
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("react-features")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'react-features' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Features & Details
+                                        </button>
+                                    </>
+                                )}
+
+{editPage.path === "/iphone-apps-development" && (
                                     <>
                                         <button onClick={() => setActiveEditTab("iphone-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'iphone-hero' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Hero Section
@@ -1471,7 +1514,602 @@ export default function WebsitePages() {
                                 
                                 
                                 
-                                {/* IPHONE HERO TAB */}
+                                
+                                {/* NEXT.JS HERO TAB */}
+                                {activeEditTab === "nextjs-hero" && editPage.path === "/next-js" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Next.js Hero Section</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="space-y-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge</label>
+                                                    <input type="text" value={editFormData.content?.heroBadge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroBadge: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Web Development" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                    <input type="text" value={editFormData.content?.heroTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Next.js App" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title Highlight (e.g. "Development")</label>
+                                                    <input type="text" value={editFormData.content?.heroHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroHighlight: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Development" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Description</label>
+                                                    <textarea value={editFormData.content?.heroDesc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroDesc: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[100px]" placeholder="Description..." />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero CTA Button Text</label>
+                                                    <input type="text" value={editFormData.content?.heroCtaText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroCtaText: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Get in Touch" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Background Image</label>
+                                                    <ImageUploader value={editFormData.content?.heroImage || ""} onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroImage: url } })} />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Background Opacity (0 to 100)</label>
+                                                    <input type="number" min="0" max="100" value={editFormData.content?.bannerOpacity !== undefined ? editFormData.content.bannerOpacity : 70} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, bannerOpacity: parseInt(e.target.value) } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* NEXT.JS OVERVIEW TAB */}
+                                {activeEditTab === "nextjs-overview" && editPage.path === "/next-js" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Cinematic Overview & SEO</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            
+                                            {/* Overview content */}
+                                            <div className="space-y-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Overview Headers & Theme</h4>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                    <input type="text" value={editFormData.content?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, title: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Build the Future of the Web with" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Subtitle</label>
+                                                    <input type="text" value={editFormData.content?.subtitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, subtitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Next.js" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Accent Theme Color</label>
+                                                    <select value={editFormData.content?.themeColor || "sky"} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, themeColor: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm">
+                                                        <option value="sky">Sky (Blue-Cyan Gradient)</option>
+                                                        <option value="blue">Blue</option>
+                                                        <option value="cyan">Cyan</option>
+                                                        <option value="emerald">Emerald (Green)</option>
+                                                        <option value="indigo">Indigo (Purple-Blue)</option>
+                                                        <option value="slate">Slate</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <div className="flex items-center justify-between mb-2">
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Intro Paragraphs List</label>
+                                                        <button type="button" onClick={() => {
+                                                            const currentList = editFormData.content?.introParagraphs || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, introParagraphs: [...currentList, ""] } });
+                                                        }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-medium rounded hover:bg-cyan-100 transition-colors">+ Add Paragraph</button>
+                                                    </div>
+                                                    <div className="space-y-2">
+                                                        {(editFormData.content?.introParagraphs || []).map((item, index) => (
+                                                            <div key={index} className="flex gap-2">
+                                                                <textarea value={item || ""} onChange={(e) => { const newList = [...editFormData.content.introParagraphs]; newList[index] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, introParagraphs: newList } }); }} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" rows={2} />
+                                                                <button type="button" onClick={() => { const newList = [...editFormData.content.introParagraphs]; newList.splice(index, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, introParagraphs: newList } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* CTA Ribbon Settings */}
+                                            <div className="border-t border-slate-200 dark:border-slate-700 pt-6 space-y-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Call-to-Action Ribbon (Bottom Section)</h4>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Title</label>
+                                                    <input type="text" value={editFormData.content?.ctaTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Ready to transform your vision?" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Subtitle</label>
+                                                    <input type="text" value={editFormData.content?.ctaSubtitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaSubtitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Partner with our elite engineering teams today." />
+                                                </div>
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Button Text</label>
+                                                        <input type="text" value={editFormData.content?.ctaBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaBtnText: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Get Started Now" />
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Button Redirect Link</label>
+                                                        <input type="text" value={editFormData.content?.ctaBtnLink || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaBtnLink: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. /contact" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* SEO configuration */}
+                                            <div className="border-t border-slate-200 dark:border-slate-700 pt-6 space-y-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">SEO & Open Graph Metadata</h4>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">SEO Title Tag</label>
+                                                    <input type="text" value={editFormData.seoTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, seoTitle: e.target.value })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">SEO Meta Description</label>
+                                                    <textarea value={editFormData.seoDescription || ""} onChange={(e) => setEditFormData({ ...editFormData, seoDescription: e.target.value })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">SEO Keywords</label>
+                                                    <input type="text" value={editFormData.content?.seoKeywords || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, seoKeywords: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Next.js, React, web development, SEO" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Open Graph Social Sharing Image</label>
+                                                    <ImageUploader value={editFormData.content?.seoOgImage || ""} onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, seoOgImage: url } })} />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* NEXT.JS FEATURES TAB */}
+                                {activeEditTab === "nextjs-features" && editPage.path === "/next-js" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Features & Highlights</h3>
+                                            <button type="button" onClick={() => {
+                                                const currentList = editFormData.content?.features || [];
+                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, features: [...currentList, { title: "", desc: "", icon: "", highlights: [] }] } });
+                                            }} className="px-3 py-1.5 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-sm font-medium rounded-lg hover:bg-cyan-100 transition-colors">+ Add Feature Card</button>
+                                        </div>
+                                        <div className="space-y-4">
+                                            {(editFormData.content?.features || []).map((item, index) => (
+                                                <div key={index} className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm relative group">
+                                                    <button type="button" onClick={() => {
+                                                        const newList = [...(editFormData.content?.features || [])];
+                                                        newList.splice(index, 1);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                    }} className="absolute top-4 right-4 p-1.5 text-red-500 bg-red-50 dark:bg-red-500/10 hover:bg-red-100 rounded-md transition-colors"><Trash2 className="w-4 h-4" /></button>
+                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                                        <div>
+                                                            <label className="block text-xs text-slate-500 mb-1">Title</label>
+                                                            <input type="text" value={item.title || ""} onChange={(e) => { const newList = [...editFormData.content.features]; newList[index].title = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs text-slate-500 mb-1">Icon Name (Lucide)</label>
+                                                            <input type="text" value={item.icon || ""} onChange={(e) => { const newList = [...editFormData.content.features]; newList[index].icon = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" placeholder="e.g. Server, Zap, Search" />
+                                                        </div>
+                                                        <div className="md:col-span-2">
+                                                            <label className="block text-xs text-slate-500 mb-1">Description</label>
+                                                            <textarea value={item.desc || ""} onChange={(e) => { const newList = [...editFormData.content.features]; newList[index].desc = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" rows={2} />
+                                                        </div>
+                                                        <div className="md:col-span-2 border-t border-slate-100 dark:border-slate-700 pt-3">
+                                                            <div className="flex items-center justify-between mb-2">
+                                                                <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400">Highlights List (Checklist Bullets)</label>
+                                                                <button type="button" onClick={() => {
+                                                                    const newList = [...editFormData.content.features];
+                                                                    newList[index].highlights = [...(newList[index].highlights || []), ""];
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                                }} className="px-2 py-0.5 bg-indigo-50 text-indigo-600 text-xs rounded">+ Add Highlight</button>
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                {(item.highlights || []).map((hl, hlIdx) => (
+                                                                    <div key={hlIdx} className="flex gap-2 items-center bg-slate-50 dark:bg-slate-900 p-1.5 rounded border border-slate-200">
+                                                                        <input type="text" value={hl || ""} onChange={(e) => {
+                                                                            const newList = [...editFormData.content.features];
+                                                                            newList[index].highlights[hlIdx] = e.target.value;
+                                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                                        }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs" />
+                                                                        <button type="button" onClick={() => {
+                                                                            const newList = [...editFormData.content.features];
+                                                                            newList[index].highlights.splice(hlIdx, 1);
+                                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                                        }} className="text-red-500 hover:text-red-600"><Trash2 className="w-3 h-3" /></button>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* NODE.JS HERO TAB */}
+                                {activeEditTab === "nodejs-hero" && editPage.path === "/node-js" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Node.js Hero Section</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="space-y-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge</label>
+                                                    <input type="text" value={editFormData.content?.heroBadge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroBadge: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Backend Engineering" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                    <input type="text" value={editFormData.content?.heroTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Node.js API" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title Highlight (e.g. "Development")</label>
+                                                    <input type="text" value={editFormData.content?.heroHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroHighlight: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Development" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Description</label>
+                                                    <textarea value={editFormData.content?.heroDesc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroDesc: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[100px]" placeholder="Description..." />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero CTA Button Text</label>
+                                                    <input type="text" value={editFormData.content?.heroCtaText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroCtaText: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Get in Touch" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Background Image</label>
+                                                    <ImageUploader value={editFormData.content?.heroImage || ""} onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroImage: url } })} />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Background Opacity (0 to 100)</label>
+                                                    <input type="number" min="0" max="100" value={editFormData.content?.bannerOpacity !== undefined ? editFormData.content.bannerOpacity : 70} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, bannerOpacity: parseInt(e.target.value) } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* NODE.JS OVERVIEW TAB */}
+                                {activeEditTab === "nodejs-overview" && editPage.path === "/node-js" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Cinematic Overview & SEO</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            
+                                            {/* Overview content */}
+                                            <div className="space-y-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Overview Headers & Theme</h4>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                    <input type="text" value={editFormData.content?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, title: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Power Your Backend with" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Subtitle</label>
+                                                    <input type="text" value={editFormData.content?.subtitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, subtitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Node.js" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Accent Theme Color</label>
+                                                    <select value={editFormData.content?.themeColor || "sky"} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, themeColor: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm">
+                                                        <option value="sky">Sky (Blue-Cyan Gradient)</option>
+                                                        <option value="blue">Blue</option>
+                                                        <option value="cyan">Cyan</option>
+                                                        <option value="emerald">Emerald (Green)</option>
+                                                        <option value="indigo">Indigo (Purple-Blue)</option>
+                                                        <option value="slate">Slate</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <div className="flex items-center justify-between mb-2">
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Intro Paragraphs List</label>
+                                                        <button type="button" onClick={() => {
+                                                            const currentList = editFormData.content?.introParagraphs || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, introParagraphs: [...currentList, ""] } });
+                                                        }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-medium rounded hover:bg-cyan-100 transition-colors">+ Add Paragraph</button>
+                                                    </div>
+                                                    <div className="space-y-2">
+                                                        {(editFormData.content?.introParagraphs || []).map((item, index) => (
+                                                            <div key={index} className="flex gap-2">
+                                                                <textarea value={item || ""} onChange={(e) => { const newList = [...editFormData.content.introParagraphs]; newList[index] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, introParagraphs: newList } }); }} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" rows={2} />
+                                                                <button type="button" onClick={() => { const newList = [...editFormData.content.introParagraphs]; newList.splice(index, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, introParagraphs: newList } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* CTA Ribbon Settings */}
+                                            <div className="border-t border-slate-200 dark:border-slate-700 pt-6 space-y-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Call-to-Action Ribbon (Bottom Section)</h4>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Title</label>
+                                                    <input type="text" value={editFormData.content?.ctaTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Ready to transform your vision?" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Subtitle</label>
+                                                    <input type="text" value={editFormData.content?.ctaSubtitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaSubtitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Partner with our elite engineering teams today." />
+                                                </div>
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Button Text</label>
+                                                        <input type="text" value={editFormData.content?.ctaBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaBtnText: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Get Started Now" />
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Button Redirect Link</label>
+                                                        <input type="text" value={editFormData.content?.ctaBtnLink || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaBtnLink: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. /contact" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* SEO configuration */}
+                                            <div className="border-t border-slate-200 dark:border-slate-700 pt-6 space-y-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">SEO & Open Graph Metadata</h4>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">SEO Title Tag</label>
+                                                    <input type="text" value={editFormData.seoTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, seoTitle: e.target.value })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">SEO Meta Description</label>
+                                                    <textarea value={editFormData.seoDescription || ""} onChange={(e) => setEditFormData({ ...editFormData, seoDescription: e.target.value })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">SEO Keywords</label>
+                                                    <input type="text" value={editFormData.content?.seoKeywords || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, seoKeywords: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Node.js, REST API, backend development, SEO" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Open Graph Social Sharing Image</label>
+                                                    <ImageUploader value={editFormData.content?.seoOgImage || ""} onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, seoOgImage: url } })} />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* NODE.JS FEATURES TAB */}
+                                {activeEditTab === "nodejs-features" && editPage.path === "/node-js" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Features & Highlights</h3>
+                                            <button type="button" onClick={() => {
+                                                const currentList = editFormData.content?.features || [];
+                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, features: [...currentList, { title: "", desc: "", icon: "", highlights: [] }] } });
+                                            }} className="px-3 py-1.5 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-sm font-medium rounded-lg hover:bg-cyan-100 transition-colors">+ Add Feature Card</button>
+                                        </div>
+                                        <div className="space-y-4">
+                                            {(editFormData.content?.features || []).map((item, index) => (
+                                                <div key={index} className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm relative group">
+                                                    <button type="button" onClick={() => {
+                                                        const newList = [...(editFormData.content?.features || [])];
+                                                        newList.splice(index, 1);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                    }} className="absolute top-4 right-4 p-1.5 text-red-500 bg-red-50 dark:bg-red-500/10 hover:bg-red-100 rounded-md transition-colors"><Trash2 className="w-4 h-4" /></button>
+                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                                        <div>
+                                                            <label className="block text-xs text-slate-500 mb-1">Title</label>
+                                                            <input type="text" value={item.title || ""} onChange={(e) => { const newList = [...editFormData.content.features]; newList[index].title = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs text-slate-500 mb-1">Icon Name (Lucide)</label>
+                                                            <input type="text" value={item.icon || ""} onChange={(e) => { const newList = [...editFormData.content.features]; newList[index].icon = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" placeholder="e.g. ServerCog, Zap, Network" />
+                                                        </div>
+                                                        <div className="md:col-span-2">
+                                                            <label className="block text-xs text-slate-500 mb-1">Description</label>
+                                                            <textarea value={item.desc || ""} onChange={(e) => { const newList = [...editFormData.content.features]; newList[index].desc = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" rows={2} />
+                                                        </div>
+                                                        <div className="md:col-span-2 border-t border-slate-100 dark:border-slate-700 pt-3">
+                                                            <div className="flex items-center justify-between mb-2">
+                                                                <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400">Highlights List (Checklist Bullets)</label>
+                                                                <button type="button" onClick={() => {
+                                                                    const newList = [...editFormData.content.features];
+                                                                    newList[index].highlights = [...(newList[index].highlights || []), ""];
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                                }} className="px-2 py-0.5 bg-indigo-50 text-indigo-600 text-xs rounded">+ Add Highlight</button>
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                {(item.highlights || []).map((hl, hlIdx) => (
+                                                                    <div key={hlIdx} className="flex gap-2 items-center bg-slate-50 dark:bg-slate-900 p-1.5 rounded border border-slate-200">
+                                                                        <input type="text" value={hl || ""} onChange={(e) => {
+                                                                            const newList = [...editFormData.content.features];
+                                                                            newList[index].highlights[hlIdx] = e.target.value;
+                                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                                        }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs" />
+                                                                        <button type="button" onClick={() => {
+                                                                            const newList = [...editFormData.content.features];
+                                                                            newList[index].highlights.splice(hlIdx, 1);
+                                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                                        }} className="text-red-500 hover:text-red-600"><Trash2 className="w-3 h-3" /></button>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* REACT HERO TAB */}
+                                {activeEditTab === "react-hero" && editPage.path === "/react" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">React Hero Section</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div className="space-y-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Badge</label>
+                                                    <input type="text" value={editFormData.content?.heroBadge || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroBadge: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Frontend Development" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                    <input type="text" value={editFormData.content?.heroTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. React.js" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title Highlight (e.g. "Development")</label>
+                                                    <input type="text" value={editFormData.content?.heroHighlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroHighlight: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Development" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Description</label>
+                                                    <textarea value={editFormData.content?.heroDesc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroDesc: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[100px]" placeholder="Description..." />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero CTA Button Text</label>
+                                                    <input type="text" value={editFormData.content?.heroCtaText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroCtaText: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Get in Touch" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Background Image</label>
+                                                    <ImageUploader value={editFormData.content?.heroImage || ""} onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, heroImage: url } })} />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Background Opacity (0 to 100)</label>
+                                                    <input type="number" min="0" max="100" value={editFormData.content?.bannerOpacity !== undefined ? editFormData.content.bannerOpacity : 70} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, bannerOpacity: parseInt(e.target.value) } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* REACT OVERVIEW TAB */}
+                                {activeEditTab === "react-overview" && editPage.path === "/react" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">React Cinematic Overview & SEO</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-6">
+                                            
+                                            {/* Overview content */}
+                                            <div className="space-y-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Overview Headers & Theme</h4>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                    <input type="text" value={editFormData.content?.title || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, title: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Craft Highly Interactive UIs with" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Subtitle</label>
+                                                    <input type="text" value={editFormData.content?.subtitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, subtitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. React.js" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Accent Theme Color</label>
+                                                    <select value={editFormData.content?.themeColor || "sky"} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, themeColor: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm">
+                                                        <option value="sky">Sky (Blue-Cyan Gradient)</option>
+                                                        <option value="blue">Blue</option>
+                                                        <option value="cyan">Cyan</option>
+                                                        <option value="emerald">Emerald (Green)</option>
+                                                        <option value="indigo">Indigo (Purple-Blue)</option>
+                                                        <option value="slate">Slate</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <div className="flex items-center justify-between mb-2">
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Intro Paragraphs List</label>
+                                                        <button type="button" onClick={() => {
+                                                            const currentList = editFormData.content?.introParagraphs || [];
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, introParagraphs: [...currentList, ""] } });
+                                                        }} className="px-2 py-1 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-medium rounded hover:bg-cyan-100 transition-colors">+ Add Paragraph</button>
+                                                    </div>
+                                                    <div className="space-y-2">
+                                                        {(editFormData.content?.introParagraphs || []).map((item, index) => (
+                                                            <div key={index} className="flex gap-2">
+                                                                <textarea value={item || ""} onChange={(e) => { const newList = [...editFormData.content.introParagraphs]; newList[index] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, introParagraphs: newList } }); }} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" rows={2} />
+                                                                <button type="button" onClick={() => { const newList = [...editFormData.content.introParagraphs]; newList.splice(index, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, introParagraphs: newList } }); }} className="text-red-500 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* CTA Ribbon Settings */}
+                                            <div className="border-t border-slate-200 dark:border-slate-700 pt-6 space-y-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">Call-to-Action Ribbon (Bottom Section)</h4>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Title</label>
+                                                    <input type="text" value={editFormData.content?.ctaTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Ready to transform your vision?" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">CTA Subtitle</label>
+                                                    <input type="text" value={editFormData.content?.ctaSubtitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaSubtitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Partner with our elite engineering teams today." />
+                                                </div>
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Button Text</label>
+                                                        <input type="text" value={editFormData.content?.ctaBtnText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaBtnText: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Get Started Now" />
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Button Redirect Link</label>
+                                                        <input type="text" value={editFormData.content?.ctaBtnLink || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ctaBtnLink: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. /contact" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* SEO configuration */}
+                                            <div className="border-t border-slate-200 dark:border-slate-700 pt-6 space-y-4">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200 border-b pb-2">SEO & Open Graph Metadata</h4>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">SEO Title Tag</label>
+                                                    <input type="text" value={editFormData.seoTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, seoTitle: e.target.value })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">SEO Meta Description</label>
+                                                    <textarea value={editFormData.seoDescription || ""} onChange={(e) => setEditFormData({ ...editFormData, seoDescription: e.target.value })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">SEO Keywords</label>
+                                                    <input type="text" value={editFormData.content?.seoKeywords || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, seoKeywords: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. React, frontend, web development, SEO" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Open Graph Social Sharing Image</label>
+                                                    <ImageUploader value={editFormData.content?.seoOgImage || ""} onChange={(url) => setEditFormData({ ...editFormData, content: { ...editFormData.content, seoOgImage: url } })} />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* REACT FEATURES TAB */}
+                                {activeEditTab === "react-features" && editPage.path === "/react" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Features & Highlights</h3>
+                                            <button type="button" onClick={() => {
+                                                const currentList = editFormData.content?.features || [];
+                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, features: [...currentList, { title: "", desc: "", icon: "", highlights: [] }] } });
+                                            }} className="px-3 py-1.5 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-sm font-medium rounded-lg hover:bg-cyan-100 transition-colors">+ Add Feature Card</button>
+                                        </div>
+                                        <div className="space-y-4">
+                                            {(editFormData.content?.features || []).map((item, index) => (
+                                                <div key={index} className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm relative group">
+                                                    <button type="button" onClick={() => {
+                                                        const newList = [...(editFormData.content?.features || [])];
+                                                        newList.splice(index, 1);
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                    }} className="absolute top-4 right-4 p-1.5 text-red-500 bg-red-50 dark:bg-red-500/10 hover:bg-red-100 rounded-md transition-colors"><Trash2 className="w-4 h-4" /></button>
+                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                                        <div>
+                                                            <label className="block text-xs text-slate-500 mb-1">Title</label>
+                                                            <input type="text" value={item.title || ""} onChange={(e) => { const newList = [...editFormData.content.features]; newList[index].title = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs text-slate-500 mb-1">Icon Name (Lucide)</label>
+                                                            <input type="text" value={item.icon || ""} onChange={(e) => { const newList = [...editFormData.content.features]; newList[index].icon = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" placeholder="e.g. AppWindow, Layers, RefreshCw" />
+                                                        </div>
+                                                        <div className="md:col-span-2">
+                                                            <label className="block text-xs text-slate-500 mb-1">Description</label>
+                                                            <textarea value={item.desc || ""} onChange={(e) => { const newList = [...editFormData.content.features]; newList[index].desc = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } }); }} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" rows={2} />
+                                                        </div>
+                                                        <div className="md:col-span-2 border-t border-slate-100 dark:border-slate-700 pt-3">
+                                                            <div className="flex items-center justify-between mb-2">
+                                                                <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400">Highlights List (Checklist Bullets)</label>
+                                                                <button type="button" onClick={() => {
+                                                                    const newList = [...editFormData.content.features];
+                                                                    newList[index].highlights = [...(newList[index].highlights || []), ""];
+                                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                                }} className="px-2 py-0.5 bg-indigo-50 text-indigo-600 text-xs rounded">+ Add Highlight</button>
+                                                            </div>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                {(item.highlights || []).map((hl, hlIdx) => (
+                                                                    <div key={hlIdx} className="flex gap-2 items-center bg-slate-50 dark:bg-slate-900 p-1.5 rounded border border-slate-200">
+                                                                        <input type="text" value={hl || ""} onChange={(e) => {
+                                                                            const newList = [...editFormData.content.features];
+                                                                            newList[index].highlights[hlIdx] = e.target.value;
+                                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                                        }} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs" />
+                                                                        <button type="button" onClick={() => {
+                                                                            const newList = [...editFormData.content.features];
+                                                                            newList[index].highlights.splice(hlIdx, 1);
+                                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, features: newList } });
+                                                                        }} className="text-red-500 hover:text-red-600"><Trash2 className="w-3 h-3" /></button>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+{/* IPHONE HERO TAB */}
                                 {activeEditTab === "iphone-hero" && editPage.path === "/iphone-apps-development" && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">iPhone Hero Section</h3>
