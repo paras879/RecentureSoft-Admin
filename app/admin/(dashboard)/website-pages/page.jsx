@@ -10533,6 +10533,80 @@ export default function WebsitePages() {
                                                                             >
                                                                                 <Plus className="w-3.5 h-3.5" /> Add Image
                                                                             </button>
+
+                                                                            {/* Image Banner Overlay Text & Opacity Settings */}
+                                                                            <div className="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-4 space-y-4">
+                                                                                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Overlay Text & Banner Settings</label>
+                                                                                
+                                                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                    <div className="space-y-1">
+                                                                                        <label className="block text-[10px] font-bold text-slate-400 uppercase">Banner Title (On Image)</label>
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            value={block.bannerTitle || ''}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'bannerTitle', e.target.value)}
+                                                                                            placeholder="e.g. Healthcare Software Development"
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        />
+                                                                                    </div>
+                                                                                    
+                                                                                    <div className="space-y-1">
+                                                                                        <label className="block text-[10px] font-bold text-slate-400 uppercase">Banner Description (On Image)</label>
+                                                                                        <textarea
+                                                                                            value={block.bannerDesc || ''}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'bannerDesc', e.target.value)}
+                                                                                            placeholder="e.g. Enhance your business workflow..."
+                                                                                            rows={2}
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none resize-y"
+                                                                                        />
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                    <div className="space-y-1">
+                                                                                        <label className="block text-[10px] font-bold text-slate-400 uppercase">Overlay Background Opacity (%)</label>
+                                                                                        <input
+                                                                                            type="number"
+                                                                                            min="0"
+                                                                                            max="100"
+                                                                                            value={block.overlayOpacity !== undefined ? block.overlayOpacity : 40}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'overlayOpacity', parseInt(e.target.value) || 0)}
+                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        />
+                                                                                    </div>
+
+                                                                                    <div className="space-y-1">
+                                                                                        <label className="block text-[10px] font-bold text-slate-400 uppercase">Overlay Background Color</label>
+                                                                                        <div className="flex gap-1.5 items-center">
+                                                                                            <input
+                                                                                                type="color"
+                                                                                                value={block.overlayBgColor || '#000000'}
+                                                                                                onChange={(e) => handleUpdateBlock(index, 'overlayBgColor', e.target.value)}
+                                                                                                className="w-8 h-8 rounded border border-slate-200 dark:border-slate-700 bg-transparent shrink-0 cursor-pointer"
+                                                                                            />
+                                                                                            <input
+                                                                                                type="text"
+                                                                                                value={block.overlayBgColor || '#000000'}
+                                                                                                onChange={(e) => handleUpdateBlock(index, 'overlayBgColor', e.target.value)}
+                                                                                                className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                            />
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div className="flex items-center gap-2 pt-5">
+                                                                                        <input
+                                                                                            type="checkbox"
+                                                                                            id={`isTopBanner-${index}`}
+                                                                                            checked={block.isTopBanner !== undefined ? block.isTopBanner : false}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'isTopBanner', e.target.checked)}
+                                                                                            className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-4 h-4"
+                                                                                        />
+                                                                                        <label htmlFor={`isTopBanner-${index}`} className="text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer">
+                                                                                            Always Render at Top of Page
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     )}
 
@@ -10662,7 +10736,7 @@ export default function WebsitePages() {
                                                                         </div>
                                                                     )}
 
-                                                                    {block.type !== 'image' && (
+
                                                                         <div className="border-t border-slate-100 dark:border-slate-800/80 pt-5 mt-5 space-y-4">
                                                                             <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Text Colors & Styling</label>
 
@@ -11056,7 +11130,7 @@ export default function WebsitePages() {
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    )}
+
                                                                 </div>
                                                             )}
                                                         </div>
