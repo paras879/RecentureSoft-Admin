@@ -10925,6 +10925,136 @@ export default function WebsitePages() {
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+
+                                                                            {/* CTA Buttons Builder */}
+                                                                            <div className="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-4 space-y-4">
+                                                                                <div className="flex justify-between items-center">
+                                                                                    <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">CTA Buttons Settings</label>
+                                                                                    <div className="flex items-center gap-2">
+                                                                                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Buttons Alignment:</label>
+                                                                                        <select
+                                                                                            value={block.buttonAlign || 'left'}
+                                                                                            onChange={(e) => handleUpdateBlock(index, 'buttonAlign', e.target.value)}
+                                                                                            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                        >
+                                                                                            <option value="left">Left</option>
+                                                                                            <option value="center">Center</option>
+                                                                                            <option value="right">Right</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div className="space-y-3">
+                                                                                    {(block.buttons || []).map((btn, btnIdx) => (
+                                                                                        <div key={btnIdx} className="p-3 bg-slate-50/50 dark:bg-slate-900/20 rounded-2xl border border-slate-100 dark:border-slate-800/80 relative group/btn">
+                                                                                            <button
+                                                                                                type="button"
+                                                                                                onClick={() => {
+                                                                                                    const updatedButtons = (block.buttons || []).filter((_, bIdx) => bIdx !== btnIdx);
+                                                                                                    handleUpdateBlock(index, 'buttons', updatedButtons);
+                                                                                                }}
+                                                                                                className="absolute top-3 right-3 text-rose-500 hover:text-rose-600 transition-colors p-1"
+                                                                                                title="Delete Button"
+                                                                                            >
+                                                                                                <Trash className="w-4 h-4" />
+                                                                                            </button>
+
+                                                                                            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 pr-8">
+                                                                                                {/* Button Text */}
+                                                                                                <div className="space-y-1">
+                                                                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase">Button Text</label>
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        value={btn.text || ''}
+                                                                                                        onChange={(e) => {
+                                                                                                            const updated = (block.buttons || []).map((b, bi) => bi === btnIdx ? { ...b, text: e.target.value } : b);
+                                                                                                            handleUpdateBlock(index, 'buttons', updated);
+                                                                                                        }}
+                                                                                                        placeholder="e.g. Learn More"
+                                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                                    />
+                                                                                                </div>
+
+                                                                                                {/* Button Link */}
+                                                                                                <div className="space-y-1">
+                                                                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase">Button Link/URL</label>
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        value={btn.url || ''}
+                                                                                                        onChange={(e) => {
+                                                                                                            const updated = (block.buttons || []).map((b, bi) => bi === btnIdx ? { ...b, url: e.target.value } : b);
+                                                                                                            handleUpdateBlock(index, 'buttons', updated);
+                                                                                                        }}
+                                                                                                        placeholder="e.g. /contact"
+                                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                                    />
+                                                                                                </div>
+
+                                                                                                {/* Button Bg Color */}
+                                                                                                <div className="space-y-1">
+                                                                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase">Background Color</label>
+                                                                                                    <div className="flex gap-1.5 items-center">
+                                                                                                        <input
+                                                                                                            type="color"
+                                                                                                            value={btn.bgColor || '#3b82f6'}
+                                                                                                            onChange={(e) => {
+                                                                                                                const updated = (block.buttons || []).map((b, bi) => bi === btnIdx ? { ...b, bgColor: e.target.value } : b);
+                                                                                                                handleUpdateBlock(index, 'buttons', updated);
+                                                                                                            }}
+                                                                                                            className="w-8 h-8 rounded border border-slate-200 dark:border-slate-700 bg-transparent shrink-0 cursor-pointer"
+                                                                                                        />
+                                                                                                        <input
+                                                                                                            type="text"
+                                                                                                            value={btn.bgColor || '#3b82f6'}
+                                                                                                            onChange={(e) => {
+                                                                                                                const updated = (block.buttons || []).map((b, bi) => bi === btnIdx ? { ...b, bgColor: e.target.value } : b);
+                                                                                                                handleUpdateBlock(index, 'buttons', updated);
+                                                                                                            }}
+                                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                                        />
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                {/* Button Text Color */}
+                                                                                                <div className="space-y-1">
+                                                                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase">Text Color</label>
+                                                                                                    <div className="flex gap-1.5 items-center">
+                                                                                                        <input
+                                                                                                            type="color"
+                                                                                                            value={btn.textColor || '#ffffff'}
+                                                                                                            onChange={(e) => {
+                                                                                                                const updated = (block.buttons || []).map((b, bi) => bi === btnIdx ? { ...b, textColor: e.target.value } : b);
+                                                                                                                handleUpdateBlock(index, 'buttons', updated);
+                                                                                                            }}
+                                                                                                            className="w-8 h-8 rounded border border-slate-200 dark:border-slate-700 bg-transparent shrink-0 cursor-pointer"
+                                                                                                        />
+                                                                                                        <input
+                                                                                                            type="text"
+                                                                                                            value={btn.textColor || '#ffffff'}
+                                                                                                            onChange={(e) => {
+                                                                                                                const updated = (block.buttons || []).map((b, bi) => bi === btnIdx ? { ...b, textColor: e.target.value } : b);
+                                                                                                                handleUpdateBlock(index, 'buttons', updated);
+                                                                                                            }}
+                                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-none"
+                                                                                                        />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    ))}
+
+                                                                                    <button
+                                                                                        type="button"
+                                                                                        onClick={() => {
+                                                                                            const newButtons = [...(block.buttons || []), { text: 'Click Here', url: '#', bgColor: '#3b82f6', textColor: '#ffffff' }];
+                                                                                            handleUpdateBlock(index, 'buttons', newButtons);
+                                                                                        }}
+                                                                                        className="py-2 px-4 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/40 dark:hover:bg-slate-900/80 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold transition-colors flex items-center gap-1 border border-dashed border-slate-300 dark:border-slate-700"
+                                                                                    >
+                                                                                        <Plus className="w-3.5 h-3.5" /> Add CTA Button
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     )}
                                                                 </div>
