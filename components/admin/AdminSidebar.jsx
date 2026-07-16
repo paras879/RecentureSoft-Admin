@@ -26,7 +26,8 @@ import {
     CalendarDays,
     Star,
     UsersRound,
-    Mail
+    Mail,
+    FolderTree
 } from "lucide-react";
 
 export default function AdminSidebar() {
@@ -93,6 +94,7 @@ export default function AdminSidebar() {
         hasAccess("applications") && { name: "Job Applications", href: "/admin/applications", icon: Briefcase },
         hasAccess("subscribers") && { name: "Newsletter Subs", href: "/admin/subscribers", icon: Mail },
         hasAccess("chats") && { name: "AI Chat History", href: "/admin/chats", icon: BotMessageSquare },
+        hasAccess("sitemap") && { name: "Sitemap", href: "/admin/sitemap", icon: FolderTree },
         {
             name: "Manage Website",
             icon: Globe,
