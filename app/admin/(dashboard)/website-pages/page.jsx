@@ -11030,7 +11030,7 @@ export default function WebsitePages() {
                                                                                             className="absolute top-3 right-3 text-rose-500 hover:text-rose-600 transition-colors p-1"
                                                                                             title="Delete Button"
                                                                                         >
-                                                                                            <Trash className="w-4 h-4" />
+                                                                                            <Trash2 className="w-4 h-4" />
                                                                                         </button>
 
                                                                                         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 pr-8">
