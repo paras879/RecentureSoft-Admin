@@ -5,6 +5,8 @@ import ProjectInquiry from "@/models/ProjectInquiry";
 import MeetingRequest from "@/models/MeetingRequest";
 import Contact from "@/models/Contact";
 import Chat from "@/models/Chat";
+import JobApplication from "@/models/JobApplication";
+import Subscriber from "@/models/Subscriber";
 
 const timeAgo = (date) => {
     const seconds = Math.floor((new Date() - new Date(date)) / 1000);
@@ -30,8 +32,8 @@ export async function GET() {
             MeetingRequest.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
             Contact.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
             Chat.find({ leadStatus: "hot", status: { $ne: "read" } }).sort({ updatedAt: -1 }).limit(10).lean().catch(() => []),
-            (await import("@/models/JobApplication")).default.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
-            (await import("@/models/Subscriber")).default.find({ isRead: { $ne: true } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => [])
+            JobApplication.find({ status: { $ne: "read" } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => []),
+            Subscriber.find({ isRead: { $ne: true } }).sort({ createdAt: -1 }).limit(10).lean().catch(() => [])
         ]);
         
         const allNotifications = [

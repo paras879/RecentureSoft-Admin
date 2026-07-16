@@ -6,6 +6,9 @@ import ProjectInquiry from "@/models/ProjectInquiry";
 import MeetingRequest from "@/models/MeetingRequest";
 import Contact from "@/models/Contact";
 import Admin from "@/models/Admin";
+import Chat from "@/models/Chat";
+import JobApplication from "@/models/JobApplication";
+import Subscriber from "@/models/Subscriber";
 import bcrypt from "bcryptjs";
 import { revalidatePath } from "next/cache";
 import { checkPermission, logAdminActivity } from "@/lib/adminUtils";
@@ -275,13 +278,10 @@ export async function markNotificationAsRead(type, id) {
         } else if (type === "contact") {
             await Contact.findByIdAndUpdate(id, { status: "read" });
         } else if (type === "chat") {
-            const Chat = (await import("@/models/Chat")).default;
             await Chat.findByIdAndUpdate(id, { status: "read" });
         } else if (type === "application") {
-            const JobApplication = (await import("@/models/JobApplication")).default;
             await JobApplication.findByIdAndUpdate(id, { status: "read" });
         } else if (type === "subscriber") {
-            const Subscriber = (await import("@/models/Subscriber")).default;
             await Subscriber.findByIdAndUpdate(id, { isRead: true });
         }
 

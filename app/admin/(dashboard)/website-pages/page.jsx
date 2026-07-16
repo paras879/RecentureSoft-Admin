@@ -6,6 +6,7 @@ import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, 
 import dynamic from 'next/dynamic';
 import { useAdmin } from "@/components/admin/AdminProvider";
 import ImageUploader from "@/components/admin/ImageUploader";
+import BannerCustomizer from "@/components/admin/BannerCustomizer";
 
 export default function WebsitePages() {
     const [pages, setPages] = useState([]);
@@ -231,6 +232,10 @@ export default function WebsitePages() {
                             placeholder="Search pages..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
+
+
+
+
                             className="w-full pl-9 pr-4 py-2 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 dark:text-white"
                         />
                     </div>
@@ -497,6 +502,12 @@ export default function WebsitePages() {
                                     className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'seo' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
                                 >
                                     <Search className="w-4 h-4" /> General Settings
+                                </button>
+                                <button
+                                    onClick={() => setActiveEditTab("banner-settings")}
+                                    className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'banner-settings' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                >
+                                    <ImageIcon className="w-4 h-4" /> Banner Settings
                                 </button>
 
                                 {editPage.path === "/crm" && (
@@ -1585,7 +1596,20 @@ export default function WebsitePages() {
 
 
 
-                                {/* NEXT.JS HERO TAB */}
+                                {/* BANNER SETTINGS TAB */}
+                                {activeEditTab === "banner-settings" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Banner Customization</h3>
+                                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">Configure banner position, order, button styles, spacing, and more. Changes preview live below.</p>
+                                        <BannerCustomizer
+                                            content={editFormData.content}
+                                            onChange={(newContent) => setEditFormData({ ...editFormData, content: newContent })}
+                                        />
+                                    </div>
+                                )}
+
+
+{/* NEXT.JS HERO TAB */}
                                 {activeEditTab === "nextjs-hero" && editPage.path === "/next-js" && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Next.js Hero Section</h3>
