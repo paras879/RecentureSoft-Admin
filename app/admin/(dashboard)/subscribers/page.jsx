@@ -16,6 +16,7 @@ export default async function SubscribersPage() {
         email: sub.email,
         status: sub.status,
         date: new Date(sub.createdAt).toLocaleDateString('en-US', {
+            timeZone: 'Asia/Kolkata',
             year: 'numeric',
             month: 'short',
             day: 'numeric'

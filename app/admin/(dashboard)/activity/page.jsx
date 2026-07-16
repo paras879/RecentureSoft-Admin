@@ -18,6 +18,7 @@ export default async function ActivityLogsPage() {
         ...log,
         _id: log._id.toString(),
         createdAt: new Date(log.createdAt).toLocaleString("en-US", {
+            timeZone: 'Asia/Kolkata',
             year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
         })
     }));

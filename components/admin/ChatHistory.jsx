@@ -24,6 +24,7 @@ export default function ChatHistory({ chats }) {
 
     const formatDate = (dateString) => {
         return new Date(dateString).toLocaleString("en-US", {
+            timeZone: 'Asia/Kolkata',
             month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"
         });
     };

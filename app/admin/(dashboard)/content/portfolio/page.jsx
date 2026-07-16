@@ -26,6 +26,7 @@ export default async function PortfolioCMSPage() {
         image: r.image,
         images: r.images,
         date: new Date(r.createdAt).toLocaleDateString("en-US", {
+            timeZone: 'Asia/Kolkata',
             year: 'numeric', month: 'short', day: 'numeric'
         }),
     }));

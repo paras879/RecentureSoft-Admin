@@ -25,6 +25,7 @@ export default async function ServicesCMSPage() {
         shortDescription: r.shortDescription,
         description: r.description,
         date: new Date(r.createdAt).toLocaleDateString("en-US", {
+            timeZone: 'Asia/Kolkata',
             year: 'numeric', month: 'short', day: 'numeric'
         }),
     }));

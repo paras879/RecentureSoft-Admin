@@ -26,6 +26,7 @@ export default async function JobsPage() {
         description: r.description,
         status: r.status,
         date: new Date(r.createdAt).toLocaleDateString("en-US", {
+            timeZone: 'Asia/Kolkata',
             year: 'numeric', month: 'short', day: 'numeric'
         }),
     }));

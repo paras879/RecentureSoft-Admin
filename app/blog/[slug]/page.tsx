@@ -35,6 +35,7 @@ export default async function BlogDetail({
     const formatDate = (dateString: any) => {
         if (!dateString) return "";
         return new Date(dateString).toLocaleDateString("en-US", {
+            timeZone: 'Asia/Kolkata',
             year: "numeric",
             month: "short",
             day: "numeric",

@@ -13,7 +13,7 @@ import { getAdminUsername } from "@/lib/adminUtils";
 // Helper to format date
 const formatDate = (date) => {
     if (!date) return "N/A";
-    return new Date(date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    return new Date(date).toLocaleDateString("en-US", { timeZone: 'Asia/Kolkata', month: "short", day: "numeric", year: "numeric" });
 };
 
 // Set to force dynamic rendering so stats are always up to date
@@ -51,17 +51,17 @@ export default async function DashboardPage() {
         const d = new Date();
         d.setDate(d.getDate() - i);
         
-        let label = d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+        let label = d.toLocaleDateString("en-US", { timeZone: 'Asia/Kolkata', month: "short", day: "numeric" });
         if (i === 0) label = "Today";
         if (i === 1) label = "Yesterday";
         
         // Use the standard date string as the key to map DB records
-        const dateStr = d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+        const dateStr = d.toLocaleDateString("en-US", { timeZone: 'Asia/Kolkata', month: "short", day: "numeric" });
         leadsByDate[dateStr] = { label, leads: 0 };
     }
 
     recentLeadsForChart.forEach(lead => {
-        const dateStr = new Date(lead.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+        const dateStr = new Date(lead.createdAt).toLocaleDateString("en-US", { timeZone: 'Asia/Kolkata', month: "short", day: "numeric" });
         if (leadsByDate[dateStr]) {
             leadsByDate[dateStr].leads++;
         }
@@ -71,7 +71,7 @@ export default async function DashboardPage() {
     for (let i = 6; i >= 0; i--) {
         const d = new Date();
         d.setDate(d.getDate() - i);
-        const dateStr = d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+        const dateStr = d.toLocaleDateString("en-US", { timeZone: 'Asia/Kolkata', month: "short", day: "numeric" });
         
         if (leadsByDate[dateStr]) {
             chartData.push({

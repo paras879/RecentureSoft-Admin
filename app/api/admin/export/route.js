@@ -24,7 +24,7 @@ export async function GET() {
                 escapeCSV(lead.email),
                 escapeCSV(lead.projectType),
                 escapeCSV(lead.status || 'new'),
-                escapeCSV(new Date(lead.createdAt).toLocaleDateString())
+                escapeCSV(new Date(lead.createdAt).toLocaleDateString("en-IN", { timeZone: 'Asia/Kolkata' }))
             ];
         });
 
