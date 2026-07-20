@@ -1175,6 +1175,14 @@ export default function WebsitePages() {
                                         >
                                             <LayoutTemplate className="w-4 h-4" /> Hero Section
                                         </button>
+                                        {editFormData.templateType === "location-template" && (
+                                            <button
+                                                onClick={() => setActiveEditTab("location-map")}
+                                                className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'location-map' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                            >
+                                                <MapPin className="w-4 h-4" /> Map Highlight
+                                            </button>
+                                        )}
                                         <button
                                             onClick={() => setActiveEditTab("crm-content")}
                                             className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'crm-content' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
@@ -1190,15 +1198,6 @@ export default function WebsitePages() {
                                                 <button type="button" onClick={() => handleAddBlock('steps')} className="text-left px-3 py-2 text-xs font-medium bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-500/20 rounded-lg transition-colors border border-rose-100 dark:border-rose-500/20 shadow-sm">+ Add Steps Section</button>
                                                 <button type="button" onClick={() => handleAddBlock('image')} className="text-left px-3 py-2 text-xs font-medium bg-amber-50 text-amber-700 dark:bg-amber-500/10 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-500/20 rounded-lg transition-colors border border-amber-100 dark:border-amber-500/20 shadow-sm">+ Add Image Banner</button>
                                             </div>
-                                        )}
-
-                                        {editFormData.templateType === "location-template" && (
-                                            <button
-                                                onClick={() => setActiveEditTab("location-map")}
-                                                className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'location-map' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
-                                            >
-                                                <MapPin className="w-4 h-4" /> Map Highlight
-                                            </button>
                                         )}
                                     </>
                                 )}
