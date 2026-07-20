@@ -23,15 +23,16 @@ export default function ImageUploader({ value, onChange, label = "Upload Image",
             });
 
             const data = await res.json();
-            if (data.secure_url) {
+            if (res.ok && data.secure_url) {
                 onChange(data.secure_url);
             } else {
                 console.error("Upload failed", data);
-                alert("Failed to upload image. Please try again.");
+                const errMsg = data.error?.message || "Failed to upload image. Please try again.";
+                alert(`Upload Error: ${errMsg}`);
             }
         } catch (error) {
             console.error("Upload error", error);
-            alert("An error occurred while uploading.");
+            alert(`An error occurred while uploading: ${error.message}`);
         } finally {
             setIsUploading(false);
             e.target.value = null;

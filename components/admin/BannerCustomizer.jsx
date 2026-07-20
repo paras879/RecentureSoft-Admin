@@ -197,8 +197,9 @@ function PositionOrderControl({ config, set }) {
 function BannerImageControl({ config, hero, set, onChange, content }) {
   const currentUrl = config.imageUrl || hero?.bannerImage || hero?.desktopBanner || hero?.banner || "";
   return (
-    <div className="p-4 bg-white dark:bg-slate-900/60 rounded-2xl border border-slate-200 dark:border-slate-700/80 shadow-sm space-y-3">
-      <p className="text-sm font-semibold text-slate-900 dark:text-white">Banner Image</p>
+    <div className="p-4 bg-white dark:bg-slate-900/60 rounded-2xl border border-slate-200 dark:border-slate-700/80 shadow-sm space-y-4">
+      <p className="text-sm font-semibold text-slate-900 dark:text-white">Banner Image Settings</p>
+      
       <div>
         <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Hero / Banner Image</label>
         <ImageUploader
@@ -218,6 +219,36 @@ function BannerImageControl({ config, hero, set, onChange, content }) {
           <span className="text-[10px] text-slate-500 truncate flex-1">{currentUrl}</span>
         </div>
       )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div className="space-y-1.5">
+          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Object Fit (Cropping)</label>
+          <select
+            value={config.objectFit || "cover"}
+            onChange={(e) => set("objectFit", e.target.value)}
+            className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/20"
+          >
+            <option value="cover">Cover (Fills area, may crop edges)</option>
+            <option value="contain">Contain (Shows full image, no cropping)</option>
+          </select>
+        </div>
+
+        <div className="space-y-1.5">
+          <div className="flex justify-between">
+            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Overlay Opacity</label>
+            <span className="text-xs text-slate-500">{config.opacity !== undefined ? config.opacity : 70}%</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={config.opacity !== undefined ? config.opacity : 70}
+            onChange={(e) => set("opacity", parseInt(e.target.value))}
+            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer dark:bg-slate-700"
+          />
+          <p className="text-[10px] text-slate-500">Controls the dark overlay on the banner</p>
+        </div>
+      </div>
     </div>
   );
 }
