@@ -10228,10 +10228,10 @@ export default function WebsitePages() {
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Location Map Highlight</h3>
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
                                             <p className="text-sm text-slate-500 mb-4">
-                                                Select a US state to highlight on the interactive map shown on this location page. If none is selected, the map will not highlight any specific region.
+                                                Select a city to place a location pin on the India map. A glowing animated pin will appear at that city&apos;s exact position.
                                             </p>
                                             <div>
-                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">State to Highlight</label>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">City Location Pin</label>
                                                 <select
                                                     value={editFormData.content?.highlightState || ""}
                                                     onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, highlightState: e.target.value } })}
