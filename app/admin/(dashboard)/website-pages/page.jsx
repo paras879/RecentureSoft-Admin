@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, Briefcase, Code, Layers, Package, ShieldCheck, Star, CheckCircle2, XCircle, Save, Loader2, ArrowRight, ListChecks, ChevronDown, ChevronUp, ArrowUp, ArrowDown, GripVertical, Image as ImageIcon, Info } from 'lucide-react';
+import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, Briefcase, Code, Layers, Package, ShieldCheck, Star, CheckCircle2, XCircle, Save, Loader2, ArrowRight, ListChecks, ChevronDown, ChevronUp, ArrowUp, ArrowDown, GripVertical, Image as ImageIcon, Info, MapPin } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useAdmin } from "@/components/admin/AdminProvider";
 import ImageUploader from "@/components/admin/ImageUploader";
@@ -1190,6 +1190,15 @@ export default function WebsitePages() {
                                                 <button type="button" onClick={() => handleAddBlock('steps')} className="text-left px-3 py-2 text-xs font-medium bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-500/20 rounded-lg transition-colors border border-rose-100 dark:border-rose-500/20 shadow-sm">+ Add Steps Section</button>
                                                 <button type="button" onClick={() => handleAddBlock('image')} className="text-left px-3 py-2 text-xs font-medium bg-amber-50 text-amber-700 dark:bg-amber-500/10 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-500/20 rounded-lg transition-colors border border-amber-100 dark:border-amber-500/20 shadow-sm">+ Add Image Banner</button>
                                             </div>
+                                        )}
+
+                                        {editFormData.templateType === "location-template" && (
+                                            <button
+                                                onClick={() => setActiveEditTab("location-map")}
+                                                className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'location-map' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                                            >
+                                                <MapPin className="w-4 h-4" /> Map Highlight
+                                            </button>
                                         )}
                                     </>
                                 )}
@@ -10210,6 +10219,73 @@ export default function WebsitePages() {
                                                         </div>
                                                     </div>
                                                 ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {activeEditTab === "location-map" && editFormData.templateType === "location-template" && (
+                                    <div className="max-w-2xl space-y-4">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Location Map Highlight</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <p className="text-sm text-slate-500 mb-4">
+                                                Select a US state to highlight on the interactive map shown on this location page. If none is selected, the map will not highlight any specific region.
+                                            </p>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">State to Highlight</label>
+                                                <select
+                                                    value={editFormData.content?.highlightState || ""}
+                                                    onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, highlightState: e.target.value } })}
+                                                    className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none"
+                                                >
+                                                    <option value="">None (No highlight)</option>
+                                                    <option value="Noida">Noida (Delhi NCR)</option>
+                                                    <option value="Bangalore">Bangalore (Karnataka)</option>
+                                                    <option value="Gurgaon">Gurgaon (Haryana)</option>
+                                                    <option value="Mumbai">Mumbai (Maharashtra)</option>
+                                                    <option value="Pune">Pune (Maharashtra)</option>
+                                                    <option value="Hyderabad">Hyderabad (Telangana)</option>
+                                                    <option value="Chennai">Chennai (Tamil Nadu)</option>
+                                                    <option value="Kolkata">Kolkata (West Bengal)</option>
+                                                    <option value="Ahmedabad">Ahmedabad (Gujarat)</option>
+                                                    <option disabled>────── STATES ──────</option>
+                                                    <option value="Andaman and Nicobar">Andaman and Nicobar</option>
+                                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                    <option value="Assam">Assam</option>
+                                                    <option value="Bihar">Bihar</option>
+                                                    <option value="Chandigarh">Chandigarh</option>
+                                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                                    <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                                    <option value="Daman and Diu">Daman and Diu</option>
+                                                    <option value="Delhi">Delhi</option>
+                                                    <option value="Goa">Goa</option>
+                                                    <option value="Gujarat">Gujarat</option>
+                                                    <option value="Haryana">Haryana</option>
+                                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                    <option value="Jharkhand">Jharkhand</option>
+                                                    <option value="Karnataka">Karnataka</option>
+                                                    <option value="Kerala">Kerala</option>
+                                                    <option value="Lakshadweep">Lakshadweep</option>
+                                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                    <option value="Maharashtra">Maharashtra</option>
+                                                    <option value="Manipur">Manipur</option>
+                                                    <option value="Meghalaya">Meghalaya</option>
+                                                    <option value="Mizoram">Mizoram</option>
+                                                    <option value="Nagaland">Nagaland</option>
+                                                    <option value="Odisha">Odisha</option>
+                                                    <option value="Puducherry">Puducherry</option>
+                                                    <option value="Punjab">Punjab</option>
+                                                    <option value="Rajasthan">Rajasthan</option>
+                                                    <option value="Sikkim">Sikkim</option>
+                                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                                    <option value="Telangana">Telangana</option>
+                                                    <option value="Tripura">Tripura</option>
+                                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                    <option value="Uttarakhand">Uttarakhand</option>
+                                                    <option value="West Bengal">West Bengal</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
