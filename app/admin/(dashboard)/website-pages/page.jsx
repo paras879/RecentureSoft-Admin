@@ -203,9 +203,11 @@ export default function WebsitePages() {
             });
     }, []);
 
+    const pathsToHide = ['/services', '/sitemap', '/adminedit'];
     const filteredPages = pages.filter(p =>
-        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.path.toLowerCase().includes(searchQuery.toLowerCase())
+        !pathsToHide.includes(p.path) &&
+        (p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.path.toLowerCase().includes(searchQuery.toLowerCase()))
     );
 
     return (
