@@ -10550,6 +10550,44 @@ export default function WebsitePages() {
                                                                                                         rows={3}
                                                                                                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-cyan-500 resize-y"
                                                                                                     />
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        value={item.link || ''}
+                                                                                                        onChange={(e) => {
+                                                                                                            const newItems = [...(block.items || [])];
+                                                                                                            newItems[itemIndex] = { ...newItems[itemIndex], link: e.target.value };
+                                                                                                            handleUpdateBlock(index, 'items', newItems);
+                                                                                                        }}
+                                                                                                        placeholder="Link URL (e.g. /contact)"
+                                                                                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                                                                                                    />
+                                                                                                    <div className="pt-2">
+                                                                                                        <label className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Card Image / Icon</label>
+                                                                                                        <ImageUploader
+                                                                                                            label="Upload Card Image"
+                                                                                                            value={item.backgroundImage || ""}
+                                                                                                            onChange={(val) => {
+                                                                                                                const newItems = [...(block.items || [])];
+                                                                                                                newItems[itemIndex] = { ...newItems[itemIndex], backgroundImage: val };
+                                                                                                                handleUpdateBlock(index, 'items', newItems);
+                                                                                                            }}
+                                                                                                        />
+                                                                                                    </div>
+                                                                                                    <div className="flex items-center gap-2">
+                                                                                                        <label className="text-xs text-slate-500 whitespace-nowrap">Image Opacity (0-100):</label>
+                                                                                                        <input
+                                                                                                            type="number"
+                                                                                                            min="0"
+                                                                                                            max="100"
+                                                                                                            value={item.backgroundOpacity !== undefined ? item.backgroundOpacity : 50}
+                                                                                                            onChange={(e) => {
+                                                                                                                const newItems = [...(block.items || [])];
+                                                                                                                newItems[itemIndex] = { ...newItems[itemIndex], backgroundOpacity: e.target.value };
+                                                                                                                handleUpdateBlock(index, 'items', newItems);
+                                                                                                            }}
+                                                                                                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500"
+                                                                                                        />
+                                                                                                    </div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         ))}
