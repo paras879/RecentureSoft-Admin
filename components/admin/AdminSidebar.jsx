@@ -27,7 +27,8 @@ import {
     Star,
     UsersRound,
     Mail,
-    FolderTree
+    FolderTree,
+    Layers
 } from "lucide-react";
 
 export default function AdminSidebar() {
@@ -100,6 +101,7 @@ export default function AdminSidebar() {
             icon: Globe,
             subItems: [
                 hasAccess("pages") && { name: "Pages", href: "/admin/website-pages", icon: FileText },
+                { name: "Shared Blocks", href: "/admin/shared-blocks", icon: Layers },
                 {
                     name: "Manage Website Content",
                     icon: Globe,
