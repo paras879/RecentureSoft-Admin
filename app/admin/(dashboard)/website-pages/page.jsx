@@ -7306,6 +7306,10 @@ export default function WebsitePages() {
                                                     <input type="text" value={editFormData.content?.crmHero?.highlight || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, crmHero: { ...editFormData.content?.crmHero, highlight: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" placeholder="Management" />
                                                 </div>
                                                 <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea value={editFormData.content?.crmHero?.description || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, crmHero: { ...editFormData.content?.crmHero, description: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" placeholder="Enhance your business workflow..." />
+                                                </div>
+                                                <div className="md:col-span-2">
                                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Hero Desktop Banner (Cloudinary)</label>
                                                     <ImageUploader
                                                         value={editFormData.content?.crmHero?.bannerImage || ""}
@@ -10315,6 +10319,15 @@ export default function WebsitePages() {
                                                         onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, crmHero: { ...editFormData.content.crmHero, highlight: e.target.value } } })}
                                                         className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none"
                                                         placeholder="e.g. Management"
+                                                    />
+                                                </div>
+                                                <div className="md:col-span-2">
+                                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Description</label>
+                                                    <textarea
+                                                        value={editFormData.content?.crmHero?.description || ""}
+                                                        onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, crmHero: { ...editFormData.content.crmHero, description: e.target.value } } })}
+                                                        className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white focus:border-cyan-500 outline-none min-h-[100px]"
+                                                        placeholder="Enhance your business workflow..."
                                                     />
                                                 </div>
                                             </div>
