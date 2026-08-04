@@ -5,7 +5,7 @@ const WebPageSchema = new mongoose.Schema({
     path: { type: String, required: true, unique: true },
     seoTitle: { type: String, default: "" },
     seoDescription: { type: String, default: "" },
-    status: { type: String, enum: ["active", "inactive"], default: "active" },
+    status: { type: String, enum: ["active", "inactive", "deleted"], default: "active" },
     category: { type: String, default: "" },
     subcategory: { type: String, default: "" },
     templateType: { type: String, default: "default" },

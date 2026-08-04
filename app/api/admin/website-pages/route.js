@@ -8,7 +8,7 @@ export async function GET() {
     try {
         await connectDB();
 
-        const pages = await WebPage.find().sort({ createdAt: 1 }).lean();
+        const pages = await WebPage.find({ status: { $ne: "deleted" } }).sort({ createdAt: 1 }).lean();
 
         return NextResponse.json({ success: true, pages });
     } catch (error) {
@@ -114,7 +114,7 @@ export async function DELETE(req) {
             return NextResponse.json({ success: false, message: "ID is required" }, { status: 400 });
         }
 
-        const deletedPage = await WebPage.findByIdAndDelete(id);
+        const deletedPage = await WebPage.findByIdAndUpdate(id, { status: "deleted" }, { new: true });
 
         if (!deletedPage) {
             return NextResponse.json({ success: false, message: "Page not found" }, { status: 404 });
