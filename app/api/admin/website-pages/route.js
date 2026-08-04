@@ -94,24 +94,23 @@ export async function PUT(req) {
             return NextResponse.json({ success: false, message: "Page not found" }, { status: 404 });
         }
 
-        if (data.status !== undefined) {
-            const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
-            const revalSecret = process.env.REVALIDATION_SECRET;
+        // ALWAYS ping revalidation on any update
+        const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
+        const revalSecret = process.env.REVALIDATION_SECRET;
 
-            try {
-                await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        ...(revalSecret ? { "x-revalidate-secret": revalSecret } : {}),
-                    },
-                    body: JSON.stringify({
-                        path: updatedPage.path,
-                    }),
-                });
-            } catch (revalErr) {
-                console.warn("[website-pages] Revalidation ping failed:", revalErr.message);
-            }
+        try {
+            await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    ...(revalSecret ? { "x-revalidate-secret": revalSecret } : {}),
+                },
+                body: JSON.stringify({
+                    path: updatedPage.path,
+                }),
+            });
+        } catch (revalErr) {
+            console.warn("[website-pages] Revalidation ping failed:", revalErr.message);
         }
 
         return NextResponse.json({ success: true, page: updatedPage });
@@ -135,6 +134,24 @@ export async function DELETE(req) {
 
         if (!deletedPage) {
             return NextResponse.json({ success: false, message: "Page not found" }, { status: 404 });
+        }
+
+        // Ping revalidation on delete
+        const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
+        const revalSecret = process.env.REVALIDATION_SECRET;
+        try {
+            await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    ...(revalSecret ? { "x-revalidate-secret": revalSecret } : {}),
+                },
+                body: JSON.stringify({
+                    path: deletedPage.path,
+                }),
+            });
+        } catch (revalErr) {
+            console.warn("[website-pages] Revalidation ping failed on delete:", revalErr.message);
         }
 
         return NextResponse.json({ success: true, message: "Page deleted successfully" });
