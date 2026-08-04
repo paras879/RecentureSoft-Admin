@@ -42,6 +42,23 @@ export async function POST(req) {
             templateType: data.templateType || "default"
         });
 
+        const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
+        const revalSecret = process.env.REVALIDATION_SECRET;
+        try {
+            await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    ...(revalSecret ? { "x-revalidate-secret": revalSecret } : {}),
+                },
+                body: JSON.stringify({
+                    path: newPage.path,
+                }),
+            });
+        } catch (revalErr) {
+            console.warn("[website-pages] Revalidation ping failed on create:", revalErr.message);
+        }
+
         return NextResponse.json({ success: true, page: newPage });
     } catch (error) {
         console.error("Error creating page:", error);
