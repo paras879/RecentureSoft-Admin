@@ -45,7 +45,7 @@ export async function PUT(req, { params }) {
                     "Content-Type": "application/json",
                     ...(revalSecret ? { "x-revalidate-secret": revalSecret } : {}),
                 },
-                body: JSON.stringify({ path: "" }),
+                body: JSON.stringify({ path: "", revalidateAll: true }),
             });
         } catch (e) {
             console.error("Failed to ping frontend revalidate", e);
@@ -76,7 +76,7 @@ export async function DELETE(req, { params }) {
                     "Content-Type": "application/json",
                     ...(revalSecret ? { "x-revalidate-secret": revalSecret } : {}),
                 },
-                body: JSON.stringify({ path: "" }),
+                body: JSON.stringify({ path: "", revalidateAll: true }),
             });
         } catch (e) {
             console.error("Failed to ping frontend revalidate", e);
