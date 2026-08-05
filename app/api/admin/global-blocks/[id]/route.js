@@ -36,6 +36,21 @@ export async function PUT(req, { params }) {
         await db.collection("globalblocks").updateOne({ _id: new ObjectId(id) }, update);
         revalidateTag("global-blocks");
 
+        const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
+        const revalSecret = process.env.REVALIDATION_SECRET;
+        try {
+            await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    ...(revalSecret ? { "x-revalidate-secret": revalSecret } : {}),
+                },
+                body: JSON.stringify({ path: "" }),
+            });
+        } catch (e) {
+            console.error("Failed to ping frontend revalidate", e);
+        }
+
         return NextResponse.json({ success: true });
     } catch (err) {
         return NextResponse.json({ success: false, error: err.message }, { status: 500 });
@@ -51,6 +66,21 @@ export async function DELETE(req, { params }) {
 
         await db.collection("globalblocks").deleteOne({ _id: new ObjectId(id) });
         revalidateTag("global-blocks");
+
+        const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
+        const revalSecret = process.env.REVALIDATION_SECRET;
+        try {
+            await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    ...(revalSecret ? { "x-revalidate-secret": revalSecret } : {}),
+                },
+                body: JSON.stringify({ path: "" }),
+            });
+        } catch (e) {
+            console.error("Failed to ping frontend revalidate", e);
+        }
 
         return NextResponse.json({ success: true });
     } catch (err) {

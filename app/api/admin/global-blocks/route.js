@@ -40,6 +40,21 @@ export async function POST(req) {
 
         const result = await db.collection("globalblocks").insertOne(doc);
         revalidateTag("global-blocks");
+        
+        const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
+        const revalSecret = process.env.REVALIDATION_SECRET;
+        try {
+            await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    ...(revalSecret ? { "x-revalidate-secret": revalSecret } : {}),
+                },
+                body: JSON.stringify({ path: "" }),
+            });
+        } catch (e) {
+            console.error("Failed to ping frontend revalidate", e);
+        }
 
         return NextResponse.json({ success: true, id: result.insertedId });
     } catch (err) {
