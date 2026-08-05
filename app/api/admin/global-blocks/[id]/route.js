@@ -36,8 +36,8 @@ export async function PUT(req, { params }) {
         await db.collection("globalblocks").updateOne({ _id: new ObjectId(id) }, update);
         revalidateTag("global-blocks");
 
-        const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
-        const revalSecret = process.env.REVALIDATION_SECRET;
+        const mainSiteUrl = process.env.MAIN_SITE_URL || "https://recenturesoft-main.vercel.app";
+        const revalSecret = process.env.REVALIDATION_SECRET || "reval_recenture_2026_xyz9k";
         try {
             await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
                 method: "POST",
@@ -67,8 +67,8 @@ export async function DELETE(req, { params }) {
         await db.collection("globalblocks").deleteOne({ _id: new ObjectId(id) });
         revalidateTag("global-blocks");
 
-        const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
-        const revalSecret = process.env.REVALIDATION_SECRET;
+        const mainSiteUrl = process.env.MAIN_SITE_URL || "https://recenturesoft-main.vercel.app";
+        const revalSecret = process.env.REVALIDATION_SECRET || "reval_recenture_2026_xyz9k";
         try {
             await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
                 method: "POST",

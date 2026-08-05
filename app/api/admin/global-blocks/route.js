@@ -41,8 +41,8 @@ export async function POST(req) {
         const result = await db.collection("globalblocks").insertOne(doc);
         revalidateTag("global-blocks");
         
-        const mainSiteUrl = process.env.MAIN_SITE_URL || "http://localhost:3000";
-        const revalSecret = process.env.REVALIDATION_SECRET;
+        const mainSiteUrl = process.env.MAIN_SITE_URL || "https://recenturesoft-main.vercel.app";
+        const revalSecret = process.env.REVALIDATION_SECRET || "reval_recenture_2026_xyz9k";
         try {
             await fetch(`${mainSiteUrl}/api/revalidate-pages`, {
                 method: "POST",
