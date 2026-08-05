@@ -92,7 +92,7 @@ export default function SharedBlocksPage() {
                     className="flex items-center gap-2 px-4 py-2.5 bg-cyan-600 hover:bg-cyan-700 text-white rounded-xl text-sm font-medium transition-all shadow-sm"
                 >
                     <Plus className="w-4 h-4" />
-                    + Naya Shared Block Banao
+                    + Create New Shared Block
                 </Link>
             </div>
 
@@ -102,7 +102,7 @@ export default function SharedBlocksPage() {
                 <input
                     value={search}
                     onChange={e => setSearch(e.target.value)}
-                    placeholder="Block ka naam search karo..."
+                    placeholder="Search block by name..."
                     className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl text-sm text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
                 />
             </div>
@@ -127,7 +127,7 @@ export default function SharedBlocksPage() {
                     </p>
                     {!search && (
                         <p className="text-slate-400 dark:text-slate-500 text-sm mt-1">
-                            Upar se &quot;Naya Shared Block Banao&quot; par click karo.
+                            Upar se &quot;Create New Shared Block&quot; par click karo.
                         </p>
                     )}
                 </div>

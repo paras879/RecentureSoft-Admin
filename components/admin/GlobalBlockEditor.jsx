@@ -13,14 +13,14 @@ const CLOUDINARY_CLOUD_NAME = "dgsebwvvs";
 const CLOUDINARY_UPLOAD_PRESET = "recenturesoft_upload";
 
 const CATEGORY_OPTIONS = [
-    { value: "all", label: "All Pages (Poori Website)" },
+    { value: "all", label: "All Pages (Entire Website)" },
     { value: "industries", label: "Industries" },
     { value: "solutions", label: "Solutions" },
 ];
 
 const POSITION_OPTIONS = [
-    { value: "top", label: "Top (Sabse Upar)" },
-    { value: "bottom", label: "Bottom (Sabse Niche)" },
+    { value: "top", label: "Top (Highest)" },
+    { value: "bottom", label: "Bottom (Lowest)" },
     { value: "before-footer", label: "Before Footer" },
 ];
 
@@ -91,7 +91,7 @@ function ImageUploader({ value, onChange, label = "Background Image" }) {
                     <input
                         value={value || ""}
                         onChange={e => onChange(e.target.value)}
-                        placeholder="URL paste karo ya neeche se upload karo..."
+                        placeholder="Paste URL or upload below..."
                         className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none text-slate-900 dark:text-white text-sm"
                     />
                 </div>
@@ -178,7 +178,7 @@ function CardItem({ card, index, onChange, onRemove, onMoveUp, onMoveDown, isFir
                                     className="w-full accent-cyan-500"
                                 />
                                 <div className="flex justify-between text-xs text-slate-400">
-                                    <span>0% (poori image dikhegi)</span>
+                                    <span>0% (Fully visible image)</span>
                                     <span>100% (bilkul dark)</span>
                                 </div>
                             </div>
@@ -230,7 +230,7 @@ function CardsBlockEditor({ block, onChange }) {
                 ))}
             </div>
             <button type="button" onClick={addItem} className="flex items-center gap-2 w-full justify-center px-4 py-3 rounded-xl border-2 border-dashed border-slate-300 dark:border-white/20 text-slate-600 dark:text-slate-400 hover:border-cyan-500 hover:text-cyan-600 transition-colors text-sm font-medium">
-                <Plus className="w-4 h-4" />+ Card Add Karo
+                <Plus className="w-4 h-4" />+ Add Card
             </button>
         </div>
     );
@@ -281,7 +281,7 @@ function StepsBlockEditor({ block, onChange }) {
                 </div>
             ))}
             <button type="button" onClick={addStep} className="flex items-center gap-2 w-full justify-center px-4 py-3 rounded-xl border-2 border-dashed border-slate-300 dark:border-white/20 text-slate-600 dark:text-slate-400 hover:border-cyan-500 hover:text-cyan-600 transition-colors text-sm font-medium">
-                <Plus className="w-4 h-4" />+ Step Add Karo
+                <Plus className="w-4 h-4" />+ Add Step
             </button>
         </div>
     );
@@ -308,7 +308,7 @@ function ImageBlockEditor({ block, onChange }) {
                 </div>
             ))}
             <button type="button" onClick={addImage} className="flex items-center gap-2 w-full justify-center px-4 py-3 rounded-xl border-2 border-dashed border-slate-300 dark:border-white/20 text-slate-600 dark:text-slate-400 hover:border-cyan-500 hover:text-cyan-600 transition-colors text-sm font-medium">
-                <Plus className="w-4 h-4" />+ Image Add Karo
+                <Plus className="w-4 h-4" />+ Add Image
             </button>
         </div>
     );
@@ -428,7 +428,7 @@ export default function GlobalBlockEditor({ initialData, blockId }) {
     };
 
     const handleSave = async () => {
-        if (!name.trim()) { setError("Block ka naam dena zaroori hai."); return; }
+        if (!name.trim()) { setError("Block name is required."); return; }
         setSaving(true); setError(""); setSaved(false);
         try {
             const payload = { name, targetCategory, position, isActive, blockData: { blocks } };
@@ -467,16 +467,16 @@ export default function GlobalBlockEditor({ initialData, blockId }) {
                     </div>
                     <div>
                         <h1 className="text-xl font-bold text-slate-900 dark:text-white">
-                            {isNew ? "Naya Shared Block Banao" : "Shared Block Edit Karo"}
+                            {isNew ? "Create New Shared Block" : "Edit Shared Block"}
                         </h1>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">Globally dikhane wala content block</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">Globally displayed content block</p>
                     </div>
                 </div>
                 <button onClick={handleSave} disabled={saving}
                     className="flex items-center gap-2 px-5 py-2.5 bg-cyan-600 hover:bg-cyan-700 disabled:opacity-60 text-white rounded-xl text-sm font-medium transition-all shadow-sm"
                 >
                     {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : saved ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
-                    {saving ? "Save ho raha hai..." : saved ? "Save ho gaya!" : "Save Karo"}
+                    {saving ? "Saving..." : saved ? "Saved successfully!" : "Save Block"}
                 </button>
             </div>
 
@@ -491,13 +491,13 @@ export default function GlobalBlockEditor({ initialData, blockId }) {
             <div className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-5">
                 <h2 className="text-sm font-bold text-slate-900 dark:text-white">Block Settings</h2>
 
-                <Field label="Block ka naam *">
+                <Field label="Block Name *">
                     <Input value={name} onChange={setName} placeholder="e.g. Aviation Services Block" />
                 </Field>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wide">Kahan Dikhana Hai? *</label>
+                        <label className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wide">Where to show? *</label>
                         <select
                             value={targetCategory}
                             onChange={e => setTargetCategory(e.target.value)}
@@ -507,7 +507,7 @@ export default function GlobalBlockEditor({ initialData, blockId }) {
                         </select>
                     </div>
                     <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wide">Page par Kahan (Position)? *</label>
+                        <label className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wide">Position on Page? *</label>
                         <select
                             value={position}
                             onChange={e => setPosition(e.target.value)}
@@ -522,7 +522,7 @@ export default function GlobalBlockEditor({ initialData, blockId }) {
                 <div className="flex items-center justify-between px-4 py-3 bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl">
                     <div>
                         <p className="text-sm font-medium text-slate-700 dark:text-slate-300">Status</p>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">ON karo to website par dikhega</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">Turn ON to display on website</p>
                     </div>
                     <button
                         type="button"
@@ -538,7 +538,7 @@ export default function GlobalBlockEditor({ initialData, blockId }) {
             {/* Sections */}
             <div className="space-y-4">
                 <h2 className="text-sm font-bold text-slate-900 dark:text-white">
-                    Sections / Blocks (jo content website par dikhega)
+                    Sections / Blocks (content displayed on website)
                 </h2>
 
                 {blocks.map((block, index) => (
@@ -557,7 +557,7 @@ export default function GlobalBlockEditor({ initialData, blockId }) {
 
                 {/* Add block buttons */}
                 <div>
-                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-3">Naya Section Add Karo:</p>
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-3">Add New Section:</p>
                     <div className="flex flex-wrap gap-2">
                         {BLOCK_TYPES.map(({ type, label, icon: Icon }) => (
                             <button
@@ -583,7 +583,7 @@ export default function GlobalBlockEditor({ initialData, blockId }) {
                     className="flex items-center gap-2 px-6 py-2.5 bg-cyan-600 hover:bg-cyan-700 disabled:opacity-60 text-white rounded-xl text-sm font-medium transition-all shadow-sm"
                 >
                     {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : saved ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
-                    {saving ? "Saving..." : saved ? "Save ho gaya!" : "Save Karo"}
+                    {saving ? "Saving..." : saved ? "Saved successfully!" : "Save Block"}
                 </button>
             </div>
         </div>
