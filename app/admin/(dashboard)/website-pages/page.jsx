@@ -1286,6 +1286,16 @@ export default function WebsitePages() {
                                         <button onClick={() => setActiveEditTab("nodejs-features")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'nodejs-features' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Features & Details
                                         </button>
+
+                                          <button onClick={() => setActiveEditTab("node-services")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'node-services' ? 'bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                              <Briefcase className="w-4 h-4" /> Node Services
+                                          </button>
+                                          <button onClick={() => setActiveEditTab("node-whychoose")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'node-whychoose' ? 'bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                              <Star className="w-4 h-4" /> Why Choose Us
+                                          </button>
+                                          <button onClick={() => setActiveEditTab("node-process")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'node-process' ? 'bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                              <ListChecks className="w-4 h-4" /> Node Process
+                                          </button>
                                     </>
                                 )}
 
@@ -2216,6 +2226,54 @@ export default function WebsitePages() {
                                         </div>
                                     </div>
                                 )}
+
+
+                                  {/* NODE.JS SERVICES TAB */}
+                                  {activeEditTab === "node-services" && editPage.path === "/node-js" && (
+                                      <div className="max-w-3xl space-y-8">
+                                          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Node JS Services</h3>
+                                          <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                              <div>
+                                                  <label className="block text-sm font-medium mb-1">Title</label>
+                                                  <input type="text" className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" value={editFormData.content?.nodeServices?.title || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, nodeServices: { ...editFormData.content?.nodeServices, title: e.target.value } } })} />
+                                              </div>
+                                              <div>
+                                                  <label className="block text-sm font-medium mb-1">Description</label>
+                                                  <textarea className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 h-24" value={editFormData.content?.nodeServices?.desc || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, nodeServices: { ...editFormData.content?.nodeServices, desc: e.target.value } } })} />
+                                              </div>
+                                          </div>
+                                      </div>
+                                  )}
+
+                                  {/* NODE.JS WHY CHOOSE TAB */}
+                                  {activeEditTab === "node-whychoose" && editPage.path === "/node-js" && (
+                                      <div className="max-w-3xl space-y-8">
+                                          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Us</h3>
+                                          <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                              <div>
+                                                  <label className="block text-sm font-medium mb-1">Title</label>
+                                                  <input type="text" className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" value={editFormData.content?.nodeWhyChoose?.title || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, nodeWhyChoose: { ...editFormData.content?.nodeWhyChoose, title: e.target.value } } })} />
+                                              </div>
+                                              <div>
+                                                  <label className="block text-sm font-medium mb-1">Description</label>
+                                                  <textarea className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 h-24" value={editFormData.content?.nodeWhyChoose?.desc || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, nodeWhyChoose: { ...editFormData.content?.nodeWhyChoose, desc: e.target.value } } })} />
+                                              </div>
+                                          </div>
+                                      </div>
+                                  )}
+
+                                  {/* NODE.JS PROCESS TAB */}
+                                  {activeEditTab === "node-process" && editPage.path === "/node-js" && (
+                                      <div className="max-w-3xl space-y-8">
+                                          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Node JS Process</h3>
+                                          <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                              <div>
+                                                  <label className="block text-sm font-medium mb-1">Title</label>
+                                                  <input type="text" className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" value={editFormData.content?.nodeProcess?.title || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, nodeProcess: { ...editFormData.content?.nodeProcess, title: e.target.value } } })} />
+                                              </div>
+                                          </div>
+                                      </div>
+                                  )}
 
                                 {/* REACT NATIVE OVERVIEW TAB */}
                                 {activeEditTab === "reactnative-overview" && editPage.path === "/react-native" && (
