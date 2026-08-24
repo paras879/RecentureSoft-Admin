@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, Briefcase, Code, Layers, Package, ShieldCheck, Star, CheckCircle2, XCircle, Save, Loader2, ArrowRight, ListChecks, ChevronDown, ChevronUp, ArrowUp, ArrowDown, GripVertical, Image as ImageIcon, Info, MapPin } from 'lucide-react';
+import { Search, Plus, Filter, MoreVertical, Edit, Eye, EyeOff, LayoutTemplate, Globe, FileText, Smartphone, Laptop, Trash2, Briefcase, Code, Layers, Package, ShieldCheck, Star, CheckCircle2, XCircle, Save, Loader2, ArrowRight, ListChecks, ChevronDown, ChevronUp, ArrowUp, ArrowDown, GripVertical, Image as ImageIcon, Info, MapPin, Target } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useAdmin } from "@/components/admin/AdminProvider";
 import ImageUploader from "@/components/admin/ImageUploader";
