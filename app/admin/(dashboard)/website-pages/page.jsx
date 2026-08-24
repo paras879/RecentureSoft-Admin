@@ -1048,6 +1048,9 @@ export default function WebsitePages() {
                                         <button onClick={() => setActiveEditTab("rag-casestudies")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-casestudies' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <FileText className="w-4 h-4" /> Case Studies
                                         </button>
+                                        <button onClick={() => setActiveEditTab("rag-actionable")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-actionable' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <Target className="w-4 h-4" /> Actionable Insights
+                                        </button>
                                         <button onClick={() => setActiveEditTab("rag-cta")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'rag-cta' ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <ArrowRight className="w-4 h-4" /> CTA
                                         </button>
@@ -8921,6 +8924,109 @@ export default function WebsitePages() {
                                                         <Plus className="w-4 h-4" /> Add Case Study
                                                     </button>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* RAG DEVELOPMENT: ACTIONABLE INSIGHTS */}
+                                {activeEditTab === "rag-actionable" && editPage.path === "/rag-development" && (
+                                    <div className="max-w-3xl space-y-8">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Actionable Insights Settings</h3>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input
+                                                    type="text"
+                                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2"
+                                                    value={editFormData.content?.ragActionable?.title || ''}
+                                                    onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragActionable: { ...editFormData.content?.ragActionable, title: e.target.value } } })}
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description</label>
+                                                <textarea
+                                                    rows="3"
+                                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2"
+                                                    value={editFormData.content?.ragActionable?.desc || ''}
+                                                    onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ragActionable: { ...editFormData.content?.ragActionable, desc: e.target.value } } })}
+                                                ></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div className="flex items-center justify-between mb-4">
+                                                <h4 className="font-semibold text-slate-900 dark:text-white">Cards</h4>
+                                                <button
+                                                    onClick={() => {
+                                                        const newCards = [...(editFormData.content?.ragActionable?.cards || [])];
+                                                        newCards.push({ title: '', desc: '', icon: 'Bot' });
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, ragActionable: { ...editFormData.content?.ragActionable, cards: newCards } } });
+                                                    }}
+                                                    className="text-sm bg-blue-50 text-blue-600 px-3 py-1.5 rounded-lg font-medium hover:bg-blue-100 transition-colors flex items-center gap-1"
+                                                >
+                                                    <Plus className="w-4 h-4" /> Add Card
+                                                </button>
+                                            </div>
+                                            
+                                            <div className="space-y-4">
+                                                {(editFormData.content?.ragActionable?.cards || []).map((card, idx) => (
+                                                    <div key={idx} className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700 relative">
+                                                        <button
+                                                            onClick={() => {
+                                                                const newCards = editFormData.content.ragActionable.cards.filter((_, i) => i !== idx);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, ragActionable: { ...editFormData.content?.ragActionable, cards: newCards } } });
+                                                            }}
+                                                            className="absolute top-4 right-4 text-red-500 hover:text-red-700 p-1"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                        
+                                                        <div className="grid gap-4 pr-8">
+                                                            <div className="grid grid-cols-2 gap-4">
+                                                                <div>
+                                                                    <label className="block text-xs font-medium mb-1">Title</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        className="w-full bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm"
+                                                                        value={card.title || ''}
+                                                                        onChange={(e) => {
+                                                                            const newCards = [...editFormData.content.ragActionable.cards];
+                                                                            newCards[idx].title = e.target.value;
+                                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragActionable: { ...editFormData.content?.ragActionable, cards: newCards } } });
+                                                                        }}
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <label className="block text-xs font-medium mb-1">Icon Name (Lucide)</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        className="w-full bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm"
+                                                                        value={card.icon || ''}
+                                                                        onChange={(e) => {
+                                                                            const newCards = [...editFormData.content.ragActionable.cards];
+                                                                            newCards[idx].icon = e.target.value;
+                                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, ragActionable: { ...editFormData.content?.ragActionable, cards: newCards } } });
+                                                                        }}
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <label className="block text-xs font-medium mb-1">Description</label>
+                                                                <textarea
+                                                                    rows="2"
+                                                                    className="w-full bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm"
+                                                                    value={card.desc || ''}
+                                                                    onChange={(e) => {
+                                                                        const newCards = [...editFormData.content.ragActionable.cards];
+                                                                        newCards[idx].desc = e.target.value;
+                                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, ragActionable: { ...editFormData.content?.ragActionable, cards: newCards } } });
+                                                                    }}
+                                                                ></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
