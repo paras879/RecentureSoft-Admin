@@ -1298,6 +1298,12 @@ export default function WebsitePages() {
                                         <button onClick={() => setActiveEditTab("reactnative-features")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'reactnative-features' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Features & Details
                                         </button>
+                                        <button onClick={() => setActiveEditTab("reactnative-steps")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'reactnative-steps' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Development Steps
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("reactnative-why-choose")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'reactnative-why-choose' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Why Choose Us
+                                        </button>
                                     </>
                                 )}
 
@@ -2357,6 +2363,112 @@ export default function WebsitePages() {
                                                     </div>
                                                 </div>
                                             ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* REACT NATIVE STEPS TAB */}
+                                {activeEditTab === "reactnative-steps" && editPage.path === "/react-native" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex justify-between items-center mb-4">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Steps Our Team Follows</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.stepsTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, stepsTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Steps Our Team Follows To Develop Apps" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Text</label>
+                                                <textarea value={editFormData.content?.stepsIntro || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, stepsIntro: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[100px]" placeholder="Intro text..." />
+                                            </div>
+                                            
+                                            <div className="flex justify-between items-center mt-6">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Steps List</h4>
+                                                <button type="button" onClick={() => {
+                                                    const currentList = editFormData.content?.stepsList || [];
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, stepsList: [...currentList, { title: "", desc: "" }] } });
+                                                }} className="px-3 py-1.5 bg-indigo-50 text-indigo-600 text-sm font-medium rounded-lg border border-indigo-100 hover:bg-indigo-100 transition-colors">+ Add Step</button>
+                                            </div>
+                                            
+                                            <div className="space-y-4">
+                                                {(editFormData.content?.stepsList || []).map((step, idx) => (
+                                                    <div key={idx} className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3 relative">
+                                                        <div className="flex justify-between items-center">
+                                                            <span className="text-xs font-bold text-slate-400">Step {idx + 1}</span>
+                                                            <button type="button" onClick={() => {
+                                                                const currentList = [...editFormData.content.stepsList];
+                                                                currentList.splice(idx, 1);
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, stepsList: currentList } });
+                                                            }} className="text-red-500 hover:text-red-700 p-1"><Trash2 className="w-4 h-4" /></button>
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">Title</label>
+                                                            <input type="text" value={step.title || ""} onChange={(e) => {
+                                                                const currentList = [...editFormData.content.stepsList];
+                                                                currentList[idx].title = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, stepsList: currentList } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">Description</label>
+                                                            <textarea value={step.desc || ""} onChange={(e) => {
+                                                                const currentList = [...editFormData.content.stepsList];
+                                                                currentList[idx].desc = e.target.value;
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, stepsList: currentList } });
+                                                            }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm" rows={2} />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* REACT NATIVE WHY CHOOSE TAB */}
+                                {activeEditTab === "reactnative-why-choose" && editPage.path === "/react-native" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex justify-between items-center mb-4">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Why Choose Us</h3>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.whyChooseTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="e.g. Why Choose Recenturesoft For React Native Development?" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Text</label>
+                                                <textarea value={editFormData.content?.whyChooseIntro || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseIntro: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" placeholder="Intro text..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Outro Text</label>
+                                                <input type="text" value={editFormData.content?.whyChooseOutro || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseOutro: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" placeholder="Outro text..." />
+                                            </div>
+                                            
+                                            <div className="flex justify-between items-center mt-6">
+                                                <h4 className="font-semibold text-slate-800 dark:text-slate-200">Points List</h4>
+                                                <button type="button" onClick={() => {
+                                                    const currentList = editFormData.content?.whyChoosePoints || [];
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChoosePoints: [...currentList, ""] } });
+                                                }} className="px-3 py-1.5 bg-indigo-50 text-indigo-600 text-sm font-medium rounded-lg border border-indigo-100 hover:bg-indigo-100 transition-colors">+ Add Point</button>
+                                            </div>
+                                            
+                                            <div className="space-y-2">
+                                                {(editFormData.content?.whyChoosePoints || []).map((pt, idx) => (
+                                                    <div key={idx} className="flex gap-2 items-center">
+                                                        <input type="text" value={pt || ""} onChange={(e) => {
+                                                            const currentList = [...editFormData.content.whyChoosePoints];
+                                                            currentList[idx] = e.target.value;
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChoosePoints: currentList } });
+                                                        }} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm" />
+                                                        <button type="button" onClick={() => {
+                                                            const currentList = [...editFormData.content.whyChoosePoints];
+                                                            currentList.splice(idx, 1);
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChoosePoints: currentList } });
+                                                        }} className="text-red-500 hover:text-red-700 p-2"><Trash2 className="w-4 h-4" /></button>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
                                 )}
