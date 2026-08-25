@@ -13687,8 +13687,8 @@ export default function WebsitePages() {
                                             <textarea
                                                 className="w-full px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
                                                 rows="3"
-                                                value={editForm.content?.introText || ''}
-                                                onChange={(e) => setEditForm({ ...editForm, content: { ...editForm.content, introText: e.target.value } })}
+                                                value={editFormData.content?.introText || ''}
+                                                onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, introText: e.target.value } })}
                                                 placeholder="Android technology has a market share..."
                                             />
                                         </div>
@@ -13697,8 +13697,8 @@ export default function WebsitePages() {
                                             <input
                                                 type="text"
                                                 className="w-full px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
-                                                value={editForm.content?.scalableTitle || ''}
-                                                onChange={(e) => setEditForm({ ...editForm, content: { ...editForm.content, scalableTitle: e.target.value } })}
+                                                value={editFormData.content?.scalableTitle || ''}
+                                                onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, scalableTitle: e.target.value } })}
                                             />
                                         </div>
                                         <div>
@@ -13706,8 +13706,8 @@ export default function WebsitePages() {
                                             <textarea
                                                 className="w-full px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
                                                 rows="3"
-                                                value={editForm.content?.scalableDesc || ''}
-                                                onChange={(e) => setEditForm({ ...editForm, content: { ...editForm.content, scalableDesc: e.target.value } })}
+                                                value={editFormData.content?.scalableDesc || ''}
+                                                onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, scalableDesc: e.target.value } })}
                                             />
                                         </div>
                                         <div>
@@ -13716,8 +13716,8 @@ export default function WebsitePages() {
                                                 <button 
                                                     onClick={(e) => {
                                                         e.preventDefault();
-                                                        const current = editForm.content?.scalableList || [];
-                                                        setEditForm({ ...editForm, content: { ...editForm.content, scalableList: [...current, "New Item"] }});
+                                                        const current = editFormData.content?.scalableList || [];
+                                                        setEditFormData({ ...editFormData, content: { ...editFormData.content, scalableList: [...current, "New Item"] }});
                                                     }}
                                                     className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
                                                 >
@@ -13725,24 +13725,24 @@ export default function WebsitePages() {
                                                 </button>
                                             </div>
                                             <div className="space-y-4">
-                                                {(editForm.content?.scalableList || []).map((item, idx) => (
+                                                {(editFormData.content?.scalableList || []).map((item, idx) => (
                                                     <div key={idx} className="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
                                                         <input
                                                             type="text"
                                                             className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
                                                             value={item}
                                                             onChange={(e) => {
-                                                                const newList = [...(editForm.content?.scalableList || [])];
+                                                                const newList = [...(editFormData.content?.scalableList || [])];
                                                                 newList[idx] = e.target.value;
-                                                                setEditForm({ ...editForm, content: { ...editForm.content, scalableList: newList }});
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, scalableList: newList }});
                                                             }}
                                                         />
                                                         <button 
                                                             onClick={(e) => {
                                                                 e.preventDefault();
-                                                                const newList = [...(editForm.content?.scalableList || [])];
+                                                                const newList = [...(editFormData.content?.scalableList || [])];
                                                                 newList.splice(idx, 1);
-                                                                setEditForm({ ...editForm, content: { ...editForm.content, scalableList: newList }});
+                                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, scalableList: newList }});
                                                             }}
                                                             className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors"
                                                         >
@@ -13762,8 +13762,8 @@ export default function WebsitePages() {
                                             <button 
                                                 onClick={(e) => {
                                                     e.preventDefault();
-                                                    const current = editForm.content?.whyChooseUs || [];
-                                                    setEditForm({ ...editForm, content: { ...editForm.content, whyChooseUs: [...current, "New Reason"] }});
+                                                    const current = editFormData.content?.whyChooseUs || [];
+                                                    setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseUs: [...current, "New Reason"] }});
                                                 }}
                                                 className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
                                             >
@@ -13771,24 +13771,24 @@ export default function WebsitePages() {
                                             </button>
                                         </div>
                                         <div className="space-y-4">
-                                            {(editForm.content?.whyChooseUs || []).map((item, idx) => (
+                                            {(editFormData.content?.whyChooseUs || []).map((item, idx) => (
                                                 <div key={idx} className="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
                                                     <input
                                                         type="text"
                                                         className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
                                                         value={item}
                                                         onChange={(e) => {
-                                                            const newList = [...(editForm.content?.whyChooseUs || [])];
+                                                            const newList = [...(editFormData.content?.whyChooseUs || [])];
                                                             newList[idx] = e.target.value;
-                                                            setEditForm({ ...editForm, content: { ...editForm.content, whyChooseUs: newList }});
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseUs: newList }});
                                                         }}
                                                     />
                                                     <button 
                                                         onClick={(e) => {
                                                             e.preventDefault();
-                                                            const newList = [...(editForm.content?.whyChooseUs || [])];
+                                                            const newList = [...(editFormData.content?.whyChooseUs || [])];
                                                             newList.splice(idx, 1);
-                                                            setEditForm({ ...editForm, content: { ...editForm.content, whyChooseUs: newList }});
+                                                            setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseUs: newList }});
                                                         }}
                                                         className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors"
                                                     >
