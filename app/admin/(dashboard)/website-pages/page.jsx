@@ -13679,6 +13679,127 @@ export default function WebsitePages() {
 
 
                                 {/* ===== ANDROID APP PANELS ===== */}
+                                                                {activeEditTab === 'android-intro' && editPage.path === '/android-application-development' && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Intro & Unique Solutions Settings</h3>
+                                        <div>
+                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Text (supports HTML)</label>
+                                            <textarea
+                                                className="w-full px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
+                                                rows="3"
+                                                value={editForm.content?.introText || ''}
+                                                onChange={(e) => setEditForm({ ...editForm, content: { ...editForm.content, introText: e.target.value } })}
+                                                placeholder="Android technology has a market share..."
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Scalable Solutions Title</label>
+                                            <input
+                                                type="text"
+                                                className="w-full px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
+                                                value={editForm.content?.scalableTitle || ''}
+                                                onChange={(e) => setEditForm({ ...editForm, content: { ...editForm.content, scalableTitle: e.target.value } })}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Scalable Solutions Description</label>
+                                            <textarea
+                                                className="w-full px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
+                                                rows="3"
+                                                value={editForm.content?.scalableDesc || ''}
+                                                onChange={(e) => setEditForm({ ...editForm, content: { ...editForm.content, scalableDesc: e.target.value } })}
+                                            />
+                                        </div>
+                                        <div>
+                                            <div className="flex justify-between items-center mb-4">
+                                                <h4 className="text-md font-semibold text-slate-800 dark:text-slate-200">Solution Checkmarks</h4>
+                                                <button 
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        const current = editForm.content?.scalableList || [];
+                                                        setEditForm({ ...editForm, content: { ...editForm.content, scalableList: [...current, "New Item"] }});
+                                                    }}
+                                                    className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                                                >
+                                                    + Add Item
+                                                </button>
+                                            </div>
+                                            <div className="space-y-4">
+                                                {(editForm.content?.scalableList || []).map((item, idx) => (
+                                                    <div key={idx} className="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                                        <input
+                                                            type="text"
+                                                            className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
+                                                            value={item}
+                                                            onChange={(e) => {
+                                                                const newList = [...(editForm.content?.scalableList || [])];
+                                                                newList[idx] = e.target.value;
+                                                                setEditForm({ ...editForm, content: { ...editForm.content, scalableList: newList }});
+                                                            }}
+                                                        />
+                                                        <button 
+                                                            onClick={(e) => {
+                                                                e.preventDefault();
+                                                                const newList = [...(editForm.content?.scalableList || [])];
+                                                                newList.splice(idx, 1);
+                                                                setEditForm({ ...editForm, content: { ...editForm.content, scalableList: newList }});
+                                                            }}
+                                                            className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors"
+                                                        >
+                                                            Delete
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {activeEditTab === 'android-whyus' && editPage.path === '/android-application-development' && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex justify-between items-center mb-4">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why Choose Us Items</h3>
+                                            <button 
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    const current = editForm.content?.whyChooseUs || [];
+                                                    setEditForm({ ...editForm, content: { ...editForm.content, whyChooseUs: [...current, "New Reason"] }});
+                                                }}
+                                                className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                                            >
+                                                + Add Item
+                                            </button>
+                                        </div>
+                                        <div className="space-y-4">
+                                            {(editForm.content?.whyChooseUs || []).map((item, idx) => (
+                                                <div key={idx} className="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                                    <input
+                                                        type="text"
+                                                        className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
+                                                        value={item}
+                                                        onChange={(e) => {
+                                                            const newList = [...(editForm.content?.whyChooseUs || [])];
+                                                            newList[idx] = e.target.value;
+                                                            setEditForm({ ...editForm, content: { ...editForm.content, whyChooseUs: newList }});
+                                                        }}
+                                                    />
+                                                    <button 
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            const newList = [...(editForm.content?.whyChooseUs || [])];
+                                                            newList.splice(idx, 1);
+                                                            setEditForm({ ...editForm, content: { ...editForm.content, whyChooseUs: newList }});
+                                                        }}
+                                                        className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors"
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
                                 {activeEditTab === 'android-hero' && editPage.path === '/android-application-development' && (
                                     <div className="max-w-3xl space-y-6">
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Android App Development - Hero Settings</h3>
