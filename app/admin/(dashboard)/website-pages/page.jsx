@@ -1680,6 +1680,12 @@ export default function WebsitePages() {
                                 )}
                                 {editPage.path === "/android-application-development" && (
                                     <>
+                                                                                <button onClick={() => setActiveEditTab("android-intro")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'android-intro' ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Intro & Solutions
+                                        </button>
+                                        <button onClick={() => setActiveEditTab("android-whyus")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'android-whyus' ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Why Choose Us
+                                        </button>
                                         <button onClick={() => setActiveEditTab("android-hero")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'android-hero' ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Hero Section
                                         </button>
