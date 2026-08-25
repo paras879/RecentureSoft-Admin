@@ -25,6 +25,7 @@ export default async function EditBlogPage({ params }) {
         category: blog.category,
         tags: blog.tags,
         author: blog.author,
+        publishDate: blog.publishDate ? new Date(blog.publishDate).toISOString().split("T")[0] : "",
         image: blog.image,
         featured: blog.featured,
         published: blog.published,

@@ -38,6 +38,11 @@ const BlogSchema = new Schema(
             },
         ],
 
+        publishDate: {
+            type: Date,
+            default: Date.now,
+        },
+
         author: {
             type: String,
             default: "Paras Tomar",
