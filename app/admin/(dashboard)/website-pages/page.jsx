@@ -1382,6 +1382,9 @@ export default function WebsitePages() {
                                         <button onClick={() => setActiveEditTab("ipad-services")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'ipad-services' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> iPad Services
                                         </button>
+                                        <button onClick={() => setActiveEditTab("ipad-process")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'ipad-process' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
+                                            <LayoutTemplate className="w-4 h-4" /> Our Process
+                                        </button>
                                         <button onClick={() => setActiveEditTab("ipad-whyus")} className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-colors whitespace-nowrap ${activeEditTab === 'ipad-whyus' ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}>
                                             <LayoutTemplate className="w-4 h-4" /> Why Choose Us & CTA
                                         </button>
@@ -3101,6 +3104,10 @@ export default function WebsitePages() {
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Intro & Solutions</h3>
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
                                             <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                <input type="text" value={editFormData.content?.mainTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, mainTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 mb-4" placeholder="e.g. Expanding Online Presence..." />
+                                            </div>
+                                            <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
                                                 <textarea value={editFormData.content?.introText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, introText: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" />
                                             </div>
@@ -3329,6 +3336,10 @@ export default function WebsitePages() {
                                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Intro & Value Proposition</h3>
                                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
                                             <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                <input type="text" value={editFormData.content?.mainTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, mainTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 mb-4" placeholder="e.g. Expanding Online Presence..." />
+                                            </div>
+                                            <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
                                                 <textarea value={editFormData.content?.introText || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, introText: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[80px]" />
                                             </div>
@@ -3414,6 +3425,42 @@ export default function WebsitePages() {
                                                             <div className="md:col-span-2">
                                                                 <label className="block text-xs text-slate-500 mb-1">Description</label>
                                                                 <textarea value={item.desc || ""} onChange={(e) => { const newList = [...editFormData.content.services]; newList[index].desc = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, services: newList } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" rows={2} />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* IPAD PROCESS TAB */}
+                                {activeEditTab === "ipad-process" && editPage.path === "/ipad-app-development" && (
+                                    <div className="max-w-3xl space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Our Process</h3>
+                                            <button type="button" onClick={() => {
+                                                const currentList = editFormData.content?.process || [];
+                                                setEditFormData({ ...editFormData, content: { ...editFormData.content, process: [...currentList, { title: "", desc: "" }] } });
+                                            }} className="px-3 py-1.5 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-sm font-medium rounded-lg hover:bg-cyan-100 transition-colors">+ Add Step</button>
+                                        </div>
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-white/5 shadow-sm space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Process Title</label>
+                                                <input type="text" value={editFormData.content?.processTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, processTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
+                                            </div>
+                                            <div className="space-y-4 mt-4">
+                                                {(editFormData.content?.process || []).map((item, index) => (
+                                                    <div key={index} className="p-4 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 relative group">
+                                                        <button type="button" onClick={() => { const newList = [...editFormData.content.process]; newList.splice(index, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, process: newList } }); }} className="absolute top-2 right-2 p-1.5 text-red-500 bg-red-50 hover:bg-red-100 rounded-md transition-colors"><Trash2 className="w-4 h-4" /></button>
+                                                        <div className="mt-2">
+                                                            <div>
+                                                                <label className="block text-xs text-slate-500 mb-1">Step Title</label>
+                                                                <input type="text" value={item.title || ""} onChange={(e) => { const newList = [...editFormData.content.process]; newList[index].title = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, process: newList } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" />
+                                                            </div>
+                                                            <div className="mt-2">
+                                                                <label className="block text-xs text-slate-500 mb-1">Description</label>
+                                                                <textarea value={item.desc || ""} onChange={(e) => { const newList = [...editFormData.content.process]; newList[index].desc = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, process: newList } }); }} className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm" rows={2} />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -5685,6 +5732,10 @@ export default function WebsitePages() {
                                                 <input type="text" value={editFormData.content?.openIntro?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openIntro: { ...editFormData.content?.openIntro, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
                                             </div>
                                             <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                <input type="text" value={editFormData.content?.mainTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, mainTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 mb-4" placeholder="e.g. Expanding Online Presence..." />
+                                            </div>
+                                            <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
                                                 <textarea value={editFormData.content?.openIntro?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, openIntro: { ...editFormData.content?.openIntro, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" />
                                             </div>
@@ -6078,6 +6129,10 @@ export default function WebsitePages() {
                                                 <input type="text" value={editFormData.content?.magentoIntro?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoIntro: { ...editFormData.content?.magentoIntro, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
                                             </div>
                                             <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                <input type="text" value={editFormData.content?.mainTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, mainTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 mb-4" placeholder="e.g. Expanding Online Presence..." />
+                                            </div>
+                                            <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
                                                 <textarea value={editFormData.content?.magentoIntro?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, magentoIntro: { ...editFormData.content?.magentoIntro, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" />
                                             </div>
@@ -6452,6 +6507,10 @@ export default function WebsitePages() {
                                                 <input type="text" value={editFormData.content?.ebayIntro?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayIntro: { ...editFormData.content?.ebayIntro, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
                                             </div>
                                             <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                <input type="text" value={editFormData.content?.mainTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, mainTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 mb-4" placeholder="e.g. Expanding Online Presence..." />
+                                            </div>
+                                            <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
                                                 <textarea value={editFormData.content?.ebayIntro?.desc || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, ebayIntro: { ...editFormData.content?.ebayIntro, desc: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white min-h-[100px]" />
                                             </div>
@@ -6710,6 +6769,10 @@ export default function WebsitePages() {
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Heading</label>
                                                 <input type="text" value={editFormData.content?.wpIntro?.heading || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, wpIntro: { ...editFormData.content?.wpIntro, heading: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-900 dark:text-white" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                <input type="text" value={editFormData.content?.mainTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, mainTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 mb-4" placeholder="e.g. Expanding Online Presence..." />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
@@ -12771,6 +12834,10 @@ export default function WebsitePages() {
                                                 <p className="text-xs text-slate-500 mt-1">Use 'SEO Company' in your title, it will be highlighted in blue.</p>
                                             </div>
                                             <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                <input type="text" value={editFormData.content?.mainTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, mainTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 mb-4" placeholder="e.g. Expanding Online Presence..." />
+                                            </div>
+                                            <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
                                                 <textarea value={editFormData.content?.introDesc || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, introDesc: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 min-h-[100px]" />
                                             </div>
@@ -12916,6 +12983,10 @@ export default function WebsitePages() {
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Highlight Text</label>
                                                 <input type="text" value={editFormData.content?.intro?.highlightText || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, intro: { ...editFormData.content?.intro, highlightText: e.target.value } } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Title</label>
+                                                <input type="text" value={editFormData.content?.mainTitle || ""} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, mainTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 mb-4" placeholder="e.g. Expanding Online Presence..." />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Intro Description</label>
