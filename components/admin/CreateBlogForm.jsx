@@ -242,7 +242,17 @@ export default function CreateBlogForm({ initialData = null, categories = [] }) 
                         </div>
 
                         <div className="space-y-1.5">
-                            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Author Name</label>
+                            
+                    <div>
+                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Publish Date</label>
+                        <input
+                            type="date"
+                            value={formData.publishDate || ''}
+                            onChange={(e) => setFormData({ ...formData, publishDate: e.target.value })}
+                            className="mt-1 w-full bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-white/10 rounded-lg px-4 py-2 text-slate-900 dark:text-white"
+                        />
+                    </div>
+                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Author Name</label>
                             <input 
                                 type="text"
                                 name="author"
