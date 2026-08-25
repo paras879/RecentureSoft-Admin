@@ -22,7 +22,7 @@ export default async function BlogsPage() {
     sevenDaysAgo.setHours(0, 0, 0, 0);
 
     const [records, recentBlogsForChart] = await Promise.all([
-        Blog.find().sort({ createdAt: -1 }).lean(),
+        Blog.find().sort({ publishDate: -1, createdAt: -1 }).lean(),
         Blog.find({ createdAt: { $gte: sevenDaysAgo } }).select('createdAt').lean()
     ]);
 
@@ -39,7 +39,7 @@ export default async function BlogsPage() {
         excerpt: r.excerpt,
         content: r.content,
         image: r.image,
-        date: new Date(r.createdAt || Date.now()).toLocaleDateString("en-US", {
+        date: new Date(r.publishDate || r.createdAt || Date.now()).toLocaleDateString("en-US", {
             timeZone: 'Asia/Kolkata',
             year: 'numeric', month: 'short', day: 'numeric',
             hour: '2-digit', minute: '2-digit'
