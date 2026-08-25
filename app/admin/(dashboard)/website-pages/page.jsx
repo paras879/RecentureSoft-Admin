@@ -12090,6 +12090,74 @@ export default function WebsitePages() {
                                     </div>
                                 )}
 
+                                {activeEditTab === 'cw-marketing-impact' && editPage.path === "/content-writing" && (
+                                    <div className="space-y-4">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white">Marketing Impact Settings</h3>
+                                        <div className="grid gap-4 mt-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.marketingImpactTitle || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, marketingImpactTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-sm" placeholder="How Content Marketing Services Impact Your Business" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Description (Supports new lines)</label>
+                                                <textarea value={editFormData.content?.marketingImpactDesc || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, marketingImpactDesc: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-sm h-32" placeholder="Content is one of the most valuable assets..." />
+                                            </div>
+                                            <div>
+                                                <div className="flex justify-between items-center mb-2">
+                                                    <label className="block text-sm font-medium">Impact Bullets</label>
+                                                    <button type="button" onClick={() => setEditFormData({ ...editFormData, content: { ...editFormData.content, marketingImpactBullets: [...(editFormData.content?.marketingImpactBullets || []), ''] } })} className="px-3 py-1 bg-blue-50 text-blue-600 rounded-lg text-xs font-medium">+ Add Bullet</button>
+                                                </div>
+                                                <div className="space-y-2">
+                                                    {(editFormData.content?.marketingImpactBullets || []).map((bullet, index) => (
+                                                        <div key={index} className="flex gap-2 items-center">
+                                                            <input type="text" value={bullet} onChange={(e) => { const newB = [...editFormData.content.marketingImpactBullets]; newB[index] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, marketingImpactBullets: newB } }); }} className="flex-1 bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-sm" />
+                                                            <button type="button" onClick={() => { const newB = [...editFormData.content.marketingImpactBullets]; newB.splice(index, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, marketingImpactBullets: newB } }); }} className="text-red-500 hover:text-red-600">Remove</button>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Outro Text</label>
+                                                <textarea value={editFormData.content?.marketingImpactOutro || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, marketingImpactOutro: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-sm h-24" placeholder="These are important metrics..." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {activeEditTab === 'cw-marketing-why' && editPage.path === "/content-writing" && (
+                                    <div className="space-y-4">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white">Marketing Why Us Settings</h3>
+                                        <div className="grid gap-4 mt-4">
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Title</label>
+                                                <input type="text" value={editFormData.content?.whyChooseTitle || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseTitle: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-sm" placeholder="Why Choose RecentureSoft?" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Intro Description</label>
+                                                <textarea value={editFormData.content?.whyChooseIntro || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseIntro: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-sm h-24" placeholder="Every business deserves..." />
+                                            </div>
+                                            <div>
+                                                <div className="flex justify-between items-center mb-2">
+                                                    <label className="block text-sm font-medium">Why Us Bullets</label>
+                                                    <button type="button" onClick={() => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseBullets: [...(editFormData.content?.whyChooseBullets || []), ''] } })} className="px-3 py-1 bg-blue-50 text-blue-600 rounded-lg text-xs font-medium">+ Add Bullet</button>
+                                                </div>
+                                                <div className="space-y-2">
+                                                    {(editFormData.content?.whyChooseBullets || []).map((bullet, index) => (
+                                                        <div key={index} className="flex gap-2 items-center">
+                                                            <input type="text" value={bullet} onChange={(e) => { const newB = [...editFormData.content.whyChooseBullets]; newB[index] = e.target.value; setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseBullets: newB } }); }} className="flex-1 bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-sm" />
+                                                            <button type="button" onClick={() => { const newB = [...editFormData.content.whyChooseBullets]; newB.splice(index, 1); setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseBullets: newB } }); }} className="text-red-500 hover:text-red-600">Remove</button>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium mb-1">Outro (Supports multiple paragraphs via Enter)</label>
+                                                <textarea value={editFormData.content?.whyChooseOutro || ''} onChange={(e) => setEditFormData({ ...editFormData, content: { ...editFormData.content, whyChooseOutro: e.target.value } })} className="w-full bg-slate-50 dark:bg-slate-900 border rounded-lg px-3 py-2 text-sm h-40" placeholder="Our content marketing packages..." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
                                 {activeEditTab === 'cw-benefits' && editPage.path === "/content-writing" && (
                                     <div className="space-y-4">
                                         <div className="flex justify-between items-center mb-4">
